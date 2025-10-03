@@ -1,0 +1,185 @@
+/* Replace icons */
+
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Built-in firefox icons color */
+.toolbarbutton-icon,
+.protections-popup-category-icon,
+.protections-popup-footer-icon {
+  fill: var(--gnome-toolbar-color) !important;
+  fill-opacity: 1 !important;
+}
+
+/* Menu checkbox */
+menuitem[type="checkbox"] {
+  list-style-image: url("../icons/checkbox-symbolic.svg") !important;
+}
+menuitem[type="checkbox"][checked="true"] {
+  list-style-image: url("../icons/checkbox-checked-symbolic.svg") !important;
+}
+menuitem[type="checkbox"][disabled="true"] .menu-iconic-icon {
+  opacity: 0.5;
+}
+menuitem[type="checkbox"]:not([disabled="true"]):hover .menu-iconic-icon {
+  filter: invert(100%) brightness(200%);
+}
+
+/* Menu radio */
+menuitem[type="radio"] {
+  list-style-image: url("../icons/radio-symbolic.svg") !important;
+}
+menuitem[type="radio"][checked="true"] {
+  list-style-image: url("../icons/radio-checked-symbolic.svg") !important;
+}
+menuitem[type="radio"][disabled="true"] .menu-iconic-icon {
+  opacity: 0.5;
+}
+menuitem[type="radio"]:not([disabled="true"]):hover .menu-iconic-icon {
+  filter: invert(100%) brightness(200%);
+}
+
+/* Window buttons */
+:root[tabsintitlebar] #titlebar .titlebar-close .toolbarbutton-icon,
+:root[tabsintitlebar] #titlebar #titlebar-close .toolbarbutton-icon {
+  list-style-image: url("../icons/window-close-symbolic.svg") !important;
+}
+:root[tabsintitlebar] #titlebar .titlebar-close:hover .toolbarbutton-icon,
+:root[tabsintitlebar] #titlebar #titlebar-close:hover .toolbarbutton-icon {
+  list-style-image: url("../icons/window-close-hover-symbolic.svg") !important;
+}
+:root[tabsintitlebar] #titlebar .titlebar-close:active .toolbarbutton-icon,
+:root[tabsintitlebar] #titlebar #titlebar-close:active .toolbarbutton-icon {
+  list-style-image: url("../icons/window-close-active-symbolic.svg") !important;
+  filter: none !important;
+}
+:root[tabsintitlebar] #titlebar .titlebar-max .toolbarbutton-icon,
+:root[tabsintitlebar] #titlebar #titlebar-max .toolbarbutton-icon {
+  list-style-image: url("../icons/window-maximize-symbolic.svg") !important;
+}
+:root[tabsintitlebar] #titlebar .titlebar-max:hover .toolbarbutton-icon,
+:root[tabsintitlebar] #titlebar #titlebar-max:hover .toolbarbutton-icon {
+  list-style-image: url("../icons/window-maximize-hover-symbolic.svg") !important;
+}
+:root[tabsintitlebar] #titlebar .titlebar-max:active .toolbarbutton-icon,
+:root[tabsintitlebar] #titlebar #titlebar-max:active .toolbarbutton-icon {
+  list-style-image: url("../icons/window-maximize-active-symbolic.svg") !important;
+}
+:root[tabsintitlebar] #titlebar .titlebar-min .toolbarbutton-icon,
+:root[tabsintitlebar] #titlebar #titlebar-min .toolbarbutton-icon {
+  list-style-image: url("../icons/window-minimize-symbolic.svg") !important;
+}
+:root[tabsintitlebar] #titlebar .titlebar-min:hover .toolbarbutton-icon,
+:root[tabsintitlebar] #titlebar #titlebar-min:hover .toolbarbutton-icon {
+  list-style-image: url("../icons/window-minimize-hover-symbolic.svg") !important;
+}
+:root[tabsintitlebar] #titlebar .titlebar-min:active .toolbarbutton-icon,
+:root[tabsintitlebar] #titlebar #titlebar-min:active .toolbarbutton-icon {
+  list-style-image: url("../icons/window-minimize-active-symbolic.svg") !important;
+}
+:root[tabsintitlebar]
+  #titlebar
+  .titlebar-buttonbox
+  .titlebar-restore
+  .toolbarbutton-icon,
+:root[tabsintitlebar] #titlebar #titlebar-restore .toolbarbutton-icon,
+:root[tabsintitlebar][sizemode="maximized"]
+  #titlebar
+  .titlebar-max
+  .toolbarbutton-icon,
+:root[tabsintitlebar][sizemode="maximized"]
+  #titlebar
+  #titlebar-max
+  .toolbarbutton-icon,
+:root[tabsintitlebar][inFullscreen]
+  #window-controls
+  #restore-button
+  .toolbarbutton-icon {
+  list-style-image: url("../icons/view-restore-symbolic.svg") !important;
+}
+:root[tabsintitlebar][sizemode="maximized"]
+  #titlebar
+  .titlebar-max:hover
+  .toolbarbutton-icon,
+:root[tabsintitlebar][sizemode="maximized"]
+  #titlebar
+  #titlebar-max:hover
+  .toolbarbutton-icon,
+:root[tabsintitlebar]
+  #titlebar
+  .titlebar-buttonbox
+  .titlebar-restore:hover
+  .toolbarbutton-icon,
+:root[tabsintitlebar] #titlebar #titlebar-restore:hover .toolbarbutton-icon {
+  list-style-image: url("../icons/view-restore-hover-symbolic.svg") !important;
+}
+:root[tabsintitlebar][sizemode="maximized"]
+  #titlebar
+  .titlebar-max:active
+  .toolbarbutton-icon,
+:root[tabsintitlebar][sizemode="maximized"]
+  #titlebar
+  #titlebar-max:active
+  .toolbarbutton-icon,
+:root[tabsintitlebar]
+  #titlebar
+  .titlebar-buttonbox
+  .titlebar-restore:active
+  .toolbarbutton-icon,
+:root[tabsintitlebar] #titlebar #titlebar-restore:active .toolbarbutton-icon {
+  list-style-image: url("../icons/view-restore-active-symbolic.svg") !important;
+}
+
+/* bookmark item */
+.bookmark-item[container] {
+  list-style-image: url("../icons/folder-symbolic.svg") !important;
+}
+
+#nav-bar toolbarbutton:not(.webextension-browser-action) .toolbarbutton-icon {
+  filter: invert(60%) brightness(160%) !important;
+}
+
+toolbarbutton:active:not(.webextension-browser-action) .toolbarbutton-icon,
+toolbarbutton[open]:not(.webextension-browser-action) .toolbarbutton-icon,
+toolbarbutton[checked]:not(.webextension-browser-action) .toolbarbutton-icon,
+#nav-bar
+  toolbarbutton:active:not(.webextension-browser-action)
+  .toolbarbutton-icon,
+#nav-bar
+  toolbarbutton[open]:not(.webextension-browser-action)
+  .toolbarbutton-icon,
+#nav-bar
+  toolbarbutton[checked]:not(.webextension-browser-action)
+  .toolbarbutton-icon {
+  filter: invert(100%) brightness(160%) !important;
+}
+
+/*#nav-bar toolbarbutton[disabled] .toolbarbutton-icon {*/
+/*	filter: invert(60%) brightness(160%) !important;*/
+/*}*/
+
+/* Invert icons color in dark variant */
+@media (prefers-color-scheme: dark) {
+  menuitem[type="checkbox"] .menu-iconic-icon,
+  menuitem[type="radio"] .menu-iconic-icon {
+    filter: invert(60%) brightness(160%);
+  }
+
+  toolbarbutton:active:not(.webextension-browser-action) .toolbarbutton-icon,
+  toolbarbutton[open]:not(.webextension-browser-action) .toolbarbutton-icon,
+  toolbarbutton[checked]:not(.webextension-browser-action) .toolbarbutton-icon,
+  #nav-bar
+    toolbarbutton:active:not(.webextension-browser-action)
+    .toolbarbutton-icon,
+  #nav-bar
+    toolbarbutton[open]:not(.webextension-browser-action)
+    .toolbarbutton-icon,
+  #nav-bar
+    toolbarbutton[checked]:not(.webextension-browser-action)
+    .toolbarbutton-icon {
+    filter: invert(0%) brightness(160%) !important;
+  }
+
+  .bookmark-item[container] {
+    list-style-image: url("../icons/folder-symbolic-light.svg") !important;
+  }
+}

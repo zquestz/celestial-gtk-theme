@@ -1,0 +1,86 @@
+/* Entries */
+
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Entries */
+#searchbar,
+#search-box,
+.findbar-textbox {
+  -moz-appearance: none !important;
+  background: var(--gnome-entry-background) !important;
+  border: 1px solid var(--gnome-entry-border-color) !important;
+  border-radius: 100px !important;
+  color: var(--gnome-entry-color) !important;
+  height: 30px !important;
+  max-height: 30px !important;
+  margin: 0 !important;
+  padding: 4px 8px !important;
+  box-sizing: border-box !important;
+  transition: all 0.2s ease;
+}
+
+#searchbar {
+  padding: 0 !important;
+  border: none !important;
+  background: var(--gnome-header-entry-background) !important;
+  color: var(--gnome-header-entry-color) !important;
+  fill: var(--gnome-header-entry-color) !important;
+  outline: 1px solid var(--gnome-header-entry-border-color) !important;
+  outline-offset: -1px;
+}
+
+/* Entries focused */
+#searchbar:focus-within,
+#search-box[focused],
+.findbar-textbox[focused],
+.findbar-textbox:focus {
+  outline: 2px solid var(--gnome-focused-urlbar-border-color) !important;
+  outline-offset: -2px;
+  transition: all 0.1s ease;
+}
+
+/* Inactive window entries */
+#search-box:-moz-window-inactive,
+.findbar-textbox:-moz-window-inactive {
+  background: var(--gnome-inactive-entry-background) !important;
+  border-color: var(--gnome-inactive-entry-border-color) !important;
+  color: var(--gnome-inactive-entry-color) !important;
+}
+
+#searchbar:-moz-window-inactive {
+  background: var(--gnome-header-inactive-entry-background) !important;
+  border-color: var(--gnome-header-inactive-entry-border-color) !important;
+  color: var(--gnome-header-inactive-entry-color) !important;
+}
+
+/* Entries combined */
+.findbar-textbox:not(.minimal) {
+  border-top-left-radius: 2px !important;
+  border-bottom-left-radius: 2px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-right-width: 0 !important;
+}
+.findbar-textbox:not(.minimal)[focused],
+.findbar-textbox:not(.minimal):focus {
+  -moz-outline-radius: 2px 0 0 2px !important;
+}
+
+/* Entries fixes */
+#search-container {
+  padding: 0 !important;
+  margin: 0 3px !important;
+}
+#searchbar {
+  margin: 0 3px !important;
+  padding: 0 !important;
+}
+.searchbar-textbox {
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: auto !important;
+}
+#searchbar > .searchbar-textbox[focused] .searchbar-search-button:not(#hack) {
+  margin: 0 !important;
+}

@@ -1,0 +1,320 @@
+// Dash to Dock
+
+// Scrollview style
+.bottom #dashtodockDashScrollview,
+.top #dashtodockDashScrollview {
+  -st-hfade-offset: 24px;
+}
+
+.left #dashtodockDashScrollview,
+.right #dashtodockDashScrollview {
+  -st-vfade-offset: 24px;
+}
+
+#dashtodockContainer {
+  background-color: transparent;
+
+  .dash-item-container { // actual parent container
+    background: transparent;
+
+    > StWidget { background-size: contain; }
+
+    .app-grid-running-dot {
+      margin: 2px !important;
+      offset-y: 0 !important;
+    }
+  }
+
+  .number-overlay {
+    color: white;
+    background-color: rgba(black, 0.75);
+    text-align: center;
+  }
+
+  .notification-badge {
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 1000px;
+    margin: 2px 3px 5px;
+    padding: 0.25em 0.6em;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  @each $_pos, $b_pos in (top, bottom),
+                         (bottom, top),
+                         (left, right),
+                         (right, left) {
+    &.#{$_pos}.straight-corner,
+    &.#{$_pos}.shrink.straight-corner,
+    &.#{$_pos}.extended,
+    &.#{$_pos}.shrink.extended {
+      &, #dash {
+        margin: 0 !important;
+        margin-top: 0 !important;
+        padding: 0 !important;
+      }
+
+      .dash-background {
+        margin: 0 !important;
+        margin-bottom: 0 !important;
+        border-radius: 0;
+      }
+
+      .dash-item-container .app-well-app,
+      .overview-tile,
+      .show-apps {
+        margin: 0 !important;
+      }
+    }
+  }
+
+  &.extended,
+  &.straight-corner {
+    .dash-background {
+      border-radius: 0;
+    }
+  }
+
+  &.shrink {
+    .dash-background {
+      border-radius: $base_border_radius + $base_padding / 2;
+    }
+
+    .dash-item-container .app-well-app,
+    .overview-tile,
+    .show-apps {
+      margin: 0 !important;
+    }
+  }
+
+  &.shrink.extended {
+    .dash-background {
+      border-radius: 0;
+    }
+  }
+
+  &.left,
+  &.right {
+    .dash-item-container .app-well-app, .show-apps {
+      padding: $dash_spacing $base_padding !important;
+    }
+
+    .dash-background {
+      margin-bottom: 0 !important;
+    }
+
+    &.shrink, &.shrink.extended {
+      .dash-background {
+        padding: $base_margin / 2 $base_margin !important;
+      }
+
+      .dash-item-container .app-well-app,
+      .overview-tile,
+      .show-apps {
+        margin: 0 !important;
+        padding: $base_margin / 2 0 !important;
+      }
+    }
+
+    &.extended,
+    &.straight-corner {
+      .dash-item-container .app-well-app, .overview-tile {
+        padding: $dash_spacing $dash_padding !important;
+      }
+
+      .show-apps {
+        padding: $dash_spacing $dash_padding $dash_padding * 2 !important;
+      }
+    }
+  }
+
+  &.top,
+  &.bottom {
+    .dash-background {
+      padding: $dash_padding ($dash_padding - $dash_spacing) !important;
+    }
+
+    &.shrink {
+      .dash-background {
+        padding: $base_margin $base_margin / 2 !important;
+      }
+
+      .dash-item-container .app-well-app,
+      .overview-tile,
+      .show-apps {
+        margin: 0 !important;
+        padding: 0 $base_margin / 2 $base_margin * 3 !important;
+      }
+    }
+
+    &.extended,
+    &.straight-corner {
+      .dash-separator {
+        margin: 0 ($dash_spacing + ($dash_padding / 2)) !important;
+      }
+
+      .dash-item-container .app-well-app,
+      .overview-tile,
+      .show-apps {
+        padding: $dash_padding $dash_spacing !important;
+      }
+    }
+  }
+
+  #dash { // default-mode
+    background: none;
+
+    .dash-background {
+      color: $panel_fg_color;
+      background-color: rgba($panel_bg_color, 0.9);
+      box-shadow: none !important;
+      border: none !important;
+    }
+
+    StWidget.focused .app-grid-running-dot,
+    StWidget.focused .app-well-app-running-dot {
+      background-color: $selected_bg_color;
+    }
+  }
+
+  &:overview #dash { // overview-mode #1
+    background: none;
+
+    .dash-background {
+      background-color: $dash_background_color;
+    }
+
+    StWidget.focused .app-grid-running-dot,
+    StWidget.focused .app-well-app-running-dot {
+      background-color: $selected_bg_color;
+    }
+  }
+
+  &.opaque:overview,
+  &.transparent:overview { // overview-mode #2
+    #dash {
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+
+    .dash-background {
+      background-color: transparent !important;
+    }
+  }
+
+  &.extended:overview, // overview-mode #3
+  &.opaque.extended:overview,
+  &.transparent.extended:overview {
+    #dash {
+      background: none;
+    }
+  }
+
+  &.running-dots,
+  &.dashtodock {
+    .dash-item-container > StButton {
+      transition-duration: 250ms;
+      background-size: contain;
+    }
+  }
+
+  &.extended,
+  &.extended:overview {
+    .app-well-app,
+    .show-apps {
+      .overview-icon {
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .metro .overview-icon {
+    border-radius: 0;
+  }
+}
+
+.dash-label.bottom {
+  margin-bottom: $dash_padding + $base_padding !important;
+}
+
+.dashtodock-app-well-preview-menu-item {
+  padding: 1em 1em 0.5em 1em;
+}
+
+#dashtodockPreviewSeparator.popup-separator-menu-item-horizontal {
+  width: 1px;
+  height: auto;
+  border-right-width: 1px;
+  margin: 32px 0;
+}
+
+// OpenWeather Extension
+.openweather {
+  &-button,
+  &-button-action,
+  &-menu-button-container,
+  &-button-box {
+    border: 1px solid transparent !important;
+    background: none;
+  }
+
+  &-provider {
+    // generic text buttons are allocated with y-expand-ed
+    padding: 0 16px;
+    font-weight: 500;
+    border: 1px solid transparent !important;
+    @include button(normal);
+    &:hover { @include button(hover); }
+    &:focus { @include button(focus); }
+    &:active { @include button(active); }
+    &:insensitive { @include button(insensitive); }
+  }
+
+  &-current {
+    &-icon,
+    &-summary,
+    &-summarybox {
+      background: none;
+      color: $fg_color;
+      -st-icon-style: symbolic;
+    }
+
+    &-databox-values {
+      background: none;
+      color: $alt_fg_color;
+    }
+
+    &-databox-captions {
+      background: none;
+      color: $insensitive_fg_color;
+    }
+  }
+
+  &-forecast {
+    &-icon,
+    &-summary {
+      background: none;
+      color: $alt_fg_color;
+      -st-icon-style: symbolic;
+    }
+
+    &-day {
+      background: none;
+      color: $fg_color;
+    }
+
+    &-temperature {
+      background: none;
+      color: $alt_fg_color;
+    }
+  }
+
+  &-sunrise-icon,
+  &-sunset-icon,
+  &-build-icon {
+    color: $alt_fg_color;
+    -st-icon-style: symbolic;
+  }
+}

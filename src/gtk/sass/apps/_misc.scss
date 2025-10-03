@@ -1,0 +1,848 @@
+//
+// Nemo
+//
+.nemo-desktop.nemo-canvas-item { @extend %nautilus-canvas-item; }
+
+.nemo-window {
+  menubar,
+  .menubar {
+    > menuitem {
+      > window.background.popup > menu { border-radius: 0 0 2px 2px; }
+    }
+  }
+
+  paned.horizontal > separator {
+    background-image: image($solid_borders_color);
+  }
+
+  .nemo-places-sidebar {
+    &.frame { border-width: 0; }
+
+    .places-treeview {
+      -NemoPlacesTreeView-disk-full-bg-color: mix($fg_color, $bg_color, 15%); // Can't use translucent colors
+      -NemoPlacesTreeView-disk-full-fg-color: lighten($destructive_color, 15%);
+      -NemoPlacesTreeView-disk-full-bar-width: 2px;
+      -NemoPlacesTreeView-disk-full-bar-radius: 0;
+      -NemoPlacesTreeView-disk-full-bottom-padding: 1px; // There is already hard-coded 1px bottom-padding
+      -NemoPlacesTreeView-disk-full-max-length: 80px;
+
+      @extend %row_activatable;
+      background-color: $bg_color;
+      padding-top: 3px;
+      padding-bottom: 3px;
+
+      &:selected, &:selected:hover {
+        @extend %selected_items;
+
+        .sidebar-icon { color: inherit; }
+      }
+    }
+  }
+
+  .NemoSidebar {
+    background-color: $bg_color;
+
+    &:selected, &:selected:hover, &:selected:focus {
+      background-color: rgba($fg_color, 0.15);
+      color: $fg_color;
+    }
+
+    &.expander {
+      &:hover { color: mix($fg_color, $base_color, 90%); }
+
+      &:selected {
+        &, &:hover { color: mix($fg_color, $base_color, 80%); }
+      }
+    }
+  }
+
+  notebook {
+    background-color: $base_color;
+  }
+
+  // Rename entry
+  .nemo-window-pane widget.entry {
+    border: 1px solid;
+    border-radius: 3px;
+
+    @include entry(focus);
+
+    &:selected { &:focus, & { @extend %selected_items; }}
+  }
+
+  .primary-toolbar {
+    padding-top: 0;
+    padding-bottom: 0;
+    border: none;
+    color: $header_fg;
+    background-color: opacify($header_bg, 1);
+
+    @if $header == 'light' { box-shadow: inset 0 -1px $borders_color; }
+
+    .linked:not(.vertical):not(.path-bar):not(.stack-switcher) {
+      @include linking_rules($entry_rules:'false', $button_rules:'false', $e_border: $header_entry_border, $b_border: transparent);
+
+      > button {
+        margin-left: 1px;
+        margin-right: 1px;
+      }
+    }
+
+    button {
+      min-height: 20px;
+      margin-top: 6px;
+      margin-bottom: 6px;
+      @extend %header_button;
+    }
+
+    entry {
+      min-height: 22px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      @extend %header_entry;
+    }
+  }
+
+  // Pathbar
+  .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar,
+  .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) {
+    button {
+      @extend %pathbar_box_button;
+      padding: 2px 4px 4px 4px;
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+  }
+
+  .sidebar {
+    scrolledwindow.frame { border: none; } // Removed treeview double borders
+  }
+
+  // Floating Bar
+  .floating-bar {
+    padding: 2px;
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+    border-radius: 0;
+
+    &.bottom.left {
+      border-top-right-radius: 2px;
+    }
+
+    &.bottom.right {
+      border-top-left-radius: 2px;
+    }
+
+    button {
+      border: none;
+      border-radius: 3px;
+      min-height: 16px;
+      min-width: 16px;
+      -gtk-icon-shadow: none;
+      @extend %undecorated_button;
+      @extend %selected-button;
+    }
+  }
+}
+
+//
+// Firefox and Thunderbird
+//
+
+$firefox_border: if($variant == 'light', darken($bg_color, 15%), darken($base_color, 2%));
+
+window.background:not(.csd) {
+  > widget {
+    // for the bookmark toolbar's separators
+    > separator { color: $borders_color; }
+
+    // avoid black border
+    > scrollbar { background-clip: border-box; }
+
+    // emphasize borders color
+    > scrollbar,
+    > frame > border { border-color: $firefox_border; }
+
+    > entry,
+    > button > button {
+      border: 1px solid $firefox_border;
+      border-radius: 2px;
+    }
+
+    > entry,
+    .entry { // Set for linked entrys
+      border-radius: 2px;
+      background-image: image($base_color);
+      border: 1px solid $firefox_border;
+
+      &:focus { border-color: $selected_bg_color; }
+    }
+
+    > spinbutton {
+      background-image: image($button_bg);
+      border: 1px solid $firefox_border;
+      &:active { background-image: image($selected_bg_color); }
+
+      // Fixed thunderbird linked entry spinbutton border-radius.
+      .entry { border-top-right-radius: 0;  border-bottom-right-radius: 0; }
+    }
+  }
+
+  > menu > separator { color: $borders_color; }
+  > menu > menuitem > label:disabled { color: $insensitive_fg_color; }
+}
+
+//
+// Firefox Quantum
+//
+#MozillaGtkWidget {
+  // blend with weird toolbar backgrounds
+  background-color: $bg_color;
+
+  // FIXME: resetting child elements background is not fully functional yet
+  // because WidgetStyleCache keeps holding initial background-color.
+  // the stem of this incorrect colouring seems to be caused by their
+  // gdk_rgba to ns_rgba conversion. I don't think theme's fault.
+  .background,
+  frame,
+  separator,
+  scrolledwindow { background-color: $bg_color; }
+
+  // scrollbar {
+  //   background-color: if($variant == 'light', $base_color, lighten($bg_color, 15%));
+  //
+  //   slider {
+  //     background-color: mix($fg_color, $bg_color, 45%);
+  //     &:hover { background-color: mix($fg_color, $bg_color, 60%); }
+  //     &:hover:active { background-color: mix($fg_color, $bg_color, 75%); }
+  //     &:disabled { background-color: transparent; }
+  //   }
+  // }
+
+  > window.background > menu { // context-menus
+    background-color: $base_color;
+
+    // revert to standard separators
+    > separator {
+      padding: 0;
+      border: none;
+      background-color: $firefox_border;
+    }
+  }
+
+  > widget {
+    border { border-color: $firefox_border; }
+
+    separator { background-color: $firefox_border; }
+
+    // FIXME: this affected to popover widget as well,
+    // so we can not set $lighter_bg_color to search-bar...
+    > scrolledwindow > textview {
+      background-color: if($variant == 'light', $base_color, lighten($base_color, 5%));
+
+      text {
+        background-color: transparent;
+        color: if($variant =='light', #242424, #aaaaaa);
+        &:selected,
+        &:selected:focus,
+        selection { @extend %selected_items; }
+      }
+    }
+  }
+}
+
+//
+// Chrome(ium)
+//
+$chrome_borders_color: $solid_borders_color;
+$chrome_bg_color: $bg_color;
+$chrome_fg_color: $fg_color;
+$chrome_menu_bg_color: $menu_bg_color;
+$chrome_menu_fg_color: $fg_color;
+
+window.background.chromium {
+  // checked-tab & toolbar & button widgets
+  background-color: $chrome_bg_color;
+  color: $chrome_fg_color;
+
+  headerbar.titlebar {
+    button.toggle { // account-button (> 64.0.3282?)
+      @include button(header-normal);
+      &:hover { @include button(header-hover); }
+      &:checked, &:active { @include button(header-active); }
+    }
+
+    // from nav_button_provider_gtk3.cc (> 62.0.3202?)
+    button.titlebutton { // title-buttons
+      // define global titlebutton class sizing
+      min-width: 16px; // > 16px causes image blurring
+      min-height: 16px;
+      margin: 0 4px; // unset margins
+      padding: 0;
+      color: transparent; // hide stock icons
+      background-color: transparent;
+      border: none;
+    }
+  }
+
+  // FIXME: not for actual button widgets but for toolbar's separators
+  // crazy: src/+/master/chrome/browser/ui/libgtkui/gtk_ui.cc#891
+  button { // for active-tab borders
+    border-width: 1px;
+    border-style: solid;
+    border-color: $chrome_borders_color;
+    background-color: $chrome_bg_color;
+    color: $chrome_fg_color;
+  }
+
+  entry.chromium {
+    // overrides standard borders
+    border-image: none;
+    border: 1px solid $chrome_borders_color;
+    background-color: $chrome_bg_color;
+    color: $chrome_fg_color;
+  }
+
+  // internal region of toolbar's entry widget
+  > textview.view {
+    background-color: $chrome_bg_color;
+    color: $chrome_fg_color;
+  }
+
+  > textview {
+    color: $chrome_fg_color;
+    background-color: $chrome_bg_color;
+
+    text {
+      color: $chrome_fg_color;
+      background-color: $chrome_bg_color;
+    }
+  }
+
+  // Fixed Atom/VS-code chromium based app menubar issues
+  > menubar {
+    background-color: $header_bg;
+    color: $header_fg;
+
+    > menuitem { color: $header_fg; }
+  }
+
+  > menu {
+    border: 1px solid $solid_borders_color;
+    background-color: $chrome_menu_bg_color;
+    color: $chrome_menu_fg_color;
+
+    > separator {
+      color: $chrome_menu_bg_color;
+      background-color: $chrome_menu_bg_color;
+    }
+
+    > menuitem {
+      color: $chrome_menu_fg_color;
+
+      &:hover {
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
+      }
+
+      &:disabled, accelerator, label:disabled {
+        color: rgba($chrome_menu_fg_color, 0.45);
+      }
+    }
+  }
+}
+
+tooltip.background.chromium {
+  border-color: $osd_borders_color;
+  background-color: rgba($osd_bg_color, 1);
+}
+
+//
+// gThumb
+//
+overlay.window-overlay {
+  grid.horizontal {
+    stack {
+      paned.horizontal {
+        stack {
+          widget.view.frame,
+          scrolledwindow.frame { // Removed ugly borders
+            border-left: none;
+            border-right: none;
+          }
+        }
+      }
+      .sidebar { border-bottom: 1px solid $borders_color; } // Add bottom border for sidebar
+    }
+  }
+}
+
+/****************
+ * Libre-Office *
+ ****************/
+window.background:not(.csd):not(.solid-csd) {
+// reserved area at the most-right side of GtkMenuBar
+  > grid.horizontal > grid.horizontal {
+    background-color: $header_bg;
+
+    > button.flat.small-button { // 'close' button
+      color: $header_fg;
+      border: none;
+      &:hover { background-color: lighten($header_bg, 15%); color: lighten($header_fg, 5%); }
+      &:active,
+      &:checked { background-color: $selected_bg_color; color: lighten($header_fg, 15%); }
+      &:disabled { color: gtkalpha($header_fg, 0.6); }
+    }
+  }
+}
+
+window.background:not(.solid-csd) {
+  // for 'Notebookbar' toolbar
+  > notebook:not(.frame) {
+    border: 0 none transparent; // unset borders
+    background-color: $base_color;
+
+    > stack {
+      border: none;
+      box-shadow: none;
+    }
+  }
+}
+
+//
+// Tilix
+//
+
+// in-line titlebars
+widget > box.terminal-titlebar {
+  padding: 0 6px;
+
+  > button.flat.popup.toggle {
+    border: none;
+    border-radius: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $selected_bg_color 0%,
+                                  transparent 0%)
+                                  0 0 0 / 0 0 0;
+
+    &:dir(ltr) { padding-right: 6px; }
+    &:dir(rtl) { padding-left: 6px; }
+
+    &:hover {
+      box-shadow: inset 0 -2px $selected_bg_color;
+      background: none;
+    }
+
+    &:checked, &:active {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $selected_bg_color 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+      background-color: transparent;
+      color: $fg_color;
+    }
+  }
+
+  > button.image-button { // 'plus' and 'close'
+    &, &.toggle {
+      margin: 2px 0;
+      padding: 0;
+      min-height: 24px;
+      min-width: 24px;
+      border-radius: 100px;
+    }
+  }
+}
+
+list.tilix-session-sidebar {
+  // use -image property instead
+  background-image: image($dark_sidebar_bg);
+
+  button.tilix-sidebar-close-button {
+    min-height: 20px;
+    min-width: 20px;
+    padding: 0;
+    border-radius: 100px;
+    background-color: $destructive_color;
+    &, &:hover, &:active, &:checked { color: white; }
+
+    &:hover { background-color: lighten($destructive_color, 10%); }
+
+    &:active,
+    &:checked { background-image: image(darken($destructive_color, 10%)); }
+  }
+}
+
+//
+// Pamac
+//
+window.background.csd {
+
+  > box.vertical > stack {
+    > box.horizontal {
+      > list {
+        background-color: transparent;
+        border-right: 1px solid $borders_color;
+      }
+
+      > box.vertical > stack {
+        > scrolledwindow.frame {
+          border: none;
+        }
+      }
+
+      > revealer > stack {
+        > list {
+          background-color: transparent;
+          border-right: 1px solid $borders_color;
+        }
+
+        > scrolledwindow {
+          > viewport.frame {
+            > list {
+              background-color: transparent;
+              border-right: 1px solid $borders_color;
+            }
+          }
+        }
+      }
+    }
+
+    > box.horizontal > revealer > stack {
+      > scrolledwindow {
+        > viewport.frame {
+          > list {
+            background-color: transparent;
+            border-right: 1px solid $borders_color;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//
+// vala-panel
+//
+window#ValaPanel.background {
+  background-color: $panel_bg;
+  border: none;
+  color: $panel_fg;
+
+  widget.-vala-panel-background > separator { // separator applet
+    background: none;
+  }
+
+  button.flat.-panel-button,
+  button#tasklist-button.toggle.flat,
+  // tasklist-arrow-button.toggle.flat.-panel-flat-button, // xfce tasklist button
+  button.flat.-panel-icon-button {
+    @extend %panelbutton;
+  }
+
+  .unpinned button.flat.-panel-icon-button {
+    border-radius: 0;
+
+    &:hover,
+    &:active,
+    &:checked {
+      box-shadow: inset 0 -2px $selected_bg_color;
+      color: $selected_fg_color;
+    }
+  }
+
+  .pinned button.flat.-panel-icon-button.running {
+    border-radius: 0;
+
+    > image {
+      background-position: bottom center;
+    }
+
+    &:hover,
+    &:active,
+    &:checked {
+      box-shadow: inset 0 -2px $selected_bg_color;
+      color: $selected_fg_color;
+    }
+  }
+}
+
+// menubar-style'ed app menu
+%panel_menubar,
+menubar.-vala-panel-background,
+menubar.-vala-panel-appmenu-private { // override global values
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0 0 0 0;
+
+  > menuitem {
+    border-radius: 0;
+    color: $panel_fg;
+    font-weight: normal;
+
+    &:hover { color: $selected_fg_color; }
+
+    &:disabled { color: rgba($panel_fg, 0.45); }
+
+    > window.background.popup > menu {
+      border-radius: 0 0 2px 2px;
+    }
+  }
+}
+
+//
+// Screensaver
+//
+
+.csstage {
+}
+
+.csstage .unlockbox {
+    color: #eeeeee;
+    font-size: 20px;
+    text-shadow: 1px 1px rgba(black, 0.8);
+}
+
+.csstage .clock {
+    color: #eeeeee;
+    text-shadow: 1px 1px rgba(black, 0.8);
+}
+
+.csstage .toppanel {
+    border-color: rgba(white, .2);
+    border-style: solid;
+    color: white;
+    background-color: transparent;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0));
+}
+
+.csstage .audiopanel {
+    border-width: 0 1px 1px 0;
+    border-radius: 0 0 3px 0;
+    background-color: rgba(255, 255, 255, .05);
+}
+
+.csstage .infopanel {
+    border-width: 0 0 1px 1px;
+    border-radius: 0 0 0 3px;
+    background-color: rgba(255, 255, 255, .05);
+}
+
+.csstage .notificationwidget,
+.csstage .powerwidget {
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: transparent;
+    background-image: none;
+    text-shadow: 1px 1px rgba(black, 0.8);
+    padding: 6px;
+}
+
+.csstage .auth-message {
+    font-size: 15px;
+    color: red;
+}
+
+.csstage .caps-message {
+    font-size: 15px;
+    color: orange;
+}
+
+.csstage .framedimage {
+    border-radius: 2px;
+    border: 1px solid;
+    background-color: rgba(grey, .25);
+    background-clip: border-box;
+    border-color: rgba(white, .2);
+    box-shadow: 1px 1px rgba(black, 0.8);
+}
+
+.csstage .passwordentry {
+    font-size: 15px;
+    box-shadow: none;
+    border-color: rgba(white, .2);
+    border-style: solid;
+    color: white;
+    background-image: none;
+    background-color: rgba(0, 0, 0, .6);
+    border-image: none;
+    border-width: 1px;
+    box-shadow: none;
+}
+
+.csstage .passwordentry progress {
+    margin: 2px;
+    padding: 0;
+    border-radius: 0;
+    border-width: 0 0 2px;
+    border-color: rgba($selected_bg_color, .7);
+}
+
+.csstage .passwordentry progress:focus {
+    background-color: transparent;
+}
+
+.csstage .passwordentry image.left {
+    padding-right: 14px;
+}
+
+/* Use :backdrop for alt-text keyboard layout */
+.csstage .passwordentry:backdrop {
+    font-family: monospace;
+    font-size: 14px;
+    color: $selected_bg_color;
+}
+
+.csstage .transparentbutton {
+    -gtk-icon-style: requested;
+    border-color: rgba(white, .2);
+    border-image: none;
+    box-shadow: none;
+    background-image: none;
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+    outline-color: transparent;
+    color: rgba(white, .7);
+    border-width: 1px;
+    padding: 4px;
+}
+
+.csstage .transparentbutton image {
+    color: rgba(white, .7);
+}
+
+.csstage .transparentbutton:disabled image {
+    color: #333333;
+}
+
+.csstage .passwordentry:focus,
+.csstage .transparentbutton:focus {
+    border-color: $selected_bg_color;
+    box-shadow: 1px 1px rgba(white, 0.1);
+}
+
+.csstage .passwordentry:hover,
+.csstage .transparentbutton:hover {
+    border-color: rgba(white, .2);
+    background-color: rgba(grey, .2);
+    box-shadow: 1px 1px rgba(white, 0.1);
+}
+
+.csstage .passwordentry:hover:focus,
+.csstage .transparentbutton:hover:focus {
+    border-color: $selected_bg_color;
+    box-shadow: 1px 1px rgba(white, 0.1);
+}
+
+.csstage .passwordentry:active,
+.csstage .transparentbutton:active {
+    border-color: $selected_bg_color;
+    box-shadow: 1px 1px rgba(white, 0.1);
+}
+
+.csstage .passwordentry:active:focus,
+.csstage .transparentbutton:active:focus {
+    border-color: $selected_bg_color;
+    box-shadow: 1px 1px rgba(white, 0.1);
+}
+
+.csstage .volumeslider {
+    min-height: 24px;
+    min-width: 100px;
+    background-color: rgba(255, 255, 255, .1);
+    color: $selected_bg_color;
+    padding: 3px 0px 3px 0px;
+}
+
+.csstage scale.volumeslider slider {
+    min-height: 24px;
+    min-width: 4px;
+    margin: -9px; }
+
+.csstage .volumeslider:disabled {
+    background-color: rgba(white, .5);
+}
+
+.csstage .trackname {
+    font-family: ubuntu;
+    font-size: 14px;
+    text-shadow: 1px 1px rgba(black, 0.8);
+    background-image: none;
+    background-color: transparent;
+}
+
+.csstage .albumartist {
+    font-family: ubuntu;
+    font-size: 10px;
+    text-shadow: 1px 1px rgba(black, 0.8);
+    background-image: none;
+    background-color: transparent;
+}
+
+.csstage GtkViewport {
+    background-color: transparent;
+    background-image: none;
+}
+
+.csstage .osk-button {
+    -gtk-icon-style: requested;
+    border-color: rgba(white, .2);
+    border-image: none;
+    box-shadow: none;
+    background-image: none;
+    background-color: transparent;
+    border-radius: 4px;
+    -gtk-outline-radius: 4px;
+    outline-color: transparent;
+    color: rgba(white, .7);
+    border-width: 1px;
+    padding: 4px;
+}
+
+.csstage .osk-button image {
+    color: rgba(white, .7);
+}
+
+.csstage .osk-button:disabled image {
+    color: #333333;
+}
+
+.csstage .osk-button:focus {
+    background-color: rgba(grey, .3);
+    border-color: $selected_bg_color;
+    box-shadow: 1px 1px rgba(white, 0.1);
+}
+
+.csstage .osk-button:hover {
+    border-color: rgba(white, .2);
+    background-color: rgba(grey, .2);
+    box-shadow: 1px 1px rgba(white, 0.1);
+}
+
+.csstage .osk-button:hover:focus {
+    border-color: $selected_bg_color;
+    background-color: rgba(grey, .4);
+    box-shadow: 1px 1px rgba(white, 0.1);
+}
+
+.csstage .osk-button:active {
+    border-color: $selected_bg_color;
+    background-color: rgba(grey, .5);
+    box-shadow: 1px 1px rgba(white, 0.1);
+}
+
+.csstage .osk-button:active:focus {
+    border-color: $selected_bg_color;
+    background-color: rgba(grey, .55);
+    box-shadow: 1px 1px rgba(white, 0.1);
+}
+
+.csstage .osk-popover {
+    background-color: black;
+}

@@ -1,0 +1,167 @@
+//.nemo-window GtkEventBox { background-color: $bg_color; } // fixes nemo statusbar
+
+//.nemo-window,
+filechooser,
+.nautilus-window {
+  paned > separator {
+    background-image: _solid($dark_sidebar_border);
+
+    @if $variant == 'light' and $header == 'dark' {
+      &:dir(ltr) { margin-left: -1px; }
+      &:dir(rtl) { margin-right: -1px; }
+    }
+  }
+}
+
+// Dark transparent sidebars
+filechooser,
+.nautilus-window {
+  &.csd.background, placessidebar list { background-color: transparent; }
+
+  placessidebar.sidebar {
+    background-color: $dark_sidebar_bg;
+
+    row.sidebar-row {
+      margin: 0 0;
+      border: none;
+      border-radius: 0;
+      color: $dark_sidebar_fg;
+
+      .sidebar-icon { color: rgba($dark_sidebar_fg, 0.6); }
+
+      &.has-open-popup,
+      &:hover {
+        border-radius: 0;
+        background-color: rgba($dark_sidebar_fg, 0.15);
+        box-shadow: inset 3px 0 lighten($selected_bg_color, 10%);
+      }
+
+      &:disabled {
+        &, label, image { color: rgba($dark_sidebar_fg, 0.45); }
+      }
+
+      &:selected.has-open-popup,
+      &:selected, &:selected:hover, &:active:hover {
+        @extend %selected_items;
+        border-radius: 0;
+
+        label { color: $selected_fg_color; }
+
+        .sidebar-icon { color: inherit; }
+      }
+
+      &:not(:selected) button.sidebar-button {
+        color: $dark_sidebar_fg;
+
+        &:hover { @include button(header-hover); }
+        &:active { @include button(header-active); }
+
+        &:not(:hover):not(:active) > image { opacity: 0.5 };
+      }
+
+      &.sidebar-new-bookmark-row {
+        color: $selected_bg_color;
+
+        .sidebar-icon { color: inherit; }
+      }
+
+     &:backdrop { opacity: 0.75; }
+
+      &:drop(active):not(:disabled) {
+        &, label, .sidebar-icon { color: $drop_target_color; }
+
+        &:selected {
+          &, label, .sidebar-icon { color: $selected_fg_color; }
+          background-color: $drop_target_color;
+        }
+      }
+    }
+
+    separator { background-color: transparent; }
+
+    scrollbar { @extend %dark_sidebar_scrollbar }
+  }
+
+  &.maximized placessidebar.sidebar { background-color: opacify($dark_sidebar_bg, 1); }
+}
+
+filechooser {
+  actionbar {
+    color: $fg_color;
+    background-color: $bg_color;
+    border-color: $borders_color;
+
+    button {
+      @include button(normal);
+
+      &:hover { @include button(hover); }
+      &:active, &:checked { @include button(active); }
+      &:disabled { @include button(insensitive); }
+    }
+
+    entry {
+      @include entry(normal);
+
+      &:focus { @include entry(focus); }
+      &:disabled { @include entry(insensitive); }
+    }
+
+    @extend %osd_check_radio;
+
+    label, combobox { color: $fg_color; }
+  }
+}
+
+// Gedit
+.gedit-bottom-panel-paned { background-color: $base_color; }
+
+.gedit-side-panel-paned > separator { background-image: _solid($dark_sidebar_border); }
+.gedit-bottom-panel-paned > separator { background-image: _solid($borders_color); }
+
+.gedit-document-panel {
+  background-color: $dark_sidebar_bg;
+
+  .maximized & { background-color: opacify($dark_sidebar_bg, 1); }
+
+  row {
+    color: $dark_sidebar_fg;
+    background-color: rgba($dark_sidebar_fg, 0.0);
+
+    &:hover {
+      background-color: rgba($dark_sidebar_fg, 0.15);
+    }
+    &:active {
+      color: $selected_fg_color;
+      background-color: $selected_bg_color;
+
+      button { color: $selected_fg_color; }
+    }
+    &:selected, &:selected:hover {
+      color: $selected_fg_color;
+      background-color: $selected_bg_color;
+    }
+    &:hover:not(:selected) button:active {
+      color: $dark_sidebar_fg;
+    }
+  }
+}
+
+%dark_sidebar_scrollbar {
+  border-color: darken($dark_sidebar_bg, 5%);
+
+  &.overlay-indicator:not(.dragging):not(.hovering) slider {
+    background-color: lighten($dark_sidebar_fg, 15%);
+    border: 1px solid rgba(black, 0.3);
+  }
+
+  slider {
+    background-color: rgba(lighten($dark_sidebar_fg, 15%), 0.7);
+
+    &:hover { background-color: lighten($dark_sidebar_fg, 20%); }
+    &:hover:active { background-color: $selected_bg_color; }
+
+    &:disabled { background-color: transparent; }
+  }
+
+  trough { background-color: darken($dark_sidebar_bg, 5%); }
+}
