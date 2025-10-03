@@ -8,33 +8,53 @@ avatar {
   // need to update the NUMBER_OF_COLORS in src/adw-avatar.c.
   // The 2D list has this form: ((font-color, gradient-top-color, gradient-bottom-color)).
   $avatarcolorlist: (
-   (#cfe1f5, #83b6ec, #337fdc), // blue
-   (#caeaf2, #7ad9f1, #0f9ac8), // cyan
-   (#cef8d8, #8de6b1, #29ae74), // green
-   (#e6f9d7, #b5e98a, #6ab85b), // lime
-   (#f9f4e1, #f8e359, #d29d09), // yellow
-   (#ffead1, #ffcb62, #d68400), // gold
-   (#ffe5c5, #ffa95a, #ed5b00), // orange
-   (#f8d2ce, #f78773, #e62d42), // raspberry
-   (#fac7de, #e973ab, #e33b6a), // magenta
-   (#e7c2e8, #cb78d4, #9945b5), // purple
-   (#d5d2f5, #9e91e8, #7a59ca), // violet
-   (#f2eade, #e3cf9c, #b08952), // beige
-   (#e5d6ca, #be916d, #785336), // brown
-   (#d8d7d3, #c0bfbc, #6e6d71), // gray
+    (#cfe1f5, #83b6ec, #337fdc),
+    // blue
+    (#caeaf2, #7ad9f1, #0f9ac8),
+    // cyan
+    (#cef8d8, #8de6b1, #29ae74),
+    // green
+    (#e6f9d7, #b5e98a, #6ab85b),
+    // lime
+    (#f9f4e1, #f8e359, #d29d09),
+    // yellow
+    (#ffead1, #ffcb62, #d68400),
+    // gold
+    (#ffe5c5, #ffa95a, #ed5b00),
+    // orange
+    (#f8d2ce, #f78773, #e62d42),
+    // raspberry
+    (#fac7de, #e973ab, #e33b6a),
+    // magenta
+    (#e7c2e8, #cb78d4, #9945b5),
+    // purple
+    (#d5d2f5, #9e91e8, #7a59ca),
+    // violet
+    (#f2eade, #e3cf9c, #b08952),
+    // beige
+    (#e5d6ca, #be916d, #785336),
+    // brown
+    (#d8d7d3, #c0bfbc, #6e6d71) // gray
   );
 
   @for $i from 1 through length($avatarcolorlist) {
     &.color#{$i} {
       $avatarcolor: nth($avatarcolorlist, $i);
-      background-image: linear-gradient(nth($avatarcolor, 2), nth($avatarcolor, 3));
+      background-image: linear-gradient(
+        nth($avatarcolor, 2),
+        nth($avatarcolor, 3)
+      );
       color: nth($avatarcolor, 1);
     }
   }
 
-  &.contrasted { color: white; }
+  &.contrasted {
+    color: white;
+  }
 
-  &.image { background: none; }
+  &.image {
+    background: none;
+  }
 }
 
 $opaque_button_default_bg: mix($base_color, $fg_color, 85%);
@@ -62,10 +82,14 @@ button {
   }
 
   &.arrow-button {
-    > box { border-spacing: 4px; }
+    > box {
+      border-spacing: 4px;
+    }
 
     &.text-button {
-      > box { border-spacing: 4px; }
+      > box {
+        border-spacing: 4px;
+      }
     }
   }
 
@@ -78,24 +102,24 @@ button {
     }
 
     &:hover {
-      background-image: image(gtkalpha(currentColor, .1));
+      background-image: image(gtkalpha(currentColor, 0.1));
     }
 
     &.keyboard-activating,
     &:active {
-      background-image: image(transparentize(black, .8));
+      background-image: image(transparentize(black, 0.8));
     }
 
     &:checked {
-      background-image: image(transparentize(black, .85));
+      background-image: image(transparentize(black, 0.85));
 
       &:hover {
-        background-image: image(transparentize(black, .95));
+        background-image: image(transparentize(black, 0.95));
       }
 
       &.keyboard-activating,
       &:active {
-        background-image: image(transparentize(black, .7));
+        background-image: image(transparentize(black, 0.7));
       }
     }
   }
@@ -112,7 +136,8 @@ button {
 
     color: $destructive_fg_color;
 
-    &, &:checked {
+    &,
+    &:checked {
       background-color: $destructive_color;
     }
   }
@@ -122,20 +147,27 @@ button {
 
     color: $suggested_fg_color;
 
-    &, &:checked {
+    &,
+    &:checked {
       background-color: $suggested_color;
     }
   }
 
   // hide separators
   &.font {
-    separator { background-color: transparent; }
-    > box { border-spacing: 6px; }
-    > box > box > label { font-weight: bold; }
+    separator {
+      background-color: transparent;
+    }
+    > box {
+      border-spacing: 6px;
+    }
+    > box > box > label {
+      font-weight: bold;
+    }
   }
 
   @at-root %pill_button,
-  &.pill {
+    &.pill {
     min-height: 28px;
     min-width: 28px;
     padding: 6px 12px;
@@ -176,12 +208,20 @@ menubutton {
     background: none;
     color: inherit;
 
-    > button { @extend %osd_button; }
+    > button {
+      @extend %osd_button;
+    }
   }
 
-  &.circular > button { @extend %circular_button; }
-  &.flat > button { @extend %flat_button; }
-  &.pill > button { @extend %pill_button; }
+  &.circular > button {
+    @extend %circular_button;
+  }
+  &.flat > button {
+    @extend %flat_button;
+  }
+  &.pill > button {
+    @extend %pill_button;
+  }
 
   &.suggested-action {
     background-color: $suggested_color;
@@ -203,14 +243,16 @@ menubutton {
   &.opaque {
     border-radius: 2px;
 
-    &.circular, &.pill {
+    &.circular,
+    &.pill {
       border-radius: 999px;
     }
 
     > button {
       @extend %opaque_button;
 
-      &, &:checked {
+      &,
+      &:checked {
         background-color: transparent;
         color: inherit;
       }
@@ -227,19 +269,19 @@ menubutton {
     min-height: 16px;
     min-width: 16px;
     &.none {
-      -gtk-icon-source: -gtk-icontheme('open-menu-symbolic');
+      -gtk-icon-source: -gtk-icontheme("open-menu-symbolic");
     }
     &.down {
-      -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+      -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
     }
     &.up {
-      -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
+      -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
     }
     &.left {
-      -gtk-icon-source: -gtk-icontheme('pan-start-symbolic');
+      -gtk-icon-source: -gtk-icontheme("pan-start-symbolic");
     }
     &.right {
-      -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+      -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
     }
   }
 }
@@ -247,7 +289,8 @@ menubutton {
 splitbutton {
   border-radius: 2px;
 
-  &, & > separator {
+  &,
+  & > separator {
     transition: $button_transition;
     transition-property: background;
   }
@@ -292,7 +335,7 @@ splitbutton {
   }
 
   @at-root %flat_split_button,
-  &.flat {
+    &.flat {
     > separator {
       background: $borders_color;
     }
@@ -338,23 +381,29 @@ splitbutton {
   &.suggested-action,
   &.destructive-action,
   &.opaque {
-    > button, > menubutton > button {
+    > button,
+    > menubutton > button {
       @extend %opaque_button;
 
-      &, &:checked {
+      &,
+      &:checked {
         color: inherit;
         background-color: transparent;
       }
     }
 
     > menubutton > button {
-      &:dir(ltr) { box-shadow: inset 1px 0 $borders_color; }
-      &:dir(rtl) { box-shadow: inset -1px 0 $borders_color; }
+      &:dir(ltr) {
+        box-shadow: inset 1px 0 $borders_color;
+      }
+      &:dir(rtl) {
+        box-shadow: inset -1px 0 $borders_color;
+      }
     }
   }
 
   > menubutton > button > arrow.none {
-    -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
   }
 }
 
@@ -364,15 +413,23 @@ buttoncontent {
   > label {
     font-weight: bold;
 
-    &:dir(ltr) { padding-right: 2px; }
-    &:dir(rtl) { padding-left: 2px; }
+    &:dir(ltr) {
+      padding-right: 2px;
+    }
+    &:dir(rtl) {
+      padding-left: 2px;
+    }
   }
 
   .arrow-button > box > &,
   splitbutton > button > & {
     > label {
-      &:dir(ltr) { padding-right: 0; }
-      &:dir(rtl) { padding-left: 0; }
+      &:dir(ltr) {
+        padding-right: 0;
+      }
+      &:dir(rtl) {
+        padding-left: 0;
+      }
     }
   }
 }
@@ -429,8 +486,12 @@ radio {
     background-color: transparent;
     box-shadow: none;
 
-    &:hover { background-image: none; }
-    &:active { background-image: none; }
+    &:hover {
+      background-image: none;
+    }
+    &:active {
+      background-image: none;
+    }
   }
 
   &:disabled {
@@ -449,7 +510,7 @@ radio {
 // AdwActionRow
 //
 
- row {
+row {
   label.subtitle {
     font-size: smaller;
     @extend .dim-label;
@@ -487,8 +548,12 @@ radio {
 
     > .icon,
     > .prefixes {
-      &:dir(ltr) { margin-right: 6px; }
-      &:dir(rtl) { margin-left: 6px; }
+      &:dir(ltr) {
+        margin-right: 6px;
+      }
+      &:dir(rtl) {
+        margin-left: 6px;
+      }
     }
   }
 }
@@ -515,12 +580,14 @@ row.entry {
       opacity: 0.45;
     }
 
-    .dim-label, .subtitle {
+    .dim-label,
+    .subtitle {
       opacity: 1;
     }
   }
 
-  .edit-icon, .indicator {
+  .edit-icon,
+  .indicator {
     min-width: 24px;
     min-height: 24px;
     padding: 5px;
@@ -542,17 +609,24 @@ row.entry {
     }
   }
 
-  @each $e_type, $e_color, $e_fg_color in (error,   $error_color,   $error_fg_color),
-                                          (warning, $warning_color, $warning_fg_color),
-                                          (success, $success_color, $success_fg_color) {
+  @each $e_type, $e_color,
+    $e_fg_color in (error, $error_color, $error_fg_color),
+    (warning, $warning_color, $warning_fg_color),
+    (success, $success_color, $success_fg_color)
+  {
     &.#{$e_type} {
       text {
-        > selection:focus-within { background-color: gtkalpha($e_color, .2); }
+        > selection:focus-within {
+          background-color: gtkalpha($e_color, 0.2);
+        }
 
-        > cursor-handle > contents { background-color: currentColor; }
+        > cursor-handle > contents {
+          background-color: currentColor;
+        }
       }
 
-      .dim-label, .subtitle {
+      .dim-label,
+      .subtitle {
         opacity: 1;
       }
 
@@ -579,7 +653,8 @@ row.combo {
     box-shadow: none;
     color: inherit;
 
-    &, &:disabled {
+    &,
+    &:disabled {
       background: none;
       color: inherit;
     }
@@ -602,10 +677,16 @@ toast {
   padding: 6px;
   background-color: $base_color;
   color: $text_color;
-  box-shadow: 0 3px 8px rgba(black, 0.15), 0 0 0 1px $borders_color;
+  box-shadow:
+    0 3px 8px rgba(black, 0.15),
+    0 0 0 1px $borders_color;
 
-  &:dir(ltr) { padding-left: 12px; }
-  &:dir(rtl) { padding-right: 12px; }
+  &:dir(ltr) {
+    padding-left: 12px;
+  }
+  &:dir(rtl) {
+    padding-right: 12px;
+  }
 
   > widget {
     margin: 0 6px;
@@ -616,7 +697,7 @@ toast {
 // AdwAboutWindow
 //
 
- window.about {
+window.about {
   .main-page {
     > viewport > clamp > box {
       margin: 12px;
@@ -700,14 +781,16 @@ statuspage {
 
 // Cards
 .card {
-  @at-root %card, & {
+  @at-root %card,
+    & {
     @include button(normal);
     border-radius: 2px;
     box-shadow: none;
     border: 1px solid $borders_color;
     background-clip: padding-box;
 
-    .osd &, &.osd {
+    .osd &,
+    &.osd {
       @include button(osd);
     }
   }
@@ -716,11 +799,11 @@ statuspage {
     transition: $button_transition;
 
     &:hover {
-      background-image: image(gtkalpha(currentColor, .03));
+      background-image: image(gtkalpha(currentColor, 0.03));
     }
 
     &:active {
-      background-image: image(gtkalpha(currentColor, .08));
+      background-image: image(gtkalpha(currentColor, 0.08));
     }
   }
 }
@@ -732,7 +815,8 @@ preferencespage > scrolledwindow > viewport > clamp > box {
 }
 
 preferencesgroup > box {
-  &, .labels {
+  &,
+  .labels {
     border-spacing: 6px;
   }
 
@@ -860,7 +944,8 @@ viewswitchertitle {
 
 // AdwIndicatorBin
 indicatorbin {
-  > indicator, > mask {
+  > indicator,
+  > mask {
     min-width: 6px;
     min-height: 6px;
     border-radius: 999px;
@@ -868,7 +953,7 @@ indicatorbin {
 
   > indicator {
     margin: 1px;
-    background: gtkalpha(currentColor, .4);
+    background: gtkalpha(currentColor, 0.4);
 
     > label {
       font-size: 0.6rem;
@@ -886,7 +971,9 @@ indicatorbin {
   &.needs-attention > indicator {
     background: $selected_bg_color;
 
-    > label { color: $selected_fg_color; }
+    > label {
+      color: $selected_fg_color;
+    }
   }
 }
 
@@ -931,7 +1018,8 @@ tabbar {
   tab {
     transition: background 150ms ease-in-out;
 
-    &:selected, &:checked {
+    &:selected,
+    &:checked {
       background-color: transparent;
       box-shadow: inset 0 -3px $selected_bg_color;
       color: $fg_color;
@@ -1027,7 +1115,8 @@ tabgrid > tabgridchild {
 }
 
 tabthumbnail {
-  &, > .card {
+  &,
+  > .card {
     border-radius: 3px;
   }
 
@@ -1036,15 +1125,21 @@ tabthumbnail {
   }
 
   &:drop(active) {
-    box-shadow: inset 0 0 0 3px gtkalpha($drop_target_color, .4);
-    background-color: gtkalpha($drop_target_color, .1);
+    box-shadow: inset 0 0 0 3px gtkalpha($drop_target_color, 0.4);
+    background-color: gtkalpha($drop_target_color, 0.1);
   }
 
-  transition: box-shadow 200ms $ease-out-quad, background-color $ease-out-quad;
+  transition:
+    box-shadow 200ms $ease-out-quad,
+    background-color $ease-out-quad;
 
   .needs-attention {
-    &:dir(ltr) { transform: translate(8px, -8px); }
-    &:dir(rtl) { transform: translate(-8px, -8px); }
+    &:dir(ltr) {
+      transform: translate(8px, -8px);
+    }
+    &:dir(rtl) {
+      transform: translate(-8px, -8px);
+    }
 
     > widget {
       background: $selected_bg_color;
@@ -1052,7 +1147,7 @@ tabthumbnail {
       min-height: 12px;
       border-radius: 8px;
       margin: 3px;
-      box-shadow: 0 1px 2px gtkalpha($selected_bg_color, .4);
+      box-shadow: 0 1px 2px gtkalpha($selected_bg_color, 0.4);
     }
   }
 
@@ -1083,21 +1178,21 @@ tabthumbnail {
 
   button.circular {
     margin: 6px;
-    background-color: gtkalpha($base_color, .75);
+    background-color: gtkalpha($base_color, 0.75);
     min-width: 24px;
     min-height: 24px;
 
     &:hover {
-      background-color: gtkalpha(gtkmix($base_color, currentColor, 90%), .75);
+      background-color: gtkalpha(gtkmix($base_color, currentColor, 90%), 0.75);
     }
 
     &:active {
-      background-color: gtkalpha(gtkmix($base_color, currentColor, 80%), .75);
+      background-color: gtkalpha(gtkmix($base_color, currentColor, 80%), 0.75);
     }
   }
 }
 
-taboverview > .overview  .new-tab-button {
+taboverview > .overview .new-tab-button {
   margin: 18px;
 }
 
@@ -1108,7 +1203,9 @@ tabgrid:drop(active) {
 }
 
 // Sidebar
-.unfolded stacksidebar.sidebar { border: none; }
+.unfolded stacksidebar.sidebar {
+  border: none;
+}
 
 // preferences
 preferencespage > scrolledwindow > viewport > clamp > box {
@@ -1117,7 +1214,8 @@ preferencespage > scrolledwindow > viewport > clamp > box {
 }
 
 preferencesgroup > box {
-  &, .labels {
+  &,
+  .labels {
     border-spacing: 6px;
   }
 
@@ -1139,7 +1237,8 @@ preferencesgroup > box {
     outline-style: solid;
     border: none;
 
-    &, > background-preview {
+    &,
+    > background-preview {
       border-radius: 2px;
     }
 
@@ -1156,7 +1255,6 @@ preferencesgroup > box {
     }
   }
 }
-
 
 // Transition shadows
 flap,
@@ -1175,13 +1273,17 @@ toolbarview.undershoot-bottom scrolledwindow {
 }
 
 // Sidebar
-.unfolded stacksidebar.sidebar { border: none; }
+.unfolded stacksidebar.sidebar {
+  border: none;
+}
 
 %sidebar_pane_list {
   > row {
     color: $dark_sidebar_fg;
 
-    .sidebar-icon { color: rgba($dark_sidebar_fg, 0.6); }
+    .sidebar-icon {
+      color: rgba($dark_sidebar_fg, 0.6);
+    }
 
     &:hover {
       color: $dark_sidebar_fg;
@@ -1196,7 +1298,7 @@ toolbarview.undershoot-bottom scrolledwindow {
     &:selected {
       background-color: $selected_bg_color;
       color: $selected_fg_color;
-  
+
       &:hover {
         background-color: $alt_selected_bg_color;
         color: $selected_fg_color;
@@ -1210,21 +1312,43 @@ toolbarview.undershoot-bottom scrolledwindow {
     &:not(:selected) button.sidebar-button {
       color: $dark_sidebar_fg;
 
-      &:hover { @include button(header-hover); }
-      &:active { @include button(header-active); }
+      &:hover {
+        @include button(header-hover);
+      }
+      &:active {
+        @include button(header-active);
+      }
 
-      &:not(:hover):not(:active) > image { opacity: 0.5 };
+      &:not(:hover):not(:active) > image {
+        opacity: 0.5;
+      }
     }
 
-    &:backdrop { opacity: 0.75; }
+    &:backdrop {
+      opacity: 0.75;
+    }
   }
 
-  separator { background-color: transparent; }
+  separator {
+    background-color: transparent;
+  }
 }
 
-$sidebar_pane_bg: if($header == 'dark' and $variant == 'light', $header_bg, $dark_sidebar_bg);
-$sidebar_pane_fg: if($header == 'dark' and $variant == 'light', $header_fg, $dark_sidebar_fg);
-$sidebar_pane_bg_backdrop: if($header == 'dark' and $variant == 'light', $header_bg_backdrop, $bg_color);
+$sidebar_pane_bg: if(
+  $header == "dark" and $variant == "light",
+  $header_bg,
+  $dark_sidebar_bg
+);
+$sidebar_pane_fg: if(
+  $header == "dark" and $variant == "light",
+  $header_fg,
+  $dark_sidebar_fg
+);
+$sidebar_pane_bg_backdrop: if(
+  $header == "dark" and $variant == "light",
+  $header_bg_backdrop,
+  $bg_color
+);
 
 .sidebar-pane {
   background-color: $sidebar_pane_bg;
@@ -1235,7 +1359,9 @@ $sidebar_pane_bg_backdrop: if($header == 'dark' and $variant == 'light', $header
     color: rgba($sidebar_pane_fg, 0.45);
   }
 
-  .dim-label { color: rgba($sidebar_pane_fg, 0.45); }
+  .dim-label {
+    color: rgba($sidebar_pane_fg, 0.45);
+  }
 
   .sidebar,
   .toolbar,
@@ -1261,11 +1387,17 @@ $sidebar_pane_bg_backdrop: if($header == 'dark' and $variant == 'light', $header
     @extend %sidebar_pane_list;
   }
 
-  scrollbar { @extend %dark_sidebar_scrollbar; }
+  scrollbar {
+    @extend %dark_sidebar_scrollbar;
+  }
 
-  entry { @extend %header_entry; }
+  entry {
+    @extend %header_entry;
+  }
 
-  button { @extend %header_button; }
+  button {
+    @extend %header_button;
+  }
 
   flap,
   leaflet,
@@ -1283,15 +1415,19 @@ $sidebar_pane_bg_backdrop: if($header == 'dark' and $variant == 'light', $header
     }
   }
 
-  &:dir(ltr), &.end:dir(rtl) {
-    &, banner > revealer > widget {
+  &:dir(ltr),
+  &.end:dir(rtl) {
+    &,
+    banner > revealer > widget {
       box-shadow: none;
       border-right: 1px solid $dark_sidebar_border;
     }
   }
 
-  &:dir(rtl), &.end:dir(ltr) {
-    &, banner > revealer > widget {
+  &:dir(rtl),
+  &.end:dir(ltr) {
+    &,
+    banner > revealer > widget {
       box-shadow: none;
       border-left: 1px solid $dark_sidebar_border;
     }
@@ -1325,15 +1461,19 @@ $sidebar_pane_bg_backdrop: if($header == 'dark' and $variant == 'light', $header
     }
   }
 
-  &:dir(ltr), &.end:dir(rtl) {
-    &, banner > revealer > widget {
+  &:dir(ltr),
+  &.end:dir(rtl) {
+    &,
+    banner > revealer > widget {
       box-shadow: none;
       border-right: 1px solid $borders_color;
     }
   }
 
-  &:dir(rtl), &.end:dir(ltr) {
-    &, banner > revealer > widget {
+  &:dir(rtl),
+  &.end:dir(ltr) {
+    &,
+    banner > revealer > widget {
       box-shadow: none;
       border-left: 1px solid $borders_color;
     }
@@ -1345,30 +1485,38 @@ $sidebar_pane_bg_backdrop: if($header == 'dark' and $variant == 'light', $header
 .content-pane .sidebar-pane,
 .sidebar-pane .content-pane {
   toolbarview.undershoot-top scrolledwindow {
-    @include undershoot(top, $style: 'compact');
+    @include undershoot(top, $style: "compact");
   }
 
   toolbarview.undershoot-bottom scrolledwindow {
-    @include undershoot(bottom, $style: 'compact');
+    @include undershoot(bottom, $style: "compact");
   }
 
   scrolledwindow {
     &.undershoot-top {
-      @include undershoot(top, $style: 'compact');
+      @include undershoot(top, $style: "compact");
     }
 
     &.undershoot-bottom {
-      @include undershoot(bottom, $style: 'compact');
+      @include undershoot(bottom, $style: "compact");
     }
 
     &.undershoot-start {
-      &:dir(ltr) { @include undershoot(left, $style: 'compact'); }
-      &:dir(rtl) { @include undershoot(right, $style: 'compact'); }
+      &:dir(ltr) {
+        @include undershoot(left, $style: "compact");
+      }
+      &:dir(rtl) {
+        @include undershoot(right, $style: "compact");
+      }
     }
 
     &.undershoot-end {
-      &:dir(ltr) { @include undershoot(right, $style: 'compact'); }
-      &:dir(rtl) { @include undershoot(left, $style: 'compact'); }
+      &:dir(ltr) {
+        @include undershoot(right, $style: "compact");
+      }
+      &:dir(rtl) {
+        @include undershoot(left, $style: "compact");
+      }
     }
   }
 }
@@ -1388,7 +1536,7 @@ $sidebar_pane_bg_backdrop: if($header == 'dark' and $variant == 'light', $header
   headerbar {
     border-top-left-radius: 0;
 
-    @if $variant == 'light' and $header == 'dark' {
+    @if $variant == "light" and $header == "dark" {
       color: $text_color;
 
       entry {
@@ -1398,7 +1546,9 @@ $sidebar_pane_bg_backdrop: if($header == 'dark' and $variant == 'light', $header
           @include entry(focus);
         }
 
-        &:disabled { @include entry(insensitive); }
+        &:disabled {
+          @include entry(insensitive);
+        }
 
         selection:focus-within {
           background-color: $selected_bg_color;
@@ -1414,14 +1564,16 @@ $sidebar_pane_bg_backdrop: if($header == 'dark' and $variant == 'light', $header
           background-color: rgba($fg_color, 0.12);
         }
 
-        &:active, &:checked {
+        &:active,
+        &:checked {
           @include button(active);
         }
 
         &:disabled {
           color: $insensitive_fg_color;
-      
-          &:active, &:checked {
+
+          &:active,
+          &:checked {
             @include button(insensitive-active);
           }
         }
@@ -1447,13 +1599,18 @@ $sidebar_pane_bg_backdrop: if($header == 'dark' and $variant == 'light', $header
         }
       }
 
-      @if $variant == 'light' and $header == 'dark' {
+      @if $variant == "light" and $header == "dark" {
         windowcontrols {
           button {
-            @each $k in ('close', 'maximize', 'minimize') {
-              @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
-                &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/titlebutton-#{$k}#{$m}.png'),
-                                                             url('assets/titlebutton-#{$k}#{$m}@2.png'));
+            @each $k in ("close", "maximize", "minimize") {
+              @each $l, $m in ("", ""), (":backdrop", "-backdrop"),
+                (":hover", "-hover"), (":active", "-active")
+              {
+                &.#{$k}#{$l} {
+                  background-image: -gtk-scaled(
+                    url("assets/titlebutton-#{$k}#{$m}.png"),
+                    url("assets/titlebutton-#{$k}#{$m}@2.png")
+                  );
                 }
               }
             }
@@ -1462,7 +1619,8 @@ $sidebar_pane_bg_backdrop: if($header == 'dark' and $variant == 'light', $header
       }
     }
 
-    &, &:backdrop {
+    &,
+    &:backdrop {
       background-color: transparent;
       box-shadow: inset 0 1px $highlight;
       border: none;
@@ -1470,23 +1628,30 @@ $sidebar_pane_bg_backdrop: if($header == 'dark' and $variant == 'light', $header
   }
 
   toolbarview {
-    &, &.view {
+    &,
+    &.view {
       background-color: transparent;
     }
 
-    > stack, > box > stack.view {
+    > stack,
+    > box > stack.view {
       background-color: transparent;
     }
   }
 }
 
-@if $variant == 'light' and $header == 'dark' {
+@if $variant == "light" and $header == "dark" {
   .fullscreen .content-pane headerbar windowcontrols,
   .maximized .content-pane headerbar windowcontrols {
     button {
-      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
-        &.maximize#{$l} { background-image: -gtk-scaled(url('assets/titlebutton-restore#{$m}#.png'),
-                                                        url('assets/titlebutton-restore#{$m}@2.png'));
+      @each $l, $m in ("", ""), (":backdrop", "-backdrop"),
+        (":hover", "-hover"), (":active", "-active")
+      {
+        &.maximize#{$l} {
+          background-image: -gtk-scaled(
+            url("assets/titlebutton-restore#{$m}#.png"),
+            url("assets/titlebutton-restore#{$m}@2.png")
+          );
         }
       }
     }
@@ -1508,7 +1673,7 @@ toolbarview {
       }
     }
 
-    .toolbar  {
+    .toolbar {
       background-color: transparent;
     }
 
@@ -1542,7 +1707,7 @@ toolbarview {
         }
       }
 
-      .toolbar  {
+      .toolbar {
         padding-top: 6px;
         padding-bottom: 6px;
       }
@@ -1615,8 +1780,9 @@ banner {
       background-color: gtkmix($selected_bg_color, $bg_color, 15%);
       transition: background-color $backdrop_transition;
 
-      > label, > button {
-        filter: opacity(.5);
+      > label,
+      > button {
+        filter: opacity(0.5);
         transition: filter $backdrop_transition;
       }
     }
@@ -1627,16 +1793,17 @@ banner {
 // AdwToggleGroup
 //
 
-$toggle_transition: color 200ms $ease-out-quad,
-                    background 200ms $ease-out-quad,
-                    box-shadow 200ms $ease-out-quad;
+$toggle_transition:
+  color 200ms $ease-out-quad,
+  background 200ms $ease-out-quad,
+  box-shadow 200ms $ease-out-quad;
 
 toggle-group {
   background: $button_bg;
   border: 1px solid $borders_color;
   border-radius: 4px;
   padding: 2px;
-  background-clip: if($variant=='light', border-box, padding-box);
+  background-clip: if($variant== "light", border-box, padding-box);
 
   &:disabled {
     background-color: gtkalpha($button_bg, 0.45);
@@ -1678,7 +1845,11 @@ toggle-group {
       }
     }
 
-    @include focus-ring($transition: $toggle_transition, $outer: true, $offset: 0);
+    @include focus-ring(
+      $transition: $toggle_transition,
+      $outer: true,
+      $offset: 0
+    );
   }
 
   &.vertical > toggle:not(.text-button):not(.image-text-button) {
@@ -1771,7 +1942,8 @@ inline-view-switcher > toggle-group {
         padding: 0 6px;
       }
 
-      > indicator, > mask {
+      > indicator,
+      > mask {
         transform: translateY(2px);
       }
     }
@@ -1792,7 +1964,8 @@ inline-view-switcher > toggle-group {
 // other
 //
 themeselector, // EditorThemeSelector
-panelthemeselector { // BuilderThemeSelector
+panelthemeselector {
+  // BuilderThemeSelector
   margin: 9px;
 
   checkbutton {
@@ -1809,14 +1982,19 @@ panelthemeselector { // BuilderThemeSelector
       transform: translate(27px, 14px);
       padding: 3px;
 
-      &, &:hover, &:disabled {
+      &,
+      &:hover,
+      &:disabled {
         -gtk-icon-source: none;
         border: none;
         background: none;
         box-shadow: none;
       }
 
-      &:checked, &:checked:hover, &:active, &:active:hover {
+      &:checked,
+      &:checked:hover,
+      &:active,
+      &:active:hover {
         -gtk-icon-source: -gtk-icontheme("object-select-symbolic");
         background-image: image($selected_bg_color);
         background-color: $selected_bg_color;
@@ -1839,7 +2017,11 @@ panelthemeselector { // BuilderThemeSelector
     }
 
     &.follow {
-      background-image: linear-gradient(to bottom right, #fff 49.99%, #202020 50.01%);
+      background-image: linear-gradient(
+        to bottom right,
+        #fff 49.99%,
+        #202020 50.01%
+      );
     }
   }
 }
@@ -1857,8 +2039,10 @@ themeswitcher {
     border-radius: 100%;
     margin: 3px;
     -gtk-icon-size: 20px;
-    -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/scalable/check-symbolic.svg")),
-                                  -gtk-recolor(url("assets/scalable/check-symbolic@2.svg")));
+    -gtk-icon-source: -gtk-scaled(
+      -gtk-recolor(url("assets/scalable/check-symbolic.svg")),
+      -gtk-recolor(url("assets/scalable/check-symbolic@2.svg"))
+    );
 
     &:hover {
       background-color: lighten($selected_bg_color, 10%);
@@ -1878,7 +2062,9 @@ themeswitcher {
       min-height: 48px;
       min-width: 48px;
 
-      &, &:active, &:hover {
+      &,
+      &:active,
+      &:hover {
         outline-color: $borders_color;
         outline-width: 1px;
         outline-offset: -1px;
@@ -1886,35 +2072,53 @@ themeswitcher {
         box-shadow: none;
       }
 
-      &, &:hover, &:active, &:checked, &:checked:hover {
+      &,
+      &:hover,
+      &:active,
+      &:checked,
+      &:checked:hover {
         -gtk-icon-source: none;
         transition: none;
         border: none;
       }
     }
 
-    radio:checked, radio:active {
-      &, &:hover {
+    radio:checked,
+    radio:active {
+      &,
+      &:hover {
         box-shadow: inset 0 0 0 2px $selected_bg_color;
       }
     }
 
     &.system radio {
-      &, &:hover, &:active, &:checked, &:checked:hover {
+      &,
+      &:hover,
+      &:active,
+      &:checked,
+      &:checked:hover {
         background-image: linear-gradient(-45deg, #242424 49.99%, white 50.01%);
         background-color: transparent;
       }
     }
 
     &.light radio {
-      &, &:hover, &:active, &:checked, &:checked:hover {
+      &,
+      &:hover,
+      &:active,
+      &:checked,
+      &:checked:hover {
         color: rgba(black, 0.8);
         background-color: white;
       }
     }
 
     &.dark radio {
-      &, &:hover, &:active, &:checked, &:checked:hover {
+      &,
+      &:hover,
+      &:active,
+      &:checked,
+      &:checked:hover {
         color: white;
         background-image: image(#242424);
         background-color: transparent;
@@ -1935,8 +2139,9 @@ floating-sheet {
   > sheet {
     border-radius: 3px;
     outline: none;
-    box-shadow: 0 3px 5px if($variant == 'light', rgba(black, 0.15), rgba(black, 0.2)),
-                0 5px 12px if($variant == 'light', rgba(black, 0.15), rgba(black, 0.2)),
-                0 0 0 1px $_wm_border;
+    box-shadow:
+      0 3px 5px if($variant == "light", rgba(black, 0.15), rgba(black, 0.2)),
+      0 5px 12px if($variant == "light", rgba(black, 0.15), rgba(black, 0.2)),
+      0 0 0 1px $_wm_border;
   }
 }

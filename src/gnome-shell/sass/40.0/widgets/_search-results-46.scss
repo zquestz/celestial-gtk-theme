@@ -27,24 +27,24 @@
   color: $system_fg_color;
   border-radius: $modal_radius * 1.5;
   padding: $base_padding * 2;
-  margin:0 $base_margin * 3;
+  margin: 0 $base_margin * 3;
   border: 2px solid transparent;
 }
 
 %search_section_content_item {
-  @include tile_button($bg:$system_overlay_bg_color);
+  @include tile_button($bg: $system_overlay_bg_color);
   border-radius: $base_border_radius * 1.65;
 }
 
 // "no results" text
 .search-statustext {
   @extend %title_1;
-  color: transparentize($system_fg_color, .2);
+  color: transparentize($system_fg_color, 0.2);
 }
 
 .grid-search-results {
   spacing: $base_padding * 5;
-  margin:0 $base_margin * 3;
+  margin: 0 $base_margin * 3;
 }
 
 // Search results with icons
@@ -55,8 +55,12 @@
 // search result provider
 .search-provider-icon {
   @extend %search_section_content_item;
-  &:ltr {margin-right: $base_margin;}
-  &:rtl {margin-left: $base_margin;}
+  &:ltr {
+    margin-right: $base_margin;
+  }
+  &:rtl {
+    margin-left: $base_margin;
+  }
 
   // content
   .list-search-provider-content {

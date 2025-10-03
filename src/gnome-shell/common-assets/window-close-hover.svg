@@ -40,7 +40,7 @@
      d="M44.226 764.17h1.031c.255.011.51.129.688.313l2.28 2.28 2.313-2.28c.266-.231.447-.306.688-.313h1v1c0 .286-.034.55-.25.75l-2.281 2.281 2.25 2.25c.188.188.281.454.281.719v1h-1c-.265 0-.53-.093-.719-.281l-2.28-2.282-2.282 2.282a1.01 1.01 0 0 1-.719.28h-1v-1c0-.264.093-.53.281-.718l2.282-2.25-2.282-2.281a.91.91 0 0 1-.28-.75z"
      color="#bebebe"
      enable-background="new"
-     style="block-progression:tb;text-decoration-line:none;text-indent:0;text-transform:none"
+     style="text-decoration-line:none;text-indent:0;text-transform:none"
      transform="translate(-25.614 -549.187)scale(.72727)"
      id="path2" />
 </svg>

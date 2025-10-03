@@ -4,15 +4,23 @@
   background-color: transparent;
   border: none;
 
-  &:hover { background-color: rgba(white, 0.1); }
-  &:active { background-color: rgba(white, 0.2); }
-  &:checked { background-color: rgba(white, 0.15); }
+  &:hover {
+    background-color: rgba(white, 0.1);
+  }
+  &:active {
+    background-color: rgba(white, 0.2);
+  }
+  &:checked {
+    background-color: rgba(white, 0.15);
+  }
 }
 
 .icon-label-button-container {
   spacing: $base_padding;
 
-  StIcon { icon-size: 32px; }
+  StIcon {
+    icon-size: 32px;
+  }
 }
 
 $screenshot_ui_panel_padding: $base_padding * 3;
@@ -37,15 +45,20 @@ $screenshot_ui_button_red: $error_color;
   @extend .window-close; // copy window close button
   padding: $base_padding !important; // but with more padding
 
-  &.left { margin-left: $base_padding + 2px; }
-  &.right { margin-right: $base_padding + 2px; }
+  &.left {
+    margin-left: $base_padding + 2px;
+  }
+  &.right {
+    margin-right: $base_padding + 2px;
+  }
 }
 
 .screenshot-ui-type-button {
   @extend %osd_button;
   min-width: 48px;
   padding: $base_padding * 2 $base_padding * 3 !important;
-  border-radius: $screenshot_ui_panel_border_radius - $screenshot_ui_panel_padding;
+  border-radius: $screenshot_ui_panel_border_radius -
+    $screenshot_ui_panel_padding;
 }
 
 .screenshot-ui-capture-button {
@@ -60,10 +73,14 @@ $screenshot_ui_button_red: $error_color;
     transition-duration: 200ms;
     border-radius: $circular_radius;
 
-    &:hover, &:focus { background-color: rgba($fg_color, 0.1); }
+    &:hover,
+    &:focus {
+      background-color: rgba($fg_color, 0.1);
+    }
   }
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     .screenshot-ui-capture-button-circle {
       background-color: darken(white, 15%);
     }
@@ -80,7 +97,8 @@ $screenshot_ui_button_red: $error_color;
       background-color: $screenshot_ui_button_red;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       .screenshot-ui-capture-button-circle {
         background-color: lighten($screenshot_ui_button_red, 5%);
       }
@@ -100,8 +118,12 @@ $screenshot_ui_button_red: $error_color;
   padding: $screenshot_ui_shot_cast_spacing;
   spacing: $screenshot_ui_shot_cast_spacing;
 
-  &:ltr { margin-left: $screenshot_ui_shot_cast_margin - $screenshot_ui_panel_padding; }
-  &:rtl { margin-right: $screenshot_ui_shot_cast_margin - $screenshot_ui_panel_padding; }
+  &:ltr {
+    margin-left: $screenshot_ui_shot_cast_margin - $screenshot_ui_panel_padding;
+  }
+  &:rtl {
+    margin-right: $screenshot_ui_shot_cast_margin - $screenshot_ui_panel_padding;
+  }
 }
 
 .screenshot-ui-shot-cast-button {
@@ -109,11 +131,21 @@ $screenshot_ui_button_red: $error_color;
   background-color: transparent;
   border-radius: $circular_radius;
 
-  &:hover, &:focus { background-color: rgba(white, 0.1); }
-  &:active { background-color: rgba(white, 0.2); }
-  &:checked { background-color: white; color: black; }
+  &:hover,
+  &:focus {
+    background-color: rgba(white, 0.1);
+  }
+  &:active {
+    background-color: rgba(white, 0.2);
+  }
+  &:checked {
+    background-color: white;
+    color: black;
+  }
 
-  StIcon { icon-size: 16px; }
+  StIcon {
+    icon-size: 16px;
+  }
 }
 
 .screenshot-ui-show-pointer-button {
@@ -121,16 +153,18 @@ $screenshot_ui_button_red: $error_color;
   border-radius: $circular_radius;
   padding: $base_padding * 2 !important;
 
-  StIcon { icon-size: 16px; }
+  StIcon {
+    icon-size: 16px;
+  }
 }
 
 .screenshot-ui-area-indicator-shade {
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .screenshot-ui-area-selector {
   .screenshot-ui-area-indicator-shade {
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   .screenshot-ui-area-indicator-selection {
@@ -141,7 +175,7 @@ $screenshot_ui_button_red: $error_color;
 .screenshot-ui-area-selector-handle {
   border-radius: $circular_radius;
   background-color: white;
-  box-shadow: 0 1px 3px 2px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.2);
   width: 24px;
   height: 24px;
 }
@@ -196,10 +230,14 @@ $screenshot_ui_button_red: $error_color;
 
 .screenshot-ui-screen-selector {
   transition-duration: 200ms;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, 0.5);
 
-  &:hover { background-color: rgba(0,0,0,.3);}
-  &:active { background-color: rgba(0,0,0,.7);}
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  &:active {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
   &:checked {
     background-color: transparent;
     border: 2px white;

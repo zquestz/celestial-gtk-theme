@@ -1,40 +1,80 @@
 // When color definition differs for dark and light variant,
 // it gets @if ed depending on $variant
 
-$base_color: if($variant =='light', #ffffff, #1b2224);
-@if $color=='aliz' { $base_color: if($variant =='light', #ffffff, #222222); }
-@if $color=='azul' { $base_color: if($variant =='light', #ffffff, #1b1d24); }
-@if $color=='pueril' { $base_color: if($variant =='light', #ffffff, #222222); }
-$bg_color: if($variant == 'light', #f5f5f5, lighten($base_color, 5%));
-$fg_color: if($variant == 'light', #363636, #dddddd);
-$alt_fg_color: if($variant == 'light', #555555, #aaaaaa);
+$base_color: if($variant == "light", #ffffff, #1b2224);
+@if $color== "aliz" {
+  $base_color: if($variant == "light", #ffffff, #222222);
+}
+@if $color== "azul" {
+  $base_color: if($variant == "light", #ffffff, #1b1d24);
+}
+@if $color== "pueril" {
+  $base_color: if($variant == "light", #ffffff, #222222);
+}
+$bg_color: if($variant == "light", #f5f5f5, lighten($base_color, 5%));
+$fg_color: if($variant == "light", #363636, #dddddd);
+$alt_fg_color: if($variant == "light", #555555, #aaaaaa);
 
 $accent_color: #2eb398;
-@if $color=='aliz' { $accent_color: #F0544C; }
-@if $color=='azul' { $accent_color: #3498db; }
-@if $color=='pueril' { $accent_color: #97BB72; }
+@if $color== "aliz" {
+  $accent_color: #f0544c;
+}
+@if $color== "azul" {
+  $accent_color: #3498db;
+}
+@if $color== "pueril" {
+  $accent_color: #97bb72;
+}
 
 $selected_fg_color: #ffffff;
-$selected_bg_color: if($variant == 'light', $accent_color, darken($accent_color, 10%));
+$selected_bg_color: if(
+  $variant == "light",
+  $accent_color,
+  darken($accent_color, 10%)
+);
 
-$selected_borders_color: if($variant == 'light', darken($selected_bg_color, 5%), $selected_bg_color);
-$borders_color: if($variant == 'light', darken($bg_color, 10%), darken($base_color, 5%));
-$borders_edge: if($variant == 'light', rgba(white, 0.8), transparentize($fg_color, 0.93));
-$link_color: if($variant == 'light', darken($selected_bg_color, 10%), lighten($selected_bg_color, 20%));
-$link_visited_color: if($variant == 'light', darken($selected_bg_color, 20%), lighten($selected_bg_color, 10%));
+$selected_borders_color: if(
+  $variant == "light",
+  darken($selected_bg_color, 5%),
+  $selected_bg_color
+);
+$borders_color: if(
+  $variant == "light",
+  darken($bg_color, 10%),
+  darken($base_color, 5%)
+);
+$borders_edge: if(
+  $variant == "light",
+  rgba(white, 0.8),
+  transparentize($fg_color, 0.93)
+);
+$link_color: if(
+  $variant == "light",
+  darken($selected_bg_color, 10%),
+  lighten($selected_bg_color, 20%)
+);
+$link_visited_color: if(
+  $variant == "light",
+  darken($selected_bg_color, 20%),
+  lighten($selected_bg_color, 10%)
+);
 $top_hilight: $borders_edge;
 
 $warning_color: #f57900;
 $error_color: #ff8080;
-$success_color: if($variant == 'light', #33d17a, darken(#33d17a, 10%));
-$destructive_color: if($variant == 'light', #e01b24, darken(#e01b24, 10%));
+$success_color: if($variant == "light", #33d17a, darken(#33d17a, 10%));
+$destructive_color: if($variant == "light", #e01b24, darken(#e01b24, 10%));
 
 // system elements (e.g. the overview) that are always dark
 $system_fg_color: white;
 $system_bg_color: darken(#1b2224, 2%); //neutralize the HIG color
-@if $color=='aliz' or $color=='pueril' { $system_bg_color: darken(#222222, 2%); }
-@if $color=='azul' { $system_bg_color: darken(#1b1d24, 2%); }
-$system_borders_color: transparentize($system_fg_color, .9);
+@if $color== "aliz" or $color== "pueril" {
+  $system_bg_color: darken(#222222, 2%);
+}
+@if $color== "azul" {
+  $system_bg_color: darken(#1b1d24, 2%);
+}
+$system_borders_color: transparentize($system_fg_color, 0.9);
 $system_insensitive_fg_color: mix($system_fg_color, $system_bg_color, 50%);
 $system_overlay_bg_color: mix($system_bg_color, $system_fg_color, 90%);
 
@@ -44,12 +84,15 @@ $panel_fg_color: #dddddd;
 $osd_fg_color: #efefef;
 $osd_text_color: white;
 $osd_bg_color: lighten($system_bg_color, 5%);
-$osd_insensitive_bg_color: transparentize(mix($osd_fg_color, opacify($osd_bg_color, 1), 10%), 0.5);
+$osd_insensitive_bg_color: transparentize(
+  mix($osd_fg_color, opacify($osd_bg_color, 1), 10%),
+  0.5
+);
 $osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 50%);
 $osd_borders_color: transparentize(black, 0.3);
 $osd_outer_borders_color: transparentize(white, 0.84);
 
-$shadow_color: if($variant == 'light', rgba(0,0,0,0.1), rgba(0,0,0,0.2));
+$shadow_color: if($variant == "light", rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
 
 //insensitive state derived colors
 $insensitive_fg_color: mix($fg_color, $bg_color, 35%);
@@ -57,22 +100,50 @@ $insensitive_bg_color: mix($bg_color, $base_color, 60%);
 $insensitive_borders_color: mix($borders_color, $base_color, 60%);
 
 //colors for the backdrop state, derived from the main colors.
-$backdrop_base_color: if($variant =='light', darken($base_color,1%), lighten($base_color,1%));
+$backdrop_base_color: if(
+  $variant == "light",
+  darken($base_color, 1%),
+  lighten($base_color, 1%)
+);
 $backdrop_bg_color: $bg_color;
 $backdrop_fg_color: mix($fg_color, $backdrop_bg_color, 80%);
-$backdrop_insensitive_color: if($variant =='light', darken($backdrop_bg_color,15%), lighten($backdrop_bg_color,15%));
+$backdrop_insensitive_color: if(
+  $variant == "light",
+  darken($backdrop_bg_color, 15%),
+  lighten($backdrop_bg_color, 15%)
+);
 $backdrop_borders_color: mix($borders_color, $bg_color, 90%);
-$backdrop_dark_fill: mix($backdrop_borders_color,$backdrop_bg_color, 35%);
+$backdrop_dark_fill: mix($backdrop_borders_color, $backdrop_bg_color, 35%);
 
 // non-standard colors
-$bubble_borders_color: if($variant == 'light', rgba(black, 0.1), rgba(black, 0.25));
+$bubble_borders_color: if(
+  $variant == "light",
+  rgba(black, 0.1),
+  rgba(black, 0.25)
+);
 
 // hover
-$hover_bg_color: if($variant=='light', rgba($fg_color, 0.1), rgba($fg_color, 0.08));
-$hover_fg_color: if($variant=='light', darken($fg_color, 5%), lighten($fg_color, 5%));
-$hover_borders_color: lighten($borders_color, if($variant=='light', 5%, 3%));
+$hover_bg_color: if(
+  $variant== "light",
+  rgba($fg_color, 0.1),
+  rgba($fg_color, 0.08)
+);
+$hover_fg_color: if(
+  $variant== "light",
+  darken($fg_color, 5%),
+  lighten($fg_color, 5%)
+);
+$hover_borders_color: lighten($borders_color, if($variant== "light", 5%, 3%));
 
 // active
-$active_bg_color: if($variant == 'light', rgba($fg_color, 0.15), rgba($fg_color, 0.12));
-$active_fg_color: if($variant=='light', darken($fg_color, 7%), lighten($fg_color, 8%));
-$active_borders_color: darken($borders_color, if($variant=='light', 5%, 3%));
+$active_bg_color: if(
+  $variant == "light",
+  rgba($fg_color, 0.15),
+  rgba($fg_color, 0.12)
+);
+$active_fg_color: if(
+  $variant== "light",
+  darken($fg_color, 7%),
+  lighten($fg_color, 8%)
+);
+$active_borders_color: darken($borders_color, if($variant== "light", 5%, 3%));

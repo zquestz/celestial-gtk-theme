@@ -14,7 +14,7 @@ $text_fg_color: #ccc;
   & > #Toolbar {
     border-bottom: 1px solid $osd_borders_color;
     border-radius: $modal_radius $modal_radius 0 0;
-    background-color: darken($osd_bg_color , 5%);
+    background-color: darken($osd_bg_color, 5%);
     padding: $base_padding;
     spacing: $base_padding;
 
@@ -22,11 +22,15 @@ $text_fg_color: #ccc;
       @extend %osd_button;
       padding: $base_padding $base_padding * 2;
 
-      & > StIcon { icon-size: $base_icon_size; }
+      & > StIcon {
+        icon-size: $base_icon_size;
+      }
     }
   }
 
-  .labels { spacing: $base_spacing; }
+  .labels {
+    spacing: $base_spacing;
+  }
   .notebook-tab {
     -natural-hpadding: $base_padding * 2;
     -minimum-hpadding: $base_padding * 2;
@@ -48,8 +52,13 @@ $text_fg_color: #ccc;
       background: none;
     }
   }
-  StBoxLayout#EvalBox { padding: 4px; spacing: $base_spacing; }
-  StBoxLayout#ResultsArea { spacing: $base_spacing; }
+  StBoxLayout#EvalBox {
+    padding: 4px;
+    spacing: $base_spacing;
+  }
+  StBoxLayout#ResultsArea {
+    spacing: $base_spacing;
+  }
 }
 
 .lg-dialog {
@@ -61,17 +70,27 @@ $text_fg_color: #ccc;
     selection-background-color: $selected_bg_color;
     selected-color: $selected_fg_color;
 
-    &:focus { border-color: $selected_bg_color; }
+    &:focus {
+      border-color: $selected_bg_color;
+    }
   }
   .shell-link {
     color: $link_color;
-    &:hover { color: lighten($link_color, 10%); }
-    &:active { color: darken($link_color, 10%); }
+    &:hover {
+      color: lighten($link_color, 10%);
+    }
+    &:active {
+      color: darken($link_color, 10%);
+    }
   }
   .actor-link {
     color: $text_fg_color;
-    &:hover { color: lighten($text_fg_color, 20%); }
-    &:active { color: darken($text_fg_color, 20%); }
+    &:hover {
+      color: lighten($text_fg_color, 20%);
+    }
+    &:active {
+      color: darken($text_fg_color, 20%);
+    }
   }
 }
 

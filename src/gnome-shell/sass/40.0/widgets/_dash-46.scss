@@ -49,18 +49,26 @@ $dash_spacing: $base_margin * 0.5;
       margin: 0 $dash_spacing;
       padding-bottom: $dash_edge_offset; // align with other items
 
-      $fg:$system_fg_color;
-      $bg:$dash_background_color;
+      $fg: $system_fg_color;
+      $bg: $dash_background_color;
 
       .overview-icon {
         @extend %tile;
-        @include button(flat, $tc:$fg, $c:$bg);
+        @include button(flat, $tc: $fg, $c: $bg);
       }
 
-      &:focus .overview-icon { @include button(flat-focus, $tc:$fg, $c:$bg); }
-      &:hover .overview-icon { @include button(flat-hover, $tc:$fg, $c:$bg); }
-      &:active .overview-icon { @include button(flat-active, $tc:$fg, $c:$bg); }
-      &:checked .overview-icon { @include button(flat-checked, $tc:$fg, $c:$bg); }
+      &:focus .overview-icon {
+        @include button(flat-focus, $tc: $fg, $c: $bg);
+      }
+      &:hover .overview-icon {
+        @include button(flat-hover, $tc: $fg, $c: $bg);
+      }
+      &:active .overview-icon {
+        @include button(flat-active, $tc: $fg, $c: $bg);
+      }
+      &:checked .overview-icon {
+        @include button(flat-checked, $tc: $fg, $c: $bg);
+      }
     }
 
     // running app dot
@@ -73,8 +81,8 @@ $dash_spacing: $base_margin * 0.5;
   // separator between pinned and running apps
   .dash-separator {
     width: 1px;
-    margin-left:$base_margin;
-    margin-right:$base_margin;
+    margin-left: $base_margin;
+    margin-right: $base_margin;
     background-color: $system_borders_color;
   }
 

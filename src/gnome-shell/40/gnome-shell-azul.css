@@ -466,7 +466,7 @@ StEntry StLabel.hint-text {
 
 /* Check Boxes */
 .check-box StBoxLayout {
-  spacing: .8em;
+  spacing: 0.8em;
 }
 
 .check-box StBin {
@@ -561,17 +561,20 @@ StScrollBar StBin#trough {
   background-color: rgba(54, 54, 54, 0.1);
 }
 
-StScrollBar StButton#vhandle, StScrollBar StButton#hhandle {
+StScrollBar StButton#vhandle,
+StScrollBar StButton#hhandle {
   border-radius: 8px;
   background-color: #828282;
   border: 3px solid transparent;
 }
 
-StScrollBar StButton#vhandle:hover, StScrollBar StButton#hhandle:hover {
+StScrollBar StButton#vhandle:hover,
+StScrollBar StButton#hhandle:hover {
   background-color: #5c5c5c;
 }
 
-StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
+StScrollBar StButton#vhandle:active,
+StScrollBar StButton#hhandle:active {
   background-color: #3498db;
 }
 
@@ -579,15 +582,18 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: rgba(239, 239, 239, 0.1);
 }
 
-#overviewGroup StScrollBar StButton#vhandle, #overviewGroup StScrollBar StButton#hhandle {
+#overviewGroup StScrollBar StButton#vhandle,
+#overviewGroup StScrollBar StButton#hhandle {
   background-color: #9d9ea1;
 }
 
-#overviewGroup StScrollBar StButton#vhandle:hover, #overviewGroup StScrollBar StButton#hhandle:hover {
+#overviewGroup StScrollBar StButton#vhandle:hover,
+#overviewGroup StScrollBar StButton#hhandle:hover {
   background-color: #c6c6c8;
 }
 
-#overviewGroup StScrollBar StButton#vhandle:active, #overviewGroup StScrollBar StButton#hhandle:active {
+#overviewGroup StScrollBar StButton#vhandle:active,
+#overviewGroup StScrollBar StButton#hhandle:active {
   background-color: #3498db;
 }
 
@@ -821,7 +827,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   icon-shadow: none;
   color: #555555;
   font-weight: bold;
-  padding: .4em;
+  padding: 0.4em;
 }
 
 .events-section-title:focus {
@@ -2207,7 +2213,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 /* OVERVIEW */
-.controls-manager, .secondary-monitor-workspaces {
+.controls-manager,
+.secondary-monitor-workspaces {
   spacing: 12px;
 }
 
@@ -2398,7 +2405,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-radius: 13px;
 }
 
-.dash-item-container .app-well-app, .dash-item-container .show-apps {
+.dash-item-container .app-well-app,
+.dash-item-container .show-apps {
   padding: 10px 1.5px 26px;
 }
 
@@ -3564,15 +3572,19 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: #17181e;
 }
 
-#unlockDialogNotifications StButton#vhandle, #unlockDialogNotifications StButton#hhandle {
+#unlockDialogNotifications StButton#vhandle,
+#unlockDialogNotifications StButton#hhandle {
   background-color: rgba(245, 245, 245, 0.3);
 }
 
-#unlockDialogNotifications StButton#vhandle:hover, #unlockDialogNotifications StButton#vhandle:focus, #unlockDialogNotifications StButton#hhandle:hover, #unlockDialogNotifications StButton#hhandle:focus {
+#unlockDialogNotifications StButton#vhandle:hover, #unlockDialogNotifications StButton#vhandle:focus,
+#unlockDialogNotifications StButton#hhandle:hover,
+#unlockDialogNotifications StButton#hhandle:focus {
   background-color: rgba(245, 245, 245, 0.5);
 }
 
-#unlockDialogNotifications StButton#vhandle:active, #unlockDialogNotifications StButton#hhandle:active {
+#unlockDialogNotifications StButton#vhandle:active,
+#unlockDialogNotifications StButton#hhandle:active {
   background-color: rgba(52, 152, 219, 0.5);
 }
 
@@ -3620,7 +3632,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   text-align: center;
 }
 
-#dashtodockContainer.top.straight-corner, #dashtodockContainer.top.straight-corner #dash, #dashtodockContainer.top.shrink.straight-corner, #dashtodockContainer.top.shrink.straight-corner #dash, #dashtodockContainer.top.extended, #dashtodockContainer.top.extended #dash, #dashtodockContainer.top.shrink.extended, #dashtodockContainer.top.shrink.extended #dash {
+#dashtodockContainer.top.straight-corner,
+#dashtodockContainer.top.straight-corner #dash, #dashtodockContainer.top.shrink.straight-corner,
+#dashtodockContainer.top.shrink.straight-corner #dash, #dashtodockContainer.top.extended,
+#dashtodockContainer.top.extended #dash, #dashtodockContainer.top.shrink.extended,
+#dashtodockContainer.top.shrink.extended #dash {
   margin: 0 !important;
   margin-top: 0 !important;
   padding: 0 !important;
@@ -3644,7 +3660,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   margin: 0 !important;
 }
 
-#dashtodockContainer.bottom.straight-corner, #dashtodockContainer.bottom.straight-corner #dash, #dashtodockContainer.bottom.shrink.straight-corner, #dashtodockContainer.bottom.shrink.straight-corner #dash, #dashtodockContainer.bottom.extended, #dashtodockContainer.bottom.extended #dash, #dashtodockContainer.bottom.shrink.extended, #dashtodockContainer.bottom.shrink.extended #dash {
+#dashtodockContainer.bottom.straight-corner,
+#dashtodockContainer.bottom.straight-corner #dash, #dashtodockContainer.bottom.shrink.straight-corner,
+#dashtodockContainer.bottom.shrink.straight-corner #dash, #dashtodockContainer.bottom.extended,
+#dashtodockContainer.bottom.extended #dash, #dashtodockContainer.bottom.shrink.extended,
+#dashtodockContainer.bottom.shrink.extended #dash {
   margin: 0 !important;
   margin-top: 0 !important;
   padding: 0 !important;
@@ -3668,7 +3688,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   margin: 0 !important;
 }
 
-#dashtodockContainer.left.straight-corner, #dashtodockContainer.left.straight-corner #dash, #dashtodockContainer.left.shrink.straight-corner, #dashtodockContainer.left.shrink.straight-corner #dash, #dashtodockContainer.left.extended, #dashtodockContainer.left.extended #dash, #dashtodockContainer.left.shrink.extended, #dashtodockContainer.left.shrink.extended #dash {
+#dashtodockContainer.left.straight-corner,
+#dashtodockContainer.left.straight-corner #dash, #dashtodockContainer.left.shrink.straight-corner,
+#dashtodockContainer.left.shrink.straight-corner #dash, #dashtodockContainer.left.extended,
+#dashtodockContainer.left.extended #dash, #dashtodockContainer.left.shrink.extended,
+#dashtodockContainer.left.shrink.extended #dash {
   margin: 0 !important;
   margin-top: 0 !important;
   padding: 0 !important;
@@ -3692,7 +3716,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   margin: 0 !important;
 }
 
-#dashtodockContainer.right.straight-corner, #dashtodockContainer.right.straight-corner #dash, #dashtodockContainer.right.shrink.straight-corner, #dashtodockContainer.right.shrink.straight-corner #dash, #dashtodockContainer.right.extended, #dashtodockContainer.right.extended #dash, #dashtodockContainer.right.shrink.extended, #dashtodockContainer.right.shrink.extended #dash {
+#dashtodockContainer.right.straight-corner,
+#dashtodockContainer.right.straight-corner #dash, #dashtodockContainer.right.shrink.straight-corner,
+#dashtodockContainer.right.shrink.straight-corner #dash, #dashtodockContainer.right.extended,
+#dashtodockContainer.right.extended #dash, #dashtodockContainer.right.shrink.extended,
+#dashtodockContainer.right.shrink.extended #dash {
   margin: 0 !important;
   margin-top: 0 !important;
   padding: 0 !important;
@@ -3734,7 +3762,9 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-radius: 0;
 }
 
-#dashtodockContainer.left .dash-item-container .app-well-app, #dashtodockContainer.left .show-apps, #dashtodockContainer.right .dash-item-container .app-well-app, #dashtodockContainer.right .show-apps {
+#dashtodockContainer.left .dash-item-container .app-well-app,
+#dashtodockContainer.left .show-apps, #dashtodockContainer.right .dash-item-container .app-well-app,
+#dashtodockContainer.right .show-apps {
   padding: 1.5px 6px !important;
 }
 
@@ -3759,7 +3789,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding: 2px 0 !important;
 }
 
-#dashtodockContainer.left.extended .dash-item-container .app-well-app, #dashtodockContainer.left.extended .overview-tile, #dashtodockContainer.left.straight-corner .dash-item-container .app-well-app, #dashtodockContainer.left.straight-corner .overview-tile, #dashtodockContainer.right.extended .dash-item-container .app-well-app, #dashtodockContainer.right.extended .overview-tile, #dashtodockContainer.right.straight-corner .dash-item-container .app-well-app, #dashtodockContainer.right.straight-corner .overview-tile {
+#dashtodockContainer.left.extended .dash-item-container .app-well-app,
+#dashtodockContainer.left.extended .overview-tile, #dashtodockContainer.left.straight-corner .dash-item-container .app-well-app,
+#dashtodockContainer.left.straight-corner .overview-tile, #dashtodockContainer.right.extended .dash-item-container .app-well-app,
+#dashtodockContainer.right.extended .overview-tile, #dashtodockContainer.right.straight-corner .dash-item-container .app-well-app,
+#dashtodockContainer.right.straight-corner .overview-tile {
   padding: 1.5px 10px !important;
 }
 

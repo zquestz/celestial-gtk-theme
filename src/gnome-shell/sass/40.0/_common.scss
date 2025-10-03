@@ -37,7 +37,11 @@ $circular_radius: 1000px;
 
 // fonts
 $base_font_size: 11;
-$text_shadow_color: if($variant == 'light', rgba(255,255,255,0.3), rgba(0,0,0,0.2));
+$text_shadow_color: if(
+  $variant == "light",
+  rgba(255, 255, 255, 0.3),
+  rgba(0, 0, 0, 0.2)
+);
 
 // Fixed icon sizes
 $base_icon_size: 16px;
@@ -120,7 +124,7 @@ stage {
   box-shadow: none;
   border-radius: $modal_radius;
 
-  @if $variant == 'dark' {
+  @if $variant == "dark" {
     border: 1px solid rgba(black, 0.75);
   } @else {
     border: none;
@@ -132,61 +136,133 @@ stage {
   border-width: 1px;
   border-style: solid;
   border-radius: $base_border_radius;
-  padding: $base_padding * .5 $base_padding * 4;
+  padding: $base_padding * 0.5 $base_padding * 4;
   font-weight: bold;
-  transition: border-width 300ms $ease_out_quad,
-              box-shadow 300ms $ease_out_quad;
+  transition:
+    border-width 300ms $ease_out_quad,
+    box-shadow 300ms $ease_out_quad;
 }
 
 // button styling
 %button {
   @extend %button_common;
   @include button(normal);
-  &:focus { @include button(focus);}
-  &:hover { @include button(hover);}
-  &:insensitive { @include button(insensitive);}
+  &:focus {
+    @include button(focus);
+  }
+  &:hover {
+    @include button(hover);
+  }
+  &:insensitive {
+    @include button(insensitive);
+  }
   &:selected,
-  &:active { @include button(active);}
-  &:checked { @include button(checked);}
+  &:active {
+    @include button(active);
+  }
+  &:checked {
+    @include button(checked);
+  }
 }
 
 %icon_button {
   @extend %button_common;
   @include button(normal, $c: rgba($fg_color, 0.03));
 
-  &:focus { @include button(focus);}
-  &:hover { @include button(hover);}
-  &:insensitive { @include button(insensitive);}
+  &:focus {
+    @include button(focus);
+  }
+  &:hover {
+    @include button(hover);
+  }
+  &:insensitive {
+    @include button(insensitive);
+  }
   &:selected,
-  &:active { @include button(active);}
-  &:checked { @include button(checked);}
+  &:active {
+    @include button(active);
+  }
+  &:checked {
+    @include button(checked);
+  }
 }
 
 %flat_button {
   @include button(flat);
-  &:focus { @include button(flat-focus);}
-  &:hover { @include button(flat-hover);}
-  &:insensitive { @include button(flat-insensitive);}
+  &:focus {
+    @include button(flat-focus);
+  }
+  &:hover {
+    @include button(flat-hover);
+  }
+  &:insensitive {
+    @include button(flat-insensitive);
+  }
   &:selected,
-  &:active { @include button(flat-active);}
-  &:checked { @include button(flat-checked);}
+  &:active {
+    @include button(flat-active);
+  }
+  &:checked {
+    @include button(flat-checked);
+  }
 }
 
 %default_button {
-  @include button(normal, $c:$selected_bg_color, $tc:$selected_fg_color, $shadow: none);
-  &:focus { @include button(focus, $c:$selected_bg_color, $tc:$selected_fg_color, $shadow: none); }
-  &:hover { @include button(hover, $c:$selected_bg_color, $tc:$selected_fg_color, $shadow: none); }
-  &:insensitive { @include button(insensitive, $c:$selected_bg_color, $tc:$selected_fg_color, $shadow: none); }
-  &:active { @include button(active, $c:$selected_bg_color, $tc:$selected_fg_color, $shadow: none); }
+  @include button(
+    normal,
+    $c: $selected_bg_color,
+    $tc: $selected_fg_color,
+    $shadow: none
+  );
+  &:focus {
+    @include button(
+      focus,
+      $c: $selected_bg_color,
+      $tc: $selected_fg_color,
+      $shadow: none
+    );
+  }
+  &:hover {
+    @include button(
+      hover,
+      $c: $selected_bg_color,
+      $tc: $selected_fg_color,
+      $shadow: none
+    );
+  }
+  &:insensitive {
+    @include button(
+      insensitive,
+      $c: $selected_bg_color,
+      $tc: $selected_fg_color,
+      $shadow: none
+    );
+  }
+  &:active {
+    @include button(
+      active,
+      $c: $selected_bg_color,
+      $tc: $selected_fg_color,
+      $shadow: none
+    );
+  }
 }
 
 %osd_button {
   @extend %button_common;
-  @include button(normal, $c:$osd_bg_color, $tc:$osd_fg_color);
-  &:focus { @include button(focus, $c:$osd_bg_color, $tc:$osd_fg_color); }
-  &:hover { @include button(hover, $c:$osd_bg_color, $tc:$osd_fg_color); }
-  &:insensitive { @include button(insensitive, $c:$osd_bg_color, $tc:$osd_fg_color); }
-  &:active { @include button(active, $c:$osd_bg_color, $tc:$osd_fg_color); }
+  @include button(normal, $c: $osd_bg_color, $tc: $osd_fg_color);
+  &:focus {
+    @include button(focus, $c: $osd_bg_color, $tc: $osd_fg_color);
+  }
+  &:hover {
+    @include button(hover, $c: $osd_bg_color, $tc: $osd_fg_color);
+  }
+  &:insensitive {
+    @include button(insensitive, $c: $osd_bg_color, $tc: $osd_fg_color);
+  }
+  &:active {
+    @include button(active, $c: $osd_bg_color, $tc: $osd_fg_color);
+  }
 }
 
 // buttons in dialogs
@@ -197,11 +273,21 @@ stage {
   border-top: 1px solid $borders_color !important;
   border-left: 1px solid $borders_color !important;
 
-  &:insensitive { @include button(insensitive, $shadow: none); }
-  &:hover { @include button(hover, $shadow: none); }
-  &:focus { @include button(focus, $shadow: none); }
-  &:active { @include button(active, $shadow: none); }
-  &:checked { @include button(checked, $shadow: none);}
+  &:insensitive {
+    @include button(insensitive, $shadow: none);
+  }
+  &:hover {
+    @include button(hover, $shadow: none);
+  }
+  &:focus {
+    @include button(focus, $shadow: none);
+  }
+  &:active {
+    @include button(active, $shadow: none);
+  }
+  &:checked {
+    @include button(checked, $shadow: none);
+  }
 
   &:first-child:ltr {
     border-left: none !important;
@@ -246,12 +332,23 @@ stage {
   padding: $base_padding * 1.5 !important;
   border: 1px solid $borders_color;
 
-  &:focus { @include button(focus); box-shadow: inset 0 0 0 2px $borders_color !important; }
-  &:hover { @include button(hover);}
-  &:insensitive { @include button(insensitive);}
+  &:focus {
+    @include button(focus);
+    box-shadow: inset 0 0 0 2px $borders_color !important;
+  }
+  &:hover {
+    @include button(hover);
+  }
+  &:insensitive {
+    @include button(insensitive);
+  }
   &:selected,
-  &:active { @include button(active);}
-  &:checked { @include button(checked);}
+  &:active {
+    @include button(active);
+  }
+  &:checked {
+    @include button(checked);
+  }
 }
 
 // items in popover menus
@@ -267,7 +364,7 @@ stage {
   border-radius: $base_border_radius;
   box-shadow: 0 2px 6px rgba(black, 0.15);
   border: solid $borders_color;
-  border-width: if($variant == 'light', 0, 1px);
+  border-width: if($variant == "light", 0, 1px);
 }
 
 // tooltip
@@ -353,5 +450,9 @@ stage {
   @include fontsize(8);
 }
 
-%monospace {font-family: monospace;}
-%numeric { font-feature-settings: "tnum";}
+%monospace {
+  font-family: monospace;
+}
+%numeric {
+  font-feature-settings: "tnum";
+}

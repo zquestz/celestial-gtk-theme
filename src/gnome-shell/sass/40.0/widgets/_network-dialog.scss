@@ -10,14 +10,18 @@
   padding: 24px;
 }
 
-.nm-dialog-airplane-box { spacing: 12px; }
+.nm-dialog-airplane-box {
+  spacing: 12px;
+}
 
 .nm-dialog-airplane-headline {
   font-weight: bold;
   text-align: center;
 }
 
-.nm-dialog-airplane-text { color: $fg_color; }
+.nm-dialog-airplane-text {
+  color: $fg_color;
+}
 
 // header
 .nm-dialog-header {
@@ -26,12 +30,14 @@
 .nm-dialog-header-icon {
   icon-size: $base_icon_size * 2;
 }
-.nm-dialog-header-hbox { spacing: 10px; }
+.nm-dialog-header-hbox {
+  spacing: 10px;
+}
 
 // list of networks
 .nm-dialog-scroll-view {
   border: 1px solid $borders_color;
-  padding:0;
+  padding: 0;
   background-color: darken($bg_color, 3%);
 }
 
@@ -48,9 +54,17 @@
 }
 
 // icons in list
-.nm-dialog-icon { icon-size: $base_icon_size; }
-.nm-dialog-icons { spacing: $base_spacing * 2; }
+.nm-dialog-icon {
+  icon-size: $base_icon_size;
+}
+.nm-dialog-icons {
+  spacing: $base_spacing * 2;
+}
 
 // no networks
-.no-networks-label { color: $insensitive_fg_color; }
-.no-networks-box { spacing: $base_padding; }
+.no-networks-label {
+  color: $insensitive_fg_color;
+}
+.no-networks-box {
+  spacing: $base_padding;
+}

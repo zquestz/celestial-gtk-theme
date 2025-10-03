@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <gresources>
   <gresource prefix="/org/gnome/shell/theme">
     <file>assets/calendar-arrow-left.svg</file>

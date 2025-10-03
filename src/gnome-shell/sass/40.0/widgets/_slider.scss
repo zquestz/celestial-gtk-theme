@@ -1,7 +1,7 @@
 /* Slider */
 
 $slider_size: 18px;
-$slider_border: if($variant == 'light', rgba(black, 0.2), rgba(black, 0.45));
+$slider_border: if($variant == "light", rgba(black, 0.2), rgba(black, 0.45));
 
 .slider {
   height: $slider_size + 2px;
@@ -13,10 +13,18 @@ $slider_border: if($variant == 'light', rgba(black, 0.2), rgba(black, 0.45));
   -barlevel-border-color: $borders_color; // trough border color
   // fill style
   -barlevel-active-background-color: $selected_bg_color; //active trough fill
-  -barlevel-active-border-color: if($variant == 'light', darken($selected_bg_color, 4%), lighten($selected_bg_color, 2%)); //active trough border
+  -barlevel-active-border-color: if(
+    $variant == "light",
+    darken($selected_bg_color, 4%),
+    lighten($selected_bg_color, 2%)
+  ); //active trough border
   // overfill style (red in this case)
   -barlevel-overdrive-color: $destructive_color;
-  -barlevel-overdrive-border-color: if($variant == 'light', darken($destructive_color, 4%), lighten($destructive_color, 2%)); //trough border when red;
+  -barlevel-overdrive-border-color: if(
+    $variant == "light",
+    darken($destructive_color, 4%),
+    lighten($destructive_color, 2%)
+  ); //trough border when red;
   -barlevel-overdrive-separator-width: 1px;
   // slider handler
   -slider-handle-radius: $slider_size * 0.5; // half the size of the size

@@ -18,17 +18,20 @@
     color: $fg_color;
   }
 
-  .modal-dialog-button-box { spacing: 3px; }
+  .modal-dialog-button-box {
+    spacing: 3px;
+  }
   .modal-dialog-button {
     padding: 4px 18px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     background-color: darken($_gdm_bg, 3%);
     border-color: darken($_gdm_bg, 3%);
     color: $osd_fg_color;
 
     $_hover_c: lighten($_gdm_bg, 5%);
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: $_hover_c;
       border-color: $_hover_c;
     }
@@ -45,16 +48,21 @@
       color: transparentize($osd_fg_color, 0.3);
     }
     &:default {
-      @include button(normal, $c:$selected_bg_color, $tc:$selected_fg_color);
+      @include button(normal, $c: $selected_bg_color, $tc: $selected_fg_color);
       border-color: $selected_bg_color;
-      &:hover, &:focus { 
-        @include button(hover,$c:$selected_bg_color, $tc:$selected_fg_color);
+      &:hover,
+      &:focus {
+        @include button(hover, $c: $selected_bg_color, $tc: $selected_fg_color);
         $_def_hover_c: lighten($selected_bg_color, 5%);
         background-color: $_def_hover_c;
         border-color: $_def_hover_c;
       }
       &:active {
-        @include button(active,$c:$selected_bg_color, $tc:$selected_fg_color);
+        @include button(
+          active,
+          $c: $selected_bg_color,
+          $tc: $selected_fg_color
+        );
         $_def_active_c: darken($selected_bg_color, 5%);
         background-color: $_def_active_c;
         border-color: $_def_active_c;
@@ -78,7 +86,9 @@
     border-color: darken($system_bg_color, 3%);
     background-color: darken($system_bg_color, 3%);
 
-    StIcon { icon-size: $base_icon_size; }
+    StIcon {
+      icon-size: $base_icon_size;
+    }
   }
 
   .caps-lock-warning-label,
@@ -87,11 +97,22 @@
   }
 }
 
-.login-dialog-logo-bin { padding: 24px 0px; }
-.login-dialog-banner { color: darken($osd_fg_color,10%); }
-.login-dialog-button-box { width: 23em; spacing: 5px; }
-.login-dialog-message { text-align: center; }
-.login-dialog-user-selection-box { padding: 100px 0px; }
+.login-dialog-logo-bin {
+  padding: 24px 0px;
+}
+.login-dialog-banner {
+  color: darken($osd_fg_color, 10%);
+}
+.login-dialog-button-box {
+  width: 23em;
+  spacing: 5px;
+}
+.login-dialog-message {
+  text-align: center;
+}
+.login-dialog-user-selection-box {
+  padding: 100px 0px;
+}
 .login-dialog-not-listed-label {
   padding-left: 2px;
   .login-dialog-not-listed-button:focus &,
@@ -103,30 +124,43 @@
 .login-dialog-not-listed-label {
   @include fontsize($base_font_size - 1);
   font-weight: bold;
-  color: darken($osd_fg_color,30%);
+  color: darken($osd_fg_color, 30%);
   padding-top: 1em;
 }
 
-.login-dialog-user-list-view { -st-vfade-offset: 1em; }
+.login-dialog-user-list-view {
+  -st-vfade-offset: 1em;
+}
 .login-dialog-user-list {
   spacing: 12px;
   width: 23em;
-  &:expanded .login-dialog-user-list-item:selected { background-color: $selected_bg_color; color: $selected_fg_color; }
-  &:expanded .login-dialog-user-list-item:logged-in { border-right: 2px solid $selected_bg_color; }
+  &:expanded .login-dialog-user-list-item:selected {
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+  }
+  &:expanded .login-dialog-user-list-item:logged-in {
+    border-right: 2px solid $selected_bg_color;
+  }
 }
 
 .login-dialog-user-list-item {
   border-radius: $base_border_radius + 4px;
   padding: 6px;
-  color: darken($osd_fg_color,30%);
-  &:ltr .user-widget { padding-right: 1em; }
-  &:rtl .user-widget { padding-left: 1em; }
+  color: darken($osd_fg_color, 30%);
+  &:ltr .user-widget {
+    padding-right: 1em;
+  }
+  &:rtl .user-widget {
+    padding-left: 1em;
+  }
   .login-dialog-timed-login-indicator {
     height: 2px;
     margin-top: 6px;
     background-color: $osd_fg_color;
   }
-  &:focus .login-dialog-timed-login-indicator { background-color: $selected_fg_color; }
+  &:focus .login-dialog-timed-login-indicator {
+    background-color: $selected_fg_color;
+  }
 }
 
 .user-widget-label {
@@ -138,8 +172,14 @@
   font-weight: bold;
   padding-left: 15px;
 
-  &:ltr { padding-left: 14px; text-align: left; }
-  &:rtl { padding-right: 14px; text-align: right; }
+  &:ltr {
+    padding-left: 14px;
+    text-align: left;
+  }
+  &:rtl {
+    padding-right: 14px;
+    text-align: right;
+  }
 }
 
 .user-widget.vertical .user-widget-label {

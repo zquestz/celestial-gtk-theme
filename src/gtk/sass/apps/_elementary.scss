@@ -1,5 +1,4 @@
-
- /**********************
+/**********************
  * Elementary Desktop *
  **********************/
 
@@ -41,21 +40,29 @@
 
   .menubar > .menuitem {
     padding: 3px 6px;
-    &:hover { background-color: transparent; }
+    &:hover {
+      background-color: transparent;
+    }
   }
 
   popover {
     padding: 2px 4px;
     font-weight: normal;
-    border: 1px solid if($variant == 'light', rgba(black, 0.25), rgba(white, 0.12));
-    box-shadow: 0 2px 3px rgba(black, 0.12), 0 3px 6px rgba(black, 0.08);
+    border: 1px solid
+      if($variant == "light", rgba(black, 0.25), rgba(white, 0.12));
+    box-shadow:
+      0 2px 3px rgba(black, 0.12),
+      0 3px 6px rgba(black, 0.08);
 
     button {
       font-weight: normal;
       background-color: transparent;
 
-      &:active, &:checked {
-        label { color: white; }
+      &:active,
+      &:checked {
+        label {
+          color: white;
+        }
       }
     }
 
@@ -63,7 +70,9 @@
       border-color: $borders_color;
     }
 
-    list { background-color: transparent; }
+    list {
+      background-color: transparent;
+    }
 
     separator.horizontal {
       margin: 0 -4px;
@@ -99,7 +108,10 @@
 
 // Popover switcher dots
 button.flat.toggle.switcher {
-  &:hover, &:active, &:checked, &:selected {
+  &:hover,
+  &:active,
+  &:checked,
+  &:selected {
     image {
       color: $selected_bg_color;
     }
@@ -107,9 +119,13 @@ button.flat.toggle.switcher {
 }
 
 // Calendar Popover
-.circular { // Calendar popover date button
-  label:disabled { color: $insensitive_fg_color; }
-  &.accent { // Today button
+.circular {
+  // Calendar popover date button
+  label:disabled {
+    color: $insensitive_fg_color;
+  }
+  &.accent {
+    // Today button
     color: $selected_fg_color;
     background-color: $selected_bg_color;
   }
@@ -120,7 +136,9 @@ button.flat.toggle.switcher {
 }
 
 .panel .menu .spinner,
-.menu .spinner { opacity: 1; } // Fixes sound indicator buttons
+.menu .spinner {
+  opacity: 1;
+} // Fixes sound indicator buttons
 
 .composited-indicator {
   background-color: transparent;
@@ -146,9 +164,12 @@ button.flat.toggle.switcher {
     text-shadow: none;
   }
 
-  > GtkWidget > GtkWidget:first-child { padding: 0 2px; }
+  > GtkWidget > GtkWidget:first-child {
+    padding: 0 2px;
+  }
 
-  .menuitem:active, .menuitem:hover {
+  .menuitem:active,
+  .menuitem:hover {
     border-style: none;
   }
 
@@ -164,19 +185,26 @@ BirdieWidgetsTweetList * {
   background-color: transparent;
 }
 
-
 // Marlin / Pantheon Files
 MarlinViewWindow {
-
-  *:selected, *:selected:focus {
+  *:selected,
+  *:selected:focus {
     color: $selected_fg_color;
     background-color: $selected_bg_color;
     outline-color: transparent;
   }
   GtkIconView.view:selected {
-    &, &:focus, &:hover, &:focus:hover { background-color: transparent; }
+    &,
+    &:focus,
+    &:hover,
+    &:focus:hover {
+      background-color: transparent;
+    }
   }
-  FMListView, FMColumnView { outline-color: transparent; }
+  FMListView,
+  FMColumnView {
+    outline-color: transparent;
+  }
 }
 
 .marlin-pathbar.pathbar {
@@ -186,11 +214,16 @@ MarlinViewWindow {
 
   @include entry(header-normal);
 
-  &:focus { @include entry(header-focus) }
+  &:focus {
+    @include entry(header-focus);
+  }
 
-  &:disabled { @include entry(header-insensitive) }
+  &:disabled {
+    @include entry(header-insensitive);
+  }
 
-  &:active, &:checked {
+  &:active,
+  &:checked {
     color: $selected_bg_color;
   }
 }
@@ -211,7 +244,8 @@ treeview.view {
         border-radius: 3px;
         border-width: 0;
 
-        &:selected, &:selected:focus {
+        &:selected,
+        &:selected:focus {
           color: $selected_fg_color;
           background-color: rgba(black, 0.2);
           border-radius: 3px;
@@ -225,13 +259,18 @@ treeview.view {
 .dynamic-notebook {
   notebook {
     iconview.view.cell {
-      &:selected { background-color: if($variant == 'light', rgba(black, 0.1), rgba(white, 0.08)); }
+      &:selected {
+        background-color: if(
+          $variant == "light",
+          rgba(black, 0.1),
+          rgba(white, 0.08)
+        );
+      }
     }
   }
 }
 
 headerbar.titlebar {
-
   entry.pathbar {
     min-height: 0;
   }
@@ -253,7 +292,9 @@ headerbar.titlebar {
 popover {
   radiobutton {
     &.color-button {
-      &.color-light, &.color-dark, &.color-white {
+      &.color-light,
+      &.color-dark,
+      &.color-white {
         border: 1px solid $borders_color;
       }
     }
@@ -262,13 +303,14 @@ popover {
 
 // Gala
 .gala-notification {
-    border: 1px solid rgba(0, 0, 0, 0.35);
-    border-radius: 3px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    background-image: _solid(white);
-    background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: _solid(white);
+  background-color: transparent;
 
-  .title, .label {
+  .title,
+  .label {
     color: #5c616c;
   }
 }
@@ -278,7 +320,8 @@ actionbar.inline-toolbar {
   border: none;
   border-top: 1px solid $borders_color;
 
-  button { // Reset buttons
+  button {
+    // Reset buttons
     border-radius: 3px;
     border: 1px solid $borders_color;
     &:first-child {
@@ -292,6 +335,10 @@ actionbar.inline-toolbar {
 
 // Nightlight warmth trough
 scale.warmth trough {
-  background-image: linear-gradient(to right, $suggested_color, $destructive_color);
+  background-image: linear-gradient(
+    to right,
+    $suggested_color,
+    $destructive_color
+  );
   box-shadow: inset 0 0 0 1px rgba($borders_color, 0.25);
 }

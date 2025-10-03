@@ -8,12 +8,22 @@
   padding: 2px;
 
   // padding and margins to account for scrollbar
-  &:ltr { margin-left: 0; margin-right: $base_margin / 2; padding-right: $base_margin / 2; border-right-width: 1px; }
-  &:rtl { margin-right: 0; margin-left: $base_margin / 2; padding-left: $base_margin / 2; border-left-width: 1px; }
+  &:ltr {
+    margin-left: 0;
+    margin-right: $base_margin / 2;
+    padding-right: $base_margin / 2;
+    border-right-width: 1px;
+  }
+  &:rtl {
+    margin-right: 0;
+    margin-left: $base_margin / 2;
+    padding-left: $base_margin / 2;
+    border-left-width: 1px;
+  }
 
   .message-list-placeholder {
     @extend %title_3;
-    color: transparentize($fg_color, .55);
+    color: transparentize($fg_color, 0.55);
 
     // icon size and color
     > StIcon {
@@ -26,8 +36,12 @@
 
 .message-view {
   // to account for scrollbar
-  &:ltr { margin-right: $base_margin * 4; }
-  &:rtl { margin-left: $base_margin * 4; }
+  &:ltr {
+    margin-right: $base_margin * 4;
+  }
+  &:rtl {
+    margin-left: $base_margin * 4;
+  }
 
   -st-vfade-offset: 68px;
 
@@ -79,8 +93,12 @@
     padding: 8px !important;
     border: none;
 
-    &:hover { background-color: transparentize($fg_color, 0.7); }
-    &:active { background-color: transparentize($fg_color, 0.8); }
+    &:hover {
+      background-color: transparentize($fg_color, 0.7);
+    }
+    &:active {
+      background-color: transparentize($fg_color, 0.8);
+    }
   }
 }
 
@@ -91,16 +109,27 @@
   margin: 0 2px;
 
   &:second-in-stack {
-    background-color: if($variant == 'light', darken($base_color, 4%), darken($base_color, 1%));
+    background-color: if(
+      $variant == "light",
+      darken($base_color, 4%),
+      darken($base_color, 1%)
+    );
     box-shadow: 0 1px 1px 0 rgba(black, 0.05);
   }
 
   &:lower-in-stack {
-    background-color: if($variant == 'light', darken($base_color, 7%), darken($base_color, 4%));
+    background-color: if(
+      $variant == "light",
+      darken($base_color, 7%),
+      darken($base_color, 4%)
+    );
     box-shadow: none;
-    border-color: if($variant == 'light', darken($base_color, 10%), transparent); // a not ideal workaround for light theme
+    border-color: if(
+      $variant == "light",
+      darken($base_color, 10%),
+      transparent
+    ); // a not ideal workaround for light theme
   }
-
 
   // message header
   .message-header {
@@ -109,8 +138,12 @@
     color: $insensitive_fg_color;
 
     // remove side padding to accommodate the close button
-    &:ltr { padding-right: 0; }
-    &:rtl { padding-left: 0; }
+    &:ltr {
+      padding-right: 0;
+    }
+    &:rtl {
+      padding-left: 0;
+    }
 
     // header source icon
     .message-source-icon {
@@ -136,8 +169,12 @@
         // Add bottom padding to align the app name with the time horizontally
         padding-bottom: to_em(1px);
 
-        &:ltr { text-align: right; }
-        &:rtl { text-align: left; }
+        &:ltr {
+          text-align: right;
+        }
+        &:rtl {
+          text-align: left;
+        }
       }
     }
 
@@ -146,15 +183,21 @@
     .message-close-button {
       @extend .icon-button;
       color: $fg_color;
-      background-color: transparentize($fg_color, .9);
+      background-color: transparentize($fg_color, 0.9);
       padding: 4px;
       margin: $base_padding / 2;
       border: none;
 
-      &:hover { background-color: transparentize($fg_color, .81);}
+      &:hover {
+        background-color: transparentize($fg_color, 0.81);
+      }
       &:active,
-      &:active:hover { background-color: transparentize($fg_color, .76);}
-      &:insensitive { background-color: transparentize($fg_color, .93);}
+      &:active:hover {
+        background-color: transparentize($fg_color, 0.76);
+      }
+      &:insensitive {
+        background-color: transparentize($fg_color, 0.93);
+      }
     }
   }
 
@@ -167,8 +210,12 @@
 
     // icon of the message
     .message-icon {
-      &:ltr { margin-right: $base_padding; }
-      &:rtl { margin-left: $base_padding; }
+      &:ltr {
+        margin-right: $base_padding;
+      }
+      &:rtl {
+        margin-left: $base_padding;
+      }
 
       // icon size and color
       icon-size: $base_icon_size * 3; // 48px
@@ -209,12 +256,20 @@
       margin: 0 $base_margin;
       // remove margins
       &:first-child {
-        &:ltr { margin-left:0;}
-        &:rtl { margin-right:0;}
+        &:ltr {
+          margin-left: 0;
+        }
+        &:rtl {
+          margin-right: 0;
+        }
       }
       &:last-child {
-        &:ltr { margin-right:0;}
-        &:rtl { margin-left:0;}
+        &:ltr {
+          margin-right: 0;
+        }
+        &:rtl {
+          margin-left: 0;
+        }
       }
     }
   }
@@ -247,7 +302,9 @@
     color: lighten($insensitive_fg_color, 5%);
   }
 
-  & StIcon { icon-size: $base_icon_size; }
+  & StIcon {
+    icon-size: $base_icon_size;
+  }
 }
 
 .media-message {

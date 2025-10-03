@@ -1,6 +1,6 @@
 // Rubberband for select-area screenshots
 .select-area-rubberband {
-  background-color: transparentize($selected_bg_color,0.7);
+  background-color: transparentize($selected_bg_color, 0.7);
   border: 1px solid $selected_bg_color;
 }
 
@@ -11,14 +11,15 @@
   border-radius: 99px;
   icon-size: $base_icon_size * 4; // 64px
   &:hover {
-    color: lighten($osd_fg_color,30%);
+    color: lighten($osd_fg_color, 30%);
   }
 
   & StIcon {
-    background-color: transparentize($osd_fg_color,0.95);
+    background-color: transparentize($osd_fg_color, 0.95);
     border-radius: 99px;
-    padding: $base_padding * 2 ; // 12px
-    width: $base_icon_size * 2.5; height:  $base_icon_size * 2.5; // 40px;
+    padding: $base_padding * 2; // 12px
+    width: $base_icon_size * 2.5;
+    height: $base_icon_size * 2.5; // 40px;
   }
 
   &.user-avatar {
@@ -33,16 +34,22 @@
     padding: $base_padding * 3 + 2px; // 20px
     padding-top: $base_padding * 3; // 18 px
     padding-bottom: $base_padding * 3 + 4px; // 22px
-    width: $base_icon_size * 5.5; height:  $base_icon_size * 5.5; // 88px;
+    width: $base_icon_size * 5.5;
+    height: $base_icon_size * 5.5; // 88px;
   }
 }
 
-.lightbox { background-color: black; }
-.flashspot { background-color: white; }
-
+.lightbox {
+  background-color: black;
+}
+.flashspot {
+  background-color: white;
+}
 
 // Hidden
-.hidden { color: rgba(0,0,0,0);}
+.hidden {
+  color: rgba(0, 0, 0, 0);
+}
 
 // Caps-lock warning
 .caps-lock-warning-label {
