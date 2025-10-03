@@ -10,7 +10,9 @@
   padding: 3px 6px;
   margin: 3px;
 
-  label { color: $selected_fg_color; }
+  label {
+    color: $selected_fg_color;
+  }
 }
 
 //
@@ -22,7 +24,6 @@ GraniteWidgetsThinPaned {
   margin: 0;
   border-left: 1px solid $borders_color;
   border-right: 1px solid $borders_color;
-
 }
 
 // avoid borders when a viewport is
@@ -36,8 +37,8 @@ GraniteWidgetsStaticNotebook .frame {
 // Help Button
 //
 .help_button {
-    border-radius: 100px;
-    padding: 3px 9px;
+  border-radius: 100px;
+  padding: 3px 9px;
 }
 
 //
@@ -47,7 +48,9 @@ toolbar.secondary-toolbar {
   padding: 3px;
   border-bottom: 1px solid $borders_color;
 
-  button { padding: 0 3px 0 3px; }
+  button {
+    padding: 0 3px 0 3px;
+  }
 }
 
 //
@@ -60,15 +63,17 @@ toolbar.bottom-toolbar {
   border-color: $borders_color;
   background-color: $bg_color;
 
-  button { padding: 2px 3px 2px 3px; }
+  button {
+    padding: 2px 3px 2px 3px;
+  }
 }
 
 //
 // Sidebar & Source List
 //
 .source-list {
-  -GtkTreeView-horizontal-separator: 1px;
-  -GtkTreeView-vertical-separator: 6px;
+  -gtktreeview-horizontal-separator: 1px;
+  -gtktreeview-vertical-separator: 6px;
 }
 
 .source-list,
@@ -97,9 +102,9 @@ toolbar.bottom-toolbar {
 .source-list scrollbar,
 .source-list junction {
   border-image: none;
-	border-color: transparent;
-	background-color: $bg_color;
-	background-image: none;
+  border-color: transparent;
+  background-color: $bg_color;
+  background-image: none;
 }
 
 .source-list.badge,
@@ -127,19 +132,19 @@ toolbar.bottom-toolbar {
 // Expander
 //
 .source-list.category-expander {
-    color: $fg_color;
-    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
-    -GtkTreeView-expander-size: 16;
+  color: $fg_color;
+  -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+  -gtktreeview-expander-size: 16;
 }
 
 .source-list.category-expander,
 .source-list.category-expander:backdrop {
-    color: transparent;
-    border: none;
+  color: transparent;
+  border: none;
 }
 
 .source-list.category-expander:checked {
-    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }
 
 //
@@ -171,11 +176,11 @@ GraniteWidgetsWelcome .h3 {
 // Popover
 //
 GraniteWidgetsPopOver {
-  -GraniteWidgetsPopOver-arrow-width: 21;
-  -GraniteWidgetsPopOver-arrow-height: 10;
-  -GraniteWidgetsPopOver-border-radius: 2px;
-  -GraniteWidgetsPopOver-border-width: 1;
-  -GraniteWidgetsPopOver-shadow-size: 12;
+  -granitewidgetspopover-arrow-width: 21;
+  -granitewidgetspopover-arrow-height: 10;
+  -granitewidgetspopover-border-radius: 2px;
+  -granitewidgetspopover-border-width: 1;
+  -granitewidgetspopover-shadow-size: 12;
 
   border: 1px solid rgba(black, 0.3);
   margin: 0;
@@ -194,25 +199,33 @@ GraniteWidgetsPopOver * {
 //
 // Xs Entry
 //
-GraniteWidgetsXsEntry entry { padding: 4px; }
+GraniteWidgetsXsEntry entry {
+  padding: 4px;
+}
 
 //
 // Text Styles
 //
-.h1 { font-size: 24px; }
-.h2 { font-size: 18px; }
-.h3 { font-size: 11px; }
+.h1 {
+  font-size: 24px;
+}
+.h2 {
+  font-size: 18px;
+}
+.h3 {
+  font-size: 11px;
+}
 .h4,
 .category-label {
-    color: mix($bg_color, $text_color, 30%);
-    font-weight: 600;
+  color: mix($bg_color, $text_color, 30%);
+  font-weight: 600;
 }
 
 .h4 {
-    padding-bottom: 6px;
-    padding-top: 6px;
+  padding-bottom: 6px;
+  padding-top: 6px;
 }
 
-GtkListBox .h4{
-	padding-left: 6px;
+GtkListBox .h4 {
+  padding-left: 6px;
 }

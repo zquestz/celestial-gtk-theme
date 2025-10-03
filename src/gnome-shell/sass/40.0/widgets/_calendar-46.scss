@@ -12,9 +12,15 @@
 // Calendar menu side column
 .datemenu-calendar-column {
   spacing: $base_padding;
-  &:ltr { padding-left: $base_margin; }
-  &:rtl { padding-right: $base_margin; }
-  .datemenu-displays-box { spacing: $base_padding; }
+  &:ltr {
+    padding-left: $base_margin;
+  }
+  &:rtl {
+    padding-right: $base_margin;
+  }
+  .datemenu-displays-box {
+    spacing: $base_padding;
+  }
 }
 
 /* today button (the date) */
@@ -66,8 +72,13 @@
       margin: 2px;
       border-radius: $circular_radius;
       @include button(flat);
-      &:hover, &:focus { @include button(flat-hover); }
-      &:active { @include button(flat-active); }
+      &:hover,
+      &:focus {
+        @include button(flat-hover);
+      }
+      &:active {
+        @include button(flat-active);
+      }
     }
   }
 
@@ -87,7 +98,10 @@
     font-weight: bold;
     text-align: center;
 
-    &:hover, &:focus, &:active, &:selected {
+    &:hover,
+    &:focus,
+    &:active,
+    &:selected {
       box-shadow: none !important;
     }
 
@@ -115,7 +129,11 @@
     }
 
     &.calendar-day-with-events {
-      background-image: if($variant == 'light', url("resource:///org/gnome/shell/theme/calendar-today-light.svg"),url("resource:///org/gnome/shell/theme/calendar-today.svg"));
+      background-image: if(
+        $variant == "light",
+        url("resource:///org/gnome/shell/theme/calendar-today-light.svg"),
+        url("resource:///org/gnome/shell/theme/calendar-today.svg")
+      );
       background-size: contain;
     }
   }
@@ -141,7 +159,7 @@
     margin: $base_padding;
     padding: 0 $base_padding;
     border-radius: $base_border_radius * 0.5;
-    background-color: transparentize($insensitive_fg_color, .8);
+    background-color: transparentize($insensitive_fg_color, 0.8);
     color: $insensitive_fg_color;
   }
 }
@@ -218,8 +236,12 @@
       @extend %numeric;
       font-weight: bold;
 
-      &:ltr {text-align: right;}
-      &:rtl {text-align: left;}
+      &:ltr {
+        text-align: right;
+      }
+      &:rtl {
+        text-align: left;
+      }
     }
 
     // timezone offset label
@@ -244,7 +266,7 @@
         @extend %heading;
         color: $insensitive_fg_color;
 
-         // change style when no location is configured
+        // change style when no location is configured
         &.no-location {
           color: $fg_color;
         }

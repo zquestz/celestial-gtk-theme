@@ -1,32 +1,433 @@
-# Hacking
+# Development Guide
 
-## Summary
+This guide provides detailed information for developers who want to contribute to or modify the Celestial GTK Theme.
 
-- Do not edit the CSS directly, edit the source SCSS files and process them with Sass (run
-  `./parse-sass.sh` when you have the required software installed, as described below)
-- To be able to use the latest/adequate version of sass, install ruby, rubygems, sass & bundler.
+## Table of Contents
 
-## Tweaking
+- [Quick Start](#quick-start)
+- [Prerequisites](#prerequisites)
+- [Project Structure](#project-structure)
+- [Development Workflow](#development-workflow)
+- [Working with SCSS](#working-with-scss)
+- [Asset Generation](#asset-generation)
+- [Testing Your Changes](#testing-your-changes)
+- [Submitting Changes](#submitting-changes)
+- [Style Guidelines](#style-guidelines)
 
-Clestial is a complex theme, so to keep it maintainable it's written and processed in Sass. The
-generated CSS is then transformed into a gresource file during GTK build and used at runtime in a
-non-legible or editable form.
+## Quick Start
 
-It is very likely your change will happen in the _common.scss file. That's where all the widget
-selectors are defined. Here's a rundown of the "supporting" stylesheets, that are unlikely to be the
-right place for a drive by stylesheet fix:
+```bash
+# 1. Fork and clone the repository
+git clone https://github.com/YOUR_USERNAME/celestial-gtk-theme.git
+cd celestial-gtk-theme
 
-_colors.scss - global color definitions. We keep the number of defined colors to a necessary minimum,
-most colors are derived form a handful of basics. It covers both the light variant and
-the dark variant.
+# 2. Make your changes to SCSS files in src/*/sass/
 
-_colors-public.scss - SCSS colors exported through GTK to allow for 3rd party apps color mixing.
+# 3. Compile the theme
+./parse_sass.sh
 
-_drawing.scss - drawing helper mixings/functions to allow easier definition of widget drawing under
-specific context.
+# 4. Install and test
+./install.sh -t sea -c dark
 
-_common.scss - actual definitions of style for each widget. This is where you are likely to add/remove
-your changes.
+# 5. Create a pull request
+```
 
-You can read about Sass at http://sass-lang.com/documentation/. Once you make your changes to the
-_common.scss file, run the `parse-sass.sh` script.
+## Prerequisites
+
+### Required Tools
+
+- `sassc` - SCSS compiler (required for building)
+- `git` - Version control
+
+### Optional Tools (for asset generation)
+
+- `inkscape` - SVG to PNG rendering
+- `optipng` - PNG optimization
+
+### Installing Build Dependencies
+
+**Fedora/RHEL:**
+
+```bash
+sudo dnf install sassc inkscape optipng
+```
+
+**Ubuntu/Debian:**
+
+```bash
+sudo apt install sassc inkscape optipng
+```
+
+**Arch Linux:**
+
+```bash
+sudo pacman -S sassc inkscape optipng
+```
+
+## Project Structure
+
+```
+celestial-gtk-theme/
+├── src/
+│   ├── cinnamon/              # Cinnamon desktop theme
+│   ├── extra/
+│   │   ├── firefox/           # Firefox theme
+│   │   └── gtksourceview/     # Text editor syntax highlighting
+│   ├── gnome-shell/           # GNOME Shell theme
+│   ├── gtk/
+│   │   ├── sass/              # GTK 3.0/4.0 SCSS sources
+│   │   ├── gtk-3.0/           # Compiled GTK 3.0 CSS
+│   │   ├── gtk-4.0/           # Compiled GTK 4.0 CSS
+│   │   ├── assets-*/          # GTK theme assets (PNG)
+│   │   └── assets-*.svg       # Asset source files
+│   ├── gtk-2.0/               # GTK 2.0 theme
+│   ├── metacity-1/            # Metacity window manager theme
+│   ├── openbox-3/             # Openbox theme
+│   ├── plank/                 # Plank dock theme
+│   ├── unity/                 # Unity desktop theme
+│   └── xfwm4/                 # XFCE window manager theme
+├── AUTHORS.md                 # List of contributors
+├── HACKING.md                 # Development guide (this file)
+├── INSTALL.md                 # Installation instructions
+├── LICENSE.md                 # License information
+├── README.md                  # Project overview
+├── install.sh                 # Installation script
+├── optimize_svg.sh            # SVG optimization script
+├── parse_sass.sh              # Build script (compiles SCSS to CSS)
+└── update.sh                  # Theme update script
+```
+
+## Development Workflow
+
+### Important: Never Edit CSS Directly
+
+**Always edit the SCSS source files**, not the generated CSS files. The CSS files are automatically generated and will be overwritten.
+
+### SCSS Source Files
+
+The theme uses SCSS (Sass) for maintainability and organization. Key files:
+
+#### `src/gtk/sass/_colors.scss`
+
+Global color definitions for all theme variants. Defines colors for:
+
+- Each color variant (Sea, Aliz, Azul, Pueril)
+- Light and dark modes
+- Header styles (light/dark headers)
+
+**Example:**
+
+```scss
+@if $color== "azul" {
+  $selected_bg_color: #3498db;
+}
+```
+
+#### `src/gtk/sass/_colors-public.scss`
+
+Colors exported to GTK for third-party apps to use for color mixing and theming.
+
+#### `src/gtk/sass/_drawing.scss`
+
+Helper mixins and functions for drawing widgets. Contains reusable code for:
+
+- Button states (normal, hover, active, disabled)
+- Entry fields
+- Borders and shadows
+- Gradients
+
+#### `src/gtk/sass/_common-3.0.scss` and `_common-4.0.scss`
+
+**This is where most changes happen.** Contains all widget style definitions:
+
+- Buttons, entries, labels
+- Headerbars and toolbars
+- Lists, trees, and views
+- Popovers and menus
+- Application-specific styles
+
+### Building the Theme
+
+After making changes to SCSS files, compile the theme:
+
+```bash
+./parse_sass.sh
+```
+
+This script:
+
+1. Processes all SCSS files
+2. Generates CSS for all color variants
+3. Generates CSS for all theme modes (light, standard, dark)
+4. Generates CSS for all desktop environments
+
+**Output:** CSS files are generated in:
+
+- `src/gtk/gtk-3.0/gtk-*.css`
+- `src/gtk/gtk-4.0/gtk-*.css`
+- `src/gnome-shell/*/gnome-shell-*.css`
+- `src/cinnamon/cinnamon-*.css`
+
+## Working with SCSS
+
+### Color Variants
+
+The theme supports 4 color variants, controlled by the `$color` variable:
+
+- `sea` - Cool cyan tones
+- `aliz` - Warm crimson hues
+- `azul` - Deep blue accents
+- `pueril` - Fresh green tones
+
+### Theme Modes
+
+Controlled by the `$variant` variable:
+
+- `light` - Light theme
+- `dark` - Dark theme
+- (standard uses conditional logic based on variant)
+
+### Header Styles
+
+Controlled by the `$header` variable:
+
+- `light` - Light headerbar
+- `dark` - Dark headerbar
+
+### Using Variables
+
+```scss
+// Good - uses variables
+.my-widget {
+  background-color: $bg_color;
+  color: $fg_color;
+  border-color: $borders_color;
+}
+
+// Bad - hardcoded colors
+.my-widget {
+  background-color: #ffffff;
+  color: #000000;
+}
+```
+
+### Adding New Widget Styles
+
+1. Find the appropriate section in `_common-3.0.scss` or `_common-4.0.scss`
+2. Add your selector and styles
+3. Use existing color variables
+4. Test with multiple color variants and modes
+5. Compile and test
+
+**Example:**
+
+```scss
+.my-custom-widget {
+  background-color: $base_color;
+  color: $text_color;
+  border: 1px solid $borders_color;
+
+  &:hover {
+    background-color: lighten($base_color, 5%);
+  }
+
+  &:active {
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+  }
+}
+```
+
+## Asset Generation
+
+Theme assets (PNG files) are generated from SVG sources. If you modify SVG files, regenerate the assets.
+
+### GTK Assets
+
+```bash
+cd src/gtk
+./render-assets.sh
+```
+
+See [src/gtk/README.md](src/gtk/README.md) for details.
+
+### GTK 2.0 Assets
+
+```bash
+cd src/gtk-2.0
+./render-assets.sh
+```
+
+See [src/gtk-2.0/README.md](src/gtk-2.0/README.md) for details.
+
+### XFWM4 Assets
+
+```bash
+cd src/xfwm4
+./render-assets.sh
+```
+
+See [src/xfwm4/README.md](src/xfwm4/README.md) for details.
+
+**Note:** Asset generation requires `inkscape` and `optipng`.
+
+## Testing Your Changes
+
+### 1. Install Your Modified Theme
+
+```bash
+# Install a specific variant for testing
+./install.sh -t azul -c dark
+
+# Or install all variants
+./install.sh
+```
+
+### 2. Apply the Theme
+
+**GNOME:**
+
+```bash
+gsettings set org.gnome.desktop.interface gtk-theme "Celestial-azul-dark"
+```
+
+**XFCE:**
+
+```bash
+xfconf-query -c xsettings -p /Net/ThemeName -s "Celestial-azul-dark"
+```
+
+### 3. Test Different Scenarios
+
+- Test all three theme modes (light, standard, dark)
+- Test multiple color variants
+- Test on different desktop environments if possible
+- Use GTK Inspector to debug CSS issues:
+  ```bash
+  GTK_DEBUG=interactive your-app-name
+  ```
+
+### 4. Check for Regressions
+
+- Ensure your changes don't break existing widgets
+- Test common applications (file managers, terminals, text editors)
+- Check headerbar, toolbar, and menu styling
+
+## Submitting Changes
+
+### Before Submitting
+
+1. **Test thoroughly** - Install and use your changes
+2. **Compile cleanly** - Ensure `./parse_sass.sh` completes without errors
+3. **Follow conventions** - Match existing code style
+4. **One feature per PR** - Keep pull requests focused
+
+### Creating a Pull Request
+
+1. Fork the repository
+2. Create a feature branch:
+   ```bash
+   git checkout -b feature/improve-button-styling
+   ```
+3. Make your changes and commit:
+   ```bash
+   git add src/gtk/sass/_common-3.0.scss
+   git commit -m "Improve button hover states for better visibility"
+   ```
+4. Push to your fork:
+   ```bash
+   git push origin feature/improve-button-styling
+   ```
+5. Open a pull request on GitHub
+
+### Commit Message Guidelines
+
+- Use clear, descriptive commit messages
+- Start with a verb in present tense
+- Reference issues if applicable
+
+**Good:**
+
+- "Fix checkbox styling in dark mode"
+- "Add hover effect to headerbar buttons"
+- "Improve contrast for selected items"
+
+**Bad:**
+
+- "Fixed stuff"
+- "CSS changes"
+- "Updates"
+
+## Style Guidelines
+
+### SCSS Formatting
+
+- Use 2 spaces for indentation
+- One selector per line
+- One property per line
+- Use lowercase for colors (`#fff` not `#FFF`)
+- Group related properties together
+- Add comments for complex logic
+
+**Example:**
+
+```scss
+.my-widget {
+  // Layout
+  padding: 6px 12px;
+  margin: 0;
+
+  // Colors
+  background-color: $base_color;
+  color: $text_color;
+  border: 1px solid $borders_color;
+
+  // Effects
+  border-radius: 3px;
+  transition: all 200ms ease;
+
+  &:hover {
+    background-color: lighten($base_color, 5%);
+  }
+}
+```
+
+### Naming Conventions
+
+- Use descriptive class names
+- Follow GTK conventions for widget names
+- Use hyphens for multi-word names (`my-custom-widget` not `myCustomWidget`)
+
+### Comments
+
+Add comments for:
+
+- Complex selectors
+- Non-obvious logic
+- Workarounds for specific applications
+- Browser/GTK version compatibility notes
+
+```scss
+// Fix for LibreOffice toolbar spacing issue
+.libreoffice-toolbar button {
+  margin: 0 2px;
+}
+```
+
+## Additional Resources
+
+- [GTK CSS Properties](https://docs.gtk.org/gtk3/css-properties.html)
+- [GTK CSS Overview](https://docs.gtk.org/gtk3/css-overview.html)
+- [Sass Documentation](https://sass-lang.com/documentation)
+- [GTK Inspector Guide](https://wiki.gnome.org/Projects/GTK/Inspector)
+
+## Getting Help
+
+- Check existing issues on GitHub
+- Look at similar themes for reference (Arc, Matcha)
+- Use GTK Inspector to understand how widgets are structured
+- Ask questions in pull requests or issues
+
+## License
+
+Celestial GTK Theme is licensed under GPL v3.0. All contributions must be compatible with this license.

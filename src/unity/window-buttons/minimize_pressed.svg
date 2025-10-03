@@ -45,7 +45,7 @@
                color="#000000"
                enable-background="accumulate"
                fill="#fff"
-               style="block-progression:tb;text-decoration-line:none;text-indent:0;text-transform:none"
+               style="text-decoration-line:none;text-indent:0;text-transform:none"
                id="path2" />
           </g>
         </g>

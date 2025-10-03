@@ -19,7 +19,7 @@ $app_folder_size: 720px;
 
 // items in the app grid and dash
 .overview-tile {
-  @include tile_button($bg:$system_bg_color);
+  @include tile_button($bg: $system_bg_color);
 
   // override the %tile style
   border-radius: $base_border_radius * 2;
@@ -81,7 +81,8 @@ $app_folder_size: 720px;
       background-color: darken($dash_background_color, 3%);
       color: $osd_fg_color;
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         background-color: darken($dash_background_color, 3%);
         color: rgba(white, 0.75);
         border-color: $selected_bg_color;
@@ -91,9 +92,25 @@ $app_folder_size: 720px;
   }
 
   & .icon-button {
-    @include button(normal, $tc:$system_fg_color, $c:$system_overlay_bg_color);
-    &:hover { @include button(hover, $tc:$system_fg_color, $c:$system_overlay_bg_color); }
-    &:active { @include button(active, $tc:$system_fg_color, $c:$system_overlay_bg_color); }
+    @include button(
+      normal,
+      $tc: $system_fg_color,
+      $c: $system_overlay_bg_color
+    );
+    &:hover {
+      @include button(
+        hover,
+        $tc: $system_fg_color,
+        $c: $system_overlay_bg_color
+      );
+    }
+    &:active {
+      @include button(
+        active,
+        $tc: $system_fg_color,
+        $c: $system_overlay_bg_color
+      );
+    }
   }
 
   & .page-indicators {
@@ -101,13 +118,25 @@ $app_folder_size: 720px;
   }
 
   & .page-navigation-arrow {
-    @include button(flat, $tc:$system_fg_color, $c:$system_overlay_bg_color);
-    &:hover { @include button(flat-hover, $tc:$system_fg_color, $c:$system_overlay_bg_color); }
-    &:active { @include button(flat-active, $tc:$system_fg_color, $c:$system_overlay_bg_color); }
+    @include button(flat, $tc: $system_fg_color, $c: $system_overlay_bg_color);
+    &:hover {
+      @include button(
+        flat-hover,
+        $tc: $system_fg_color,
+        $c: $system_overlay_bg_color
+      );
+    }
+    &:active {
+      @include button(
+        flat-active,
+        $tc: $system_fg_color,
+        $c: $system_overlay_bg_color
+      );
+    }
   }
 
   & .overview-tile {
-    @include tile_button($bg:$system_overlay_bg_color);
+    @include tile_button($bg: $system_overlay_bg_color);
   }
 }
 
@@ -115,7 +144,10 @@ $app_folder_size: 720px;
 .rename-folder-popup {
   .rename-folder-popup-item {
     spacing: $base_padding;
-    &:ltr, &:rtl { padding: 0 $base_padding * 2; }
+    &:ltr,
+    &:rtl {
+      padding: 0 $base_padding * 2;
+    }
   }
 }
 
@@ -123,7 +155,7 @@ $app_folder_size: 720px;
 $page_indicator_size: 10px;
 .page-indicator {
   padding: $base_padding $base_padding * 2 0;
-  transition-duration:400ms;
+  transition-duration: 400ms;
 
   .page-indicator-icon {
     width: $page_indicator_size;
@@ -140,7 +172,7 @@ $page_indicator_size: 10px;
 
 // shutdown and other actions in the grid
 .system-action-icon {
-  background-color: transparentize($system_fg_color,.9);
+  background-color: transparentize($system_fg_color, 0.9);
   color: $system_fg_color;
   border-radius: $circular_radius;
   icon-size: $app_icon_size * 0.5;
@@ -177,9 +209,15 @@ $page_indicator_size: 10px;
   border-radius: $circular_radius;
   transition-duration: 100ms;
 
-  > StIcon { color: $system_fg_color; }
+  > StIcon {
+    color: $system_fg_color;
+  }
 
-  @include button(flat, $tc:$system_fg_color, $c:$system_bg_color);
-  &:hover { @include button(flat-hover, $tc:$system_fg_color, $c:$system_bg_color); }
-  &:active { @include button(flat-active, $tc:$system_fg_color, $c:$system_bg_color); }
+  @include button(flat, $tc: $system_fg_color, $c: $system_bg_color);
+  &:hover {
+    @include button(flat-hover, $tc: $system_fg_color, $c: $system_bg_color);
+  }
+  &:active {
+    @include button(flat-active, $tc: $system_fg_color, $c: $system_bg_color);
+  }
 }

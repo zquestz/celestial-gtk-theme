@@ -9,8 +9,12 @@ StEntry {
   color: $fg_color;
   @include entry(normal);
   //&:hover { @include entry(hover); }
-  &:focus { @include entry(focus); }
-  &:insensitive { @include entry(insensitive);}
+  &:focus {
+    @include entry(focus);
+  }
+  &:insensitive {
+    @include entry(insensitive);
+  }
   selection-background-color: $selected_bg_color !important;
   selected-color: $selected_fg_color !important;
 

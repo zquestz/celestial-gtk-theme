@@ -2535,6 +2535,7 @@ StScrollBar StButton#hhandle:active {
 
 .end-session-dialog {
   min-width: 40em;
+  background-color: #222222;
 }
 
 .end-session-dialog .dialog-content-box {

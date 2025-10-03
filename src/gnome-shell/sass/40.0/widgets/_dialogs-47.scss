@@ -53,7 +53,9 @@
       @extend %title_4;
     }
   }
-  .message-dialog-description { text-align: center; }
+  .message-dialog-description {
+    text-align: center;
+  }
 }
 
 /* Dialog List */
@@ -65,16 +67,20 @@
     text-align: center;
   }
 
-  .dialog-list-scrollview { max-height: 200px; }
+  .dialog-list-scrollview {
+    max-height: 200px;
+  }
   .dialog-list-box {
     spacing: 1em;
 
     .dialog-list-item {
       spacing: 1em;
 
-      .dialog-list-item-title { font-weight: bold; }
+      .dialog-list-item-title {
+        font-weight: bold;
+      }
       .dialog-list-item-description {
-        color: darken($fg_color,5%);
+        color: darken($fg_color, 5%);
         @extend %caption;
       }
     }
@@ -119,8 +125,12 @@
     .prompt-dialog-password-entry {
       width: auto;
       // 4px (spacing) + 16px (spinner-width)
-      &:ltr { margin-left: $base_margin+$base_icon_size; }
-      &:rtl { margin-right: $base_margin+$base_icon_size; }
+      &:ltr {
+        margin-left: $base_margin + $base_icon_size;
+      }
+      &:rtl {
+        margin-right: $base_margin + $base_icon_size;
+      }
     }
   }
 
@@ -170,7 +180,7 @@
 
     // styled similar to switcher-popup
     .audio-selection-device {
-      @include tile_button($fg:$osd_fg_color, $bg:$osd_bg_color);
+      @include tile_button($fg: $osd_fg_color, $bg: $osd_bg_color);
 
       .audio-selection-device-box {
         padding: $base_padding * 2;

@@ -8,9 +8,15 @@
 // Calendar menu side column
 .datemenu-calendar-column {
   spacing: $base_padding;
-  &:ltr { padding-left: $base_padding; }
-  &:rtl { padding-right: $base_padding; }
-  .datemenu-displays-box { spacing: $base_padding; }
+  &:ltr {
+    padding-left: $base_padding;
+  }
+  &:rtl {
+    padding-right: $base_padding;
+  }
+  .datemenu-displays-box {
+    spacing: $base_padding;
+  }
 }
 
 /* today button (the date) */
@@ -37,7 +43,6 @@
 
   // month header
   .calendar-month-header {
-
     // prev/next month icons
     .calendar-change-month-back,
     .calendar-change-month-forward {
@@ -60,8 +65,13 @@
       width: 32px;
       margin: 2px;
       border-radius: $circular_radius;
-      &:hover, &:focus { @include button(flat-hover); }
-      &:active { @include button(flat-active); }
+      &:hover,
+      &:focus {
+        @include button(flat-hover);
+      }
+      &:active {
+        @include button(flat-active);
+      }
     }
   }
 
@@ -80,13 +90,15 @@
     @extend %numeric;
     @extend %smaller;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: rgba($fg_color, 0.1);
       box-shadow: none !important;
       color: $fg_color;
     }
 
-    &:active, &:selected {
+    &:active,
+    &:selected {
       color: $fg_color;
       background-color: rgba($fg_color, 0.15);
       box-shadow: none !important;
@@ -105,7 +117,8 @@
   .calendar-day {
     font-weight: 600;
 
-    &.calendar-weekday {}
+    &.calendar-weekday {
+    }
 
     &.calendar-weekend {
       color: $insensitive_fg_color;
@@ -117,7 +130,9 @@
     }
   }
 
-  .calendar-nonwork-day { color: $insensitive_fg_color; }
+  .calendar-nonwork-day {
+    color: $insensitive_fg_color;
+  }
 
   .calendar-other-month-day {
     color: transparentize($fg_color, 0.5);
@@ -133,26 +148,33 @@
     font-weight: 800;
     color: $selected_fg_color !important;
 
-    &:hover, &:focus {
-      background-color:lighten($selected_bg_color, 3%);
+    &:hover,
+    &:focus {
+      background-color: lighten($selected_bg_color, 3%);
       color: inherit;
       box-shadow: none !important;
     }
 
-    &:active, &:selected {
+    &:active,
+    &:selected {
       background-color: $selected_bg_color;
       color: inherit;
       box-shadow: none !important;
 
-      &:hover, &:focus {
-        background-color:lighten($selected_bg_color, 3%);
+      &:hover,
+      &:focus {
+        background-color: lighten($selected_bg_color, 3%);
         color: inherit;
       }
     }
   }
 
   .calendar-day-with-events {
-    background-image: if($variant == 'light', url("resource:///org/gnome/shell/theme/calendar-today-light.svg"),url("resource:///org/gnome/shell/theme/calendar-today.svg"));
+    background-image: if(
+      $variant == "light",
+      url("resource:///org/gnome/shell/theme/calendar-today-light.svg"),
+      url("resource:///org/gnome/shell/theme/calendar-today.svg")
+    );
     background-size: contain;
   }
 
@@ -164,7 +186,7 @@
     padding: 0 $base_padding;
     border-radius: 3px;
     background-color: transparentize($fg_color, 0.9);
-    color: $insensitive_fg_color
+    color: $insensitive_fg_color;
   }
 }
 
@@ -222,8 +244,12 @@
     @extend %numeric;
     color: $fg_color;
 
-    &:ltr { text-align: right; }
-    &:rtl { text-align: left; }
+    &:ltr {
+      text-align: right;
+    }
+    &:rtl {
+      text-align: left;
+    }
   }
 
   // timezone offset label

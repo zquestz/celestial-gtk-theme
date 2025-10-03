@@ -14,10 +14,13 @@
 #dashtodockContainer {
   background-color: transparent;
 
-  .dash-item-container { // actual parent container
+  .dash-item-container {
+    // actual parent container
     background: transparent;
 
-    > StWidget { background-size: contain; }
+    > StWidget {
+      background-size: contain;
+    }
 
     .app-grid-running-dot {
       margin: 2px !important;
@@ -42,15 +45,15 @@
     text-align: center;
   }
 
-  @each $_pos, $b_pos in (top, bottom),
-                         (bottom, top),
-                         (left, right),
-                         (right, left) {
+  @each $_pos, $b_pos in (top, bottom), (bottom, top), (left, right),
+    (right, left)
+  {
     &.#{$_pos}.straight-corner,
     &.#{$_pos}.shrink.straight-corner,
     &.#{$_pos}.extended,
     &.#{$_pos}.shrink.extended {
-      &, #dash {
+      &,
+      #dash {
         margin: 0 !important;
         margin-top: 0 !important;
         padding: 0 !important;
@@ -97,7 +100,8 @@
 
   &.left,
   &.right {
-    .dash-item-container .app-well-app, .show-apps {
+    .dash-item-container .app-well-app,
+    .show-apps {
       padding: $dash_spacing $base_padding !important;
     }
 
@@ -105,7 +109,8 @@
       margin-bottom: 0 !important;
     }
 
-    &.shrink, &.shrink.extended {
+    &.shrink,
+    &.shrink.extended {
       .dash-background {
         padding: $base_margin / 2 $base_margin !important;
       }
@@ -120,7 +125,8 @@
 
     &.extended,
     &.straight-corner {
-      .dash-item-container .app-well-app, .overview-tile {
+      .dash-item-container .app-well-app,
+      .overview-tile {
         padding: $dash_spacing $dash_padding !important;
       }
 
@@ -163,7 +169,8 @@
     }
   }
 
-  #dash { // default-mode
+  #dash {
+    // default-mode
     background: none;
 
     .dash-background {
@@ -179,7 +186,8 @@
     }
   }
 
-  &:overview #dash { // overview-mode #1
+  &:overview #dash {
+    // overview-mode #1
     background: none;
 
     .dash-background {
@@ -193,7 +201,8 @@
   }
 
   &.opaque:overview,
-  &.transparent:overview { // overview-mode #2
+  &.transparent:overview {
+    // overview-mode #2
     #dash {
       background-color: transparent !important;
       box-shadow: none !important;
@@ -266,10 +275,18 @@
     font-weight: 500;
     border: 1px solid transparent !important;
     @include button(normal);
-    &:hover { @include button(hover); }
-    &:focus { @include button(focus); }
-    &:active { @include button(active); }
-    &:insensitive { @include button(insensitive); }
+    &:hover {
+      @include button(hover);
+    }
+    &:focus {
+      @include button(focus);
+    }
+    &:active {
+      @include button(active);
+    }
+    &:insensitive {
+      @include button(insensitive);
+    }
   }
 
   &-current {

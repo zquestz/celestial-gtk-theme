@@ -1,32 +1,33 @@
 // Decorations
 UnityDecoration {
-  -UnityDecoration-extents: 28px 1 1 1;
-  -UnityDecoration-input-extents: 10px;
+  -unitydecoration-extents: 28px 1 1 1;
+  -unitydecoration-input-extents: 10px;
 
-  -UnityDecoration-shadow-offset-x: 0px;
-  -UnityDecoration-shadow-offset-y: 3px;
-  -UnityDecoration-active-shadow-color: rgba(0, 0, 0, 0.2);
-  -UnityDecoration-active-shadow-radius: 12px;
-  -UnityDecoration-inactive-shadow-color: rgba(0, 0, 0, 0.07);
-  -UnityDecoration-inactive-shadow-radius: 7px;
+  -unitydecoration-shadow-offset-x: 0px;
+  -unitydecoration-shadow-offset-y: 3px;
+  -unitydecoration-active-shadow-color: rgba(0, 0, 0, 0.2);
+  -unitydecoration-active-shadow-radius: 12px;
+  -unitydecoration-inactive-shadow-color: rgba(0, 0, 0, 0.07);
+  -unitydecoration-inactive-shadow-radius: 7px;
 
-  -UnityDecoration-glow-size: 10px;
-  -UnityDecoration-glow-color: $selected_bg_color;
+  -unitydecoration-glow-size: 10px;
+  -unitydecoration-glow-color: $selected_bg_color;
 
-  -UnityDecoration-title-indent: 10px;
-  -UnityDecoration-title-fade: 35px;
-  -UnityDecoration-title-alignment: 0.0;
+  -unitydecoration-title-indent: 10px;
+  -unitydecoration-title-fade: 35px;
+  -unitydecoration-title-alignment: 0;
 
   .top {
-    border: 1px solid if($variant == 'dark', darken($header_bg, 7%), rgba(black, 0.1));
+    border: 1px solid
+      if($variant == "dark", darken($header_bg, 7%), rgba(black, 0.1));
     border-bottom-width: 0;
     border-radius: 4px 4px 0 0;
     padding: 1px 6px 0 6px;
 
     background-image: _solid(opacify($header_bg, 1));
-    color: $header_fg;                         // The foreground color will be used to paint the text
+    color: $header_fg; // The foreground color will be used to paint the text
 
-    box-shadow: inset 0  1px lighten($header_bg, 3%);
+    box-shadow: inset 0 1px lighten($header_bg, 3%);
 
     &:backdrop {
       border-bottom-width: 0;
@@ -34,10 +35,16 @@ UnityDecoration {
       color: rgba($header_fg, 0.7);
     }
   }
-  .left, .right, .bottom,
-  .left:backdrop, .right:backdrop, .bottom:backdrop {
+  .left,
+  .right,
+  .bottom,
+  .left:backdrop,
+  .right:backdrop,
+  .bottom:backdrop {
     background-color: transparent;
-    background-image: _solid(if($variant == 'dark', darken($header_bg, 7%), rgba(black, 0.1)));
+    background-image: _solid(
+      if($variant == "dark", darken($header_bg, 7%), rgba(black, 0.1))
+    );
   }
 }
 
@@ -48,7 +55,9 @@ UnityPanelWidget,
   color: lighten($panel_fg, 20%);
   box-shadow: none;
 
-  &:backdrop { color: lighten($panel_fg, 1%); }
+  &:backdrop {
+    color: lighten($panel_fg, 1%);
+  }
 }
 
 .unity-panel.menubar.menuitem:hover,

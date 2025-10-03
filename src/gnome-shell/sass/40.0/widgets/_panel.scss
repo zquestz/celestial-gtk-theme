@@ -56,14 +56,21 @@ $panel_transition_duration: 250ms; // same as the overview transition duration
         border-radius: 0;
       }
 
-      &:active, &:overview, &:checked, &:focus {
+      &:active,
+      &:overview,
+      &:checked,
+      &:focus {
         background-color: rgba(#ffffff, 0.15) !important;
         border-color: $selected_bg_color !important;
         box-shadow: none !important;
       }
     }
 
-    &:hover, &:active, &:overview, &:focus, &:checked {
+    &:hover,
+    &:active,
+    &:overview,
+    &:focus,
+    &:checked {
       border-image: none;
     }
 
@@ -72,7 +79,10 @@ $panel_transition_duration: 250ms; // same as the overview transition duration
       box-shadow: none;
     }
 
-    &:active, &:overview, &:checked, &:focus {
+    &:active,
+    &:overview,
+    &:checked,
+    &:focus {
       background-color: rgba(#ffffff, 0.15);
       border-color: $selected_bg_color;
       box-shadow: none !important;
@@ -125,7 +135,8 @@ $panel_transition_duration: 250ms; // same as the overview transition duration
 
   // Input indicators
   Gjs_status_keyboard_InputSourceIndicator.panel-button, // Ibus
-  Gjs_appindicatorsupport_rgcjonas_gmail_com_indicatorStatusIcon_AppIndicatorsIndicatorStatusIcon.panel-button { // Fcitx
+  Gjs_appindicatorsupport_rgcjonas_gmail_com_indicatorStatusIcon_AppIndicatorsIndicatorStatusIcon.panel-button {
+    // Fcitx
     -natural-hpadding: $base_padding * 3 !important;
     -minimum-hpadding: $base_padding * 3 !important;
   }
@@ -134,7 +145,11 @@ $panel_transition_duration: 250ms; // same as the overview transition duration
   &.login-screen,
   &:overview {
     .panel-button {
-      &:hover, &:active, &:overview, &:focus, &:checked {
+      &:hover,
+      &:active,
+      &:overview,
+      &:focus,
+      &:checked {
         &.clock-display {
           .clock {
             box-shadow: none !important;
@@ -147,13 +162,17 @@ $panel_transition_duration: 250ms; // same as the overview transition duration
 
   // indicator for active
   .screencast-indicator,
-  .remote-access-indicator { color: $warning_color; }
+  .remote-access-indicator {
+    color: $warning_color;
+  }
 }
 
 // App Menu
 #appMenu {
   spacing: $base_spacing;
-  .label-shadow { color: transparent; }
+  .label-shadow {
+    color: transparent;
+  }
 }
 
 #appMenu .panel-status-menu-box {

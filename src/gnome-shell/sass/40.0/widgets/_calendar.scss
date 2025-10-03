@@ -11,17 +11,25 @@
   border: none;
   padding: 0;
 
-  &:ltr { padding-left: $base_margin * 2; margin: 0; }
-  &:rtl { padding-right: $base_margin * 2; margin: 0; }
+  &:ltr {
+    padding-left: $base_margin * 2;
+    margin: 0;
+  }
+  &:rtl {
+    padding-right: $base_margin * 2;
+    margin: 0;
+  }
 
-  .datemenu-displays-box { spacing: $base_padding; }
+  .datemenu-displays-box {
+    spacing: $base_padding;
+  }
 }
 
 .events-section-title {
   @include notification_bubble($flat: true);
   color: $alt_fg_color;
   font-weight: bold;
-  padding: .4em;
+  padding: 0.4em;
 }
 
 /* today button (the date) */
@@ -32,13 +40,13 @@
 
   // weekday label
   .day-label {
-    @include fontsize($base_font_size+1);
+    @include fontsize($base_font_size + 1);
     font-weight: bold;
   }
 
   // date label
   .date-label {
-    @include fontsize($base_font_size+7);
+    @include fontsize($base_font_size + 7);
     font-weight: normal;
   }
 }
@@ -52,7 +60,7 @@
 
   // month
   .calendar-month-label {
-    color: lighten($fg_color,5%);
+    color: lighten($fg_color, 5%);
     font-weight: bold;
     padding: 8px 0;
     // &:focus {}
@@ -76,8 +84,13 @@
     margin: 2px;
     border-radius: $circular_radius;
     border: none;
-    &:hover, &:focus { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
+    &:hover,
+    &:focus {
+      @include button(flat-hover);
+    }
+    &:active {
+      @include button(flat-active);
+    }
   }
 
   $calendar_day_size: 32px;
@@ -93,12 +106,14 @@
     border: none; //avoid jumparound due to today
     font-feature-settings: "tnum";
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: rgba($fg_color, 0.1);
       box-shadow: none;
     }
 
-    &:active, &:selected {
+    &:active,
+    &:selected {
       color: $fg_color;
       background-color: rgba($fg_color, 0.15);
     }
@@ -111,7 +126,8 @@
     }
   }
 
-  .calendar-day { //border collapse hack - see calendar.js
+  .calendar-day {
+    //border collapse hack - see calendar.js
     border-width: 0;
   }
 
@@ -134,17 +150,20 @@
     background-color: $selected_bg_color;
     color: $selected_fg_color;
 
-    &:hover, &:focus {
-      background-color:lighten($selected_bg_color, 3%);
+    &:hover,
+    &:focus {
+      background-color: lighten($selected_bg_color, 3%);
       color: $selected_fg_color;
     }
 
-    &:active, &:selected {
+    &:active,
+    &:selected {
       background-color: $selected_bg_color;
       color: $selected_fg_color;
 
-      &:hover,&:focus {
-        background-color:lighten($selected_bg_color, 3%);
+      &:hover,
+      &:focus {
+        background-color: lighten($selected_bg_color, 3%);
         color: $selected_fg_color;
       }
     }
@@ -153,8 +172,8 @@
   .calendar-day-with-events {
     background-image: url("resource:///org/gnome/shell/theme/calendar-today.svg");
     &.calendar-work-day {
-       color: $fg_color;
-       font-weight: bold;
+      color: $fg_color;
+      font-weight: bold;
     }
   }
 
@@ -233,13 +252,17 @@
     font-feature-settings: "tnum";
     @include fontsize($base_font_size);
 
-    &:ltr { text-align: right; }
-    &:rtl { text-align: left; }
+    &:ltr {
+      text-align: right;
+    }
+    &:rtl {
+      text-align: left;
+    }
   }
 
   // timezone offset label
   .world-clocks-timezone {
-    color: darken($fg_color,20%);
+    color: darken($fg_color, 20%);
     font-feature-settings: "tnum";
     @include fontsize($base_font_size - 1);
   }
@@ -275,7 +298,7 @@
   }
 
   .weather-forecast-time {
-    color: darken($fg_color,30%);
+    color: darken($fg_color, 30%);
     font-feature-settings: "tnum";
     @include fontsize($base_font_size - 2);
     font-weight: normal;

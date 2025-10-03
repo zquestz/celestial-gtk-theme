@@ -12,36 +12,44 @@
     margin: 0;
   }
 
-  @each $_dock, $_radius in (top, 0 0 3px 3px),
-                            (bottom, 3px 3px 0 0),
-                            (left, 0 3px 3px 0),
-                            (right, 3px 0 0 3px) {
+  @each $_dock, $_radius in (top, 0 0 3px 3px), (bottom, 3px 3px 0 0),
+    (left, 0 3px 3px 0), (right, 3px 0 0 3px)
+  {
     &.#{$_dock} #dash,
-    &.#{$_dock}:overview #dash { border-radius: #{$_radius}; }
+    &.#{$_dock}:overview #dash {
+      border-radius: #{$_radius};
+    }
 
     &.#{$_dock}.extended #dash,
-    &.#{$_dock}.extended:overview #dash { border-radius: #{$_radius}; }
+    &.#{$_dock}.extended:overview #dash {
+      border-radius: #{$_radius};
+    }
   }
 
-  #dash { // default-mode
+  #dash {
+    // default-mode
     background-color: $bg_color;
     box-shadow: none;
   }
 
-  &.opaque #dash { // solid-mode
+  &.opaque #dash {
+    // solid-mode
     background-color: $topbar_color;
   }
 
-  &.transparent #dash { // translucent-mode
+  &.transparent #dash {
+    // translucent-mode
     background-color: $osd_bg_color; // does not work
   }
 
-  &:overview #dash { // overview-mode #1
+  &:overview #dash {
+    // overview-mode #1
     background-color: $overview_bg_color;
   }
 
   &.opaque:overview,
-  &.transparent:overview { // overview-mode #2
+  &.transparent:overview {
+    // overview-mode #2
     #dash {
       background-color: transparent !important;
       box-shadow: none !important;
@@ -88,10 +96,18 @@
     font-weight: 500;
     border: 1px solid transparent;
     @include button(normal);
-    &:hover { @include button(hover); }
-    &:focus { @include button(focus); }
-    &:active { @include button(active); }
-    &:insensitive { @include button(insensitive); }
+    &:hover {
+      @include button(hover);
+    }
+    &:focus {
+      @include button(focus);
+    }
+    &:active {
+      @include button(active);
+    }
+    &:insensitive {
+      @include button(insensitive);
+    }
   }
 
   &-current {
@@ -156,10 +172,15 @@
       color: $fg_color;
     }
 
-    .search-entry-icon { color: $tertiary_fg_color; }
+    .search-entry-icon {
+      color: $tertiary_fg_color;
+    }
 
-    &:hover, &:focus {
-      .search-entry-icon { color: $fg_color; }
+    &:hover,
+    &:focus {
+      .search-entry-icon {
+        color: $fg_color;
+      }
     }
   }
 }

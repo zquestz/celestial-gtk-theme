@@ -11,5 +11,7 @@ $ripple_size: 50px;
   border-radius: 0 0 $ripple_size + 2px 0; // radius equals the size of the box to give us the curve
 
   // just a simple change to the border radius position
-  &:rtl { border-radius: 0 0 0 $ripple_size + 2px; }
+  &:rtl {
+    border-radius: 0 0 0 $ripple_size + 2px;
+  }
 }
