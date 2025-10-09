@@ -24,17 +24,17 @@ class Config:
 
     IMAGE_FILES: list[str] = [
         "aliz-dark.png",
-        "aliz-light.png",
         "aliz.png",
+        "aliz-light.png",
         "azul-dark.png",
-        "azul-light.png",
         "azul.png",
+        "azul-light.png",
         "pueril-dark.png",
-        "pueril-light.png",
         "pueril.png",
+        "pueril-light.png",
         "sea-dark.png",
-        "sea-light.png",
         "sea.png",
+        "sea-light.png",
     ]
 
     FONT_PATH: str = "/usr/share/fonts/TTF/DejaVuSans.ttf"
