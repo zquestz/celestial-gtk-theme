@@ -41,6 +41,15 @@ Complete your desktop with these complementary themes:
 - **[Hardcode-Tray](https://github.com/bilelmoussaoui/Hardcode-Tray)** - Fix hardcoded tray icons
 - **[Folder Color](https://github.com/costales/folder-color)** - Change folder colors in Nautilus, Nemo, and Caja
 
+### Qt Theming
+
+Make Qt applications match your GTK theme for a consistent look across all applications:
+
+- **[qt6gtk2](https://github.com/trialuser02/qt6gtk2)** - Qt6 style plugin that uses GTK2 theme rendering
+- **[Qt Style Plugins](https://github.com/qt/qtstyleplugins)** - Qt5 style plugins including GTK2 support
+
+These plugins ensure Qt applications (KDE apps, VLC, Telegram, etc.) seamlessly match your GTK theme, providing a unified desktop experience.
+
 ## Development
 
 ### Building from Source

@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# shellcheck disable=SC2086
+# shellcheck disable=SC2086,SC2001
 # Celestial GTK Theme Installer
 # Version: 1.0.0
 
@@ -83,7 +83,7 @@ install() {
     echo "[X-GNOME-Metatheme]"
     echo "GtkTheme=${name}${theme_cap}${color_cap}"
     echo "MetacityTheme=${name}${theme_cap}${color_cap}"
-    echo "IconTheme=Papirus-Dark"
+    [[ "$color" == "-light" ]] && echo "IconTheme=Papirus-Light" || echo "IconTheme=Papirus-Dark"
     echo "CursorTheme=WhiteSur-cursors"
     echo "ButtonLayout=menu:minimize,maximize,close"
   } >> "${themedir}/index.theme"
@@ -666,8 +666,8 @@ if [[ "${gdm:-}" == 'true' && "${remove:-}" != 'true' && "$UID" -eq "$ROOT_UID" 
 
   echo -e "\nNOTICE: Only GDM theme will installed..."
 
-  local gcolor_list=("${gcolors[@]}")
-  local theme_list=("${themes[@]}")
+  gcolor_list=("${gcolors[@]}")
+  theme_list=("${themes[@]}")
 
   [[ ${#gcolor_list[@]} -eq 0 ]] && gcolor_list=("${COLOR_VARIANTS[2]}")
   [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[0]}")
