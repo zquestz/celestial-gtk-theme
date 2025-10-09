@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg">
+  <g id="radio-checked">
+    <!-- Outer filled circle -->
+    <circle
+       cx="8"
+       cy="8"
+       r="7"
+       style="fill:#97bb72;stroke:none" />
+    <!-- Inner dot -->
+    <circle
+       cx="8"
+       cy="8"
+       r="2"
+       style="fill:#ffffff;stroke:none" />
+  </g>
+</svg>
