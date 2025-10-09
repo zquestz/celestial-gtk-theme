@@ -5,6 +5,7 @@
 
 ROOT_UID=0
 DEST_DIR=
+DESTDIR="${DESTDIR:-}"
 
 # Destination directory
 if [ "$UID" -eq "$ROOT_UID" ]; then
@@ -49,18 +50,18 @@ install() {
   # Capitalize theme and color for display names
   local theme_cap=""
   local color_cap=""
-  
+
   if [[ -n "${theme}" ]]; then
     theme_cap="-$(echo "${theme#-}" | sed 's/.*/\u&/')"
   fi
-  
+
   if [[ -n "${color}" ]]; then
     color_cap="-$(echo "${color#-}" | sed 's/.*/\u&/')"
   fi
 
-  local themedir="${dest}/${name}${theme_cap}${color_cap}"
-  local hdpithemedir="${dest}/${name}${theme_cap}${color_cap}-hdpi"
-  local xhdpithemedir="${dest}/${name}${theme_cap}${color_cap}-xhdpi"
+  local themedir="${DESTDIR}${dest}/${name}${theme_cap}${color_cap}"
+  local hdpithemedir="${DESTDIR}${dest}/${name}${theme_cap}${color_cap}-hdpi"
+  local xhdpithemedir="${DESTDIR}${dest}/${name}${theme_cap}${color_cap}-xhdpi"
 
   [[ ${color} == '-dark' ]] && local ELSE_DARK="${color}"
   # ELSE_LIGHT is set but not currently used in theme files
@@ -195,9 +196,9 @@ install() {
   cp -r dock.theme                                                                    "${themedir}/plank/"
 
   # Install GTKSourceView-3.0 Theme (for gtk+ text editors)
-  mkdir -p                                                                            "${GTKSV_DIR}/"
+  mkdir -p                                                                            "${DESTDIR}${GTKSV_DIR}/"
   cd "${SRC_DIR}/extra/gtksourceview" || return
-  cp -r ./*.xml                                                                       "${GTKSV_DIR}/"
+  cp -r ./*.xml                                                                       "${DESTDIR}${GTKSV_DIR}/"
 
   # Fix permissions to ensure all users can read theme files
   # This is especially important when installing to /usr/share/themes with sudo
@@ -235,14 +236,21 @@ install_gdm() {
   local theme="${3}"
   local gcolor="${4}"
 
+  # Skip GDM installation when DESTDIR is set (packaging mode)
+  # GDM theme installation modifies system files and should not be done during packaging
+  if [[ -n "${DESTDIR}" ]]; then
+    echo -e "\nSkipping GDM theme installation (DESTDIR is set for packaging)"
+    return
+  fi
+
   # Capitalize theme and color for display names (must match install)
   local theme_cap=""
   local color_cap=""
-  
+
   if [[ -n "${theme}" ]]; then
     theme_cap="-$(echo "${theme#-}" | sed 's/.*/\u&/')"
   fi
-  
+
   if [[ -n "${gcolor}" ]]; then
     color_cap="-$(echo "${gcolor#-}" | sed 's/.*/\u&/')"
   fi
@@ -304,8 +312,8 @@ install_gdm() {
     mkdir -p                                                                           "$YARU_GDM_THEME_DIR"/gnome-shell
     mkdir -p                                                                           "$YARU_GDM_THEME_DIR"/gnome-shell/Yaru
     cp -r "$SRC_DIR"/gnome-shell/{icons,pad-osd.css}                                   "$YARU_GDM_THEME_DIR"/gnome-shell
-    cp -r "$SRC_DIR/gnome-shell/${SHELL_VERSION}/gnome-shell${theme}${ELSE_DARK}.css" "$YARU_GDM_THEME_DIR/gnome-shell/gdm3.css"
-    cp -r "$SRC_DIR/gnome-shell/${SHELL_VERSION}/gnome-shell${theme}${ELSE_DARK}.css" "$YARU_GDM_THEME_DIR/gnome-shell/Yaru/gnome-shell.css"
+    cp -r "$SRC_DIR/gnome-shell/${SHELL_VERSION}/gnome-shell${theme}${ELSE_DARK}.css"  "$YARU_GDM_THEME_DIR/gnome-shell/gdm3.css"
+    cp -r "$SRC_DIR/gnome-shell/${SHELL_VERSION}/gnome-shell${theme}${ELSE_DARK}.css"  "$YARU_GDM_THEME_DIR/gnome-shell/Yaru/gnome-shell.css"
     cp -r "$SRC_DIR"/gnome-shell/common-assets                                         "$YARU_GDM_THEME_DIR"/gnome-shell/assets
     cp -r "$SRC_DIR"/gnome-shell/assets"${ELSE_DARK}"/calendar-arrow-left.svg          "$YARU_GDM_THEME_DIR"/gnome-shell/assets/calendar-arrow-left.svg
     cp -r "$SRC_DIR"/gnome-shell/assets"${ELSE_DARK}"/calendar-arrow-right.svg         "$YARU_GDM_THEME_DIR"/gnome-shell/assets/calendar-arrow-right.svg
@@ -544,22 +552,27 @@ uninstall() {
   # Capitalize theme and color for display names (must match install)
   local theme_cap=""
   local color_cap=""
-  
+
   if [[ -n "${theme}" ]]; then
     theme_cap="-$(echo "${theme#-}" | sed 's/.*/\u&/')"
   fi
-  
+
   if [[ -n "${color}" ]]; then
     color_cap="-$(echo "${color#-}" | sed 's/.*/\u&/')"
   fi
 
-  local THEME_DIR="${dest}/${name}${theme_cap}${color_cap}"
-  local HDPI_THEME_DIR="${dest}/${name}${theme_cap}${color_cap}-hdpi"
-  local XHDPI_THEME_DIR="${dest}/${name}${theme_cap}${color_cap}-xhdpi"
+  local THEME_DIR="${DESTDIR}${dest}/${name}${theme_cap}${color_cap}"
+  local HDPI_THEME_DIR="${DESTDIR}${dest}/${name}${theme_cap}${color_cap}-hdpi"
+  local XHDPI_THEME_DIR="${DESTDIR}${dest}/${name}${theme_cap}${color_cap}-xhdpi"
 
   [[ -d "$THEME_DIR" ]] && rm -rf "$THEME_DIR" && echo -e "Uninstalling $THEME_DIR ..."
   [[ -d "$HDPI_THEME_DIR" ]] && rm -rf "$HDPI_THEME_DIR" && echo -e "Uninstalling $HDPI_THEME_DIR ..."
   [[ -d "$XHDPI_THEME_DIR" ]] && rm -rf "$XHDPI_THEME_DIR" && echo -e "Uninstalling $XHDPI_THEME_DIR ..."
+
+  # Remove GTKSourceView files (only Celestial theme files)
+  echo -e "Removing GTKSourceView theme files..."
+  rm -f "${DESTDIR}${GTKSV_DIR}/celestial.xml"
+  rm -f "${DESTDIR}${GTKSV_DIR}/celestialv2.xml"
 }
 
 link_libadwaita() {
@@ -571,13 +584,19 @@ link_libadwaita() {
   # Capitalize theme and color for display names (must match install)
   local theme_cap=""
   local color_cap=""
-  
+
   if [[ -n "${theme}" ]]; then
     theme_cap="-$(echo "${theme#-}" | sed 's/.*/\u&/')"
   fi
-  
+
   if [[ -n "${lcolor}" ]]; then
     color_cap="-$(echo "${lcolor#-}" | sed 's/.*/\u&/')"
+  fi
+
+  # Skip libadwaita linking when DESTDIR is set (packaging mode)
+  if [[ -n "${DESTDIR}" ]]; then
+    echo -e "\nSkipping libadwaita linking (DESTDIR is set for packaging)"
+    return
   fi
 
   local THEME_DIR="${dest}/${name}${theme_cap}${color_cap}"
