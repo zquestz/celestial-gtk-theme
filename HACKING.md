@@ -85,7 +85,7 @@ celestial-gtk-theme/
 │   ├── openbox-3/             # Openbox theme
 │   ├── plank/                 # Plank dock theme
 │   ├── unity/                 # Unity desktop theme
-│   └── xfwm4/                 # XFCE window manager theme
+│   └── xfwm4/                 # Xfce window manager theme
 ├── AUTHORS.md                 # List of contributors
 ├── HACKING.md                 # Development guide (this file)
 ├── INSTALL.md                 # Installation instructions
@@ -260,7 +260,7 @@ cd src/gtk-2.0
 
 See [src/gtk-2.0/README.md](src/gtk-2.0/README.md) for details.
 
-### XFWM4 Assets
+### Xfwm4 Assets
 
 ```bash
 cd src/xfwm4
@@ -291,7 +291,7 @@ See [src/xfwm4/README.md](src/xfwm4/README.md) for details.
 gsettings set org.gnome.desktop.interface gtk-theme "Celestial-Azul-Dark"
 ```
 
-**XFCE:**
+**Xfce:**
 
 ```bash
 xfconf-query -c xsettings -p /Net/ThemeName -s "Celestial-Azul-Dark"

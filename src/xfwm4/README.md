@@ -1,6 +1,6 @@
-# XFWM4 Window Manager Theme Assets
+# Xfwm4 Window Manager Theme Assets
 
-This directory contains the XFWM4 (XFCE Window Manager) theme assets and tools to regenerate them.
+This directory contains the Xfwm4 (Xfce Window Manager) theme assets and tools to regenerate them.
 
 ## Regenerating Assets
 
@@ -28,7 +28,7 @@ This script will:
 - `assets-*.svg` - Source SVG files containing all window decoration assets for each color variant and mode
 - `assets.txt` - List of asset IDs to extract from the SVG files (window buttons, borders, etc.)
 - `assets-*/` - Output directories containing the rendered PNG assets
-- `themerc-*` - XFWM4 theme configuration files for each variant
+- `themerc-*` - Xfwm4 theme configuration files for each variant
 - `render-assets.sh` - Script to regenerate all assets
 
 ## Display Scaling Support
@@ -60,4 +60,4 @@ Assets include all window manager decorations:
 - Assets are generated per color variant, theme mode (light/dark/standard), and DPI level
 - The script only regenerates missing assets by default
 - To force regeneration, delete the asset directories before running the script
-- XFWM4 will automatically select the appropriate DPI variant based on your display settings
+- Xfwm4 will automatically select the appropriate DPI variant based on your display settings

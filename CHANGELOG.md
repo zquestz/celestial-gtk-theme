@@ -22,7 +22,7 @@ Initial release of Celestial GTK Theme.
   - GTK 2, GTK 3, GTK 4
   - GNOME Shell (versions 38, 40, 42, 44, 46, 47, 48)
   - Cinnamon
-  - XFCE (XFWM4 with HiDPI support)
+  - Xfce (Xfwm4 with HiDPI support)
   - Budgie, Pantheon, Unity
   - Openbox
 

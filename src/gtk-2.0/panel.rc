@@ -175,7 +175,7 @@ widget_class "*Applet*Netstatus*"                     style "theme-panel"
 widget_class "*Notif*Beagle*"                         style "theme-panel"
 widget_class "*Notif*Brasero*"                        style "theme-panel"
 
-# XFCE panel theming.
+# Xfce panel theming.
 widget "*Xfce*Panel*"                                 style "theme-panel"
 class "*Xfce*Panel*"                                  style "theme-panel"
 widget "*Xfce*Panel*GtkProgressBar"                   style "theme-panel-progressbar"

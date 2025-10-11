@@ -157,7 +157,7 @@ gsettings set org.gnome.desktop.interface gtk-theme "Celestial-Azul-Dark"
 gsettings set org.gnome.desktop.wm.preferences theme "Celestial-Azul-Dark"
 ```
 
-### XFCE Desktop
+### Xfce Desktop
 
 ```bash
 xfconf-query -c xsettings -p /Net/ThemeName -s "Celestial-Azul-Dark"
