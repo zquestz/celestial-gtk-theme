@@ -38,6 +38,7 @@ Complete your desktop with these complementary themes:
 
 - **[Papirus Icon Theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)** - Modern icon theme with excellent coverage
 - **[WhiteSur Cursors](https://github.com/vinceliuice/WhiteSur-cursors)** - Elegant cursor theme
+- **[Plank Reloaded](https://github.com/zquestz/plank-reloaded)** - Modern dock with Celestial theme support
 - **[Hardcode-Tray](https://github.com/bilelmoussaoui/Hardcode-Tray)** - Fix hardcoded tray icons
 - **[Folder Color](https://github.com/costales/folder-color)** - Change folder colors in Nautilus, Nemo, and Caja
 
