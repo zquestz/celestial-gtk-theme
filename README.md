@@ -13,7 +13,7 @@ Based on the excellent [Arc](https://github.com/horst3180/Arc-theme) and [Matcha
 ## Features
 
 - **12 Theme Variants** - 4 colors (Sea, Aliz, Azul, Pueril) × 3 modes (Light, Standard, Dark)
-- **Desktop Support** - GTK 2/3/4, GNOME Shell (38-48), Cinnamon, Xfce, Budgie, Pantheon, Unity, Openbox
+- **Desktop Support** - GTK 2/3/4, GNOME Shell (38-48), Cinnamon, Xfce, Budgie, Pantheon, Unity, Openbox, Labwc
 - **Dock Support** - [Plank Reloaded](https://github.com/zquestz/plank-reloaded) theming
 - **HiDPI Support** - Standard, HiDPI, and XHiDPI variants for retina displays
 - **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting
