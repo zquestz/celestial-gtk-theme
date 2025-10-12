@@ -7,11 +7,33 @@
    viewBox="0 0 158.75 39.6875"
    version="1.1"
    id="svg8"
+   sodipodi:docname="thumbnail.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4.0166667"
+     inkscape:cx="399.46058"
+     inkscape:cy="74.937759"
+     inkscape:window-width="2560"
+     inkscape:window-height="1370"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
   <defs
      id="defs2">
     <linearGradient
@@ -45,16 +67,19 @@
        y="257.44556" />
     <g
        id="thumbnail"
-       transform="translate(-66.807296,7.06155)">
+       transform="translate(-66.807296,7.06155)"
+       inkscape:export-filename="thumbnail-sea.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <rect
          ry="0"
          rx="0"
-         y="259.38867"
-         x="70.867859"
-         height="9.0767908"
-         width="31.566374"
+         y="259.29684"
+         x="70.776047"
+         height="9.260417"
+         width="31.75"
          id="rect999"
-         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.183625;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.186012;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
          id="radio-checked-dark"
          style="display:inline;opacity:1"
@@ -258,8 +283,11 @@
       </g>
     </g>
     <g
-       transform="translate(-66.807296,19.596491)"
-       id="thumbnail-dark">
+       transform="matrix(1.0058171,0,0,1.0202303,-67.311358,14.257177)"
+       id="thumbnail-dark"
+       inkscape:export-filename="thumbnail-sea-dark.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <rect
          style="opacity:1;fill:#1b2224;fill-opacity:1;stroke:none;stroke-width:0.183625;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect901"
@@ -472,8 +500,11 @@
       </g>
     </g>
     <g
-       transform="translate(-27.705764,7.06155)"
-       id="g1147">
+       transform="matrix(1.0058171,0,0,1.0202303,-28.209826,1.7222363)"
+       id="g1147"
+       inkscape:export-filename="thumbnail-aliz.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <rect
          style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.183625;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect1066"
@@ -687,7 +718,10 @@
     </g>
     <g
        id="g1229"
-       transform="translate(-27.705764,19.596491)">
+       transform="matrix(1.0058171,0,0,1.0202303,-28.209826,14.257177)"
+       inkscape:export-filename="thumbnail-aliz-dark.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <rect
          ry="0"
          rx="0"
@@ -901,7 +935,10 @@
     </g>
     <g
        id="g1311"
-       transform="translate(11.769945,7.06155)">
+       transform="matrix(1.0058171,0,0,1.0202303,11.265883,1.7222363)"
+       inkscape:export-filename="thumbnail-azul.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <rect
          ry="0"
          rx="0"
@@ -1114,8 +1151,11 @@
       </g>
     </g>
     <g
-       transform="translate(11.769945,19.596491)"
-       id="g1393">
+       transform="matrix(1.0058171,0,0,1.0202303,11.265883,14.257177)"
+       id="g1393"
+       inkscape:export-filename="thumbnail-azul-dark.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <rect
          style="opacity:1;fill:#1b1d24;fill-opacity:1;stroke:none;stroke-width:0.183625;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect1313"
@@ -1328,8 +1368,11 @@
       </g>
     </g>
     <g
-       transform="translate(51.305471,7.06155)"
-       id="thumbnail-pueril">
+       transform="matrix(1.0058171,0,0,1.0202303,50.801409,1.7222363)"
+       id="thumbnail-pueril"
+       inkscape:export-filename="thumbnail-pueril.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <rect
          style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.183625;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect1266"
@@ -1543,7 +1586,10 @@
     </g>
     <g
        id="thumbnail-dark-pueril"
-       transform="translate(51.305471,19.596491)">
+       transform="matrix(1.0058171,0,0,1.0202303,50.801409,14.257177)"
+       inkscape:export-filename="thumbnail-pueril-dark.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <rect
          ry="0"
          rx="0"
