@@ -4063,6 +4063,12 @@ levelbar block.empty {
   border-color: rgba(39, 49, 52, 0.2);
 }
 
+row:selected:not(:hover) levelbar block:not(.empty),
+row:selected:not(:hover) levelbar block.high {
+  border-color: #45cfb3;
+  background-color: #45cfb3;
+}
+
 printdialog paper {
   border: 1px solid rgba(0, 0, 0, 0.15);
   background: #ffffff;

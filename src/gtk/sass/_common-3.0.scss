@@ -3634,6 +3634,15 @@ levelbar {
   }
 }
 
+// Levelbar in treeview/list rows - use lighter shade of accent color on selection (but not hover)
+row:selected:not(:hover) levelbar {
+  block:not(.empty),
+  block.high {
+    border-color: lighten($selected_bg_color, 10%);
+    background-color: lighten($selected_bg_color, 10%);
+  }
+}
+
 //
 // Print dialog
 //

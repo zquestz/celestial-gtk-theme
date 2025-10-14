@@ -4533,6 +4533,11 @@ levelbar > trough > block.empty {
   border-color: #eaeaea;
 }
 
+row:selected:not(:hover) levelbar > trough > block.high, row:selected:not(:hover) levelbar > trough > block:not(.empty) {
+  border-color: #f4817b;
+  background-color: #f4817b;
+}
+
 window.dialog.print drawing {
   color: #323232;
   background: none;
