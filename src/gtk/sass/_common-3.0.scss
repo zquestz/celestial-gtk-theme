@@ -13,18 +13,18 @@ $header_asset_suffix: if(
 
 * {
   background-clip: padding-box;
-  -gtktoolbutton-icon-spacing: 4;
-  -gtktextview-error-underline-color: $error_color;
+  -GtkToolButton-icon-spacing: 4;
+  -GtkTextView-error-underline-color: $error_color;
 
-  -gtkscrolledwindow-scrollbar-spacing: 0;
+  -GtkScrolledWindow-scrollbar-spacing: 0;
 
-  -gtktoolitemgroup-expander-size: 11;
+  -GtkToolItemGroup-expander-size: 11;
 
-  -gtkwidget-text-handle-width: 20;
-  -gtkwidget-text-handle-height: 20;
+  -GtkWidget-text-handle-width: 20;
+  -GtkWidget-text-handle-height: 20;
 
-  -gtkdialog-button-spacing: 4;
-  -gtkdialog-action-area-border: 0;
+  -GtkDialog-button-spacing: 4;
+  -GtkDialog-action-area-border: 0;
 
   // We use the outline properties to signal the focus properties
   outline-color: gtkalpha(currentColor, 0.3);
@@ -1415,7 +1415,7 @@ combobox {
 // Toolbars
 //
 toolbar {
-  -gtkwidget-window-dragging: true;
+  -GtkWidget-window-dragging: true;
   padding: 4px;
   background-color: $bg_color;
 
@@ -1575,9 +1575,7 @@ headerbar {
       box-shadow: none;
       padding-left: 10px;
       padding-right: 10px;
-      GtkArrow {
-        -gtkarrow-arrow-scaling: 1;
-      }
+      GtkArrow { -GtkArrow-arrow-scaling: 1; }
 
       .arrow {
         -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
@@ -2364,12 +2362,12 @@ headerbar {
 //
 treeview.view {
   @at-root * {
-    -gtktreeview-horizontal-separator: 4;
-    -gtktreeview-grid-line-width: 1;
-    -gtktreeview-grid-line-pattern: "";
-    -gtktreeview-tree-line-width: 1;
-    -gtktreeview-tree-line-pattern: "";
-    -gtktreeview-expander-size: 16;
+    -GtkTreeView-horizontal-separator: 4;
+    -GtkTreeView-grid-line-width: 1;
+    -GtkTreeView-grid-line-pattern: '';
+    -GtkTreeView-tree-line-width: 1;
+    -GtkTreeView-tree-line-pattern: '';
+    -GtkTreeView-expander-size: 16;
   }
 
   // @extend %view;
@@ -2554,7 +2552,7 @@ treeview.view {
 //
 menubar,
 .menubar {
-  -gtkwidget-window-dragging: true;
+  -GtkWidget-window-dragging: true;
   padding: 0 0 0 0;
   background-color: opacify($header_bg, 1);
   color: $header_fg;
@@ -3024,8 +3022,8 @@ scrollbar {
 
   // disable steppers
   @at-root * {
-    -gtkscrollbar-has-backward-stepper: false;
-    -gtkscrollbar-has-forward-stepper: false;
+    -GtkScrollbar-has-backward-stepper: false;
+    -GtkScrollbar-has-forward-stepper: false;
   }
 
   background-color: $_scrollbar_bg_color;

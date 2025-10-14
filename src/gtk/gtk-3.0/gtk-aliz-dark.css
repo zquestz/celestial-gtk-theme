@@ -18,14 +18,14 @@
 
 * {
   background-clip: padding-box;
-  -gtktoolbutton-icon-spacing: 4;
-  -gtktextview-error-underline-color: #fc4138;
-  -gtkscrolledwindow-scrollbar-spacing: 0;
-  -gtktoolitemgroup-expander-size: 11;
-  -gtkwidget-text-handle-width: 20;
-  -gtkwidget-text-handle-height: 20;
-  -gtkdialog-button-spacing: 4;
-  -gtkdialog-action-area-border: 0;
+  -GtkToolButton-icon-spacing: 4;
+  -GtkTextView-error-underline-color: #fc4138;
+  -GtkScrolledWindow-scrollbar-spacing: 0;
+  -GtkToolItemGroup-expander-size: 11;
+  -GtkWidget-text-handle-width: 20;
+  -GtkWidget-text-handle-height: 20;
+  -GtkDialog-button-spacing: 4;
+  -GtkDialog-action-area-border: 0;
   outline-color: alpha(currentColor,0.3);
   outline-style: dashed;
   outline-offset: -3px;
@@ -1770,7 +1770,7 @@ combobox:drop(active) button.combo {
 }
 
 toolbar, .inline-toolbar {
-  -gtkwidget-window-dragging: true;
+  -GtkWidget-window-dragging: true;
   padding: 4px;
   background-color: #222222;
 }
@@ -1919,7 +1919,7 @@ headerbar.selection-mode .selection-menu {
 }
 
 headerbar.selection-mode .selection-menu GtkArrow {
-  -gtkarrow-arrow-scaling: 1;
+  -GtkArrow-arrow-scaling: 1;
 }
 
 headerbar.selection-mode .selection-menu .arrow {
@@ -2651,12 +2651,12 @@ treeview.view {
 }
 
 * {
-  -gtktreeview-horizontal-separator: 4;
-  -gtktreeview-grid-line-width: 1;
-  -gtktreeview-grid-line-pattern: "";
-  -gtktreeview-tree-line-width: 1;
-  -gtktreeview-tree-line-pattern: "";
-  -gtktreeview-expander-size: 16;
+  -GtkTreeView-horizontal-separator: 4;
+  -GtkTreeView-grid-line-width: 1;
+  -GtkTreeView-grid-line-pattern: '';
+  -GtkTreeView-tree-line-width: 1;
+  -GtkTreeView-tree-line-pattern: '';
+  -GtkTreeView-expander-size: 16;
 }
 
 treeview.view acceleditor > label {
@@ -2802,7 +2802,7 @@ treeview.view header.button.dnd:active {
 
 menubar,
 .menubar {
-  -gtkwidget-window-dragging: true;
+  -GtkWidget-window-dragging: true;
   padding: 0 0 0 0;
   background-color: #1a1a1a;
   color: #d0c8c8;
@@ -3278,8 +3278,8 @@ scrollbar {
 }
 
 * {
-  -gtkscrollbar-has-backward-stepper: false;
-  -gtkscrollbar-has-forward-stepper: false;
+  -GtkScrollbar-has-backward-stepper: false;
+  -GtkScrollbar-has-forward-stepper: false;
 }
 
 scrollbar.top {
