@@ -44,12 +44,28 @@ Complete your desktop with these complementary themes:
 
 ### Qt Theming
 
-Make Qt applications match your GTK theme for a consistent look across all applications:
+For a consistent look across GTK and Qt applications, we recommend **[Kvantum](https://github.com/tsujan/Kvantum/tree/master/Kvantum)** - a powerful SVG-based theme engine for Qt applications.
+
+Celestial includes Kvantum themes that can be installed with the `-k` flag:
+
+```bash
+# Install all Kvantum theme variants
+./install.sh --kvantum
+
+# Install specific variant
+./install.sh --kvantum -t azul -c dark
+```
+
+After installation, use **Kvantum Manager** to select your Celestial theme variant. For more details, see the [Kvantum README](src/Kvantum/README.md).
+
+**Alternative Qt Theming Tools:**
+
+If you prefer a different approach, consider:
 
 - **[qt6gtk2](https://github.com/trialuser02/qt6gtk2)** - Qt6 style plugin that uses GTK2 theme rendering
 - **[Qt Style Plugins](https://github.com/qt/qtstyleplugins)** - Qt5 style plugins including GTK2 support
 
-These plugins ensure Qt applications (KDE apps, VLC, Telegram, etc.) seamlessly match your GTK theme, providing a unified desktop experience.
+These plugins provide alternative ways to ensure Qt applications (KDE apps, VLC, Telegram, etc.) match your GTK theme.
 
 ## Development
 

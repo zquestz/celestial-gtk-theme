@@ -11,9 +11,11 @@ DESTDIR="${DESTDIR:-}"
 if [ "$UID" -eq "$ROOT_UID" ]; then
   DEST_DIR="/usr/share/themes"
   GTKSV_DIR="/usr/share/gtksourceview-3.0/styles"
+  KVANTUM_DIR="/usr/share/Kvantum"
 else
   DEST_DIR="$HOME/.themes"
   GTKSV_DIR="$HOME/.local/share/gtksourceview-3.0/styles"
+  KVANTUM_DIR="$HOME/.config/Kvantum"
 fi
 
 REO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -35,6 +37,7 @@ usage() {
   printf "  %-25s%s\n" "-t, --theme VARIANTS" "Theme variant [sea|aliz|azul|pueril] (Default: All)"
   printf "  %-25s%s\n" "-s, --gnome-shell" "GNOME Shell version [38|40|42|44|46|47|48] (Default: Auto)"
   printf "  %-25s%s\n" "-l, --libadwaita" "Link libadwaita apps to GTK-4.0 theme"
+  printf "  %-25s%s\n" "-k, --kvantum" "Install Kvantum theme for Qt applications"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme (requires sudo)"
   printf "  %-25s%s\n" "-r, --remove" "Uninstall theme"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
@@ -402,6 +405,10 @@ while [[ $# -gt 0 ]]; do
       libadwaita='true'
       shift
       ;;
+    -k|--kvantum)
+      kvantum='true'
+      shift
+      ;;
     -r|--remove|-u|--uninstall)
       remove='true'
       shift
@@ -581,6 +588,92 @@ uninstall() {
   rm -f "${DESTDIR}${GTKSV_DIR}/celestialv2.xml"
 }
 
+install_kvantum() {
+  local name="${1}"
+  local theme="${2}"
+  local color="${3}"
+
+  # Capitalize theme and color for display names
+  local theme_cap=""
+  local color_cap=""
+
+  if [[ -n "${theme}" ]]; then
+    theme_cap="-$(echo "${theme#-}" | sed 's/.*/\u&/')"
+  fi
+
+  if [[ -n "${color}" ]]; then
+    color_cap="-$(echo "${color#-}" | sed 's/.*/\u&/')"
+  fi
+
+  local kvantum_name="${name}${theme_cap}${color_cap}"
+  local kvantum_src="${SRC_DIR}/Kvantum/${kvantum_name}"
+  local kvantum_dest="${DESTDIR}${KVANTUM_DIR}/${kvantum_name}"
+
+  # Check if source Kvantum theme exists
+  if [[ ! -d "${kvantum_src}" ]]; then
+    echo "Warning: Kvantum theme '${kvantum_name}' not found in source directory, skipping..."
+    return
+  fi
+
+  echo "Installing Kvantum theme '${kvantum_name}'..."
+  mkdir -p "${DESTDIR}${KVANTUM_DIR}"
+  cp -r "${kvantum_src}" "${kvantum_dest}"
+}
+
+uninstall_kvantum() {
+  local name="${1}"
+  local theme="${2}"
+  local color="${3}"
+
+  # Capitalize theme and color for display names
+  local theme_cap=""
+  local color_cap=""
+
+  if [[ -n "${theme}" ]]; then
+    theme_cap="-$(echo "${theme#-}" | sed 's/.*/\u&/')"
+  fi
+
+  if [[ -n "${color}" ]]; then
+    color_cap="-$(echo "${color#-}" | sed 's/.*/\u&/')"
+  fi
+
+  local kvantum_name="${name}${theme_cap}${color_cap}"
+  local kvantum_dest="${DESTDIR}${KVANTUM_DIR}/${kvantum_name}"
+
+  if [[ -d "${kvantum_dest}" ]]; then
+    echo "Uninstalling Kvantum theme '${kvantum_name}'..."
+    rm -rf "${kvantum_dest}"
+  fi
+}
+
+install_kvantum_themes() {
+  local color_list=("${colors[@]}")
+  local theme_list=("${themes[@]}")
+
+  [[ ${#color_list[@]} -eq 0 ]] && color_list=("${COLOR_VARIANTS[@]}")
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  for color in "${color_list[@]}"; do
+    for theme in "${theme_list[@]}"; do
+      install_kvantum "${name:-${THEME_NAME}}" "${theme}" "${color}"
+    done
+  done
+}
+
+uninstall_kvantum_themes() {
+  local color_list=("${colors[@]}")
+  local theme_list=("${themes[@]}")
+
+  [[ ${#color_list[@]} -eq 0 ]] && color_list=("${COLOR_VARIANTS[@]}")
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  for color in "${color_list[@]}"; do
+    for theme in "${theme_list[@]}"; do
+      uninstall_kvantum "${name:-${THEME_NAME}}" "${theme}" "${color}"
+    done
+  done
+}
+
 link_libadwaita() {
   local dest="${1}"
   local name="${2}"
@@ -668,10 +761,17 @@ if [[ "${gdm:-}" != 'true' ]]; then
     if [[ "${libadwaita:-}" == 'true' ]]; then
       uninstall_link && link_theme
     fi
+
+    if [[ "${kvantum:-}" == 'true' ]]; then
+      install_kvantum_themes
+    fi
   else
     if [[ "${libadwaita:-}" == 'true' ]]; then
       uninstall_link
       echo -e 'Remove libadwaita links...'
+    elif [[ "${kvantum:-}" == 'true' ]]; then
+      uninstall_kvantum_themes
+      echo -e 'Remove Kvantum themes...'
     else
       uninstall_theme
     fi
