@@ -76,6 +76,7 @@ The install script provides extensive customization options:
 | `-t, --theme VARIANTS` | Theme variant [sea\|aliz\|azul\|pueril] (Default: All)           |
 | `-s, --gnome-shell`    | GNOME Shell version [38\|40\|42\|44\|46\|47\|48] (Default: Auto) |
 | `-l, --libadwaita`     | Link libadwaita apps to GTK-4.0 theme                            |
+| `-k, --kvantum`        | Install Kvantum theme for Qt applications                        |
 | `-g, --gdm`            | Install GDM theme (requires sudo)                                |
 | `-r, --remove`         | Uninstall theme                                                  |
 | `-h, --help`           | Show this help                                                   |
@@ -85,13 +86,13 @@ The install script provides extensive customization options:
 **Install specific color and theme:**
 
 ```bash
-./install.sh -t sea -c dark
+./install.sh -t azul -c dark
 ```
 
 **Install all sea variants:**
 
 ```bash
-./install.sh -t sea
+./install.sh -t azul
 ```
 
 **Install for specific GNOME Shell version:**
@@ -109,13 +110,25 @@ The install script provides extensive customization options:
 **Install GDM theme (requires root):**
 
 ```bash
-sudo ./install.sh -g -t sea -c dark
+sudo ./install.sh -g -t azul -c dark
 ```
 
 **Install with libadwaita support:**
 
 ```bash
 ./install.sh -l -t azul -c dark
+```
+
+**Install with Kvantum Qt theme support:**
+
+```bash
+./install.sh -k -t azul -c dark
+```
+
+**Install all variants with Kvantum:**
+
+```bash
+./install.sh -k
 ```
 
 ## Uninstalling
