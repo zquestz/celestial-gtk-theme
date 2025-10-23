@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # shellcheck disable=SC2086,SC2001
 # Celestial GTK Theme Installer
-# Version: 1.0.3
+# Version: 1.0.4
 
 ROOT_UID=0
 DEST_DIR=
@@ -28,7 +28,7 @@ THEME_VARIANTS=('-sea' '-aliz' '-azul' '-pueril')
 SHELL_VERSION=""
 
 usage() {
-  printf "%s\n" "Celestial GTK Theme Installer v1.0.3"
+  printf "%s\n" "Celestial GTK Theme Installer v1.0.4"
   printf "%s\n" "Usage: $0 [OPTIONS...]"
   printf "\n%s\n" "OPTIONS:"
   printf "  %-25s%s\n" "-d, --dest DIR" "Destination directory (Default: ${DEST_DIR})"
