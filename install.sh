@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # shellcheck disable=SC2086,SC2001
 # Celestial GTK Theme Installer
-# Version: 1.0.4
+# Version: 1.1.0
 
 ROOT_UID=0
 DEST_DIR=
@@ -12,10 +12,22 @@ if [ "$UID" -eq "$ROOT_UID" ]; then
   DEST_DIR="/usr/share/themes"
   GTKSV_DIR="/usr/share/gtksourceview-3.0/styles"
   KVANTUM_DIR="/usr/share/Kvantum"
+  BG_DIR="/usr/share/backgrounds/celestial"
+  BG_PROPS_DIRS=(
+    "/usr/share/gnome-background-properties"
+    "/usr/share/mate-background-properties"
+    "/usr/share/cinnamon-background-properties"
+  )
 else
   DEST_DIR="$HOME/.themes"
   GTKSV_DIR="$HOME/.local/share/gtksourceview-3.0/styles"
   KVANTUM_DIR="$HOME/.config/Kvantum"
+  BG_DIR="$HOME/.local/share/backgrounds/celestial"
+  BG_PROPS_DIRS=(
+    "$HOME/.local/share/gnome-background-properties"
+    "$HOME/.local/share/mate-background-properties"
+    "$HOME/.local/share/cinnamon-background-properties"
+  )
 fi
 
 REO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -28,7 +40,7 @@ THEME_VARIANTS=('-sea' '-aliz' '-azul' '-pueril')
 SHELL_VERSION=""
 
 usage() {
-  printf "%s\n" "Celestial GTK Theme Installer v1.0.4"
+  printf "%s\n" "Celestial GTK Theme Installer v1.1.0"
   printf "%s\n" "Usage: $0 [OPTIONS...]"
   printf "\n%s\n" "OPTIONS:"
   printf "  %-25s%s\n" "-d, --dest DIR" "Destination directory (Default: ${DEST_DIR})"
@@ -38,6 +50,7 @@ usage() {
   printf "  %-25s%s\n" "-s, --gnome-shell" "GNOME Shell version [38|40|42|44|46|47|48] (Default: Auto)"
   printf "  %-25s%s\n" "-l, --libadwaita" "Link libadwaita apps to GTK-4.0 theme"
   printf "  %-25s%s\n" "-k, --kvantum" "Install Kvantum theme for Qt applications"
+  printf "  %-25s%s\n" "-b, --backgrounds" "Install theme backgrounds"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme (requires sudo)"
   printf "  %-25s%s\n" "-r, --remove" "Uninstall theme"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
@@ -190,7 +203,7 @@ install() {
 
   # Install labwc Theme
   mkdir -p                                                                            "${themedir}/labwc"
-  cd "${SRC_DIR}/labwc"
+  cd "${SRC_DIR}/labwc" || return
   cp -r assets${theme}${ELSE_LIGHT}/*.png                                             "${themedir}/labwc"
   cp -r "themerc${theme}${ELSE_DARK}${ELSE_LIGHT}"                                    "${themedir}/labwc/themerc"
 
@@ -407,6 +420,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     -k|--kvantum)
       kvantum='true'
+      shift
+      ;;
+    -b|--backgrounds)
+      backgrounds='true'
       shift
       ;;
     -r|--remove|-u|--uninstall)
@@ -674,6 +691,181 @@ uninstall_kvantum_themes() {
   done
 }
 
+generate_celestial_xml() {
+  local bg_dir="${1}"
+  local props_dir="${2}"
+
+  local xml_file="${props_dir}/celestial.xml"
+
+  cat > "${xml_file}" << 'EOF_HEADER'
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+EOF_HEADER
+
+  # Scan all installed theme directories and add their backgrounds
+  for theme_dir in "${bg_dir}"/*; do
+    if [[ -d "${theme_dir}" ]]; then
+      local theme_name
+      theme_name=$(basename "${theme_dir}")
+
+      # Set theme-specific colors
+      local pcolor="#000000"
+      local scolor="#000000"
+
+      case "${theme_name}" in
+        sea)
+          pcolor="#2eb398"
+          scolor="#1b2224"
+          ;;
+        azul)
+          pcolor="#3498db"
+          scolor="#1b1d24"
+          ;;
+        aliz)
+          pcolor="#f0544c"
+          scolor="#222222"
+          ;;
+        pueril)
+          pcolor="#97bb72"
+          scolor="#222222"
+          ;;
+      esac
+
+      # Add entry for each background file in this theme
+      for bg_file in "${theme_dir}"/*.webp; do
+        if [[ -f "${bg_file}" ]]; then
+          local filename
+          filename=$(basename "${bg_file}")
+          local bg_name="${filename%.webp}"
+          # Replace dashes with spaces for display name
+          local display_name="${bg_name//-/ }"
+
+          # Strip DESTDIR from path for XML filename
+          local xml_path="${theme_dir#"${DESTDIR}"}"
+
+          cat >> "${xml_file}" << EOF
+  <wallpaper deleted="false">
+    <name>${display_name}</name>
+    <filename>${xml_path}/${filename}</filename>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>${pcolor}</pcolor>
+    <scolor>${scolor}</scolor>
+  </wallpaper>
+EOF
+        fi
+      done
+    fi
+  done
+
+  echo "</wallpapers>" >> "${xml_file}"
+}
+
+install_background() {
+  local theme="${1}"
+  local bg_dest="${2}"
+
+  # Remove leading dash from theme name
+  local theme_name="${theme#-}"
+  local theme_cap
+  theme_cap="$(echo "${theme_name}" | sed 's/.*/\u&/')"
+
+  local bg_src="${SRC_DIR}/extra/backgrounds/${theme_name}"
+
+  if [[ ! -d "${bg_src}" ]]; then
+    echo "Warning: Background directory '${bg_src}' not found, skipping..."
+    return
+  fi
+
+  echo "Installing ${theme_cap} backgrounds to '${DESTDIR}${bg_dest}/${theme_name}'..."
+
+  # Create background directory
+  mkdir -p "${DESTDIR}${bg_dest}/${theme_name}"
+
+  # Copy background files
+  cp -r "${bg_src}"/*.webp "${DESTDIR}${bg_dest}/${theme_name}/" 2>/dev/null || {
+    echo "Warning: No background images found in ${bg_src}"
+    return
+  }
+}
+
+install_backgrounds() {
+  local theme_list=("${themes[@]}")
+
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  echo "Installing Celestial backgrounds..."
+
+  for theme in "${theme_list[@]}"; do
+    install_background "${theme}" "${BG_DIR}"
+  done
+
+  # Generate single celestial.xml for all desktop environments with all installed backgrounds
+  for props_dir in "${BG_PROPS_DIRS[@]}"; do
+    mkdir -p "${DESTDIR}${props_dir}"
+    generate_celestial_xml "${DESTDIR}${BG_DIR}" "${DESTDIR}${props_dir}"
+    echo "Generated ${DESTDIR}${props_dir}/celestial.xml"
+  done
+
+  echo "Backgrounds installed successfully!"
+  echo "Location: ${DESTDIR}${BG_DIR}"
+  echo "You can now select them from your desktop environment's background settings."
+}
+
+uninstall_background() {
+  local theme="${1}"
+  local bg_dest="${2}"
+
+  # Remove leading dash from theme name
+  local theme_name="${theme#-}"
+  local theme_cap
+  theme_cap="$(echo "${theme_name}" | sed 's/.*/\u&/')"
+
+  echo "Removing ${theme_cap} backgrounds..."
+
+  # Remove background directory
+  if [[ -d "${DESTDIR}${bg_dest}/${theme_name}" ]]; then
+    rm -rf "${DESTDIR}${bg_dest:?}/${theme_name}"
+    echo "  Removed ${DESTDIR}${bg_dest}/${theme_name}"
+  fi
+}
+
+uninstall_backgrounds() {
+  local theme_list=("${themes[@]}")
+
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  echo "Uninstalling Celestial backgrounds..."
+
+  for theme in "${theme_list[@]}"; do
+    uninstall_background "${theme}" "${BG_DIR}"
+  done
+
+  # Regenerate XML if any backgrounds remain, otherwise remove XML files
+  if [[ -d "${DESTDIR}${BG_DIR}" ]] && [[ -n "$(ls -A "${DESTDIR}${BG_DIR}" 2>/dev/null)" ]]; then
+    # Regenerate celestial.xml with remaining backgrounds
+    for props_dir in "${BG_PROPS_DIRS[@]}"; do
+      if [[ -d "${DESTDIR}${props_dir}" ]]; then
+        generate_celestial_xml "${DESTDIR}${BG_DIR}" "${DESTDIR}${props_dir}"
+        echo "Updated ${DESTDIR}${props_dir}/celestial.xml"
+      fi
+    done
+  else
+    # No backgrounds left, remove XML files and empty directory
+    for props_dir in "${BG_PROPS_DIRS[@]}"; do
+      rm -f "${DESTDIR}${props_dir}/celestial.xml" 2>/dev/null
+    done
+
+    if [[ -d "${DESTDIR}${BG_DIR}" ]]; then
+      rmdir "${DESTDIR}${BG_DIR}" 2>/dev/null
+      echo "Removed empty directory ${DESTDIR}${BG_DIR}"
+    fi
+  fi
+
+  echo "Backgrounds uninstalled successfully!"
+}
+
 link_libadwaita() {
   local dest="${1}"
   local name="${2}"
@@ -765,6 +957,10 @@ if [[ "${gdm:-}" != 'true' ]]; then
     if [[ "${kvantum:-}" == 'true' ]]; then
       install_kvantum_themes
     fi
+
+    if [[ "${backgrounds:-}" == 'true' ]]; then
+      install_backgrounds
+    fi
   else
     if [[ "${libadwaita:-}" == 'true' ]]; then
       uninstall_link
@@ -772,6 +968,9 @@ if [[ "${gdm:-}" != 'true' ]]; then
     elif [[ "${kvantum:-}" == 'true' ]]; then
       uninstall_kvantum_themes
       echo -e 'Remove Kvantum themes...'
+    elif [[ "${backgrounds:-}" == 'true' ]]; then
+      uninstall_backgrounds
+      echo -e 'Remove backgrounds...'
     else
       uninstall_theme
     fi

@@ -1,6 +1,6 @@
 # Celestial GTK Theme
 
-![Version](https://img.shields.io/badge/Version-1.0.4-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2048-blue?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.1.0-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2048-blue?style=flat-square)
 
 **A modern, customizable GTK theme with multiple color variants**
 
@@ -16,6 +16,7 @@ Based on the excellent [Arc](https://github.com/horst3180/Arc-theme) and [Matcha
 - **Desktop Support** - GTK 2/3/4, GNOME Shell (38-48), Cinnamon, Xfce, Budgie, Pantheon, Unity, Openbox, Labwc
 - **Dock Support** - [Plank Reloaded](https://github.com/zquestz/plank-reloaded) theming
 - **HiDPI Support** - Standard, HiDPI, and XHiDPI variants for retina displays
+- **Color-Matched Backgrounds** - Minimalistic wallpapers coordinated with each theme variant
 - **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting
 
 ## Installation

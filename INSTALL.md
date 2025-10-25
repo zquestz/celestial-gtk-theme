@@ -77,6 +77,7 @@ The install script provides extensive customization options:
 | `-s, --gnome-shell`    | GNOME Shell version [38\|40\|42\|44\|46\|47\|48] (Default: Auto) |
 | `-l, --libadwaita`     | Link libadwaita apps to GTK-4.0 theme                            |
 | `-k, --kvantum`        | Install Kvantum theme for Qt applications                        |
+| `-b, --backgrounds`    | Install theme backgrounds                                        |
 | `-g, --gdm`            | Install GDM theme (requires sudo)                                |
 | `-r, --remove`         | Uninstall theme                                                  |
 | `-h, --help`           | Show this help                                                   |
@@ -89,7 +90,7 @@ The install script provides extensive customization options:
 ./install.sh -t azul -c dark
 ```
 
-**Install all sea variants:**
+**Install all azul variants:**
 
 ```bash
 ./install.sh -t azul
@@ -131,6 +132,24 @@ sudo ./install.sh -g -t azul -c dark
 ./install.sh -k
 ```
 
+**Install theme backgrounds:**
+
+```bash
+./install.sh -b
+```
+
+**Install specific theme backgrounds:**
+
+```bash
+./install.sh -b -t azul
+```
+
+**Install everything (theme + backgrounds + Kvantum):**
+
+```bash
+./install.sh -k -b
+```
+
 ## Uninstalling
 
 Remove installed themes:
@@ -142,13 +161,25 @@ Remove installed themes:
 Remove specific variant:
 
 ```bash
-./install.sh -r -t sea -c dark
+./install.sh -r -t azul -c dark
 ```
 
 Remove GDM theme:
 
 ```bash
 sudo ./install.sh -g -r
+```
+
+Remove backgrounds:
+
+```bash
+./install.sh -b -r
+```
+
+Remove specific theme backgrounds:
+
+```bash
+./install.sh -b -r -t azul
 ```
 
 ## Applying the Theme
@@ -216,7 +247,7 @@ Run the flatpak override commands mentioned in the Applying the Theme section.
 GNOME 43+ uses libadwaita which doesn't support custom themes by default. Use the `-l` flag:
 
 ```bash
-./install.sh -l -t sea -c dark
+./install.sh -l -t azul -c dark
 ```
 
 Note: This will apply the theme to all GTK4 apps and cannot be easily switched.
@@ -273,3 +304,51 @@ If you want to install with a different name (useful for testing):
 ```
 
 This will create `MyCustomTheme-azul-dark` in your themes directory.
+
+## Background Wallpapers
+
+Celestial includes a collection of color-coordinated background wallpapers for each theme variant.
+
+### Installing Backgrounds
+
+Install backgrounds for all themes:
+
+```bash
+./install.sh -b
+```
+
+Install backgrounds for specific theme:
+
+```bash
+./install.sh -b -t azul
+```
+
+Backgrounds will be installed to:
+
+- User install: `~/.local/share/backgrounds/celestial/`
+- System-wide install (with sudo): `/usr/share/backgrounds/celestial/`
+
+### Using Backgrounds
+
+After installation, backgrounds will appear in your desktop environment's wallpaper/background settings:
+
+- **GNOME**: Settings → Background
+- **Xfce**: Settings Manager → Desktop → Background
+- **Cinnamon**: System Settings → Backgrounds
+- **MATE**: System Settings → Appearance → Background
+
+Each background is named with the pattern "[Theme] [Name]" (e.g., "Azul Space", "Sea Underwater").
+
+### Uninstalling Backgrounds
+
+Remove all installed backgrounds:
+
+```bash
+./install.sh -b -r
+```
+
+Remove specific theme backgrounds:
+
+```bash
+./install.sh -b -r -t azul
+```
