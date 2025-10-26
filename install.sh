@@ -10,7 +10,7 @@ DESTDIR="${DESTDIR:-}"
 # Destination directory
 if [ "$UID" -eq "$ROOT_UID" ]; then
   DEST_DIR="/usr/share/themes"
-  GTKSV_DIR="/usr/share/gtksourceview-3.0/styles"
+  GTKSV_DIR="/usr/share/gtksourceview-4/styles"
   KVANTUM_DIR="/usr/share/Kvantum"
   BG_DIR="/usr/share/backgrounds/celestial"
   BG_PROPS_DIRS=(
@@ -20,7 +20,7 @@ if [ "$UID" -eq "$ROOT_UID" ]; then
   )
 else
   DEST_DIR="$HOME/.themes"
-  GTKSV_DIR="$HOME/.local/share/gtksourceview-3.0/styles"
+  GTKSV_DIR="$HOME/.local/share/gtksourceview-4/styles"
   KVANTUM_DIR="$HOME/.config/Kvantum"
   BG_DIR="$HOME/.local/share/backgrounds/celestial"
   BG_PROPS_DIRS=(
@@ -217,7 +217,7 @@ install() {
   cd "${SRC_DIR}/plank/${theme#-}${color}" || return
   cp -r dock.theme                                                                    "${themedir}/plank/"
 
-  # Install GTKSourceView-3.0 Theme (for gtk+ text editors)
+  # Install GTKSourceView-4 Theme (for gtk+ text editors)
   mkdir -p                                                                            "${DESTDIR}${GTKSV_DIR}/"
   cd "${SRC_DIR}/extra/gtksourceview" || return
   cp -r ./*.xml                                                                       "${DESTDIR}${GTKSV_DIR}/"
@@ -602,7 +602,6 @@ uninstall() {
   # Remove GTKSourceView files (only Celestial theme files)
   echo -e "Removing GTKSourceView theme files..."
   rm -f "${DESTDIR}${GTKSV_DIR}/celestial.xml"
-  rm -f "${DESTDIR}${GTKSV_DIR}/celestialv2.xml"
 }
 
 install_kvantum() {

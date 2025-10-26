@@ -1,104 +1,92 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<style-scheme
-  id="celestial"
-  name="Celestial Gedit"
-  filename="celestial.xml"
-  version="1.0"
->
-  <author>Vince Liuice</author>
-  <description>Gedit material theme matched for Celestial GTK theme.</description>
+<style-scheme id="celestial" name="Celestial" type="dark" version="1.0">
+  <author>DionWeb</author>
+  <_description>Gedit theme for Celestial GTK theme.</_description>
 
   <!-- Color Palette -->
-  <color name="celestial0" value="#1b2224" />
-  <color name="celestial1" value="#222b2e" />
-  <color name="celestial2" value="#2eb398" />
-  <color name="celestial3" value="#7e8e8c" />
-  <color name="celestial4" value="#cfdcd8" />
-  <color name="celestial5" value="#3ee865" />
-  <color name="celestial6" value="#ff994d" />
-  <color name="celestial7" value="#15b8d6" />
-  <color name="celestial8" value="#1b839b" />
-  <color name="celestial9" value="#AB7967" />
-  <color name="celestial10" value="#ff996b" />
-  <color name="celestial11" value="#C3E88D" />
-  <color name="celestial12" value="#C792EA" />
-  <color name="celestial13" value="#283334" />
+  <color name="celestial1" value="#7e8e8c" />
+  <color name="celestial2" value="#cfdcd8" />
+  <color name="celestial3" value="#1ecca9" />
+  <color name="celestial4" value="#F0544C" />
+  <color name="celestial5" value="#3498db" />
+  <color name="celestial6" value="#42A5F5" />
+  <color name="celestial7" value="#F0544C" />
+  <color name="celestial8" value="#F0544C" />
+  <color name="celestial9" value="#2eb398" />
+  <color name="celestial10" value="#ad7fa8" />
+  <color name="celestial11" value="#283334" />
 
   <!-- GUI Styling -->
-  <style name="background-pattern" background="celestial1" />
-  <style name="bookmark" background="celestial4" />
-  <style name="bracket-match" foreground="celestial4" background="celestial2" />
-  <style name="bracket-mismatch" foreground="celestial6" underline="true" />
-  <style name="current-line" foreground="celestial4" background="celestial13" />
-  <style name="cursor" foreground="celestial4" />
-  <style name="draw-spaces" foreground="celestial3" />
-  <style name="line-numbers" foreground="celestial3" background="celestial1" />
-  <style name="search-match" foreground="celestial4" background="celestial8" />
+  <style name="bookmark" background="celestial2" />
+  <style name="bracket-match" foreground="celestial2" />
+  <style name="bracket-mismatch" foreground="celestial4" underline="true" />
+  <style name="current-line" background="#111111" />
+  <style name="cursor" foreground="celestial2" />
+
+  <style name="search-match" foreground="celestial2" background="celestial6" />
   <style name="secondary-cursor" use-style="cursor" />
-  <style name="selection" foreground="celestial4" background="celestial2" />
-  <style name="selection-unfocused" foreground="celestial4" background="celestial7" />
-  <style name="right-margin" foreground="celestial4" />
-  <style name="text" foreground="celestial4" background="celestial0" />
+  <style name="right-margin" foreground="celestial2" />
+  <style name="text" foreground="celestial2" />
 
   <!-- Custom definitions -->
-  <style name="def:annotation" foreground="celestial9" />
-  <style name="def:escape" foreground="celestial9" />
-  <style name="def:regexp" foreground="celestial10" />
-  <style name="def:symbol" foreground="celestial4" />
-  <style name="def:other" foreground="celestial4" />
-  <style name="def:verbatim" foreground="celestial10" />
+  <style name="def:annotation" foreground="celestial7" />
+  <style name="def:escape" foreground="celestial7" />
+  <style name="def:regexp" foreground="celestial8" />
+  <style name="def:symbol" foreground="celestial2" />
+  <style name="def:other" foreground="celestial2" />
+  <style name="def:verbatim" foreground="celestial8" />
 
   <!-- Variables -->
-  <style name="def:number" foreground="celestial12" />
-  <style name="def:string" foreground="celestial11" />
+  <style name="def:number" foreground="celestial10" />
+  <style name="def:string" foreground="celestial9" />
   <style name="def:base-n-integer" use-style="def:number" />
   <style name="def:character" use-style="def:string" />
   <style name="def:complex" use-style="def:number" />
   <style name="def:decimal" use-style="def:number" />
   <style name="def:floating-point" use-style="def:number" />
-  <style name="def:special-char" foreground="celestial9" />
-  <style name="def:variable" foreground="celestial4" />
-  <style name="def:global-variable" foreground="celestial4" />
-  <style name="def:class-variable" foreground="celestial4" />
-  <style name="def:instance-variable" foreground="celestial4" />
+  <style name="def:special-char" foreground="celestial7" />
+  <style name="def:variable" foreground="celestial2" />
+  <style name="def:global-variable" foreground="celestial2" />
+  <style name="def:class-variable" foreground="celestial2" />
+  <style name="def:instance-variable" foreground="celestial2" />
 
   <!-- Constants -->
-  <style name="def:boolean" foreground="celestial7" />
-  <style name="def:constant" foreground="celestial4" />
-  <style name="def:namespace" foreground="celestial5" />
-  <style name="def:special-constant" foreground="celestial7" />
+  <style name="def:boolean" foreground="celestial5" />
+  <style name="def:constant" foreground="celestial2" />
+  <style name="def:namespace" foreground="celestial3" />
+  <style name="def:special-constant" foreground="celestial5" />
 
   <!-- Comments -->
-  <style name="def:comment" foreground="celestial3" italic="true" />
+  <style name="def:comment" foreground="celestial1" italic="true" />
   <style name="def:doc-comment" use-style="def:comment" />
-  <style name="def:doc-comment-element" foreground="celestial7" />
+  <style name="def:doc-comment-element" foreground="celestial5" />
   <style
     name="def:net-address-in-comment"
-    foreground="celestial3"
+    foreground="celestial1"
     underline="true"
   />
   <style name="def:note" use-style="def:comment" />
 
   <!-- Keywords -->
-  <style name="def:class" foreground="celestial5" />
-  <style name="def:keyword" foreground="celestial7" />
+  <style name="def:class" foreground="celestial3" />
+  <style name="def:keyword" foreground="celestial5" />
   <style name="def:attribute" use-style="def:class" />
   <style name="def:builtin" use-style="def:keyword" />
   <style name="def:identifier" use-style="def:keyword" />
-  <style name="def:preprocessor" foreground="celestial8" />
+  <style name="def:preprocessor" foreground="celestial6" />
   <style name="def:reserved" use-style="def:keyword" />
-  <style name="def:shebang" foreground="celestial8" />
+  <style name="def:shebang" foreground="celestial6" />
   <style name="def:statement" use-style="def:keyword" />
   <style name="def:tag" use-style="def:keyword" />
   <style name="def:type" use-style="def:class" />
 
   <!-- Logicals -->
-  <style name="def:error" foreground="celestial6" />
-  <style name="def:function" foreground="celestial6" />
-  <style name="def:operator" foreground="celestial7" />
+  <style name="def:error" foreground="celestial4" />
+  <style name="def:function" foreground="celestial4" />
+  <style name="def:operator" foreground="celestial5" />
 
   <!-- Headings -->
-  <style name="def:heading0" foreground="celestial6" />
+  <style name="def:heading0" foreground="celestial4" />
   <style name="def:heading1" use-style="def:heading0" />
   <style name="def:heading2" use-style="def:heading0" />
   <style name="def:heading3" use-style="def:heading0" />
@@ -108,7 +96,7 @@
 
   <!-- Formats -->
   <style name="def:underlined" underline="true" />
-  <style name="def:warning" foreground="celestial10" />
+  <style name="def:warning" foreground="celestial8" />
 
   <!-- CSS Styling -->
   <style name="css:at-rules" use-style="def:annotation" />
@@ -124,17 +112,17 @@
   <style name="css:others-3" use-style="def:symbol" />
   <style name="css:property-values" use-style="def:keyword" />
   <style name="css:selector-class" use-style="def:class" />
-  <style name="css:selector-id" foreground="celestial5" underline="true" />
+  <style name="css:selector-id" foreground="celestial3" underline="true" />
   <style name="css:selector-tagname" use-style="def:tag" />
   <style name="css:string" use-style="def:string" />
 
   <!-- Desktop Styling -->
   <style name="desktop:boolean" use-style="def:boolean" />
   <style name="desktop:category-additional" use-style="def:string" />
-  <style name="desktop:category-main" foreground="celestial11" bold="true" />
+  <style name="desktop:category-main" foreground="celestial9" bold="true" />
   <style
     name="desktop:category-reserved"
-    foreground="celestial7"
+    foreground="celestial5"
     underline="true"
   />
   <style name="desktop:encoding" use-style="def:keyword" />
@@ -145,11 +133,11 @@
   <style name="desktop:number" use-style="def:number" />
 
   <!-- DIFF Styling -->
-  <style name="diff:added-line" foreground="celestial11" />
-  <style name="diff:changed-line" foreground="celestial10" />
-  <style name="diff:diff-file" foreground="celestial6" />
-  <style name="diff:location" foreground="celestial7" />
-  <style name="diff:removed-line" foreground="celestial6" />
+  <style name="diff:added-line" foreground="celestial9" />
+  <style name="diff:changed-line" foreground="celestial8" />
+  <style name="diff:diff-file" foreground="celestial4" />
+  <style name="diff:location" foreground="celestial5" />
+  <style name="diff:removed-line" foreground="celestial4" />
   <style name="diff:special-case" use-style="def:string" />
 
   <!-- HTML Styling -->
@@ -200,7 +188,7 @@
   <style name="js:future-words" use-style="def:keyword" />
   <style name="js:keyword" use-style="def:keyword" />
   <style name="js:null-value" use-style="def:keyword" />
-  <style name="js:properties" foreground="celestial6" italic="true" />
+  <style name="js:properties" foreground="celestial4" italic="true" />
   <style name="js:regex" use-style="def:regexp" />
   <style name="js:string" use-style="def:string" />
   <style name="js:type" use-style="def:keyword" />
@@ -217,41 +205,41 @@
   <style name="json:string" use-style="def:string" />
 
   <!-- MD Styling -->
-  <style name="markdown:abbreviation" foreground="celestial9" />
+  <style name="markdown:abbreviation" foreground="celestial7" />
   <style name="markdown:attribute-value" use-style="def:attribute" />
   <style name="markdown:backslash-escape" use-style="def:escape" />
-  <style name="markdown:blockquote-marker" foreground="celestial6" />
-  <style name="markdown:code" foreground="celestial5" />
-  <style name="markdown:emphasis" foreground="celestial4" italic="true" />
-  <style name="markdown:header" foreground="celestial6" />
-  <style name="markdown:horizontal-rule" foreground="celestial7" />
+  <style name="markdown:blockquote-marker" foreground="celestial4" />
+  <style name="markdown:code" foreground="celestial3" />
+  <style name="markdown:emphasis" foreground="celestial2" italic="true" />
+  <style name="markdown:header" foreground="celestial4" />
+  <style name="markdown:horizontal-rule" foreground="celestial5" />
   <style name="markdown:image-marker" use-style="def:keyword" />
   <style name="markdown:label" use-style="def:attribute" />
   <style name="markdown:line-break" use-style="def:comment" />
   <style name="markdown:link-text" use-style="def:attribute" />
-  <style name="markdown:list-marker" foreground="celestial7" />
-  <style name="markdown:strong-emphasis" foreground="celestial4" bold="true" />
+  <style name="markdown:list-marker" foreground="celestial5" />
+  <style name="markdown:strong-emphasis" foreground="celestial2" bold="true" />
   <style name="markdown:table-separator" bold="true" />
-  <style name="markdown:url" foreground="celestial4" underline="true" />
+  <style name="markdown:url" foreground="celestial2" underline="true" />
 
   <!-- PERL Styling -->
   <style name="perl:builtin" use-style="def:builtin" />
   <style name="perl:comment" use-style="def:comment" />
-  <style name="perl:control" foreground="celestial7" underline="true" />
+  <style name="perl:control" foreground="celestial5" underline="true" />
   <style name="perl:error" use-style="def:error" />
   <style name="perl:file-descriptor" use-style="def:keyword" />
   <style name="perl:here-doc-bound" use-style="def:keyword" />
   <style name="perl:include-statement" use-style="def:annotation" />
   <style name="perl:keyword" use-style="def:keyword" />
-  <style name="perl:line-directive" foreground="celestial3" italic="true" />
+  <style name="perl:line-directive" foreground="celestial1" italic="true" />
   <style name="perl:operator" use-style="def:operator" />
   <style name="perl:pod" use-style="text" />
   <style name="perl:pod-escape" use-style="def:escape" />
-  <style name="perl:pod-heading" foreground="celestial6" />
+  <style name="perl:pod-heading" foreground="celestial4" />
   <style name="perl:pod-keyword" use-style="def:keyword" />
   <style name="perl:regex" use-style="def:regexp" />
   <style name="perl:string" use-style="def:string" />
-  <style name="perl:system-command" foreground="celestial6" />
+  <style name="perl:system-command" foreground="celestial4" />
   <style name="perl:variable" use-style="def:variable" />
 
   <!-- PHP Styling -->
@@ -268,7 +256,7 @@
   <style name="php:identifier" use-style="def:function" />
   <style name="php:keyword" use-style="def:keyword" />
   <style name="php:null-value" use-style="def:keyword" />
-  <style name="php:octal" foreground="celestial12" italic="true" />
+  <style name="php:octal" foreground="celestial10" italic="true" />
   <style name="php:operator" use-style="def:operator" />
   <style name="php:preprocessor" use-style="def:preprocessor" />
   <style name="php:string" use-style="def:string" />
@@ -276,13 +264,13 @@
   <style name="php:variable" use-style="def:variable" />
 
   <!-- PYTHON Styling -->
-  <style name="python:base-n-integer" foreground="celestial12" italic="true" />
+  <style name="python:base-n-integer" foreground="celestial10" italic="true" />
   <style name="python:boolean" use-style="def:boolean" />
   <style name="python:builtin-constant" use-style="def:keyword" />
   <style name="python:builtin-function" use-style="def:function" />
   <style name="python:builtin-object" use-style="def:class" />
   <style name="python:class-name" use-style="def:class" />
-  <style name="python:complex" foreground="celestial12" italic="true" />
+  <style name="python:complex" foreground="celestial10" italic="true" />
   <style name="python:decimal" use-style="def:number" />
   <style name="python:decorator" use-style="def:annotation" />
   <style name="python:escaped-char" use-style="def:escape" />
@@ -295,12 +283,12 @@
   <style name="python:special-variable" use-style="def:keyword" />
   <style name="python:string" use-style="def:string" />
   <style name="python:string-conversion" use-style="def:keyword" />
-  <style name="python3:base-n-integer" foreground="celestial12" italic="true" />
+  <style name="python3:base-n-integer" foreground="celestial10" italic="true" />
   <style name="python3:boolean" use-style="def:boolean" />
   <style name="python3:builtin-constant" use-style="def:keyword" />
   <style name="python3:builtin-function" use-style="def:function" />
   <style name="python3:builtin-object" use-style="def:class" />
-  <style name="python3:complex" foreground="celestial12" italic="true" />
+  <style name="python3:complex" foreground="celestial10" italic="true" />
   <style name="python3:decimal" use-style="def:number" />
   <style name="python3:escaped-char" use-style="def:escape" />
   <style name="python3:floating-point" use-style="def:number" />
@@ -336,7 +324,7 @@
 
   <!-- SH Styling -->
   <style name="sh:comment" use-style="def:comment" />
-  <style name="sh:common-command" foreground="celestial7" italic="true" />
+  <style name="sh:common-command" foreground="celestial5" italic="true" />
   <style name="sh:function" use-style="def:function" />
   <style name="sh:here-doc-bound" use-style="def:keyword" />
   <style name="sh:keyword" use-style="def:keyword" />
@@ -348,9 +336,9 @@
   <!-- XML Styling -->
   <style name="xml:attribute-name" use-style="def:attribute" />
   <style name="xml:attribute-value" use-style="def:string" />
-  <style name="xml:cdata-delim" foreground="celestial3" bold="true" />
+  <style name="xml:cdata-delim" foreground="celestial1" bold="true" />
   <style name="xml:comment" use-style="def:comment" />
-  <style name="xml:doctype" foreground="celestial8" />
+  <style name="xml:doctype" foreground="celestial6" />
   <style name="xml:element-name" use-style="def:keyword" />
   <style name="xml:entity" use-style="def:escape" />
   <style name="xml:error" use-style="def:error" />
@@ -361,19 +349,19 @@
   <!-- Meld -->
   <style
     name="meld:insert"
-    foreground="celestial4"
+    foreground="celestial2"
     background="#rgba(77, 182, 172, 0.1)"
     line-background="#rgba(77, 182, 172, 0.1)"
   />
   <style
     name="meld:replace"
-    foreground="celestial4"
+    foreground="celestial2"
     background="#rgba(3, 169, 244, 0.1)"
     line-background="#rgba(3, 169, 244, 0.1)"
   />
   <style
     name="meld:conflict"
-    foreground="celestial4"
+    foreground="celestial2"
     background="#rgba(244, 67, 54, 0.1)"
     line-background="#rgba(244, 67, 54, 0.1)"
   />
@@ -386,7 +374,7 @@
     background="#rgba(203, 216, 220, 0.1)"
   />
   <style name="meld:inline" background="#rgba(3, 169, 244, 0.4)" />
-  <style name="meld:unknown-text" foreground="celestial4" />
-  <style name="meld:dimmed" foreground="celestial3" />
+  <style name="meld:unknown-text" foreground="celestial2" />
+  <style name="meld:dimmed" foreground="celestial1" />
 
 </style-scheme>
