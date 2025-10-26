@@ -79,6 +79,7 @@ The install script provides extensive customization options:
 | `-k, --kvantum`        | Install Kvantum theme for Qt applications                        |
 | `-b, --backgrounds`    | Install theme backgrounds                                        |
 | `--ghostty`            | Install Ghostty terminal theme                                   |
+| `--kitty`              | Install Kitty terminal theme                                     |
 | `--zed`                | Install Zed editor theme                                         |
 | `-g, --gdm`            | Install GDM theme (requires sudo)                                |
 | `-r, --remove`         | Uninstall theme                                                  |
@@ -152,16 +153,22 @@ sudo ./install.sh -g -t azul -c dark
 ./install.sh --ghostty
 ```
 
+**Install Kitty terminal theme:**
+
+```bash
+./install.sh --kitty
+```
+
 **Install Zed editor theme:**
 
 ```bash
 ./install.sh --zed
 ```
 
-**Install everything (theme + backgrounds + Kvantum + Ghostty + Zed):**
+**Install everything (theme + backgrounds + Kvantum + Ghostty + Kitty + Zed):**
 
 ```bash
-./install.sh -k -b --ghostty --zed
+./install.sh -k -b --ghostty --kitty --zed
 ```
 
 ## Uninstalling
@@ -206,6 +213,12 @@ Remove Ghostty terminal theme:
 
 ```bash
 ./install.sh --ghostty -r
+```
+
+Remove Kitty terminal theme:
+
+```bash
+./install.sh --kitty -r
 ```
 
 Remove Zed editor theme:

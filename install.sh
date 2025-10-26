@@ -19,6 +19,7 @@ if [ "$UID" -eq "$ROOT_UID" ]; then
     "/usr/share/cinnamon-background-properties"
   )
   GHOSTTY_DIR="/usr/share/ghostty/themes"
+  KITTY_DIR=""
   ZED_DIR=""
 else
   DEST_DIR="$HOME/.themes"
@@ -31,6 +32,7 @@ else
     "$HOME/.local/share/cinnamon-background-properties"
   )
   GHOSTTY_DIR="$HOME/.config/ghostty/themes"
+  KITTY_DIR="$HOME/.config/kitty/themes"
   ZED_DIR="$HOME/.config/zed/themes"
 fi
 
@@ -56,6 +58,7 @@ usage() {
   printf "  %-25s%s\n" "-k, --kvantum" "Install Kvantum theme for Qt applications"
   printf "  %-25s%s\n" "-b, --backgrounds" "Install theme backgrounds"
   printf "  %-25s%s\n" "--ghostty" "Install Ghostty terminal theme"
+  printf "  %-25s%s\n" "--kitty" "Install Kitty terminal theme"
   printf "  %-25s%s\n" "--zed" "Install Zed editor theme"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme (requires sudo)"
   printf "  %-25s%s\n" "-r, --remove" "Uninstall theme"
@@ -434,6 +437,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     --ghostty)
       ghostty='true'
+      shift
+      ;;
+    --kitty)
+      kitty='true'
       shift
       ;;
     --zed)
@@ -936,6 +943,35 @@ uninstall_ghostty() {
   fi
 }
 
+install_kitty() {
+  echo "Installing Kitty terminal theme..."
+  
+  if [[ -z "${KITTY_DIR}" ]]; then
+    echo "Kitty theme installation is not available for system-wide installs (root)"
+    echo "Kitty themes must be installed per-user"
+    return
+  fi
+  
+  mkdir -p "${DESTDIR}${KITTY_DIR}"
+  cp "${SRC_DIR}/extra/kitty/Celestial.conf" "${DESTDIR}${KITTY_DIR}/"
+  echo "Kitty theme installed to ${DESTDIR}${KITTY_DIR}/Celestial.conf"
+}
+
+uninstall_kitty() {
+  echo "Removing Kitty terminal theme..."
+  
+  if [[ -z "${KITTY_DIR}" ]]; then
+    return
+  fi
+  
+  if [[ -f "${DESTDIR}${KITTY_DIR}/Celestial.conf" ]]; then
+    rm -f "${DESTDIR}${KITTY_DIR}/Celestial.conf"
+    echo "Removed ${DESTDIR}${KITTY_DIR}/Celestial.conf"
+  else
+    echo "Kitty theme not found at ${DESTDIR}${KITTY_DIR}/Celestial.conf"
+  fi
+}
+
 install_zed() {
   echo "Installing Zed editor theme..."
 
@@ -1027,6 +1063,10 @@ if [[ "${gdm:-}" != 'true' ]]; then
       install_ghostty
     fi
 
+    if [[ "${kitty:-}" == 'true' ]]; then
+      install_kitty
+    fi
+
     if [[ "${zed:-}" == 'true' ]]; then
       install_zed
     fi
@@ -1043,6 +1083,9 @@ if [[ "${gdm:-}" != 'true' ]]; then
     elif [[ "${ghostty:-}" == 'true' ]]; then
       uninstall_ghostty
       echo -e 'Remove Ghostty theme...'
+    elif [[ "${kitty:-}" == 'true' ]]; then
+      uninstall_kitty
+      echo -e 'Remove Kitty theme...'
     elif [[ "${zed:-}" == 'true' ]]; then
       uninstall_zed
       echo -e 'Remove Zed theme...'

@@ -17,7 +17,7 @@ Based on the excellent [Arc](https://github.com/horst3180/Arc-theme) and [Matcha
 - **Dock Support** - [Plank Reloaded](https://github.com/zquestz/plank-reloaded) theming
 - **HiDPI Support** - Standard, HiDPI, and XHiDPI variants for retina displays
 - **Color-Matched Backgrounds** - Minimalistic wallpapers coordinated with each theme variant
-- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, Zed editor themes, Ghostty terminal theme
+- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, Zed editor themes, Ghostty and Kitty terminal themes
 
 ## Installation
 
@@ -98,6 +98,10 @@ Then select "Celestial Dark" or "Celestial Light" from Zed's theme selector. For
 
 **Note:** Zed themes can only be installed for user accounts (not system-wide).
 
+## Terminal Themes
+
+Celestial includes color themes for popular terminal emulators:
+
 ### Ghostty Terminal
 
 For [Ghostty](https://ghostty.org/) terminal users, Celestial provides a terminal theme that incorporates the Celestial color palette.
@@ -109,6 +113,20 @@ To install the Ghostty theme:
 ```
 
 Then set `theme = "Celestial"` in your Ghostty configuration file. For more details, see the [Ghostty theme README](src/extra/ghostty/README.md).
+
+### Kitty Terminal
+
+For [Kitty](https://sw.kovidgoyal.net/kitty/) terminal users, Celestial provides a terminal theme that incorporates the Celestial color palette.
+
+To install the Kitty theme:
+
+```bash
+./install.sh --kitty
+```
+
+Then use the Kitty theme kitten (`kitty +kitten themes`) to select "Celestial", or include the theme in your `kitty.conf`. For more details, see the [Kitty theme README](src/extra/kitty/README.md).
+
+**Note:** Kitty themes can only be installed for user accounts (not system-wide).
 
 ## Development
 
