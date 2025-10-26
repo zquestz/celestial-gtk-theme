@@ -1,4 +1,4 @@
-# Celestial Theme for Xed
+# Celestial GTKSourceView 4 Theme
 
 This theme provides styles for HTML, CSS, DIFF, INI, JAVA, JS, JSON, MD, PERL, PHP, PYTHON, RUBY, SH, XML, C.
 
