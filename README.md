@@ -17,7 +17,7 @@ Based on the excellent [Arc](https://github.com/horst3180/Arc-theme) and [Matcha
 - **Dock Support** - [Plank Reloaded](https://github.com/zquestz/plank-reloaded) theming
 - **HiDPI Support** - Standard, HiDPI, and XHiDPI variants for retina displays
 - **Color-Matched Backgrounds** - Minimalistic wallpapers coordinated with each theme variant
-- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting
+- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, Zed editor themes
 
 ## Installation
 
@@ -67,6 +67,40 @@ If you prefer a different approach, consider:
 - **[Qt Style Plugins](https://github.com/qt/qtstyleplugins)** - Qt5 style plugins including GTK2 support
 
 These plugins provide alternative ways to ensure Qt applications (KDE apps, VLC, Telegram, etc.) match your GTK theme.
+
+## Code Editor Themes
+
+Celestial includes syntax highlighting themes for popular code editors:
+
+### GTKSourceView
+
+For editors like Xed and other GTKSourceView-based applications, Celestial provides a comprehensive syntax highlighting theme with a carefully crafted color palette.
+
+The GTKSourceView theme is automatically installed when you run the standard installation:
+
+```bash
+./install.sh
+```
+
+The theme file is installed to `~/.local/share/gtksourceview-4/styles/celestial.xml` (or `/usr/share/gtksourceview-4/styles/` for system-wide installations).
+
+### Zed Editor
+
+For [Zed](https://zed.dev/) users, Celestial provides both dark and light theme variants that match the GTK theme color palette.
+
+To install the Zed theme, copy the theme file to your Zed themes directory:
+
+```bash
+# Linux
+mkdir -p ~/.config/zed/themes
+cp src/extra/zed/celestial.json ~/.config/zed/themes/
+
+# macOS
+mkdir -p ~/Library/Application\ Support/Zed/themes
+cp src/extra/zed/celestial.json ~/Library/Application\ Support/Zed/themes/
+```
+
+Then select "Celestial Dark" or "Celestial Light" from Zed's theme selector. For more details, see the [Zed theme README](src/extra/zed/README.md).
 
 ## Development
 
