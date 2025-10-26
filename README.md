@@ -17,7 +17,7 @@ Based on the excellent [Arc](https://github.com/horst3180/Arc-theme) and [Matcha
 - **Dock Support** - [Plank Reloaded](https://github.com/zquestz/plank-reloaded) theming
 - **HiDPI Support** - Standard, HiDPI, and XHiDPI variants for retina displays
 - **Color-Matched Backgrounds** - Minimalistic wallpapers coordinated with each theme variant
-- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, Zed and Ghostty themes
+- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, Zed editor themes, Ghostty terminal themes
 
 ## Installation
 
@@ -88,19 +88,27 @@ The theme file is installed to `~/.local/share/gtksourceview-4/styles/celestial.
 
 For [Zed](https://zed.dev/) users, Celestial provides both dark and light theme variants that match the GTK theme color palette.
 
-To install the Zed theme, copy the theme file to your Zed themes directory:
+To install the Zed theme:
 
 ```bash
-# Linux
-mkdir -p ~/.config/zed/themes
-cp src/extra/zed/celestial.json ~/.config/zed/themes/
-
-# macOS
-mkdir -p ~/Library/Application\ Support/Zed/themes
-cp src/extra/zed/celestial.json ~/Library/Application\ Support/Zed/themes/
+./install.sh --zed
 ```
 
 Then select "Celestial Dark" or "Celestial Light" from Zed's theme selector. For more details, see the [Zed theme README](src/extra/zed/README.md).
+
+**Note:** Zed themes can only be installed for user accounts (not system-wide).
+
+### Ghostty Terminal
+
+For [Ghostty](https://ghostty.org/) terminal users, Celestial provides a terminal theme that incorporates the Celestial color palette.
+
+To install the Ghostty theme:
+
+```bash
+./install.sh --ghostty
+```
+
+Then set `theme = "Celestial"` in your Ghostty configuration file. For more details, see the [Ghostty theme README](src/extra/ghostty/README.md).
 
 ## Development
 

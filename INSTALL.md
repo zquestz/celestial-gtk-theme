@@ -78,6 +78,8 @@ The install script provides extensive customization options:
 | `-l, --libadwaita`     | Link libadwaita apps to GTK-4.0 theme                            |
 | `-k, --kvantum`        | Install Kvantum theme for Qt applications                        |
 | `-b, --backgrounds`    | Install theme backgrounds                                        |
+| `--ghostty`            | Install Ghostty terminal theme                                   |
+| `--zed`                | Install Zed editor theme                                         |
 | `-g, --gdm`            | Install GDM theme (requires sudo)                                |
 | `-r, --remove`         | Uninstall theme                                                  |
 | `-h, --help`           | Show this help                                                   |
@@ -144,10 +146,22 @@ sudo ./install.sh -g -t azul -c dark
 ./install.sh -b -t azul
 ```
 
-**Install everything (theme + backgrounds + Kvantum):**
+**Install Ghostty terminal theme:**
 
 ```bash
-./install.sh -k -b
+./install.sh --ghostty
+```
+
+**Install Zed editor theme:**
+
+```bash
+./install.sh --zed
+```
+
+**Install everything (theme + backgrounds + Kvantum + Ghostty + Zed):**
+
+```bash
+./install.sh -k -b --ghostty --zed
 ```
 
 ## Uninstalling
@@ -180,6 +194,24 @@ Remove specific theme backgrounds:
 
 ```bash
 ./install.sh -b -r -t azul
+```
+
+Remove Kvantum themes:
+
+```bash
+./install.sh -k -r
+```
+
+Remove Ghostty terminal theme:
+
+```bash
+./install.sh --ghostty -r
+```
+
+Remove Zed editor theme:
+
+```bash
+./install.sh --zed -r
 ```
 
 ## Applying the Theme

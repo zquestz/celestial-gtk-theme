@@ -18,6 +18,8 @@ if [ "$UID" -eq "$ROOT_UID" ]; then
     "/usr/share/mate-background-properties"
     "/usr/share/cinnamon-background-properties"
   )
+  GHOSTTY_DIR="/usr/share/ghostty/themes"
+  ZED_DIR=""
 else
   DEST_DIR="$HOME/.themes"
   GTKSV_DIR="$HOME/.local/share/gtksourceview-4/styles"
@@ -28,6 +30,8 @@ else
     "$HOME/.local/share/mate-background-properties"
     "$HOME/.local/share/cinnamon-background-properties"
   )
+  GHOSTTY_DIR="$HOME/.config/ghostty/themes"
+  ZED_DIR="$HOME/.config/zed/themes"
 fi
 
 REO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -51,6 +55,8 @@ usage() {
   printf "  %-25s%s\n" "-l, --libadwaita" "Link libadwaita apps to GTK-4.0 theme"
   printf "  %-25s%s\n" "-k, --kvantum" "Install Kvantum theme for Qt applications"
   printf "  %-25s%s\n" "-b, --backgrounds" "Install theme backgrounds"
+  printf "  %-25s%s\n" "--ghostty" "Install Ghostty terminal theme"
+  printf "  %-25s%s\n" "--zed" "Install Zed editor theme"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme (requires sudo)"
   printf "  %-25s%s\n" "-r, --remove" "Uninstall theme"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
@@ -424,6 +430,14 @@ while [[ $# -gt 0 ]]; do
       ;;
     -b|--backgrounds)
       backgrounds='true'
+      shift
+      ;;
+    --ghostty)
+      ghostty='true'
+      shift
+      ;;
+    --zed)
+      zed='true'
       shift
       ;;
     -r|--remove|-u|--uninstall)
@@ -903,6 +917,54 @@ uninstall_link() {
   rm -rf "${HOME}/.config/gtk-4.0"/{assets,gtk.css,gtk-dark.css}
 }
 
+install_ghostty() {
+  echo "Installing Ghostty terminal theme..."
+
+  mkdir -p "${DESTDIR}${GHOSTTY_DIR}"
+  cp "${SRC_DIR}/extra/ghostty/Celestial" "${DESTDIR}${GHOSTTY_DIR}/"
+  echo "Ghostty theme installed to ${DESTDIR}${GHOSTTY_DIR}/Celestial"
+}
+
+uninstall_ghostty() {
+  echo "Removing Ghostty terminal theme..."
+
+  if [[ -f "${DESTDIR}${GHOSTTY_DIR}/Celestial" ]]; then
+    rm -f "${DESTDIR}${GHOSTTY_DIR}/Celestial"
+    echo "Removed ${DESTDIR}${GHOSTTY_DIR}/Celestial"
+  else
+    echo "Ghostty theme not found at ${DESTDIR}${GHOSTTY_DIR}/Celestial"
+  fi
+}
+
+install_zed() {
+  echo "Installing Zed editor theme..."
+
+  if [[ -z "${ZED_DIR}" ]]; then
+    echo "Zed theme installation is not available for system-wide installs (root)"
+    echo "Zed themes must be installed per-user"
+    return
+  fi
+
+  mkdir -p "${DESTDIR}${ZED_DIR}"
+  cp "${SRC_DIR}/extra/zed/celestial.json" "${DESTDIR}${ZED_DIR}/"
+  echo "Zed theme installed to ${DESTDIR}${ZED_DIR}/celestial.json"
+}
+
+uninstall_zed() {
+  echo "Removing Zed editor theme..."
+
+  if [[ -z "${ZED_DIR}" ]]; then
+    return
+  fi
+
+  if [[ -f "${DESTDIR}${ZED_DIR}/celestial.json" ]]; then
+    rm -f "${DESTDIR}${ZED_DIR}/celestial.json"
+    echo "Removed ${DESTDIR}${ZED_DIR}/celestial.json"
+  else
+    echo "Zed theme not found at ${DESTDIR}${ZED_DIR}/celestial.json"
+  fi
+}
+
 link_theme() {
   local lcolor_list=("${lcolors[@]}")
   local theme_list=("${themes[@]}")
@@ -960,6 +1022,14 @@ if [[ "${gdm:-}" != 'true' ]]; then
     if [[ "${backgrounds:-}" == 'true' ]]; then
       install_backgrounds
     fi
+
+    if [[ "${ghostty:-}" == 'true' ]]; then
+      install_ghostty
+    fi
+
+    if [[ "${zed:-}" == 'true' ]]; then
+      install_zed
+    fi
   else
     if [[ "${libadwaita:-}" == 'true' ]]; then
       uninstall_link
@@ -970,6 +1040,12 @@ if [[ "${gdm:-}" != 'true' ]]; then
     elif [[ "${backgrounds:-}" == 'true' ]]; then
       uninstall_backgrounds
       echo -e 'Remove backgrounds...'
+    elif [[ "${ghostty:-}" == 'true' ]]; then
+      uninstall_ghostty
+      echo -e 'Remove Ghostty theme...'
+    elif [[ "${zed:-}" == 'true' ]]; then
+      uninstall_zed
+      echo -e 'Remove Zed theme...'
     else
       uninstall_theme
     fi
