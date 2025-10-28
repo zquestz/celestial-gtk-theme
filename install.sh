@@ -945,13 +945,13 @@ uninstall_ghostty() {
 
 install_kitty() {
   echo "Installing Kitty terminal theme..."
-  
+
   if [[ -z "${KITTY_DIR}" ]]; then
     echo "Kitty theme installation is not available for system-wide installs (root)"
     echo "Kitty themes must be installed per-user"
     return
   fi
-  
+
   mkdir -p "${DESTDIR}${KITTY_DIR}"
   cp "${SRC_DIR}/extra/kitty/Celestial.conf" "${DESTDIR}${KITTY_DIR}/"
   echo "Kitty theme installed to ${DESTDIR}${KITTY_DIR}/Celestial.conf"
@@ -959,11 +959,11 @@ install_kitty() {
 
 uninstall_kitty() {
   echo "Removing Kitty terminal theme..."
-  
+
   if [[ -z "${KITTY_DIR}" ]]; then
     return
   fi
-  
+
   if [[ -f "${DESTDIR}${KITTY_DIR}/Celestial.conf" ]]; then
     rm -f "${DESTDIR}${KITTY_DIR}/Celestial.conf"
     echo "Removed ${DESTDIR}${KITTY_DIR}/Celestial.conf"
@@ -973,7 +973,11 @@ uninstall_kitty() {
 }
 
 install_zed() {
-  echo "Installing Zed editor theme..."
+  local theme_list=("${themes[@]}")
+
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  echo "Installing Zed editor themes..."
 
   if [[ -z "${ZED_DIR}" ]]; then
     echo "Zed theme installation is not available for system-wide installs (root)"
@@ -982,23 +986,34 @@ install_zed() {
   fi
 
   mkdir -p "${DESTDIR}${ZED_DIR}"
-  cp "${SRC_DIR}/extra/zed/celestial.json" "${DESTDIR}${ZED_DIR}/"
-  echo "Zed theme installed to ${DESTDIR}${ZED_DIR}/celestial.json"
+
+  for theme in "${theme_list[@]}"; do
+    local theme_name="${theme#-}"
+    cp "${SRC_DIR}/extra/zed/celestial-${theme_name}.json" "${DESTDIR}${ZED_DIR}/"
+    echo "  Installed celestial-${theme_name}.json"
+  done
+
+  echo "Zed themes installed to ${DESTDIR}${ZED_DIR}/"
 }
 
 uninstall_zed() {
-  echo "Removing Zed editor theme..."
+  local theme_list=("${themes[@]}")
+
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  echo "Removing Zed editor themes..."
 
   if [[ -z "${ZED_DIR}" ]]; then
     return
   fi
 
-  if [[ -f "${DESTDIR}${ZED_DIR}/celestial.json" ]]; then
-    rm -f "${DESTDIR}${ZED_DIR}/celestial.json"
-    echo "Removed ${DESTDIR}${ZED_DIR}/celestial.json"
-  else
-    echo "Zed theme not found at ${DESTDIR}${ZED_DIR}/celestial.json"
-  fi
+  for theme in "${theme_list[@]}"; do
+    local theme_name="${theme#-}"
+    if [[ -f "${DESTDIR}${ZED_DIR}/celestial-${theme_name}.json" ]]; then
+      rm -f "${DESTDIR}${ZED_DIR}/celestial-${theme_name}.json"
+      echo "  Removed celestial-${theme_name}.json"
+    fi
+  done
 }
 
 link_theme() {

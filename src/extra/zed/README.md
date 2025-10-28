@@ -1,10 +1,21 @@
-# Celestial Theme for Zed Editor
+# Celestial Themes for Zed Editor
 
-A dark and light theme for [Zed](https://zed.dev/) that matches the Celestial GTK theme color palette.
+Dark and light themes for [Zed](https://zed.dev/) in four color variants that match the Celestial GTK theme palette.
+
+## Theme Variants
+
+Celestial provides four color variants, each with dark and light appearances:
+
+- **Celestial Sea** - Cool cyan tones
+- **Celestial Aliz** - Warm crimson hues
+- **Celestial Azul** - Deep blue accents
+- **Celestial Pueril** - Fresh green tones
+
+Each variant includes both **Dark** and **Light** themes (8 themes total).
 
 ## Color Palette
 
-The Celestial Zed theme uses a carefully crafted color palette for optimal code readability:
+The Celestial Zed themes use a carefully crafted color palette for optimal code readability:
 
 - **Comments** - `#7e8e8c` - Muted gray-green for subtle comments
 - **Text** - `#cfdcd8` (dark) / `#2e3436` (light) - Clear, readable default text
@@ -19,88 +30,74 @@ The Celestial Zed theme uses a carefully crafted color palette for optimal code 
 
 ## Installation
 
+### Using the Installer Script
+
+The easiest way to install is using the Celestial installer:
+
+```bash
+# Install all color variants
+./install.sh --zed
+
+# Install specific color variant(s)
+./install.sh --zed -t azul
+./install.sh --zed -t sea -t aliz
+```
+
+**Note:** Zed themes can only be installed for user accounts (not system-wide).
+
 ### Manual Installation
 
-1. Copy `celestial.json` to your Zed themes directory:
+1. Copy the theme files to your Zed themes directory:
 
    **Linux:**
 
    ```bash
    mkdir -p ~/.config/zed/themes
-   cp celestial.json ~/.config/zed/themes/
+   cp celestial-*.json ~/.config/zed/themes/
    ```
 
    **macOS:**
 
    ```bash
    mkdir -p ~/Library/Application\ Support/Zed/themes
-   cp celestial.json ~/Library/Application\ Support/Zed/themes/
+   cp celestial-*.json ~/Library/Application\ Support/Zed/themes/
    ```
 
-   **Windows:**
+2. Open Zed and select your theme from the theme selector (Cmd+K Cmd+T or Ctrl+K Ctrl+T)
 
-   ```powershell
-   mkdir -p $env:APPDATA\Zed\themes
-   copy celestial.json $env:APPDATA\Zed\themes\
-   ```
-
-2. Open Zed and go to Settings (Cmd+, or Ctrl+,)
-
-3. Search for "theme" in settings
-
-4. Select either "Celestial Dark" or "Celestial Light"
-
-### Using Zed's Theme Selector
-
-1. Open the command palette (Cmd+Shift+P or Ctrl+Shift+P)
-2. Type "theme selector"
-3. Choose "Celestial Dark" or "Celestial Light"
+3. Choose from:
+   - Celestial Sea Dark / Light
+   - Celestial Aliz Dark / Light
+   - Celestial Azul Dark / Light
+   - Celestial Pueril Dark / Light
 
 ## Features
 
-- **Two Variants**: Dark and Light themes to match your preference
-- **Consistent Colors**: Matches the Celestial GTK theme palette
+- **Four Color Variants**: Sea, Aliz, Azul, and Pueril themes
+- **Dark and Light Modes**: Each variant includes both appearances
+- **Consistent UI Colors**: UI grays match the corresponding GTK theme variant
+- **Unified Syntax Colors**: Syntax highlighting consistent across all variants
+- **Terminal Integration**: ANSI colors match Ghostty/Kitty terminal themes
 - **Optimized Readability**: Carefully chosen colors for long coding sessions
 - **Comprehensive Coverage**: Supports all major programming languages
 
-## Screenshots
+## Uninstalling
 
-### Dark Theme
+Remove installed themes:
 
-The dark theme provides excellent contrast with a dark background perfect for low-light environments.
+```bash
+# Remove all variants
+./install.sh --zed -r
 
-### Light Theme
-
-The light theme offers a clean, bright appearance ideal for well-lit spaces.
+# Remove specific variant(s)
+./install.sh --zed -r -t azul
+```
 
 ## Customization
 
-You can customize the theme by editing `celestial.json` directly. The theme follows Zed's theme schema v0.2.0.
+You can customize any theme variant by editing the JSON files directly. The themes follow Zed's theme schema v0.2.0.
 
 For more information on creating and customizing Zed themes, see:
 
 - [Zed Theme Documentation](https://zed.dev/docs/themes)
 - [Zed Theme Gallery](https://zed-themes.com/)
-
-## Compatibility
-
-- **Zed Version**: Compatible with Zed theme schema v0.2.0+
-- **Platforms**: Linux, macOS, Windows
-
-## Related
-
-This theme is part of the [Celestial GTK Theme](https://github.com/zquestz/celestial-gtk-theme) project, which includes:
-
-- GTK 2/3/4 themes
-- GNOME Shell themes
-- GTKSourceView themes
-- Kvantum Qt themes
-- Zed editor themes
-
-## Support
-
-For issues, suggestions, or contributions, please visit the [Celestial GTK Theme repository](https://github.com/zquestz/celestial-gtk-theme).
-
-## License
-
-This theme is part of the Celestial GTK Theme project and is licensed under the GNU General Public License v3.0.
