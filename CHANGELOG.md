@@ -5,6 +5,21 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.4] - 2025-10-27
+
+### Changed
+
+- Enhanced Zed editor themes with color variant support
+  - Added four color variants: Sea, Aliz, Azul, and Pueril
+  - Each variant now includes both dark and light themes (8 total themes)
+  - Updated theme colors to match GTK theme color philosophies:
+    - Sea: Cyan/greenish tints (dark) + Cool blue (light)
+    - Aliz: Warm pink/red tints (dark) + Pure neutral (light)
+    - Azul: Cool blue tints (both modes)
+    - Pueril: Pure neutral grays (both modes)
+  - Updated installer to support variant-specific installation with `-t` flag
+  - Improved README documentation with variant descriptions and examples
+
 ## [1.1.3] - 2025-10-26
 
 ### Added
@@ -112,6 +127,7 @@ Initial release of Celestial GTK Theme.
   - Development guide (HACKING.md)
   - Asset generation guides in component directories
 
+[1.1.4]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.4
 [1.1.3]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.3
 [1.1.2]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.2
 [1.1.1]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.1
