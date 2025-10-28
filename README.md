@@ -86,15 +86,28 @@ The theme file is installed to `~/.local/share/gtksourceview-4/styles/celestial.
 
 ### Zed Editor
 
-For [Zed](https://zed.dev/) users, Celestial provides both dark and light theme variants that match the GTK theme color palette.
+For [Zed](https://zed.dev/) users, Celestial provides 8 themes - 4 color variants (Aliz, Azul, Pueril, Sea) with both dark and light modes that match the GTK theme color palette.
 
-To install the Zed theme:
+To install all Zed themes:
 
 ```bash
 ./install.sh --zed
 ```
 
-Then select "Celestial Dark" or "Celestial Light" from Zed's theme selector. For more details, see the [Zed theme README](src/extra/zed/README.md).
+To install specific variant(s):
+
+```bash
+./install.sh --zed -t azul
+./install.sh --zed -t sea -t aliz
+```
+
+Then select your theme from Zed's theme selector (Cmd+K Cmd+T or Ctrl+K Ctrl+T):
+- Celestial Aliz Dark / Light
+- Celestial Azul Dark / Light
+- Celestial Pueril Dark / Light
+- Celestial Sea Dark / Light
+
+For more details, see the [Zed theme README](src/extra/zed/README.md).
 
 **Note:** Zed themes can only be installed for user accounts (not system-wide).
 
