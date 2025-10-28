@@ -102,6 +102,7 @@ To install specific variant(s):
 ```
 
 Then select your theme from Zed's theme selector (Cmd+K Cmd+T or Ctrl+K Ctrl+T):
+
 - Celestial Aliz Dark / Light
 - Celestial Azul Dark / Light
 - Celestial Pueril Dark / Light
