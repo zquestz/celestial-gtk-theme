@@ -174,6 +174,30 @@ Available themes:
 
 For more details and installation instructions, see the [CopyQ theme README](src/extra/copyq/README.md).
 
+## Communication App Themes
+
+### Slack
+
+For [Slack](https://slack.com/) users, Celestial provides 8 custom themes - 4 color variants (Aliz, Azul, Pueril, Sea) with both dark and light modes that match the GTK theme color palette.
+
+Slack themes are simple copy-paste installations:
+
+1. Open Slack
+2. Click on your workspace name in the top-left
+3. Go to **Preferences** → **Appearance** → **Custom theme**
+4. Copy and paste one of the theme codes from the [Slack theme README](src/extra/slack/README.md)
+
+Available themes:
+
+- Celestial Aliz Dark / Light
+- Celestial Azul Dark / Light
+- Celestial Pueril Dark / Light
+- Celestial Sea Dark / Light
+
+Each theme uses a simple 4-value format: `background,accent,accent,accent` where the accent color is used for selected items, presence indicators, and notifications.
+
+For theme codes and more details, see the [Slack theme README](src/extra/slack/README.md).
+
 ## Development
 
 ### Building from Source

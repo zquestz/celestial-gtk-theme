@@ -17,6 +17,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Themed item lists, tabs, menus, toolbars, and search fields
   - Clean, minimalist design with comfortable contrast ratios
   - Support for theme/color variant filtering with `-t` and `-c` flags
+- Slack theme README documentation
+  - Added comprehensive README for Slack themes with installation instructions
+  - 8 Slack themes: 4 color variants (Aliz, Azul, Pueril, Sea) with both dark and light modes
+  - Simple copy-paste installation with theme codes
+  - Color breakdown explanation and preview information
 
 ## [1.1.4] - 2025-10-27
 
