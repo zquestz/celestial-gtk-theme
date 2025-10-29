@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # shellcheck disable=SC2086,SC2001
 # Celestial GTK Theme Installer
-# Version: 1.1.4
+# Version: 1.1.5
 
 ROOT_UID=0
 DEST_DIR=
@@ -19,6 +19,7 @@ if [ "$UID" -eq "$ROOT_UID" ]; then
     "/usr/share/cinnamon-background-properties"
   )
   GHOSTTY_DIR="/usr/share/ghostty/themes"
+  COPYQ_DIR="/usr/share/copyq/themes"
   KITTY_DIR=""
   ZED_DIR=""
 else
@@ -32,6 +33,7 @@ else
     "$HOME/.local/share/cinnamon-background-properties"
   )
   GHOSTTY_DIR="$HOME/.config/ghostty/themes"
+  COPYQ_DIR="$HOME/.config/copyq/themes"
   KITTY_DIR="$HOME/.config/kitty/themes"
   ZED_DIR="$HOME/.config/zed/themes"
 fi
@@ -46,7 +48,7 @@ THEME_VARIANTS=('-sea' '-aliz' '-azul' '-pueril')
 SHELL_VERSION=""
 
 usage() {
-  printf "%s\n" "Celestial GTK Theme Installer v1.1.4"
+  printf "%s\n" "Celestial GTK Theme Installer v1.1.5"
   printf "%s\n" "Usage: $0 [OPTIONS...]"
   printf "\n%s\n" "OPTIONS:"
   printf "  %-25s%s\n" "-d, --dest DIR" "Destination directory (Default: ${DEST_DIR})"
@@ -57,9 +59,10 @@ usage() {
   printf "  %-25s%s\n" "-l, --libadwaita" "Link libadwaita apps to GTK-4.0 theme"
   printf "  %-25s%s\n" "-k, --kvantum" "Install Kvantum theme for Qt applications"
   printf "  %-25s%s\n" "-b, --backgrounds" "Install theme backgrounds"
+  printf "  %-25s%s\n" "--copyq" "Install CopyQ clipboard manager themes"
   printf "  %-25s%s\n" "--ghostty" "Install Ghostty terminal theme"
   printf "  %-25s%s\n" "--kitty" "Install Kitty terminal theme"
-  printf "  %-25s%s\n" "--zed" "Install Zed editor theme"
+  printf "  %-25s%s\n" "--zed" "Install Zed editor themes"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme (requires sudo)"
   printf "  %-25s%s\n" "-r, --remove" "Uninstall theme"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
@@ -433,6 +436,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     -b|--backgrounds)
       backgrounds='true'
+      shift
+      ;;
+    --copyq)
+      copyq='true'
       shift
       ;;
     --ghostty)
@@ -972,6 +979,72 @@ uninstall_kitty() {
   fi
 }
 
+install_copyq() {
+  local theme_list=("${themes[@]}")
+  local color_list=("${colors[@]}")
+
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+  [[ ${#color_list[@]} -eq 0 ]] && color_list=("${COLOR_VARIANTS[@]}")
+
+  echo "Installing CopyQ clipboard manager themes..."
+
+  mkdir -p "${DESTDIR}${COPYQ_DIR}"
+
+  for theme in "${theme_list[@]}"; do
+    local theme_name="${theme#-}"
+    for color in "${color_list[@]}"; do
+      local color_name="${color#-}"
+      if [[ -z "${color_name}" ]]; then
+        # Install both light and dark for standard variant
+        cp "${SRC_DIR}/extra/copyq/celestial-${theme_name}-light.ini" "${DESTDIR}${COPYQ_DIR}/"
+        echo "  Installed celestial-${theme_name}-light.ini"
+        cp "${SRC_DIR}/extra/copyq/celestial-${theme_name}-dark.ini" "${DESTDIR}${COPYQ_DIR}/"
+        echo "  Installed celestial-${theme_name}-dark.ini"
+        break  # Don't process light and dark again after standard
+      else
+        cp "${SRC_DIR}/extra/copyq/celestial-${theme_name}-${color_name}.ini" "${DESTDIR}${COPYQ_DIR}/"
+        echo "  Installed celestial-${theme_name}-${color_name}.ini"
+      fi
+    done
+  done
+
+  echo "CopyQ themes installed to ${DESTDIR}${COPYQ_DIR}/"
+}
+
+uninstall_copyq() {
+  local theme_list=("${themes[@]}")
+  local color_list=("${colors[@]}")
+
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+  [[ ${#color_list[@]} -eq 0 ]] && color_list=("${COLOR_VARIANTS[@]}")
+
+  echo "Removing CopyQ clipboard manager themes..."
+
+  for theme in "${theme_list[@]}"; do
+    local theme_name="${theme#-}"
+    for color in "${color_list[@]}"; do
+      local color_name="${color#-}"
+      if [[ -z "${color_name}" ]]; then
+        # Remove both light and dark for standard variant
+        if [[ -f "${DESTDIR}${COPYQ_DIR}/celestial-${theme_name}-light.ini" ]]; then
+          rm -f "${DESTDIR}${COPYQ_DIR}/celestial-${theme_name}-light.ini"
+          echo "  Removed celestial-${theme_name}-light.ini"
+        fi
+        if [[ -f "${DESTDIR}${COPYQ_DIR}/celestial-${theme_name}-dark.ini" ]]; then
+          rm -f "${DESTDIR}${COPYQ_DIR}/celestial-${theme_name}-dark.ini"
+          echo "  Removed celestial-${theme_name}-dark.ini"
+        fi
+        break  # Don't process light and dark again after standard
+      else
+        if [[ -f "${DESTDIR}${COPYQ_DIR}/celestial-${theme_name}-${color_name}.ini" ]]; then
+          rm -f "${DESTDIR}${COPYQ_DIR}/celestial-${theme_name}-${color_name}.ini"
+          echo "  Removed celestial-${theme_name}-${color_name}.ini"
+        fi
+      fi
+    done
+  done
+}
+
 install_zed() {
   local theme_list=("${themes[@]}")
 
@@ -1074,6 +1147,10 @@ if [[ "${gdm:-}" != 'true' ]]; then
       install_backgrounds
     fi
 
+    if [[ "${copyq:-}" == 'true' ]]; then
+      install_copyq
+    fi
+
     if [[ "${ghostty:-}" == 'true' ]]; then
       install_ghostty
     fi
@@ -1095,6 +1172,9 @@ if [[ "${gdm:-}" != 'true' ]]; then
     elif [[ "${backgrounds:-}" == 'true' ]]; then
       uninstall_backgrounds
       echo -e 'Remove backgrounds...'
+    elif [[ "${copyq:-}" == 'true' ]]; then
+      uninstall_copyq
+      echo -e 'Remove CopyQ themes...'
     elif [[ "${ghostty:-}" == 'true' ]]; then
       uninstall_ghostty
       echo -e 'Remove Ghostty theme...'

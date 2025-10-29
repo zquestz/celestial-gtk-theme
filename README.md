@@ -1,6 +1,6 @@
 # Celestial GTK Theme
 
-![Version](https://img.shields.io/badge/Version-1.1.4-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2048-blue?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.1.5-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2048-blue?style=flat-square)
 
 **A modern, customizable GTK theme with multiple color variants**
 
@@ -141,6 +141,38 @@ To install the Kitty theme:
 Then use the Kitty theme kitten (`kitty +kitten themes`) to select "Celestial", or include the theme in your `kitty.conf`. For more details, see the [Kitty theme README](src/extra/kitty/README.md).
 
 **Note:** Kitty themes can only be installed for user accounts (not system-wide).
+
+## Clipboard Manager Themes
+
+### CopyQ
+
+For [CopyQ](https://github.com/hluk/CopyQ) clipboard manager users, Celestial provides 8 themes - 4 color variants (Aliz, Azul, Pueril, Sea) with both dark and light modes that match the GTK theme color palette.
+
+To install all CopyQ themes:
+
+```bash
+./install.sh --copyq
+```
+
+To install specific variant(s):
+
+```bash
+./install.sh --copyq -t azul
+./install.sh --copyq -t sea -c dark
+```
+
+CopyQ themes are installed to `~/.config/copyq/themes/` for user installs or `/usr/share/copyq/themes/` for system-wide installs.
+
+Then in CopyQ: **File** → **Preferences** → **Appearance** → Select theme from dropdown menu
+
+Available themes:
+
+- Celestial Aliz Dark / Light
+- Celestial Azul Dark / Light
+- Celestial Pueril Dark / Light
+- Celestial Sea Dark / Light
+
+For more details and installation instructions, see the [CopyQ theme README](src/extra/copyq/README.md).
 
 ## Development
 

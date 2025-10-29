@@ -5,6 +5,19 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.5] - 2025-10-28
+
+### Added
+
+- CopyQ clipboard manager theme support with `--copyq` installation flag
+  - 8 themes total: 4 color variants (Sea, Aliz, Azul, Pueril) with both dark and light modes
+  - Installation to `~/.config/copyq/themes/` (user) or `/usr/share/copyq/themes/` (system-wide)
+  - Themes match GTK theme color palette for consistency across applications
+  - Comprehensive README with installation instructions and color documentation
+  - Themed item lists, tabs, menus, toolbars, and search fields
+  - Clean, minimalist design with comfortable contrast ratios
+  - Support for theme/color variant filtering with `-t` and `-c` flags
+
 ## [1.1.4] - 2025-10-27
 
 ### Changed
@@ -127,6 +140,7 @@ Initial release of Celestial GTK Theme.
   - Development guide (HACKING.md)
   - Asset generation guides in component directories
 
+[1.1.5]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.5
 [1.1.4]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.4
 [1.1.3]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.3
 [1.1.2]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.2
