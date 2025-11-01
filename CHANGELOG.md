@@ -5,6 +5,16 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.6] - 2025-10-31
+
+### Added
+
+- Cinnamon Transparent panels extension support
+  - Panel background gradients now use theme's actual panel color instead of hardcoded black
+  - Supports `panel-transparent-with-shadow` and `panel-semi-transparent` modes
+  - Gradients automatically match theme color variants (Sea, Aliz, Azul, Pueril)
+  - Maintains 40% opacity for semi-transparent effects
+
 ## [1.1.5] - 2025-10-28
 
 ### Added
@@ -145,6 +155,7 @@ Initial release of Celestial GTK Theme.
   - Development guide (HACKING.md)
   - Asset generation guides in component directories
 
+[1.1.6]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.6
 [1.1.5]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.5
 [1.1.4]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.4
 [1.1.3]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.3
