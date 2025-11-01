@@ -352,7 +352,8 @@ StScrollBar StButton#hhandle:active {
   padding: 4px;
 }
 
-.popup-sub-menu StScrollBar StBin#trough, .popup-sub-menu StScrollBar StBin#vhandle {
+.popup-sub-menu StScrollBar StBin#trough,
+.popup-sub-menu StScrollBar StBin#vhandle {
   border-width: 0;
 }
 
@@ -361,7 +362,7 @@ StScrollBar StButton#hhandle:active {
 }
 
 .popup-menu-item {
-  padding: .4em 1.75em;
+  padding: 0.4em 1.75em;
   spacing: 1em;
   border-left-width: 0;
   border-right-width: 0;
@@ -641,6 +642,96 @@ StScrollBar StButton#hhandle:active {
   font-weight: bold;
   color: green;
   transition-duration: 100;
+}
+
+/* ===================================================================
+ * Full transparency
+ * ===================================================================*/
+.panel-transparent,
+#panel.panel-transparent,
+.panel-transparent #panelLeft,
+.panel-transparent #panelCenter,
+.panel-transparent #panelRight,
+#panel.panel-transparent:highlight {
+  border-image: none;
+  border-color: transparent;
+  box-shadow: 0 0 transparent;
+  background-gradient-direction: vertical;
+  background-gradient-start: transparent;
+  background-gradient-end: transparent;
+  background: transparent;
+}
+
+/* ===================================================================
+ * Transparency with shadow
+ * ===================================================================*/
+.panel-transparent-with-shadow,
+#panel.panel-transparent-with-shadow,
+.panel-transparent-with-shadow #panelLeft,
+.panel-transparent-with-shadow #panelCenter,
+.panel-transparent-with-shadow #panelRight,
+#panel.panel-transparent-with-shadow:highlight {
+  border-image: none;
+  border-color: transparent;
+  box-shadow: 0 0 transparent;
+  background-gradient-direction: vertical;
+  background-gradient-start: transparent;
+  background-gradient-end: transparent;
+  background: transparent;
+}
+
+.panel-transparent-with-shadow,
+.panel-bottom.panel-transparent-with-shadow,
+#panel.panel-transparent-with-shadow,
+#panel.panel-transparent-with-shadow:highlight {
+  background-gradient-direction: vertical;
+  background-gradient-start: transparent;
+  background-gradient-end: rgba(20, 22, 27, 0.4);
+}
+
+.panel-transparent-with-shadow.panel-top,
+#panel.panel-transparent-with-shadow.panel-top,
+#panel.panel-transparent-with-shadow.panel-top:highlight,
+.panel-transparent-with-shadow.panel-left,
+#panel.panel-transparent-with-shadow.panel-left,
+#panel.panel-transparent-with-shadow.panel-left:highlight {
+  background-gradient-start: rgba(20, 22, 27, 0.4);
+  background-gradient-end: transparent;
+}
+
+.panel-transparent-with-shadow.panel-right,
+#panel.panel-transparent-with-shadow.panel-right,
+#panel.panel-transparent-with-shadow.panel-right:highlight,
+.panel-transparent-with-shadow.panel-left,
+#panel.panel-transparent-with-shadow.panel-left,
+#panel.panel-transparent-with-shadow.panel-left:highlight {
+  background-gradient-direction: horizontal;
+}
+
+/* ===================================================================
+ * Semi-transparent
+ * ===================================================================*/
+.panel-semi-transparent,
+#panel.panel-semi-transparent,
+.panel-semi-transparent #panelLeft,
+.panel-semi-transparent #panelCenter,
+.panel-semi-transparent #panelRight,
+#panel.panel-semi-transparent:highlight {
+  border-image: none;
+  border-color: transparent;
+  box-shadow: 0 0 transparent;
+  background-gradient-direction: vertical;
+  background-gradient-start: transparent;
+  background-gradient-end: transparent;
+  background: transparent;
+}
+
+.panel-semi-transparent,
+#panel.panel-semi-transparent,
+#panel.panel-semi-transparent:highlight {
+  background-gradient-start: rgba(20, 22, 27, 0.4);
+  background-gradient-end: rgba(20, 22, 27, 0.4);
+  background-color: rgba(20, 22, 27, 0.4);
 }
 
 .system-status-icon {

@@ -361,18 +361,27 @@ StScrollBar {
   background-color: $bg_color;
   box-shadow: none;
 
-  .popup-menu-item:ltr { padding-left: 2.5em; }
-  .popup-menu-item:rtl { padding-right: 2.5em; }
+  .popup-menu-item:ltr {
+    padding-left: 2.5em;
+  }
+  .popup-menu-item:rtl {
+    padding-right: 2.5em;
+  }
 
   StScrollBar {
     padding: 4px;
-    StBin#trough, StBin#vhandle { border-width: 0; }
+    StBin#trough,
+    StBin#vhandle {
+      border-width: 0;
+    }
   }
 }
 
-.popup-menu-content { padding: 1em 0em 1em 0em; }
+.popup-menu-content {
+  padding: 1em 0em 1em 0em;
+}
 .popup-menu-item {
-  padding: .4em 1.75em;
+  padding: 0.4em 1.75em;
   spacing: 1em;
   border-left-width: 0;
   border-right-width: 0;
@@ -387,10 +396,13 @@ StScrollBar {
   }
 }
 
-.popup-inactive-menu-item { //all icons and other graphical elements
+.popup-inactive-menu-item {
+  //all icons and other graphical elements
   color: $fg_color;
 
-  &:insensitive { color: $insensitive_fg_color; }
+  &:insensitive {
+    color: $insensitive_fg_color;
+  }
 }
 
 /*Scale view context menu*/
@@ -653,6 +665,99 @@ StScrollBar {
     &:hover {
     }
   }
+}
+
+/* ===================================================================
+ * Full transparency
+ * ===================================================================*/
+
+.panel-transparent,
+#panel.panel-transparent,
+.panel-transparent #panelLeft,
+.panel-transparent #panelCenter,
+.panel-transparent #panelRight,
+#panel.panel-transparent:highlight {
+  border-image: none;
+  border-color: transparent;
+  box-shadow: 0 0 transparent;
+  background-gradient-direction: vertical;
+  background-gradient-start: transparent;
+  background-gradient-end: transparent;
+  background: transparent;
+}
+
+/* ===================================================================
+ * Transparency with shadow
+ * ===================================================================*/
+
+.panel-transparent-with-shadow,
+#panel.panel-transparent-with-shadow,
+.panel-transparent-with-shadow #panelLeft,
+.panel-transparent-with-shadow #panelCenter,
+.panel-transparent-with-shadow #panelRight,
+#panel.panel-transparent-with-shadow:highlight {
+  border-image: none;
+  border-color: transparent;
+  box-shadow: 0 0 transparent;
+  background-gradient-direction: vertical;
+  background-gradient-start: transparent;
+  background-gradient-end: transparent;
+  background: transparent;
+}
+
+.panel-transparent-with-shadow,
+.panel-bottom.panel-transparent-with-shadow,
+#panel.panel-transparent-with-shadow,
+#panel.panel-transparent-with-shadow:highlight {
+  background-gradient-direction: vertical;
+  background-gradient-start: transparent;
+  background-gradient-end: rgba($panel_bg, 0.4);
+}
+
+.panel-transparent-with-shadow.panel-top,
+#panel.panel-transparent-with-shadow.panel-top,
+#panel.panel-transparent-with-shadow.panel-top:highlight,
+.panel-transparent-with-shadow.panel-left,
+#panel.panel-transparent-with-shadow.panel-left,
+#panel.panel-transparent-with-shadow.panel-left:highlight {
+  background-gradient-start: rgba($panel_bg, 0.4);
+  background-gradient-end: transparent;
+}
+
+.panel-transparent-with-shadow.panel-right,
+#panel.panel-transparent-with-shadow.panel-right,
+#panel.panel-transparent-with-shadow.panel-right:highlight,
+.panel-transparent-with-shadow.panel-left,
+#panel.panel-transparent-with-shadow.panel-left,
+#panel.panel-transparent-with-shadow.panel-left:highlight {
+  background-gradient-direction: horizontal;
+}
+
+/* ===================================================================
+ * Semi-transparent
+ * ===================================================================*/
+
+.panel-semi-transparent,
+#panel.panel-semi-transparent,
+.panel-semi-transparent #panelLeft,
+.panel-semi-transparent #panelCenter,
+.panel-semi-transparent #panelRight,
+#panel.panel-semi-transparent:highlight {
+  border-image: none;
+  border-color: transparent;
+  box-shadow: 0 0 transparent;
+  background-gradient-direction: vertical;
+  background-gradient-start: transparent;
+  background-gradient-end: transparent;
+  background: transparent;
+}
+
+.panel-semi-transparent,
+#panel.panel-semi-transparent,
+#panel.panel-semi-transparent:highlight {
+  background-gradient-start: rgba($panel_bg, 0.4);
+  background-gradient-end: rgba($panel_bg, 0.4);
+  background-color: rgba($panel_bg, 0.4);
 }
 
 .system-status-icon {
