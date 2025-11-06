@@ -718,60 +718,63 @@ uninstall_kvantum_themes() {
   done
 }
 
-generate_celestial_xml() {
-  local bg_dir="${1}"
-  local props_dir="${2}"
+generate_theme_xml() {
+  local theme_name="${1}"
+  local bg_dir="${2}"
+  local props_dir="${3}"
 
-  local xml_file="${props_dir}/celestial.xml"
+  local theme_dir="${bg_dir}/${theme_name}"
 
+  # Check if theme directory exists and has backgrounds
+  if [[ ! -d "${theme_dir}" ]] || [[ -z "$(ls -A "${theme_dir}"/*.webp 2>/dev/null)" ]]; then
+    return
+  fi
+
+  local xml_file="${props_dir}/celestial-${theme_name}.xml"
+
+  # Set theme-specific colors
+  local pcolor="#000000"
+  local scolor="#000000"
+
+  case "${theme_name}" in
+    sea)
+      pcolor="#2eb398"
+      scolor="#1b2224"
+      ;;
+    azul)
+      pcolor="#3498db"
+      scolor="#1b1d24"
+      ;;
+    aliz)
+      pcolor="#f0544c"
+      scolor="#222222"
+      ;;
+    pueril)
+      pcolor="#97bb72"
+      scolor="#222222"
+      ;;
+  esac
+
+  # Create XML header
   cat > "${xml_file}" << 'EOF_HEADER'
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
 <wallpapers>
 EOF_HEADER
 
-  # Scan all installed theme directories and add their backgrounds
-  for theme_dir in "${bg_dir}"/*; do
-    if [[ -d "${theme_dir}" ]]; then
-      local theme_name
-      theme_name=$(basename "${theme_dir}")
+  # Add entry for each background file in this theme
+  for bg_file in "${theme_dir}"/*.webp; do
+    if [[ -f "${bg_file}" ]]; then
+      local filename
+      filename=$(basename "${bg_file}")
+      local bg_name="${filename%.webp}"
+      # Replace dashes with spaces for display name
+      local display_name="${bg_name//-/ }"
 
-      # Set theme-specific colors
-      local pcolor="#000000"
-      local scolor="#000000"
+      # Strip DESTDIR from path for XML filename
+      local xml_path="${theme_dir#"${DESTDIR}"}"
 
-      case "${theme_name}" in
-        sea)
-          pcolor="#2eb398"
-          scolor="#1b2224"
-          ;;
-        azul)
-          pcolor="#3498db"
-          scolor="#1b1d24"
-          ;;
-        aliz)
-          pcolor="#f0544c"
-          scolor="#222222"
-          ;;
-        pueril)
-          pcolor="#97bb72"
-          scolor="#222222"
-          ;;
-      esac
-
-      # Add entry for each background file in this theme
-      for bg_file in "${theme_dir}"/*.webp; do
-        if [[ -f "${bg_file}" ]]; then
-          local filename
-          filename=$(basename "${bg_file}")
-          local bg_name="${filename%.webp}"
-          # Replace dashes with spaces for display name
-          local display_name="${bg_name//-/ }"
-
-          # Strip DESTDIR from path for XML filename
-          local xml_path="${theme_dir#"${DESTDIR}"}"
-
-          cat >> "${xml_file}" << EOF
+      cat >> "${xml_file}" << EOF
   <wallpaper deleted="false">
     <name>${display_name}</name>
     <filename>${xml_path}/${filename}</filename>
@@ -781,8 +784,6 @@ EOF_HEADER
     <scolor>${scolor}</scolor>
   </wallpaper>
 EOF
-        fi
-      done
     fi
   done
 
@@ -828,11 +829,16 @@ install_backgrounds() {
     install_background "${theme}" "${BG_DIR}"
   done
 
-  # Generate single celestial.xml for all desktop environments with all installed backgrounds
+  # Generate per-theme XML files for all desktop environments with installed backgrounds
   for props_dir in "${BG_PROPS_DIRS[@]}"; do
     mkdir -p "${DESTDIR}${props_dir}"
-    generate_celestial_xml "${DESTDIR}${BG_DIR}" "${DESTDIR}${props_dir}"
-    echo "Generated ${DESTDIR}${props_dir}/celestial.xml"
+    for theme in "${theme_list[@]}"; do
+      local theme_name="${theme#-}"
+      generate_theme_xml "${theme_name}" "${DESTDIR}${BG_DIR}" "${DESTDIR}${props_dir}"
+      if [[ -f "${DESTDIR}${props_dir}/celestial-${theme_name}.xml" ]]; then
+        echo "Generated ${DESTDIR}${props_dir}/celestial-${theme_name}.xml"
+      fi
+    done
   done
 
   echo "Backgrounds installed successfully!"
@@ -869,25 +875,21 @@ uninstall_backgrounds() {
     uninstall_background "${theme}" "${BG_DIR}"
   done
 
-  # Regenerate XML if any backgrounds remain, otherwise remove XML files
-  if [[ -d "${DESTDIR}${BG_DIR}" ]] && [[ -n "$(ls -A "${DESTDIR}${BG_DIR}" 2>/dev/null)" ]]; then
-    # Regenerate celestial.xml with remaining backgrounds
+  # Remove XML files for uninstalled themes
+  for theme in "${theme_list[@]}"; do
+    local theme_name="${theme#-}"
     for props_dir in "${BG_PROPS_DIRS[@]}"; do
-      if [[ -d "${DESTDIR}${props_dir}" ]]; then
-        generate_celestial_xml "${DESTDIR}${BG_DIR}" "${DESTDIR}${props_dir}"
-        echo "Updated ${DESTDIR}${props_dir}/celestial.xml"
+      if [[ -f "${DESTDIR}${props_dir}/celestial-${theme_name}.xml" ]]; then
+        rm -f "${DESTDIR}${props_dir}/celestial-${theme_name}.xml"
+        echo "Removed ${DESTDIR}${props_dir}/celestial-${theme_name}.xml"
       fi
     done
-  else
-    # No backgrounds left, remove XML files and empty directory
-    for props_dir in "${BG_PROPS_DIRS[@]}"; do
-      rm -f "${DESTDIR}${props_dir}/celestial.xml" 2>/dev/null
-    done
+  done
 
-    if [[ -d "${DESTDIR}${BG_DIR}" ]]; then
-      rmdir "${DESTDIR}${BG_DIR}" 2>/dev/null
-      echo "Removed empty directory ${DESTDIR}${BG_DIR}"
-    fi
+  # Remove background directory if empty
+  if [[ -d "${DESTDIR}${BG_DIR}" ]] && [[ -z "$(ls -A "${DESTDIR}${BG_DIR}" 2>/dev/null)" ]]; then
+    rmdir "${DESTDIR}${BG_DIR}" 2>/dev/null
+    echo "Removed empty directory ${DESTDIR}${BG_DIR}"
   fi
 
   echo "Backgrounds uninstalled successfully!"

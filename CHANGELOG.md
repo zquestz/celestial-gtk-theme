@@ -5,6 +5,27 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.7] - 2025-11-06
+
+### Added
+
+- New background wallpapers for all theme variants
+  - Aliz-Volcano.webp - Minimalistic volcanic landscape with glowing lava flows
+  - Azul-Abstract.webp - Material design wallpaper with clean geometric shapes
+  - Pueril-Meadow.webp - Peaceful meadow landscape at dawn with morning mist
+  - Sea-Bioluminescence.webp - Bioluminescent bay with glowing plankton
+  - Each theme now has 3 backgrounds for better slideshow variety
+
+### Changed
+
+- Background wallpaper XML file generation
+  - Now generates per-theme XML files instead of a single combined file
+  - Creates `celestial-aliz.xml`, `celestial-azul.xml`, `celestial-pueril.xml`, `celestial-sea.xml`
+  - Backgrounds are now grouped by theme color in desktop environment pickers
+  - Enables slideshow mode with color-coordinated wallpapers
+  - XML files are created/removed individually when themes are installed/uninstalled
+  - Improves organization and user experience in GNOME, MATE, and Cinnamon
+
 ## [1.1.6] - 2025-10-31
 
 ### Added
@@ -155,6 +176,7 @@ Initial release of Celestial GTK Theme.
   - Development guide (HACKING.md)
   - Asset generation guides in component directories
 
+[1.1.7]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.7
 [1.1.6]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.6
 [1.1.5]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.5
 [1.1.4]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.4

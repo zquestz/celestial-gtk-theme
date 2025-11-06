@@ -23,6 +23,12 @@ Layered pagoda temple scene with coral sun and mountain silhouettes
 
 ![Aliz Temple](aliz/Aliz-Temple.webp)
 
+#### Aliz-Volcano.webp
+
+Minimalistic volcanic landscape with glowing lava flows and layered rock formations
+
+![Aliz Volcano](aliz/Aliz-Volcano.webp)
+
 ### Azul (Blue)
 
 **Primary Color:** `#3498db`
@@ -39,6 +45,12 @@ Abstract space scene with nebula clouds
 Serene Arctic landscape with layered icebergs and frozen waters
 
 ![Azul Ice](azul/Azul-Ice.webp)
+
+#### Azul-Abstract.webp
+
+Material design wallpaper with clean geometric shapes and blue tones
+
+![Azul Abstract](azul/Azul-Abstract.webp)
 
 ### Pueril (Green)
 
@@ -57,6 +69,12 @@ Misty bamboo grove with layered depth and silhouettes
 
 ![Pueril Bamboo](pueril/Pueril-Bamboo.webp)
 
+#### Pueril-Meadow.webp
+
+Peaceful meadow landscape at dawn with morning mist and soft green tones
+
+![Pueril Meadow](pueril/Pueril-Meadow.webp)
+
 ### Sea (Teal)
 
 **Primary Color:** `#2eb398`
@@ -73,6 +91,12 @@ Serene underwater scene with bioluminescent elements
 Sea turtles swimming through sunlit ocean depths with coral silhouettes
 
 ![Sea Turtles](sea/Sea-Turtles.webp)
+
+#### Sea-Bioluminescence.webp
+
+Bioluminescent bay at night with glowing plankton creating ethereal teal light
+
+![Sea Bioluminescence](sea/Sea-Bioluminescence.webp)
 
 ## Design Philosophy
 
@@ -110,16 +134,23 @@ Backgrounds will be installed to:
 
 #### Desktop Environment Integration
 
-The installer automatically creates a single XML property file for all installed backgrounds:
+The installer automatically creates theme-specific XML property files for each installed theme:
 
-- **GNOME:** `gnome-background-properties/celestial.xml`
-- **MATE:** `mate-background-properties/celestial.xml`
-- **Cinnamon:** `cinnamon-background-properties/celestial.xml`
+- **GNOME:** `gnome-background-properties/celestial-[theme].xml`
+- **MATE:** `mate-background-properties/celestial-[theme].xml`
+- **Cinnamon:** `cinnamon-background-properties/celestial-[theme].xml`
 - **Xfce:** Manual selection from file manager (no XML needed)
 
-After installation, all backgrounds will appear automatically in your desktop environment's wallpaper settings under "Celestial" with names like "Aliz Abstract", "Azul Space", "Pueril Forest", "Sea Underwater".
+After installation, backgrounds will appear automatically in your desktop environment's wallpaper settings grouped by theme. For example:
 
-The XML file is regenerated whenever backgrounds are installed or removed to always reflect the current set of installed backgrounds.
+- "Aliz Abstract", "Aliz Temple", "Aliz Volcano" (from celestial-aliz.xml)
+- "Azul Abstract", "Azul Ice", "Azul Space" (from celestial-azul.xml)
+- "Pueril Bamboo", "Pueril Forest", "Pueril Meadow" (from celestial-pueril.xml)
+- "Sea Bioluminescence", "Sea Turtles", "Sea Underwater" (from celestial-sea.xml)
+
+**Slideshow Mode:** Since backgrounds are grouped by theme color, you can enable slideshow mode in your desktop environment to automatically rotate between color-coordinated wallpapers!
+
+XML files are generated when themes are installed and removed when themes are uninstalled.
 
 ### Uninstalling
 

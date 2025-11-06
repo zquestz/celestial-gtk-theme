@@ -395,7 +395,20 @@ After installation, backgrounds will appear in your desktop environment's wallpa
 - **Cinnamon**: System Settings → Backgrounds
 - **MATE**: System Settings → Appearance → Background
 
-Each background is named with the pattern "[Theme] [Name]" (e.g., "Azul Space", "Sea Underwater").
+Backgrounds are grouped by theme color (e.g., "Azul Space" and "Azul Ice" appear together). This allows you to use slideshow mode to automatically rotate through color-coordinated wallpapers!
+
+### Desktop Environment Integration
+
+The installer creates theme-specific XML property files:
+
+- `gnome-background-properties/celestial-aliz.xml`
+- `gnome-background-properties/celestial-azul.xml`
+- `gnome-background-properties/celestial-pueril.xml`
+- `gnome-background-properties/celestial-sea.xml`
+
+(Similar files are created for MATE and Cinnamon in their respective directories)
+
+Each XML file contains only the wallpapers for that specific theme color, making it easy to enable slideshow mode for a consistent color palette.
 
 ### Uninstalling Backgrounds
 
