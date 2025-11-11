@@ -38,7 +38,6 @@ This installs all theme variants to `~/.themes/`. For system-wide installation, 
 Complete your desktop with these complementary themes:
 
 - **[Papirus Icon Theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)** - Modern icon theme with excellent coverage
-- **[WhiteSur Cursors](https://github.com/vinceliuice/WhiteSur-cursors)** - Elegant cursor theme
 - **[Plank Reloaded](https://github.com/zquestz/plank-reloaded)** - Modern dock with Celestial theme support
 - **[Hardcode-Tray](https://github.com/bilelmoussaoui/Hardcode-Tray)** - Fix hardcoded tray icons
 - **[Folder Color](https://github.com/costales/folder-color)** - Change folder colors in Nautilus, Nemo, and Caja
@@ -68,6 +67,18 @@ If you prefer a different approach, consider:
 - **[Qt Style Plugins](https://github.com/qt/qtstyleplugins)** - Qt5 style plugins including GTK2 support
 
 These plugins provide alternative ways to ensure Qt applications (KDE apps, VLC, Telegram, etc.) match your GTK theme.
+
+## Cursor Theme
+
+Celestial includes a modern cursor theme designed to complement all theme variants.
+
+To install the cursor theme:
+
+```bash
+./install.sh --cursors
+```
+
+For more details, see the [Cursors README](src/cursors/README.md).
 
 ## Code Editor Themes
 

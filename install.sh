@@ -20,6 +20,7 @@ if [ "$UID" -eq "$ROOT_UID" ]; then
   )
   GHOSTTY_DIR="/usr/share/ghostty/themes"
   COPYQ_DIR="/usr/share/copyq/themes"
+  CURSORS_DIR="/usr/share/icons"
   KITTY_DIR=""
   ZED_DIR=""
 else
@@ -34,6 +35,7 @@ else
   )
   GHOSTTY_DIR="$HOME/.config/ghostty/themes"
   COPYQ_DIR="$HOME/.config/copyq/themes"
+  CURSORS_DIR="$HOME/.local/share/icons"
   KITTY_DIR="$HOME/.config/kitty/themes"
   ZED_DIR="$HOME/.config/zed/themes"
 fi
@@ -60,6 +62,7 @@ usage() {
   printf "  %-25s%s\n" "-k, --kvantum" "Install Kvantum theme for Qt applications"
   printf "  %-25s%s\n" "-b, --backgrounds" "Install theme backgrounds"
   printf "  %-25s%s\n" "--copyq" "Install CopyQ clipboard manager themes"
+  printf "  %-25s%s\n" "--cursors" "Install Celestial cursor theme"
   printf "  %-25s%s\n" "--ghostty" "Install Ghostty terminal theme"
   printf "  %-25s%s\n" "--kitty" "Install Kitty terminal theme"
   printf "  %-25s%s\n" "--zed" "Install Zed editor themes"
@@ -113,7 +116,7 @@ install() {
     echo "GtkTheme=${name}${theme_cap}${color_cap}"
     echo "MetacityTheme=${name}${theme_cap}${color_cap}"
     [[ "$color" == "-light" ]] && echo "IconTheme=Papirus-Light" || echo "IconTheme=Papirus-Dark"
-    echo "CursorTheme=WhiteSur-cursors"
+    echo "CursorTheme=Celestial"
     echo "ButtonLayout=menu:minimize,maximize,close"
   } >> "${themedir}/index.theme"
 
@@ -440,6 +443,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     --copyq)
       copyq='true'
+      shift
+      ;;
+    --cursors)
+      cursors='true'
       shift
       ;;
     --ghostty)
@@ -1105,6 +1112,39 @@ link_theme() {
   done
 }
 
+install_cursors() {
+  echo "Installing Celestial cursor theme..."
+
+  local cursor_dest="${DESTDIR}${CURSORS_DIR}/Celestial"
+  local cursor_src="${SRC_DIR}/cursors/dist"
+
+  # Remove old installation if it exists
+  if [[ -d "${cursor_dest}" ]]; then
+    rm -rf "${cursor_dest}"
+  fi
+
+  # Create destination directory
+  mkdir -p "${cursor_dest}"
+
+  # Copy cursor files
+  cp -r "${cursor_src}"/* "${cursor_dest}/"
+
+  echo "Celestial cursor theme installed to ${cursor_dest}"
+}
+
+uninstall_cursors() {
+  echo "Removing Celestial cursor theme..."
+
+  local cursor_dest="${DESTDIR}${CURSORS_DIR}/Celestial"
+
+  if [[ -d "${cursor_dest}" ]]; then
+    rm -rf "${cursor_dest}"
+    echo "Celestial cursor theme removed."
+  else
+    echo "Celestial cursor theme is not installed."
+  fi
+}
+
 install_theme() {
   local color_list=("${colors[@]}")
   local theme_list=("${themes[@]}")
@@ -1153,6 +1193,10 @@ if [[ "${gdm:-}" != 'true' ]]; then
       install_copyq
     fi
 
+    if [[ "${cursors:-}" == 'true' ]]; then
+      install_cursors
+    fi
+
     if [[ "${ghostty:-}" == 'true' ]]; then
       install_ghostty
     fi
@@ -1177,6 +1221,9 @@ if [[ "${gdm:-}" != 'true' ]]; then
     elif [[ "${copyq:-}" == 'true' ]]; then
       uninstall_copyq
       echo -e 'Remove CopyQ themes...'
+    elif [[ "${cursors:-}" == 'true' ]]; then
+      uninstall_cursors
+      echo -e 'Remove Celestial cursor theme...'
     elif [[ "${ghostty:-}" == 'true' ]]; then
       uninstall_ghostty
       echo -e 'Remove Ghostty theme...'
