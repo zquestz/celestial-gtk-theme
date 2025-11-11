@@ -5,6 +5,17 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.8] - 2025-11-10
+
+### Added
+
+- New Celestial cursor theme with `--cursors` installation flag
+  - Modern, clean cursor design with flat icon-style aesthetic
+  - Progress/wait animations using Celestial color palette (red, orange, yellow, teal, blue, purple)
+  - HiDPI support with multiple resolutions (x1, x1.25, x1.5, x2)
+  - Wayland and X11 compatibility
+  - Unified theme works beautifully with all four Celestial color variants
+
 ## [1.1.7] - 2025-11-06
 
 ### Added
@@ -176,6 +187,7 @@ Initial release of Celestial GTK Theme.
   - Development guide (HACKING.md)
   - Asset generation guides in component directories
 
+[1.1.8]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.8
 [1.1.7]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.7
 [1.1.6]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.6
 [1.1.5]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.5
