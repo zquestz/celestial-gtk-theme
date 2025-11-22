@@ -1,0 +1,51 @@
+# Celestial Sea - Halloy IRC Client Theme
+
+[general]
+background = "#1b2224"           # Celestial Sea dark bg
+border = "#16191b"               # Darker border (darkened bg)
+horizontal_rule = "#222b2e"      # Base color dark
+scrollbar = "#222b2e"            # Base color dark
+unread_indicator = "#2eb398"     # Sea accent (teal)
+highlight_indicator = "#f7dc6f"  # Yellow from cursor palette
+
+[text]
+primary = "#ccd7d4"              # Celestial fg_color_dark
+secondary = "#abb9b6"            # Celestial text_color_dark
+tertiary = "#c678dd"             # Pueril purple accent
+success = "#97bb72"              # Pueril accent (green)
+error = "#fc4138"                # Celestial error_color
+warning = "#f27835"              # Celestial warning_color
+info = "#3498db"                 # Azul accent (blue)
+debug = "#c678dd"                # Pueril purple
+trace = "#abb9b6"                # Muted text
+
+[buffer]
+action = "#2eb398"               # Sea accent
+background = "#222b2e"           # Base color dark
+background_text_input = "#1b2224" # Bg dark
+background_title_bar = "#16191b" # Panel bg dark (darkened)
+border = "#00000000"             # Transparent
+border_selected = "#2eb398"      # Sea accent
+code = "#c678dd"                 # Pueril purple
+highlight = "#2d3638"            # Slightly lighter than bg
+nickname = "#f0544c"             # Aliz accent (red)
+selection = "#273134"            # fg_color_light (dimmed selection)
+timestamp = "#7a8785"            # Dimmed text
+topic = "#abb9b6"                # text_color_dark
+url = "#3498db"                  # Azul blue for links
+nickname_offline = "#5a6765"     # Very dimmed
+
+[buffer.server_messages]
+default = "#f7dc6f"              # Yellow
+
+[buttons.primary]
+background = "#222b2e"           # Base dark
+background_hover = "#273134"     # Lighter
+background_selected = "#2eb398"  # Sea accent
+background_selected_hover = "#35ccaa" # Brighter sea
+
+[buttons.secondary]
+background = "#1b2224"           # Bg dark
+background_hover = "#222b2e"     # Base dark
+background_selected = "#2eb398"  # Sea accent
+background_selected_hover = "#35ccaa" # Brighter sea

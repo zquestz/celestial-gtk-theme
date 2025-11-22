@@ -79,7 +79,9 @@ The install script provides extensive customization options:
 | `-k, --kvantum`        | Install Kvantum theme for Qt applications                        |
 | `-b, --backgrounds`    | Install theme backgrounds                                        |
 | `--copyq`              | Install CopyQ clipboard manager themes                           |
+| `--cursors`            | Install Celestial cursor theme                                   |
 | `--ghostty`            | Install Ghostty terminal theme                                   |
+| `--halloy`             | Install Halloy IRC client themes                                 |
 | `--kitty`              | Install Kitty terminal theme                                     |
 | `--zed`                | Install Zed editor themes                                        |
 | `-g, --gdm`            | Install GDM theme (requires sudo)                                |
@@ -172,10 +174,22 @@ sudo ./install.sh -g -t azul -c dark
 ./install.sh --zed
 ```
 
-**Install everything (theme + backgrounds + Kvantum + CopyQ + Ghostty + Kitty + Zed):**
+**Install Halloy IRC client themes:**
 
 ```bash
-./install.sh -k -b --copyq --ghostty --kitty --zed
+./install.sh --halloy
+```
+
+**Install cursor theme:**
+
+```bash
+./install.sh --cursors
+```
+
+**Install everything (theme + backgrounds + Kvantum + CopyQ + cursors + Ghostty + Halloy + Kitty + Zed):**
+
+```bash
+./install.sh -k -b --copyq --cursors --ghostty --halloy --kitty --zed
 ```
 
 ## Uninstalling
@@ -222,10 +236,22 @@ Remove Kvantum themes:
 ./install.sh --copyq -r
 ```
 
+**Remove cursor theme:**
+
+```bash
+./install.sh --cursors -r
+```
+
 **Remove Ghostty terminal theme:**
 
 ```bash
 ./install.sh --ghostty -r
+```
+
+**Remove Halloy IRC client themes:**
+
+```bash
+./install.sh --halloy -r
 ```
 
 **Remove Kitty terminal theme:**

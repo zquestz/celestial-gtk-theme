@@ -1,6 +1,6 @@
 # Celestial GTK Theme
 
-![Version](https://img.shields.io/badge/Version-1.1.9-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2048-blue?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.2.0-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2048-blue?style=flat-square)
 
 **A modern, customizable GTK theme with multiple color variants**
 
@@ -17,7 +17,7 @@ Based on the excellent [Arc](https://github.com/horst3180/Arc-theme) and [Matcha
 - **Dock Support** - [Plank Reloaded](https://github.com/zquestz/plank-reloaded) theming
 - **HiDPI Support** - Standard, HiDPI, and XHiDPI variants for retina displays
 - **Color-Matched Backgrounds** - Minimalistic wallpapers coordinated with each theme variant
-- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, Zed editor themes, Ghostty and Kitty terminal themes
+- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, cursor theme, Zed editor themes, Ghostty and Kitty terminal themes, Halloy IRC client themes, CopyQ clipboard manager themes, Slack themes
 
 ## Installation
 
@@ -187,6 +187,33 @@ Available themes:
 For more details and installation instructions, see the [CopyQ theme README](src/extra/copyq/README.md).
 
 ## Communication App Themes
+
+### Halloy IRC Client
+
+For [Halloy](https://github.com/squidowl/halloy) IRC client users, Celestial provides 4 dark themes - one for each color variant (Aliz, Azul, Pueril, Sea) that match the GTK theme color palette.
+
+To install all Halloy themes:
+
+```bash
+./install.sh --halloy
+```
+
+To install specific variant(s):
+
+```bash
+./install.sh --halloy -t azul
+./install.sh --halloy -t sea -t aliz
+```
+
+Halloy themes are installed to `~/.config/halloy/themes/`. Then in your Halloy `config.toml`, set:
+
+```toml
+theme = "celestial-sea"
+```
+
+For more details and installation instructions, see the [Halloy theme README](src/extra/halloy/README.md).
+
+**Note:** Halloy themes can only be installed for user accounts (not system-wide).
 
 ### Slack
 

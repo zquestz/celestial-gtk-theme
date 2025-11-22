@@ -1,0 +1,51 @@
+# Celestial Azul - Halloy IRC Client Theme
+
+[general]
+background = "#1b1d24"           # Celestial Azul dark bg
+border = "#15171d"               # Darker border (darkened bg)
+horizontal_rule = "#22252c"      # Base color dark
+scrollbar = "#22252c"            # Base color dark
+unread_indicator = "#3498db"     # Azul accent (blue)
+highlight_indicator = "#f7dc6f"  # Yellow from cursor palette
+
+[text]
+primary = "#bbc3c8"              # Celestial fg_color_dark
+secondary = "#afb4ba"            # Celestial text_color_dark
+tertiary = "#c678dd"             # Pueril purple accent
+success = "#97bb72"              # Pueril accent (green)
+error = "#fc4138"                # Celestial error_color
+warning = "#f27835"              # Celestial warning_color
+info = "#3498db"                 # Azul accent (blue)
+debug = "#c678dd"                # Pueril purple
+trace = "#afb4ba"                # Muted text
+
+[buffer]
+action = "#3498db"               # Azul accent
+background = "#22252c"           # Base color dark
+background_text_input = "#1b1d24" # Bg dark
+background_title_bar = "#15171d" # Panel bg dark (darkened)
+border = "#00000000"             # Transparent
+border_selected = "#3498db"      # Azul accent
+code = "#c678dd"                 # Pueril purple
+highlight = "#282b32"            # Slightly lighter than bg
+nickname = "#f0544c"             # Aliz accent (red)
+selection = "#2b2f3b"            # fg_color_light (dimmed selection)
+timestamp = "#767b82"            # Dimmed text
+topic = "#afb4ba"                # text_color_dark
+url = "#3498db"                  # Azul blue for links
+nickname_offline = "#525660"     # Very dimmed
+
+[buffer.server_messages]
+default = "#f7dc6f"              # Yellow
+
+[buttons.primary]
+background = "#22252c"           # Base dark
+background_hover = "#2b2f3b"     # Lighter
+background_selected = "#3498db"  # Azul accent
+background_selected_hover = "#4aa8ec" # Brighter azul
+
+[buttons.secondary]
+background = "#1b1d24"           # Bg dark
+background_hover = "#22252c"     # Base dark
+background_selected = "#3498db"  # Azul accent
+background_selected_hover = "#4aa8ec" # Brighter azul

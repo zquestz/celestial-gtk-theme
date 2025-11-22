@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # shellcheck disable=SC2086,SC2001
 # Celestial GTK Theme Installer
-# Version: 1.1.9
+# Version: 1.2.0
 
 ROOT_UID=0
 DEST_DIR=
@@ -23,6 +23,7 @@ if [ "$UID" -eq "$ROOT_UID" ]; then
   CURSORS_DIR="/usr/share/icons"
   KITTY_DIR=""
   ZED_DIR=""
+  HALLOY_DIR=""
 else
   DEST_DIR="$HOME/.themes"
   GTKSV_DIR="$HOME/.local/share/gtksourceview-4/styles"
@@ -38,6 +39,7 @@ else
   CURSORS_DIR="$HOME/.local/share/icons"
   KITTY_DIR="$HOME/.config/kitty/themes"
   ZED_DIR="$HOME/.config/zed/themes"
+  HALLOY_DIR="$HOME/.config/halloy/themes"
 fi
 
 REO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -50,7 +52,7 @@ THEME_VARIANTS=('-sea' '-aliz' '-azul' '-pueril')
 SHELL_VERSION=""
 
 usage() {
-  printf "%s\n" "Celestial GTK Theme Installer v1.1.9"
+  printf "%s\n" "Celestial GTK Theme Installer v1.2.0"
   printf "%s\n" "Usage: $0 [OPTIONS...]"
   printf "\n%s\n" "OPTIONS:"
   printf "  %-25s%s\n" "-d, --dest DIR" "Destination directory (Default: ${DEST_DIR})"
@@ -64,6 +66,7 @@ usage() {
   printf "  %-25s%s\n" "--copyq" "Install CopyQ clipboard manager themes"
   printf "  %-25s%s\n" "--cursors" "Install Celestial cursor theme"
   printf "  %-25s%s\n" "--ghostty" "Install Ghostty terminal theme"
+  printf "  %-25s%s\n" "--halloy" "Install Halloy IRC client themes"
   printf "  %-25s%s\n" "--kitty" "Install Kitty terminal theme"
   printf "  %-25s%s\n" "--zed" "Install Zed editor themes"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme (requires sudo)"
@@ -451,6 +454,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     --ghostty)
       ghostty='true'
+      shift
+      ;;
+    --halloy)
+      halloy='true'
       shift
       ;;
     --kitty)
@@ -988,6 +995,53 @@ uninstall_kitty() {
   fi
 }
 
+install_halloy() {
+  local theme_list=("${themes[@]}")
+
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  echo "Installing Halloy IRC client themes..."
+
+  if [[ -z "${HALLOY_DIR}" ]]; then
+    echo "Halloy theme installation is not available for system-wide installs (root)"
+    echo "Halloy themes must be installed per-user"
+    return
+  fi
+
+  mkdir -p "${DESTDIR}${HALLOY_DIR}"
+
+  for theme in "${theme_list[@]}"; do
+    local theme_name="${theme#-}"
+    cp "${SRC_DIR}/extra/halloy/celestial-${theme_name}.toml" "${DESTDIR}${HALLOY_DIR}/"
+    echo "  Installed celestial-${theme_name}.toml"
+  done
+
+  echo "Halloy themes installed to ${DESTDIR}${HALLOY_DIR}/"
+  echo "Configure in your Halloy config.toml with: theme = \"celestial-<variant>\""
+}
+
+uninstall_halloy() {
+  local theme_list=("${themes[@]}")
+
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  echo "Removing Halloy IRC client themes..."
+
+  if [[ -z "${HALLOY_DIR}" ]]; then
+    return
+  fi
+
+  for theme in "${theme_list[@]}"; do
+    local theme_name="${theme#-}"
+    if [[ -f "${DESTDIR}${HALLOY_DIR}/celestial-${theme_name}.toml" ]]; then
+      rm -f "${DESTDIR}${HALLOY_DIR}/celestial-${theme_name}.toml"
+      echo "  Removed celestial-${theme_name}.toml"
+    fi
+  done
+
+  echo "Halloy themes uninstalled."
+}
+
 install_copyq() {
   local theme_list=("${themes[@]}")
   local color_list=("${colors[@]}")
@@ -1201,6 +1255,10 @@ if [[ "${gdm:-}" != 'true' ]]; then
       install_ghostty
     fi
 
+    if [[ "${halloy:-}" == 'true' ]]; then
+      install_halloy
+    fi
+
     if [[ "${kitty:-}" == 'true' ]]; then
       install_kitty
     fi
@@ -1227,6 +1285,9 @@ if [[ "${gdm:-}" != 'true' ]]; then
     elif [[ "${ghostty:-}" == 'true' ]]; then
       uninstall_ghostty
       echo -e 'Remove Ghostty theme...'
+    elif [[ "${halloy:-}" == 'true' ]]; then
+      uninstall_halloy
+      echo -e 'Remove Halloy themes...'
     elif [[ "${kitty:-}" == 'true' ]]; then
       uninstall_kitty
       echo -e 'Remove Kitty theme...'

@@ -1,0 +1,51 @@
+# Celestial Pueril - Halloy IRC Client Theme
+
+[general]
+background = "#222222"           # Celestial Pueril dark bg
+border = "#1c1c1c"               # Darker border (darkened bg)
+horizontal_rule = "#262626"      # Base color dark
+scrollbar = "#262626"            # Base color dark
+unread_indicator = "#97bb72"     # Pueril accent (green)
+highlight_indicator = "#f7dc6f"  # Yellow from cursor palette
+
+[text]
+primary = "#cbbfbf"              # Celestial fg_color_dark
+secondary = "#b5abab"            # Celestial text_color_dark
+tertiary = "#c678dd"             # Pueril purple accent
+success = "#97bb72"              # Pueril accent (green)
+error = "#fc4138"                # Celestial error_color
+warning = "#f27835"              # Celestial warning_color
+info = "#3498db"                 # Azul accent (blue)
+debug = "#c678dd"                # Pueril purple
+trace = "#b5abab"                # Muted text
+
+[buffer]
+action = "#97bb72"               # Pueril accent
+background = "#262626"           # Base color dark
+background_text_input = "#222222" # Bg dark
+background_title_bar = "#1c1c1c" # Panel bg dark (darkened)
+border = "#00000000"             # Transparent
+border_selected = "#97bb72"      # Pueril accent
+code = "#c678dd"                 # Pueril purple
+highlight = "#2e2a26"            # Slightly lighter than bg
+nickname = "#f0544c"             # Aliz accent (red)
+selection = "#323232"            # fg_color_light (dimmed selection)
+timestamp = "#7a7070"            # Dimmed text
+topic = "#b5abab"                # text_color_dark
+url = "#3498db"                  # Azul blue for links
+nickname_offline = "#5a5555"     # Very dimmed
+
+[buffer.server_messages]
+default = "#f7dc6f"              # Yellow
+
+[buttons.primary]
+background = "#262626"           # Base dark
+background_hover = "#323232"     # Lighter
+background_selected = "#97bb72"  # Pueril accent
+background_selected_hover = "#a8cc83" # Brighter pueril
+
+[buttons.secondary]
+background = "#222222"           # Bg dark
+background_hover = "#262626"     # Base dark
+background_selected = "#97bb72"  # Pueril accent
+background_selected_hover = "#a8cc83" # Brighter pueril
