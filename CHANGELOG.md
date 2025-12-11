@@ -5,6 +5,14 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.1] - 2025-12-11
+
+### Changed
+
+- Plank dock now uses dark background consistently across all theme variants
+- Plank dock background and stroke colors now match each theme's color palette
+- Papirus-Dark is now the recommended icon theme for all variants
+
 ## [1.3.0] - 2025-12-10
 
 ### Added
