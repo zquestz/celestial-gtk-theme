@@ -9175,9 +9175,9 @@ menubutton.flat.popup.sources-button > button image.calendar-color-image {
 @define-color wm_bg_unfocused #272727;
 @define-color wm_highlight #222222;
 @define-color wm_shadow alpha(black, 0.35);
-@define-color wm_button_close_bg #97bb72;
-@define-color wm_button_close_hover_bg #9bc78d;
-@define-color wm_button_close_active_bg #73be81;
+@define-color wm_button_close_bg #cc575d;
+@define-color wm_button_close_hover_bg #d7787d;
+@define-color wm_button_close_active_bg #be3841;
 @define-color wm_icon_close_bg #1a1a1a;
 @define-color wm_button_hover_bg #343434;
 @define-color wm_button_active_bg #97bb72;

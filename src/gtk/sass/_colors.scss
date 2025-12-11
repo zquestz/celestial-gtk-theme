@@ -296,12 +296,6 @@ $wm_button_close_bg: if($variant == "light", #f46067, #cc575d);
 $wm_button_close_hover_bg: if($variant == "light", #f68086, #d7787d);
 $wm_button_close_active_bg: if($variant == "light", #f13039, #be3841);
 
-@if $color== "pueril" {
-  $wm_button_close_bg: #97bb72;
-  $wm_button_close_hover_bg: #9bc78d;
-  $wm_button_close_active_bg: #73be81;
-}
-
 $wm_icon_close_bg: $header_bg;
 
 // Minimize, Maximize
