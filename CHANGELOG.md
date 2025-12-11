@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Plank dock now uses dark background consistently across all theme variants
 - Plank dock background and stroke colors now match each theme's color palette
 - Papirus-Dark is now the recommended icon theme for all variants
+- Refactored Cinnamon custom SCSS into modular files in `sass/custom/` folder
+- Fixed panel applet icon not turning white when checked/active (e.g., start menu)
+- Fixed Pueril close button using green instead of red like other variants
 
 ## [1.3.0] - 2025-12-10
 
