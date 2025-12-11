@@ -1,0 +1,173 @@
+// ============================================================================
+// Celestial Theme Custom Styles
+// ============================================================================
+// This file contains Celestial-specific customizations that don't exist in
+// upstream Cinnamon theme. Keep upstream files unmodified for easy updates.
+// ============================================================================
+
+// ============================================================================
+// Panel Transparency Modes
+// ============================================================================
+
+// Fully transparent panel
+.panel-transparent,
+#panel.panel-transparent,
+.panel-transparent #panelLeft,
+.panel-transparent #panelCenter,
+.panel-transparent #panelRight,
+#panel.panel-transparent:highlight {
+  border-image: none;
+  border-color: transparent;
+  box-shadow: 0 0 transparent;
+  background-gradient-direction: vertical;
+  background-gradient-start: transparent;
+  background-gradient-end: transparent;
+  background: transparent;
+}
+
+// Transparent panel with shadow gradient
+.panel-transparent-with-shadow,
+#panel.panel-transparent-with-shadow,
+.panel-transparent-with-shadow #panelLeft,
+.panel-transparent-with-shadow #panelCenter,
+.panel-transparent-with-shadow #panelRight,
+#panel.panel-transparent-with-shadow:highlight {
+  border-image: none;
+  border-color: transparent;
+  box-shadow: 0 0 transparent;
+  background-gradient-direction: vertical;
+  background-gradient-start: transparent;
+  background-gradient-end: transparent;
+  background: transparent;
+}
+
+.panel-transparent-with-shadow,
+.panel-bottom.panel-transparent-with-shadow,
+#panel.panel-transparent-with-shadow,
+#panel.panel-transparent-with-shadow:highlight {
+  background-gradient-direction: vertical;
+  background-gradient-start: transparent;
+  background-gradient-end: rgba($panel_bg, 0.4);
+}
+
+.panel-transparent-with-shadow.panel-top,
+#panel.panel-transparent-with-shadow.panel-top,
+#panel.panel-transparent-with-shadow.panel-top:highlight,
+.panel-transparent-with-shadow.panel-left,
+#panel.panel-transparent-with-shadow.panel-left,
+#panel.panel-transparent-with-shadow.panel-left:highlight {
+  background-gradient-start: rgba($panel_bg, 0.4);
+  background-gradient-end: transparent;
+}
+
+.panel-transparent-with-shadow.panel-right,
+#panel.panel-transparent-with-shadow.panel-right,
+#panel.panel-transparent-with-shadow.panel-right:highlight,
+.panel-transparent-with-shadow.panel-left,
+#panel.panel-transparent-with-shadow.panel-left,
+#panel.panel-transparent-with-shadow.panel-left:highlight {
+  background-gradient-direction: horizontal;
+}
+
+// Semi-transparent panel
+.panel-semi-transparent,
+#panel.panel-semi-transparent,
+.panel-semi-transparent #panelLeft,
+.panel-semi-transparent #panelCenter,
+.panel-semi-transparent #panelRight,
+#panel.panel-semi-transparent:highlight {
+  border-image: none;
+  border-color: transparent;
+  box-shadow: 0 0 transparent;
+  background-gradient-direction: vertical;
+  background-gradient-start: transparent;
+  background-gradient-end: transparent;
+  background: transparent;
+}
+
+.panel-semi-transparent,
+#panel.panel-semi-transparent,
+#panel.panel-semi-transparent:highlight {
+  background-gradient-start: rgba($panel_bg, 0.4);
+  background-gradient-end: rgba($panel_bg, 0.4);
+  background-color: rgba($panel_bg, 0.4);
+}
+
+// ============================================================================
+// Upstream Bug Fixes
+// ============================================================================
+
+// Fix typo in _dialogs.scss: "tranparentize" -> "transparentize"
+.end-session-dialog .dialog-list .dialog-list-title {
+  background-color: transparentize($warning_color, 0.9);
+}
+
+// Fix typo in _applets.scss: "$scalable_icon-size" -> "$scalable_icon_size"
+.system-status-icon {
+  icon-size: $scalable_icon_size;
+}
+
+// ============================================================================
+// Tooltip Styling
+// ============================================================================
+
+// Restore accent-tinted tooltip backgrounds (distinctive Celestial feature)
+#Tooltip {
+  background-color: transparentize(mix($accent_color, black, 95%), 0.05);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+// ============================================================================
+// Slider Styling
+// ============================================================================
+
+// Restore accent-colored slider fill (was changed to gray in upstream)
+%slider {
+  -slider-active-background-color: $accent_color;
+}
+
+.slider {
+  -slider-active-background-color: $accent_color;
+}
+
+// ============================================================================
+// OSD Styling
+// ============================================================================
+
+// Revert pill-shaped OSD to rectangular (match old theme)
+.media-keys-osd {
+  border-radius: $base_border_radius;
+}
+
+.workspace-switch-osd {
+  border-radius: $base_border_radius;
+}
+
+// ============================================================================
+// Scrollbar Styling
+// ============================================================================
+
+// Restore accent-colored scrollbar handle when dragged
+StScrollBar {
+  StButton#vhandle,
+  StButton#hhandle {
+    &:active {
+      background-color: $accent_color;
+    }
+  }
+}
+
+// ============================================================================
+// Asset Overrides
+// ============================================================================
+
+// Override corner-ripple to use SVG instead of upstream PNG
+.ripple-box {
+  background-image: url("corner-ripple.svg");
+
+  &:rtl {
+    background-image: url("corner-ripple.svg");
+  }
+}

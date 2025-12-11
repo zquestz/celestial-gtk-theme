@@ -1,11 +1,8 @@
 $variant: "light";
-$transparency: "true";
 $color: "pueril";
 
-@import "sass/_colors"; //use gtk colors
+@import "sass/_colors";
 @import "sass/_drawing";
 @import "sass/_common";
-@import "sass/_dialogs"; // new in Cinnamon 6.4
-@import "sass/_keyboard"; // new in Cinnamon 6.6
-@import "sass/_ibus-popup"; // 6.6
-@import "sass/_deprecated";
+@import "sass/_widgets";
+@import "sass/_custom";

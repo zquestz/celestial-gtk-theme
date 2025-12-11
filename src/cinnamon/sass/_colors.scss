@@ -1,186 +1,220 @@
-// Celestial Theme Color Definitions
+// Celestial Theme Color Definitions for Cinnamon
+// ============================================================================
 // Supports 4 color variants: sea, aliz, azul, pueril
 // Supports 2 modes: light, dark
+//
+// Variables $variant and $color are set in the main entry files
+// (e.g., cinnamon-sea-dark.scss)
+// ============================================================================
 
-// Accent color per theme
-$accent_color: #2eb398;
-@if $color == "aliz" {
-  $accent_color: #f0544c;
-}
-@if $color == "azul" {
-  $accent_color: #3498db;
-}
-@if $color == "pueril" {
-  $accent_color: #97bb72;
-}
+// ============================================================================
+// Null declarations (required for !global assignments)
+// ============================================================================
 
-// Base colors per theme - used in variant blocks
-$base_color_light: #ffffff;
-$base_color_dark: #222b2e;
-$text_color_light: #303d41;
-$text_color_dark: #abb9b6;
-$fg_color_light: #273134;
-$fg_color_dark: #ccd7d4;
-$bg_color_light: #f7f7f7;
-$bg_color_dark: #1b2224;
-
-@if $color == "aliz" {
-  $base_color_dark: #262626;
-  $text_color_light: #363636;
-  $text_color_dark: #b5abab;
-  $fg_color_light: #323232;
-  $fg_color_dark: #cbbfbf;
-  $bg_color_dark: #222222;
-}
-
-@if $color == "azul" {
-  $base_color_dark: #22252c;
-  $text_color_light: #2e313d;
-  $text_color_dark: #afb4ba;
-  $fg_color_light: #2b2f3b;
-  $fg_color_dark: #bbc3c8;
-  $bg_color_dark: #1b1d24;
-}
-
-@if $color == "pueril" {
-  $base_color_dark: #262626;
-  $text_color_light: #363636;
-  $text_color_dark: #b5abab;
-  $fg_color_light: #323232;
-  $fg_color_dark: #cbbfbf;
-  $bg_color_dark: #222222;
-}
-
-// Panel colors per theme
-$panel_bg_light: #1b2224;
-$panel_bg_dark: darken(#1b2224, 3%);
-
-@if $color == "aliz" {
-  $panel_bg_light: #222222;
-  $panel_bg_dark: darken(#222222, 3%);
-}
-@if $color == "azul" {
-  $panel_bg_light: #1b1d24;
-  $panel_bg_dark: darken(#1b1d24, 3%);
-}
-@if $color == "pueril" {
-  $panel_bg_light: #222222;
-  $panel_bg_dark: darken(#222222, 3%);
-}
-
-// OSD background per theme
-$osd_bg_base: #303b3e;
-@if $color == "aliz" {
-  $osd_bg_base: #363636;
-}
-@if $color == "azul" {
-  $osd_bg_base: #30343e;
-}
-@if $color == "pueril" {
-  $osd_bg_base: #363636;
-}
-
-// Initialize variables
-$panel_bg: null;
-$panel_fg: null;
 $bg_color: null;
-$bg_color2: null;
-$bg_color3: null;
-$bg_color4: null;
-$borders_color: null;
-$separator_color: null;
-$text_color: null;
-$fg_color: null;
 $base_color: null;
-$noaccent_selected_fg_color: null;
-$dim_color: null;
-$link_color: null;
-$osd_destructive_color: null;
+$fg_color: null;
+$panel_bg: null;
+$accent_color: null;
+$accent_bg_color: null;
+$light_text_color: null;
+$light_bg_color: null;
+$light_base_color: null;
+$lighter_bg_color: null;
+$lightest_bg_color: null;
+$borders_color: null;
 $insensitive_fg_color: null;
-$entry_border: null;
-$button_bg: null;
-$corner_bar_highlighted: null;
+$link_color: null;
+
+// ============================================================================
+// Base Palette - Sea (default)
+// ============================================================================
+
+// Core colors
+$_base_color_light: #ffffff;
+$_base_color_dark: #222b2e;
+$_bg_color_light: #f7f7f7;
+$_bg_color_dark: #1b2224;
+$_fg_color_light: #273134;
+$_fg_color_dark: #ccd7d4;
+$_text_color_light: #303d41;
+$_text_color_dark: #abb9b6;
+
+// Panel (always dark)
+$_panel_bg_light: #1b2224;
+$_panel_bg_dark: darken(#1b2224, 3%);
+
+// Accent
+$_accent_color: #2eb398;
+$_accent_bg_color: darken($_accent_color, 8%);
+
+// Success color (contrasts with accent)
+$_success_color: #2eb398;
+
+// ============================================================================
+// Base Palette - Aliz
+// ============================================================================
+
+@if $color == "aliz" {
+  $_base_color_dark: #262626;
+  $_bg_color_dark: #222222;
+  $_fg_color_light: #323232;
+  $_fg_color_dark: #cbbfbf;
+  $_text_color_light: #363636;
+  $_text_color_dark: #b5abab;
+
+  $_panel_bg_light: #222222;
+  $_panel_bg_dark: darken(#222222, 3%);
+
+  $_accent_color: #f0544c;
+  $_accent_bg_color: darken($_accent_color, 8%);
+
+  // Success color (blue contrasts with red accent)
+  $_success_color: #3498db;
+}
+
+// ============================================================================
+// Base Palette - Azul
+// ============================================================================
+
+@if $color == "azul" {
+  $_base_color_dark: #22252c;
+  $_bg_color_dark: #1b1d24;
+  $_fg_color_light: #2b2f3b;
+  $_fg_color_dark: #bbc3c8;
+  $_text_color_light: #2e313d;
+  $_text_color_dark: #afb4ba;
+
+  $_panel_bg_light: #1b1d24;
+  $_panel_bg_dark: darken(#1b1d24, 3%);
+
+  $_accent_color: #3498db;
+  $_accent_bg_color: darken($_accent_color, 8%);
+
+  // Success color (teal contrasts with blue accent)
+  $_success_color: #2eb398;
+}
+
+// ============================================================================
+// Base Palette - Pueril
+// ============================================================================
+
+@if $color == "pueril" {
+  $_base_color_dark: #262626;
+  $_bg_color_dark: #222222;
+  $_fg_color_light: #323232;
+  $_fg_color_dark: #bfbfbf;
+  $_text_color_light: #363636;
+  $_text_color_dark: #bababa;
+
+  $_panel_bg_light: #222222;
+  $_panel_bg_dark: darken(#222222, 3%);
+
+  $_accent_color: #97bb72;
+  $_accent_bg_color: darken($_accent_color, 8%);
+
+  // Success color (blue contrasts with green accent)
+  $_success_color: #3498db;
+}
+
+// ============================================================================
+// Exported Variables - Light Variant
+// ============================================================================
 
 @if $variant == "light" {
-  // Light Variant Colors
-  $base_color: $base_color_light;
-  $text_color: $text_color_light;
-  $fg_color: $fg_color_light;
-  $bg_color: $bg_color_light;
-  $bg_color2: darken($bg_color, 9%);
-  $bg_color3: darken($bg_color, 22%);
-  $bg_color4: darken($bg_color, 16%);
-  $panel_bg: $panel_bg_light;
-  $borders_color: darken($bg_color, 15%);
-  $separator_color: darken($bg_color, 15%);
-  $panel_fg: mix($accent_color, #bdbdbd, 5%);
-  $noaccent_selected_fg_color: $text_color;
-  $dim_color: lighten($text_color, 20%);
-  $link_color: darken($accent_color, 10%);
-  $osd_destructive_color: #f04a50;
-  $insensitive_fg_color: transparentize($fg_color, 0.45);
-  $entry_border: #cfd6e6;
-  $button_bg: lighten($bg_color, 2%);
-  $corner_bar_highlighted: darken($borders_color, 10%);
-} @else {
-  // Dark Variant Colors
-  $base_color: $base_color_dark;
-  $text_color: $text_color_dark;
-  $fg_color: $fg_color_dark;
-  $bg_color: $bg_color_dark;
-  $bg_color2: lighten($base_color, 2%);
-  $bg_color3: lighten($base_color, 2%);
-  $bg_color4: lighten($base_color, 0%);
-  $panel_bg: $panel_bg_dark;
-  $borders_color: darken($bg_color, 2%);
-  $separator_color: lighten($bg_color, 2%);
-  $panel_fg: $text_color;
-  $noaccent_selected_fg_color: #ffffff;
-  $dim_color: darken($text_color, 20%);
-  $link_color: lighten($accent_color, 20%);
-  $osd_destructive_color: #c01c28;
-  $insensitive_fg_color: transparentize($fg_color, 0.55);
-  $entry_border: darken($borders_color, 0%);
-  $button_bg: lighten($base_color, 2%);
-  $corner_bar_highlighted: lighten($borders_color, 10%);
+  // Global colors
+  $bg_color: $_bg_color_light !global;
+  $base_color: $_base_color_light !global;
+  $fg_color: $_fg_color_light !global;
+
+  // Panel
+  $panel_bg: $_panel_bg_light !global;
+
+  // Accent colors
+  $accent_color: lighten($_accent_color, 10%) !global;
+  $accent_bg_color: $_accent_color !global;
+
+  // Text colors
+  $light_text_color: mix($_fg_color_light, $_bg_color_light, 65%) !global;
+
+  // Interactive element backgrounds (buttons, entries, hover states)
+  $light_bg_color: darken($_bg_color_light, 8%) !global;
+  $light_base_color: darken($_base_color_light, 10%) !global;
+  $lighter_bg_color: darken($_bg_color_light, 5%) !global;
+  $lightest_bg_color: darken($_bg_color_light, 15%) !global;
+
+  // Borders
+  $borders_color: darken($_bg_color_light, 15%) !global;
+
+  // Insensitive state
+  $insensitive_fg_color: transparentize($_fg_color_light, 0.45) !global;
+
+  // Links
+  $link_color: darken($_accent_color, 10%) !global;
 }
 
-// General
-$selected_fg_color: #ffffff;
-$radius: 2px;
+// ============================================================================
+// Exported Variables - Dark Variant
+// ============================================================================
 
-// Borders and separators
-$menus_border_color: transparentize(black, 1);
-$shadow_color: rgba(0, 0, 0, 0.5);
+@if $variant == "dark" {
+  // Global colors
+  $bg_color: $_bg_color_dark !global;
+  $base_color: $_base_color_dark !global;
+  $fg_color: $_fg_color_dark !global;
 
-$warning_color: #f27835;
+  // Panel
+  $panel_bg: $_panel_bg_dark !global;
+
+  // Accent colors
+  $accent_color: lighten($_accent_color, 15%) !global;
+  $accent_bg_color: $_accent_color !global;
+
+  // Text colors
+  $light_text_color: mix($_fg_color_dark, $_bg_color_dark, 65%) !global;
+
+  // Interactive element backgrounds (buttons, entries, hover states)
+  $light_bg_color: lighten($_base_color_dark, 5%) !global;
+  $light_base_color: lighten($_base_color_dark, 8%) !global;
+  $lighter_bg_color: lighten($_base_color_dark, 8%) !global;
+  $lightest_bg_color: lighten($_base_color_dark, 15%) !global;
+
+  // Borders
+  $borders_color: darken($_bg_color_dark, 3%) !global;
+
+  // Insensitive state
+  $insensitive_fg_color: transparentize($_fg_color_dark, 0.55) !global;
+
+  // Links
+  $link_color: lighten($_accent_color, 20%) !global;
+}
+
+// ============================================================================
+// Status Colors (matching GTK theme)
+// ============================================================================
+
+// Error - bright red for visibility
 $error_color: #fc4138;
-$destructive_color: #f04a50;
+$error_bg_color: #c01c28;
 
-$tooltip_bg_color: transparentize(mix($accent_color, black, 95%), 0.05);
-$tooltip_fg_color: $selected_fg_color;
-$tooltip_border_color: #d0d0d0;
+// Success - varies by variant (set in palette above)
+$success_color: $_success_color;
+$success_bg_color: darken($_success_color, 10%);
 
-$osd_bg_color: if(
-  $transparency == "true",
-  transparentize($osd_bg_base, 0.05),
-  $osd_bg_base
-);
-$osd_fg_color: if(
-  $variant == "light",
-  mix($accent_color, #bdbdbd, 5%),
-  $text_color
-);
+// Destructive - for dangerous actions
+$destructive_color: #db5b5b;
+$destructive_bg_color: #c01c28;
 
-$osd_button_bg: transparentize(lighten($osd_bg_color, 22%), 0.6);
-$osd_button_border: transparentize(darken($osd_bg_color, 12%), 0.6);
+// Warning - orange for caution
+$warning_color: #f27835;
+$warning_bg_color: #cd9309;
 
-$osd_entry_bg: transparentize(lighten($osd_bg_color, 22%), 0.6);
-$osd_entry_border: transparentize(darken($osd_bg_color, 12%), 0.6);
+// Notification badge
+$notification_badge_bg_color: #e74b37;
 
-$osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 30%);
+// ============================================================================
+// Derived Colors
+// ============================================================================
 
-$entry_bg: if($variant == "light", $base_color, lighten($base_color, 0%));
-$button_border: $entry_border;
-
-$corner_bar_unhighlighted: $borders_color;
+$large_icon_color: transparentize($fg_color, 0.6);
+$shadow_color: rgba(0, 0, 0, 0.5);
