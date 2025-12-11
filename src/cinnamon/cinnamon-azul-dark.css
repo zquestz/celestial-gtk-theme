@@ -2329,16 +2329,6 @@ StScrollBar StButton#hhandle:hover {
   padding: 0;
 }
 
-.applet-box:checked,
-.applet-box:checked:hover {
-  background-color: #3498db;
-}
-
-.applet-box:checked .applet-icon,
-.applet-box:checked .applet-label {
-  color: white;
-}
-
 .menu-favorites-box {
   background-color: #1b1d24;
 }
@@ -2381,6 +2371,26 @@ StScrollBar StButton#hhandle:hover {
 .panel-left .applet-box:hover,
 .panel-right .applet-box:hover {
   background-color: #343843;
+}
+
+.panel-top .applet-box:checked, .panel-top .applet-box:checked:hover,
+.panel-bottom .applet-box:checked,
+.panel-bottom .applet-box:checked:hover,
+.panel-left .applet-box:checked,
+.panel-left .applet-box:checked:hover,
+.panel-right .applet-box:checked,
+.panel-right .applet-box:checked:hover {
+  background-color: #3498db;
+}
+
+.panel-top .applet-box:checked .applet-icon, .panel-top .applet-box:checked .applet-label,
+.panel-bottom .applet-box:checked .applet-icon,
+.panel-bottom .applet-box:checked .applet-label,
+.panel-left .applet-box:checked .applet-icon,
+.panel-left .applet-box:checked .applet-label,
+.panel-right .applet-box:checked .applet-icon,
+.panel-right .applet-box:checked .applet-label {
+  color: white;
 }
 
 .panel-top .applet-label,
