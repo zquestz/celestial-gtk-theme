@@ -42,7 +42,7 @@ $_text_color_dark: #abb9b6;
 
 // Panel (always dark)
 $_panel_bg_light: #1b2224;
-$_panel_bg_dark: darken(#1b2224, 3%);
+$_panel_bg_dark: #1b2224;
 
 // Accent
 $_accent_color: #2eb398;
@@ -64,7 +64,7 @@ $_success_color: #2eb398;
   $_text_color_dark: #b5abab;
 
   $_panel_bg_light: #222222;
-  $_panel_bg_dark: darken(#222222, 3%);
+  $_panel_bg_dark: #222222;
 
   $_accent_color: #f0544c;
   $_accent_bg_color: darken($_accent_color, 8%);
@@ -86,7 +86,7 @@ $_success_color: #2eb398;
   $_text_color_dark: #afb4ba;
 
   $_panel_bg_light: #1b1d24;
-  $_panel_bg_dark: darken(#1b1d24, 3%);
+  $_panel_bg_dark: #1b1d24;
 
   $_accent_color: #3498db;
   $_accent_bg_color: darken($_accent_color, 8%);
@@ -108,7 +108,7 @@ $_success_color: #2eb398;
   $_text_color_dark: #bababa;
 
   $_panel_bg_light: #222222;
-  $_panel_bg_dark: darken(#222222, 3%);
+  $_panel_bg_dark: #222222;
 
   $_accent_color: #97bb72;
   $_accent_bg_color: darken($_accent_color, 8%);
@@ -195,7 +195,7 @@ $_success_color: #2eb398;
 
 // Error - bright red for visibility
 $error_color: #fc4138;
-$error_bg_color: #c01c28;
+$error_bg_color: if($variant == "light", #e55c5c, #c01c28);
 
 // Success - varies by variant (set in palette above)
 $success_color: $_success_color;
@@ -203,14 +203,14 @@ $success_bg_color: darken($_success_color, 10%);
 
 // Destructive - for dangerous actions
 $destructive_color: #db5b5b;
-$destructive_bg_color: #c01c28;
+$destructive_bg_color: if($variant == "light", #e55c5c, #c01c28);
 
 // Warning - orange for caution
 $warning_color: #f27835;
 $warning_bg_color: #cd9309;
 
 // Notification badge
-$notification_badge_bg_color: #e74b37;
+$notification_badge_bg_color: $accent_bg_color;
 
 // ============================================================================
 // Derived Colors

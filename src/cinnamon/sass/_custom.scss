@@ -116,7 +116,9 @@
   background-color: transparentize(mix($accent_color, black, 95%), 0.05);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: $base_border_radius;
+  padding: 8px;
+  margin: 3px;
 }
 
 // ============================================================================
@@ -130,6 +132,163 @@
 
 .slider {
   -slider-active-background-color: $accent_color;
+}
+
+// ============================================================================
+// Menu Styling
+// ============================================================================
+
+// Remove padding from .menu container to eliminate gap between panel and popups
+.menu {
+  padding: 0;
+}
+
+// ============================================================================
+// Panel Styling
+// ============================================================================
+
+// Panel is always dark, even in light theme variants.
+// We need to force dark colors for all panel elements.
+
+// Panel-specific dark colors (matching dark variant values)
+$panel_fg_color: $_fg_color_dark;
+$panel_text_color: $_text_color_dark;
+$panel_borders_color: darken($_bg_color_dark, 3%);
+$panel_light_bg: lighten($_base_color_dark, 5%);
+$panel_lighter_bg: lighten($_base_color_dark, 8%);
+$panel_lightest_bg: lighten($_base_color_dark, 15%);
+$panel_insensitive_fg: transparentize($_fg_color_dark, 0.55);
+
+// Use dark border color for panel (fixes light theme white line issue)
+.panel-top {
+  box-shadow: inset 0 -1px $panel_borders_color;
+  color: $panel_fg_color;
+}
+
+.panel-bottom {
+  box-shadow: inset 0 1px $panel_borders_color;
+  color: $panel_fg_color;
+}
+
+.panel-left {
+  box-shadow: inset -1px 0 $panel_borders_color;
+  color: $panel_fg_color;
+}
+
+.panel-right {
+  box-shadow: inset 1px 0 $panel_borders_color;
+  color: $panel_fg_color;
+}
+
+// Nest panel element styles to ensure they only apply within panel context
+.panel-top,
+.panel-bottom,
+.panel-left,
+.panel-right {
+  // Applet styling for panel
+  .applet-box {
+    color: $panel_fg_color;
+
+    &:hover {
+      background-color: $panel_lighter_bg;
+    }
+  }
+
+  .applet-label {
+    color: $panel_fg_color;
+  }
+
+  .applet-separator-line {
+    background: transparentize($panel_fg_color, 0.8);
+  }
+
+  .applet-separator-line-vertical {
+    background: transparentize($panel_fg_color, 0.8);
+  }
+
+  // Window list in panel
+  .window-list-item-box {
+    color: transparentize($panel_fg_color, 0.2);
+
+    &:hover {
+      background-color: $panel_light_bg;
+    }
+
+    &:focus {
+      background-color: $panel_lightest_bg;
+    }
+  }
+
+  .grouped-window-list-item-box {
+    color: $panel_fg_color;
+
+    &:hover {
+      background-color: $panel_lighter_bg;
+    }
+
+    &:focus {
+      background-color: $panel_lightest_bg;
+    }
+  }
+
+  .grouped-window-list-badge {
+    background-color: $panel_bg;
+    color: $panel_fg_color;
+  }
+
+  // Workspace switcher in panel
+  .workspace-button {
+    color: $panel_insensitive_fg;
+    border-color: $panel_borders_color;
+    background-color: transparentize($panel_fg_color, 0.95);
+
+    &:outlined {
+      background-color: $panel_light_bg;
+      color: $panel_fg_color;
+
+      &:hover {
+        background-color: $panel_lighter_bg;
+      }
+    }
+
+    &:hover {
+      background-color: $panel_light_bg;
+    }
+  }
+
+  .workspace-graph .workspace {
+    border-color: transparentize($panel_fg_color, 0.8);
+    background-color: darken($panel_bg, 5%);
+
+    &:active {
+      border-color: transparentize($panel_fg_color, 0.5);
+    }
+  }
+
+  // System status icon
+  .system-status-icon {
+    color: $panel_fg_color;
+  }
+
+  // Corner bar applet
+  .applet-cornerbar {
+    background-color: $panel_lighter_bg;
+    border-color: $panel_borders_color;
+  }
+
+  .applet-cornerbar-box:hover > .applet-cornerbar {
+    background-color: $panel_lightest_bg;
+  }
+
+  // Panel launchers
+  .panel-launchers .launcher:hover {
+    background-color: $panel_lighter_bg;
+  }
+
+  // Notifications badge
+  .grouped-window-list-notifications-badge {
+    color: $panel_fg_color;
+  }
 }
 
 // ============================================================================
