@@ -21,11 +21,21 @@ declare -A THEME_NAMES=(
     ["pueril"]="Pueril"
 )
 
-DARK_BG="26;;30;;34"
-LIGHT_BG="250;;250;;250"
+# Theme-specific dark background colors (matching each variant's bg_color_dark)
+declare -A DARK_BGS=(
+    ["sea"]="27;;34;;36"       # #1b2224
+    ["aliz"]="34;;34;;34"      # #222222
+    ["azul"]="27;;29;;36"      # #1b1d24
+    ["pueril"]="34;;34;;34"    # #222222
+)
 
-DARK_OUTER_STROKE="0;;0;;0;;95"
-LIGHT_OUTER_STROKE="200;;200;;200;;95"
+# Theme-specific outer stroke colors (darker version of background)
+declare -A DARK_OUTER_STROKES=(
+    ["sea"]="20;;26;;28;;95"       # darker #1b2224
+    ["aliz"]="26;;26;;26;;95"      # darker #222222
+    ["azul"]="20;;22;;28;;95"      # darker #1b1d24
+    ["pueril"]="26;;26;;26;;95"    # darker #222222
+)
 
 generate_theme() {
     local theme="$1"
@@ -48,16 +58,11 @@ generate_theme() {
             ;;
     esac
 
-    local fill_bg outer_stroke inner_stroke
-    if [[ "$variant" == "-light" ]]; then
-        fill_bg="${LIGHT_BG}"
-        outer_stroke="${LIGHT_OUTER_STROKE}"
-        inner_stroke="${LIGHT_BG};;245"
-    else
-        fill_bg="${DARK_BG}"
-        outer_stroke="${DARK_OUTER_STROKE}"
-        inner_stroke="${DARK_BG};;245"
-    fi
+    # Always use dark background for dock (consistent with panel)
+    local dark_bg="${DARK_BGS[$theme]}"
+    local fill_bg="${dark_bg}"
+    local outer_stroke="${DARK_OUTER_STROKES[$theme]}"
+    local inner_stroke="${dark_bg};;245"
 
     mkdir -p "$output_dir"
 

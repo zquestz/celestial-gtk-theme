@@ -118,7 +118,7 @@ install() {
     echo "[X-GNOME-Metatheme]"
     echo "GtkTheme=${name}${theme_cap}${color_cap}"
     echo "MetacityTheme=${name}${theme_cap}${color_cap}"
-    [[ "$color" == "-light" ]] && echo "IconTheme=Papirus-Light" || echo "IconTheme=Papirus-Dark"
+    echo "IconTheme=Papirus-Dark"
     echo "CursorTheme=Celestial"
     echo "ButtonLayout=menu:minimize,maximize,close"
   } >> "${themedir}/index.theme"
