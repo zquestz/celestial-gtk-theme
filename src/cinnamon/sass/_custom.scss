@@ -144,6 +144,26 @@
 }
 
 // ============================================================================
+// Applet Icon Styling
+// ============================================================================
+
+// Base applet-icon styling (must be at root level like old theme)
+.applet-icon {
+  color: $fg_color;
+  icon-size: 22px;
+}
+
+.applet-box:checked .applet-icon {
+  color: white !important;
+  text-shadow: none;
+}
+
+.applet-box:checked .applet-label {
+  color: white !important;
+  text-shadow: none;
+}
+
+// ============================================================================
 // Start Menu Styling
 // ============================================================================
 
@@ -212,11 +232,18 @@ $panel_insensitive_fg: transparentize($_fg_color_dark, 0.55);
     &:checked,
     &:checked:hover {
       background-color: $accent_bg_color;
-    }
 
-    &:checked .applet-icon,
-    &:checked .applet-label {
-      color: white;
+      .applet-icon {
+        color: white;
+      }
+
+      .applet-label {
+        color: white;
+      }
+
+      StIcon {
+        color: white;
+      }
     }
   }
 
