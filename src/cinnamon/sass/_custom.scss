@@ -144,6 +144,21 @@
 }
 
 // ============================================================================
+// Applet Styling
+// ============================================================================
+
+// Restore accent-colored background when applet is checked/active (e.g., menu open)
+.applet-box:checked,
+.applet-box:checked:hover {
+  background-color: $accent_bg_color;
+}
+
+.applet-box:checked .applet-icon,
+.applet-box:checked .applet-label {
+  color: white;
+}
+
+// ============================================================================
 // Start Menu Styling
 // ============================================================================
 

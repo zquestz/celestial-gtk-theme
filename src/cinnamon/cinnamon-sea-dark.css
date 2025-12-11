@@ -2329,6 +2329,16 @@ StScrollBar StButton#hhandle:hover {
   padding: 0;
 }
 
+.applet-box:checked,
+.applet-box:checked:hover {
+  background-color: #2eb398;
+}
+
+.applet-box:checked .applet-icon,
+.applet-box:checked .applet-label {
+  color: white;
+}
+
 .menu-favorites-box {
   background-color: #1b2224;
 }
