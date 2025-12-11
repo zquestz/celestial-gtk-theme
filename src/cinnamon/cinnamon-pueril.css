@@ -2329,6 +2329,10 @@ StScrollBar StButton#hhandle:hover {
   padding: 0;
 }
 
+.appmenu-sidebar {
+  background-color: transparent;
+}
+
 .panel-top {
   box-shadow: inset 0 -1px #1a1a1a;
   color: #bfbfbf;
