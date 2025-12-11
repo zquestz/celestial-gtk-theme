@@ -147,10 +147,16 @@
 // Start Menu Styling
 // ============================================================================
 
-// Restore transparent sidebar (was solid color in upstream)
-// Old theme had rgba(43, 43, 43, 0.3) in dark mode - nearly invisible
-.appmenu-sidebar {
-  background-color: transparent;
+// Old menu favorites box - use $bg_color to match menu background like original
+.menu-favorites-box {
+  background-color: $bg_color;
+}
+
+// Menu search entry - use $bg_color like original instead of $light_bg_color
+#menu-search-entry,
+#menu-search-entry:focus,
+#menu-search-entry:hover {
+  background-color: $bg_color;
 }
 
 // ============================================================================

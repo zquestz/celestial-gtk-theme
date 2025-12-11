@@ -2329,8 +2329,14 @@ StScrollBar StButton#hhandle:hover {
   padding: 0;
 }
 
-.appmenu-sidebar {
-  background-color: transparent;
+.menu-favorites-box {
+  background-color: #1b2224;
+}
+
+#menu-search-entry,
+#menu-search-entry:focus,
+#menu-search-entry:hover {
+  background-color: #1b2224;
 }
 
 .panel-top {
