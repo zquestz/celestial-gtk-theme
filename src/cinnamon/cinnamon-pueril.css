@@ -2331,7 +2331,7 @@ StScrollBar StButton#hhandle:hover {
 
 .applet-box:checked,
 .applet-box:checked:hover {
-  background-color: #97bb72;
+  background-color: #b0cc94;
 }
 
 .applet-box:checked .applet-icon,
