@@ -150,7 +150,7 @@
 // Restore accent-colored background when applet is checked/active (e.g., menu open)
 .applet-box:checked,
 .applet-box:checked:hover {
-  background-color: $accent_color;
+  background-color: $accent_bg_color;
 }
 
 .applet-box:checked .applet-icon,
