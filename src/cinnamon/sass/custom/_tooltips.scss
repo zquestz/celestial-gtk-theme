@@ -1,0 +1,16 @@
+// ============================================================================
+// Tooltip Styling
+// ============================================================================
+// Celestial-specific tooltip styling with accent-tinted backgrounds.
+// This is a distinctive Celestial feature that differs from upstream.
+// ============================================================================
+
+// Restore accent-tinted tooltip backgrounds (distinctive Celestial feature)
+#Tooltip {
+  background-color: transparentize(mix($accent_color, black, 95%), 0.05);
+  color: white;
+  border: none;
+  border-radius: $base_border_radius;
+  padding: 8px;
+  margin: 3px;
+}

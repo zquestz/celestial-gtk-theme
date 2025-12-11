@@ -1,0 +1,15 @@
+// ============================================================================
+// Asset Overrides
+// ============================================================================
+// Celestial-specific asset overrides.
+// Custom assets that differ from upstream Cinnamon theme.
+// ============================================================================
+
+// Override corner-ripple to use SVG instead of upstream PNG
+.ripple-box {
+  background-image: url("corner-ripple.svg");
+
+  &:rtl {
+    background-image: url("corner-ripple.svg");
+  }
+}

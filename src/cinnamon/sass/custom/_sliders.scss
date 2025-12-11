@@ -1,0 +1,15 @@
+// ============================================================================
+// Slider Styling
+// ============================================================================
+// Celestial-specific slider styling with accent-colored fills.
+// Upstream changed slider fills to gray; we restore the accent color.
+// ============================================================================
+
+// Restore accent-colored slider fill (was changed to gray in upstream)
+%slider {
+  -slider-active-background-color: $accent_color;
+}
+
+.slider {
+  -slider-active-background-color: $accent_color;
+}

@@ -1,0 +1,16 @@
+// ============================================================================
+// Scrollbar Styling
+// ============================================================================
+// Celestial-specific scrollbar styling.
+// Restores accent-colored scrollbar handle when actively dragged.
+// ============================================================================
+
+// Restore accent-colored scrollbar handle when dragged
+StScrollBar {
+  StButton#vhandle,
+  StButton#hhandle {
+    &:active {
+      background-color: $accent_color;
+    }
+  }
+}

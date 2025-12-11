@@ -1,0 +1,29 @@
+// ============================================================================
+// Menu Styling
+// ============================================================================
+// Celestial-specific menu styling overrides.
+// Adjustments to menu padding and background colors.
+// ============================================================================
+
+// Remove padding from .menu container to eliminate gap between panel and popups
+.menu {
+  padding: 0;
+}
+
+// ============================================================================
+// Start Menu (Old Menu) Styling
+// ============================================================================
+// Overrides for the classic Cinnamon menu applet.
+// ============================================================================
+
+// Old menu favorites box - use $bg_color to match menu background like original
+.menu-favorites-box {
+  background-color: $bg_color;
+}
+
+// Menu search entry - use $bg_color like original instead of $light_bg_color
+#menu-search-entry,
+#menu-search-entry:focus,
+#menu-search-entry:hover {
+  background-color: $bg_color;
+}

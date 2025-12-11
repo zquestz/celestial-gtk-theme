@@ -1,0 +1,15 @@
+// ============================================================================
+// OSD Styling
+// ============================================================================
+// Celestial-specific OSD (On-Screen Display) styling.
+// Reverts pill-shaped OSD to rectangular to match classic Celestial theme.
+// ============================================================================
+
+// Revert pill-shaped OSD to rectangular (match old theme)
+.media-keys-osd {
+  border-radius: $base_border_radius;
+}
+
+.workspace-switch-osd {
+  border-radius: $base_border_radius;
+}

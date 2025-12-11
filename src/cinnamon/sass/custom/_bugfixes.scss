@@ -1,0 +1,16 @@
+// ============================================================================
+// Upstream Bug Fixes
+// ============================================================================
+// Fixes for typos and bugs in upstream Cinnamon theme files.
+// These corrections ensure proper functionality without modifying upstream.
+// ============================================================================
+
+// Fix typo in _dialogs.scss: "tranparentize" -> "transparentize"
+.end-session-dialog .dialog-list .dialog-list-title {
+  background-color: transparentize($warning_color, 0.9);
+}
+
+// Fix typo in _applets.scss: "$scalable_icon-size" -> "$scalable_icon_size"
+.system-status-icon {
+  icon-size: $scalable_icon_size;
+}
