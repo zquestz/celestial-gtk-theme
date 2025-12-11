@@ -7,27 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.3.0] - 2025-12-10
 
+### Added
+
+- Full support for Cinnamon 6.6
+
 ### Changed
 
-- Complete restructure of Cinnamon theme to match upstream SASS architecture
-  - New modular widget files in `sass/widgets/` directory
-  - Cleaner `_colors.scss` with proper variant support and derived colors
-  - New `_custom.scss` for Celestial-specific styles (panel transparency modes)
-  - Asset renaming to match upstream conventions (toggle, checkbox, radio)
-  - Flattened asset directory structure for simpler installation
-- Status colors now match GTK theme values
-  - `$error_color`: `#fc4138` (bright red)
-  - `$warning_color`: `#f27835` (orange)
-  - `$destructive_color`: `#db5b5b` (muted red)
-  - `$success_color`: varies by variant (contrasts with accent)
-- Sharpened border radius from 2px to 1px for all UI elements
-- Accent colors now properly differentiated (`$accent_color` for highlights, `$accent_bg_color` for backgrounds)
-
-### Removed
-
-- Unused Cinnamon assets (activities, bg, desklet, osd, panel, window-list SVGs)
-- `$transparency` variable (no longer needed in new structure)
-- Old monolithic `_common.scss` replaced with modular widget imports
+- Restructured Cinnamon theme to match upstream Cinnamon 6.6 SASS architecture
+- Notification badges now use theme accent color
+- Removed unused Cinnamon assets
 
 ## [1.2.0] - 2025-11-21
 
