@@ -31,10 +31,10 @@ declare -A DARK_BGS=(
 
 # Theme-specific outer stroke colors (darker version of background)
 declare -A DARK_OUTER_STROKES=(
-    ["sea"]="20;;26;;28;;95"       # darker #1b2224
-    ["aliz"]="26;;26;;26;;95"      # darker #222222
-    ["azul"]="20;;22;;28;;95"      # darker #1b1d24
-    ["pueril"]="26;;26;;26;;95"    # darker #222222
+    ["sea"]="20;;26;;28;;215"       # darker #1b2224
+    ["aliz"]="26;;26;;26;;215"      # darker #222222
+    ["azul"]="20;;22;;28;;215"      # darker #1b1d24
+    ["pueril"]="26;;26;;26;;215"    # darker #222222
 )
 
 generate_theme() {
