@@ -224,7 +224,6 @@
 
 <draw_ops name="maximize_focused_prelight">
 	<image filename="button-bg.svg" colorize="C_button_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-	<image filename="button-border.svg" colorize="C_button_border_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 	<image filename="max-icon.svg" colorize="C_icon_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
@@ -234,7 +233,6 @@
 
 <draw_ops name="maximize_unfocused_prelight">
 	<image filename="button-bg.svg" colorize="C_button_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-	<image filename="button-border.svg" colorize="C_button_border_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 	<image filename="max-icon.svg" colorize="C_icon_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
@@ -255,7 +253,6 @@
 
 <draw_ops name="max_maximize_focused_prelight">
 	<image filename="button-bg.svg" colorize="C_button_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-	<image filename="button-border.svg" colorize="C_button_border_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 	<image filename="unmax-icon.svg" colorize="C_icon_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
@@ -265,7 +262,6 @@
 
 <draw_ops name="max_maximize_unfocused_prelight">
 	<image filename="button-bg.svg" colorize="C_button_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-	<image filename="button-border.svg" colorize="C_button_border_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 	<image filename="unmax-icon.svg" colorize="C_icon_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
@@ -286,7 +282,6 @@
 
 <draw_ops name="minimize_focused_prelight">
 	<image filename="button-bg.svg" colorize="C_button_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-	<image filename="button-border.svg" colorize="C_button_border_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 	<image filename="min-icon.svg" colorize="C_icon_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
@@ -296,7 +291,6 @@
 
 <draw_ops name="minimize_unfocused_prelight">
 	<image filename="button-bg.svg" colorize="C_button_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
-	<image filename="button-border.svg" colorize="C_button_border_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 	<image filename="min-icon.svg" colorize="C_icon_bg_hover" x="(width-object_width)/2" y="(height-object_height)/2" width="object_width" height="object_height"/>
 </draw_ops>
 
