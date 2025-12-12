@@ -28,7 +28,7 @@
 <constant name="C_icon_close_bg" value="#2f343f" />
 
 <!-- minimize, maximize -->
-<constant name="C_button_bg_hover" value="#313e41" />
+<constant name="C_button_bg_hover" value="#344445" />
 <constant name="C_button_bg_active" value="#2eb398" />
 
 <constant name="C_button_border_hover" value="#26322e" />
