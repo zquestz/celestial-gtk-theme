@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Fixed Metacity close button being red by default instead of only on hover
+- Fixed Metacity minimize/maximize button hover colors to match GTK 3/4
+- Fixed Metacity Pueril close button using green instead of red
 
 ## [1.3.1] - 2025-12-11
 
