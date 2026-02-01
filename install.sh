@@ -417,11 +417,7 @@ revert_gdm() {
 while [[ $# -gt 0 ]]; do
   case "${1}" in
     -d|--dest)
-      dest="$(realpath "${2}")"
-      if [[ ! -d "${dest}" ]]; then
-        echo "ERROR: Destination directory does not exist."
-        exit 1
-      fi
+      dest="${2}"
       shift 2
       ;;
     -n|--name)
