@@ -1,0 +1,9 @@
+# Celestial Pueril (Light) - Sniffnet Theme
+# Green accent (#97bb72)
+
+primary      = "#f7f7f7"  # Celestial light background
+secondary    = "#97bb72"  # Green accent - header, footer & incoming traffic
+outgoing     = "#c678dd"  # Purple - outgoing traffic (complementary)
+text_body    = "#323232"  # Celestial Pueril light foreground text
+text_headers = "#ffffff"  # White text on the green header/footer
+starred      = "#f39c12"  # Deep gold - favorites star (visible on light bg)

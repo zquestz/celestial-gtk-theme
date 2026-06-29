@@ -1,0 +1,9 @@
+# Celestial Aliz (Dark) - Sniffnet Theme
+# Red accent (#f0544c)
+
+primary      = "#222222"  # Celestial Aliz dark background
+secondary    = "#f0544c"  # Red accent - header, footer & incoming traffic
+outgoing     = "#2eb398"  # Teal - outgoing traffic (complementary)
+text_body    = "#cbbfbf"  # Celestial Aliz dark foreground text
+text_headers = "#222222"  # Near-black text on the red header/footer
+starred      = "#f7dc6f"  # Celestial yellow - favorites star

@@ -1,0 +1,9 @@
+# Celestial Azul (Dark) - Sniffnet Theme
+# Blue accent (#3498db)
+
+primary      = "#1b1d24"  # Celestial Azul dark background
+secondary    = "#3498db"  # Blue accent - header, footer & incoming traffic
+outgoing     = "#f0544c"  # Coral - outgoing traffic (complementary)
+text_body    = "#bbc3c8"  # Celestial Azul dark foreground text
+text_headers = "#1b1d24"  # Near-black text on the blue header/footer
+starred      = "#f7dc6f"  # Celestial yellow - favorites star

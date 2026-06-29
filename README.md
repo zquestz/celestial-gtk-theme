@@ -17,7 +17,7 @@ Based on the excellent [Arc](https://github.com/horst3180/Arc-theme) and [Matcha
 - **Dock Support** - [Plank Reloaded](https://github.com/zquestz/plank-reloaded) theming
 - **HiDPI Support** - Standard, HiDPI, and XHiDPI variants for retina displays
 - **Color-Matched Backgrounds** - Minimalistic wallpapers coordinated with each theme variant
-- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, cursor theme, Zed editor themes, Ghostty and Kitty terminal themes, Halloy IRC client themes, CopyQ clipboard manager themes, Slack themes
+- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, cursor theme, Zed editor themes, Ghostty and Kitty terminal themes, Halloy IRC client themes, CopyQ clipboard manager themes, Slack themes, Sniffnet network monitor themes
 
 ## Installation
 
@@ -236,6 +236,28 @@ Available themes:
 Each theme uses a simple 4-value format: `background,accent,accent,accent` where the accent color is used for selected items, presence indicators, and notifications.
 
 For theme codes and more details, see the [Slack theme README](src/extra/slack/README.md).
+
+## Network Monitor Themes
+
+### Sniffnet
+
+For [Sniffnet](https://github.com/GyulyVGC/sniffnet) network monitor users, Celestial provides 8 themes - 4 color variants (Aliz, Azul, Pueril, Sea) with both dark and light modes that match the GTK theme color palette.
+
+Sniffnet loads custom themes from a file path - there is no installer step:
+
+1. Open **Sniffnet** and go to **Settings**
+2. Select the **Style** tab and scroll to the custom theme field at the bottom
+3. Enter the full path to one of the theme files in `src/extra/sniffnet/` (e.g. `celestial-sea-dark.toml`)
+4. Sniffnet validates the file and applies it immediately
+
+Available themes:
+
+- Celestial Aliz Dark / Light
+- Celestial Azul Dark / Light
+- Celestial Pueril Dark / Light
+- Celestial Sea Dark / Light
+
+For more details, see the [Sniffnet theme README](src/extra/sniffnet/README.md).
 
 ## Development
 

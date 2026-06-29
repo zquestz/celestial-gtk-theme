@@ -1,0 +1,9 @@
+# Celestial Sea (Light) - Sniffnet Theme
+# Teal accent (#2eb398)
+
+primary      = "#f7f7f7"  # Celestial light background
+secondary    = "#2eb398"  # Teal accent - header, footer & incoming traffic
+outgoing     = "#f0544c"  # Coral - outgoing traffic (complementary)
+text_body    = "#273134"  # Celestial Sea light foreground text
+text_headers = "#ffffff"  # White text on the teal header/footer
+starred      = "#f39c12"  # Deep gold - favorites star (visible on light bg)
