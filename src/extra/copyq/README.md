@@ -30,7 +30,7 @@ Install specific variant(s):
 
 Then in CopyQ:
 
-1. Go to **File** → **Preferences** (or press `Ctrl+P`)
+1. Go to **File** > **Preferences** (or press `Ctrl+P`)
 2. Navigate to the **Appearance** tab
 3. Select your desired Celestial theme from the **Theme** dropdown menu
 4. Click **OK** to apply
@@ -51,7 +51,7 @@ Then in CopyQ:
 
 2. Open CopyQ
 
-3. Go to **File** → **Preferences** (or press `Ctrl+P`)
+3. Go to **File** > **Preferences** (or press `Ctrl+P`)
 
 4. Navigate to the **Appearance** tab
 
@@ -63,7 +63,7 @@ Then in CopyQ:
 
 1. Open CopyQ
 
-2. Go to **File** → **Preferences** → **Appearance** tab
+2. Go to **File** > **Preferences** > **Appearance** tab
 
 3. Click **Load Theme** button (this is for importing new theme files)
 

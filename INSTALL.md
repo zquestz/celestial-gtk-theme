@@ -14,6 +14,7 @@ This guide covers installation, customization, and application of the Celestial 
 - `sassc` - For building from source
 - `inkscape` - For rendering theme assets
 - `optipng` - For optimizing PNG assets
+- `kvantum` - For theming Qt applications
 
 ## Installing Dependencies
 
@@ -82,6 +83,7 @@ The install script provides extensive customization options:
 | `--cursors`            | Install Celestial cursor theme                                   |
 | `--ghostty`            | Install Ghostty terminal theme                                   |
 | `--halloy`             | Install Halloy IRC client themes                                 |
+| `--kde`                | Install KDE Plasma themes                                        |
 | `--kitty`              | Install Kitty terminal theme                                     |
 | `--zed`                | Install Zed editor themes                                        |
 | `-g, --gdm`            | Install GDM theme (requires sudo)                                |
@@ -138,6 +140,18 @@ sudo ./install.sh -g -t azul -c dark
 ./install.sh -k
 ```
 
+**Install KDE Plasma themes:**
+
+```bash
+./install.sh --kde
+```
+
+**Install a specific KDE Plasma variant:**
+
+```bash
+./install.sh --kde -t azul -c dark
+```
+
 **Install theme backgrounds:**
 
 ```bash
@@ -191,6 +205,8 @@ sudo ./install.sh -g -t azul -c dark
 ```bash
 ./install.sh -k -b --copyq --cursors --ghostty --halloy --kitty --zed
 ```
+
+> On KDE Plasma, also add `--kde`.
 
 ## Uninstalling
 
@@ -254,6 +270,12 @@ Remove Kvantum themes:
 ./install.sh --halloy -r
 ```
 
+**Remove KDE Plasma themes:**
+
+```bash
+./install.sh --kde -r
+```
+
 **Remove Kitty terminal theme:**
 
 ```bash
@@ -296,6 +318,28 @@ xfconf-query -c xfwm4 -p /general/theme -s "Celestial-Azul-Dark"
 
 Open **System Settings** then **Themes** and select your Celestial variant
 
+### KDE Plasma Desktop
+
+Install with `./install.sh --kde`, then:
+
+1. **Global theme** - open **System Settings** > **Global Theme** and select your Celestial variant. This applies the color scheme, Kvantum widget style, Breeze window decorations, a dark/light Plasma panel, Papirus icons, the Celestial cursor, and the Breeze splash screen. Leave "Use desktop layout from theme" unchecked to keep your current panel arrangement.
+
+   To apply only the colors, use **System Settings** > **Colors** instead.
+
+2. **Kvantum variant** - a global theme selects Kvantum as the widget style but cannot choose which Celestial variant Kvantum renders (that lives in Kvantum's own config). Set it once to match:
+
+   ```bash
+   kvantummanager --set Celestial-Azul-Dark
+   ```
+
+   or use the **Kvantum Manager** GUI. Re-run this whenever you switch to a different Celestial global theme.
+
+3. **Konsole** - open **Settings** > **Edit Current Profile** > **Appearance** and select the **Celestial** color scheme.
+
+4. **GTK / GNOME apps** - select your Celestial variant under **System Settings** > **Application Style** > **GNOME/GTK Application Style** (a global theme can't set the GTK theme for you).
+
+Requires Plasma 6. The global themes reference the [Papirus icon theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) and the Celestial cursors (`./install.sh --cursors`), so install those too. The color schemes also work on Plasma 5, but the global-theme packages use the Plasma 6 format. See the [KDE Plasma README](src/kde/README.md) for details.
+
 ### Flatpak Applications
 
 To theme Flatpak apps, run:
@@ -335,6 +379,12 @@ GNOME 43+ uses libadwaita which doesn't support custom themes by default. Use th
 ```
 
 Note: This will apply the theme to all GTK4 apps and cannot be easily switched.
+
+### KDE Qt Apps Not Themed
+
+If Qt/KDE applications still look like plain Breeze after applying a Celestial global theme, make sure the **Kvantum** engine is installed (the `kvantum` package on most distributions) and that you've set the matching variant with `kvantummanager --set Celestial-<variant>`. Without Kvantum, Plasma falls back to the Breeze widget style, though your Celestial color scheme still applies.
+
+If a newly installed color scheme or global theme doesn't appear in System Settings, log out and back in (Plasma caches the theme lists).
 
 ## Advanced Installation
 
@@ -416,10 +466,10 @@ Backgrounds will be installed to:
 
 After installation, backgrounds will appear in your desktop environment's wallpaper/background settings:
 
-- **GNOME**: Settings → Background
-- **Xfce**: Settings Manager → Desktop → Background
-- **Cinnamon**: System Settings → Backgrounds
-- **MATE**: System Settings → Appearance → Background
+- **GNOME**: Settings > Background
+- **Xfce**: Settings Manager > Desktop > Background
+- **Cinnamon**: System Settings > Backgrounds
+- **MATE**: System Settings > Appearance > Background
 
 Backgrounds are grouped by theme color (e.g., "Azul Space" and "Azul Ice" appear together). This allows you to use slideshow mode to automatically rotate through color-coordinated wallpapers!
 

@@ -181,10 +181,10 @@ Then set via your desktop environment's wallpaper/background settings.
 
 Backgrounds are supported on:
 
-- **GNOME** - Appears in Settings → Background
-- **MATE** - Appears in System Settings → Appearance → Background
-- **Cinnamon** - Appears in System Settings → Backgrounds
-- **Xfce** - Manual selection from Settings Manager → Desktop → Background
+- **GNOME** - Appears in Settings > Background
+- **MATE** - Appears in System Settings > Appearance > Background
+- **Cinnamon** - Appears in System Settings > Backgrounds
+- **Xfce** - Manual selection from Settings Manager > Desktop > Background
 
 ## Contributing
 
@@ -194,7 +194,7 @@ Please ensure designs:
 
 - Match the theme color palettes (see colors above)
 - Maintain the minimalistic philosophy
-- Are high resolution (minimum 2560×1440, prefer QHD+ 2880×1620)
+- Are high resolution (minimum 2560x1440, prefer QHD+ 2880x1620)
 - Are provided in WebP format for optimal file size (under 5 MB)
 - Are named consistently: `[Theme]-[Description].webp` (e.g., `Azul-Space.webp`)
 - Include appropriate color values for XML integration

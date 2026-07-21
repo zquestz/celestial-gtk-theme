@@ -1,0 +1,16 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "zquestz"
+            }
+        ],
+        "Category": "",
+        "Description": "Celestial Pueril Dark global theme",
+        "Id": "com.github.zquestz.Celestial-Pueril-Dark",
+        "License": "GPL-3.0-or-later",
+        "Name": "Celestial Pueril Dark",
+        "Website": "https://github.com/zquestz/celestial-gtk-theme"
+    }
+}

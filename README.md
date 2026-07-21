@@ -1,23 +1,24 @@
 # Celestial GTK Theme
 
-![Version](https://img.shields.io/badge/Version-1.3.5-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2048-blue?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.3.5-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2048-blue?style=flat-square) ![KDE Plasma](https://img.shields.io/badge/KDE%20Plasma-6-blue?style=flat-square)
 
 **A modern, customizable GTK theme with multiple color variants**
 
 Based on the excellent [Arc](https://github.com/horst3180/Arc-theme) and [Matcha](https://github.com/vinceliuice/Matcha-gtk-theme) themes
 
-**[Changelog](CHANGELOG.md)** • **[Installation Guide](INSTALL.md)** • **[Development Guide](HACKING.md)**
+**[Changelog](CHANGELOG.md)** | **[Installation Guide](INSTALL.md)** | **[Development Guide](HACKING.md)**
 
 ![Celestial Theme Showcase](https://github.com/zquestz/celestial-gtk-theme/blob/images/showcase.gif?raw=true)
 
 ## Features
 
-- **12 Theme Variants** - 4 colors (Sea, Aliz, Azul, Pueril) × 3 modes (Light, Standard, Dark)
+- **12 Theme Variants** - 4 colors (Sea, Aliz, Azul, Pueril) x 3 modes (Light, Standard, Dark)
 - **Desktop Support** - GTK 2/3/4, GNOME Shell (38-48), Cinnamon, Xfce, Budgie, Pantheon, Unity, Openbox, Labwc
+- **KDE Plasma Support** - Native theming for KDE Plasma 6
 - **Dock Support** - [Plank Reloaded](https://github.com/zquestz/plank-reloaded) theming
 - **HiDPI Support** - Standard, HiDPI, and XHiDPI variants for retina displays
 - **Color-Matched Backgrounds** - Minimalistic wallpapers coordinated with each theme variant
-- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, cursor theme, Zed editor themes, Ghostty and Kitty terminal themes, Halloy IRC client themes, CopyQ clipboard manager themes, Slack themes, Sniffnet network monitor themes
+- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, cursor theme, Zed editor themes, Ghostty, Kitty, and Konsole terminal themes, Halloy IRC client themes, CopyQ clipboard manager themes, Slack themes, Sniffnet network monitor themes
 
 ## Installation
 
@@ -33,6 +34,28 @@ cd celestial-gtk-theme
 
 This installs all theme variants to `~/.themes/`. For system-wide installation, customization options, and applying the theme to your desktop, see the full [installation guide](INSTALL.md).
 
+## KDE Plasma
+
+Celestial provides native KDE Plasma theming for all 12 variants, including the bundled [Kvantum](src/Kvantum/README.md) themes for Qt apps. The global themes also set [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icons and the Celestial cursor - install those for the complete look.
+
+```bash
+# Install all KDE Plasma variants
+./install.sh --kde
+
+# Install a specific variant
+./install.sh --kde -t azul -c dark
+```
+
+Then apply from **System Settings** > **Global Theme**. One manual step remains: a global theme can select Kvantum as the widget style but can't choose which Celestial _variant_ Kvantum renders, so set it once to match:
+
+```bash
+kvantummanager --set Celestial-Azul-Dark
+```
+
+GTK/GNOME apps don't follow a Plasma global theme - set them to match under **System Settings** > **Application Style** > **GNOME/GTK Application Style**, selecting your Celestial variant.
+
+Built for Plasma 6. See the [KDE Plasma README](src/kde/README.md) for full details.
+
 ## Recommended Companions
 
 Complete your desktop with these complementary themes:
@@ -46,6 +69,8 @@ Complete your desktop with these complementary themes:
 ### Qt Theming
 
 For a consistent look across GTK and Qt applications, we recommend **[Kvantum](https://github.com/tsujan/Kvantum/tree/master/Kvantum)** - a powerful SVG-based theme engine for Qt applications.
+
+On **KDE Plasma**, `--kde` (see [KDE Plasma](#kde-plasma) above) already installs these Kvantum themes.
 
 Celestial includes Kvantum themes that can be installed with the `-k` flag:
 
@@ -154,6 +179,16 @@ Then use the Kitty theme kitten (`kitty +kitten themes`) to select "Celestial", 
 
 **Note:** Kitty themes can only be installed for user accounts (not system-wide).
 
+### Konsole Terminal
+
+For [Konsole](https://konsole.kde.org/) and [Yakuake](https://apps.kde.org/yakuake/) users, Celestial provides a terminal color scheme that matches the palette. It is installed with the KDE Plasma themes:
+
+```bash
+./install.sh --kde
+```
+
+Then in Konsole: **Settings** > **Edit Current Profile** > **Appearance** and select the **Celestial** scheme. For more details, see the [Konsole theme README](src/extra/konsole/README.md).
+
 ## Clipboard Manager Themes
 
 ### CopyQ
@@ -175,7 +210,7 @@ To install specific variant(s):
 
 CopyQ themes are installed to `~/.config/copyq/themes/` for user installs or `/usr/share/copyq/themes/` for system-wide installs.
 
-Then in CopyQ: **File** → **Preferences** → **Appearance** → Select theme from dropdown menu
+Then in CopyQ: **File** > **Preferences** > **Appearance** > Select theme from dropdown menu
 
 Available themes:
 
@@ -223,7 +258,7 @@ Slack themes are simple copy-paste installations:
 
 1. Open Slack
 2. Click on your workspace name in the top-left
-3. Go to **Preferences** → **Appearance** → **Custom theme**
+3. Go to **Preferences** > **Appearance** > **Custom theme**
 4. Copy and paste one of the theme codes from the [Slack theme README](src/extra/slack/README.md)
 
 Available themes:

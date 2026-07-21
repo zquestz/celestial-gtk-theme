@@ -1,0 +1,16 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "zquestz"
+            }
+        ],
+        "Category": "",
+        "Description": "Celestial Aliz global theme",
+        "Id": "com.github.zquestz.Celestial-Aliz",
+        "License": "GPL-3.0-or-later",
+        "Name": "Celestial Aliz",
+        "Website": "https://github.com/zquestz/celestial-gtk-theme"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "zquestz"
+            }
+        ],
+        "Category": "",
+        "Description": "Celestial Pueril Light global theme",
+        "Id": "com.github.zquestz.Celestial-Pueril-Light",
+        "License": "GPL-3.0-or-later",
+        "Name": "Celestial Pueril Light",
+        "Website": "https://github.com/zquestz/celestial-gtk-theme"
+    }
+}

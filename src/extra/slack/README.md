@@ -15,7 +15,7 @@ Celestial provides 8 Slack themes - 4 color variants, each with dark and light m
 
 1. Open Slack
 2. Click on your workspace name in the top-left
-3. Go to **Preferences** → **Appearance** -> **Custom theme**
+3. Go to **Preferences** > **Appearance** -> **Custom theme**
 4. Copy and paste one of the theme codes below
 
 ## Theme Codes

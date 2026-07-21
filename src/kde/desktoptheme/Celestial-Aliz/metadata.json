@@ -1,0 +1,16 @@
+{
+    "KPackageStructure": "Plasma/Theme",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "zquestz"
+            }
+        ],
+        "Category": "",
+        "Description": "Dark panel for the Celestial Aliz standard theme",
+        "Id": "Celestial-Aliz",
+        "License": "GPL-3.0-or-later",
+        "Name": "Celestial Aliz",
+        "Website": "https://github.com/zquestz/celestial-gtk-theme"
+    }
+}

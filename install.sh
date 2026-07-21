@@ -12,6 +12,10 @@ if [ "$UID" -eq "$ROOT_UID" ]; then
   DEST_DIR="/usr/share/themes"
   GTKSV_DIR="/usr/share/gtksourceview-4/styles"
   KVANTUM_DIR="/usr/share/Kvantum"
+  COLOR_SCHEMES_DIR="/usr/share/color-schemes"
+  PLASMA_LNF_DIR="/usr/share/plasma/look-and-feel"
+  PLASMA_THEME_DIR="/usr/share/plasma/desktoptheme"
+  KONSOLE_DIR="/usr/share/konsole"
   BG_DIR="/usr/share/backgrounds/celestial"
   BG_PROPS_DIRS=(
     "/usr/share/gnome-background-properties"
@@ -28,6 +32,10 @@ else
   DEST_DIR="$HOME/.themes"
   GTKSV_DIR="$HOME/.local/share/gtksourceview-4/styles"
   KVANTUM_DIR="$HOME/.config/Kvantum"
+  COLOR_SCHEMES_DIR="$HOME/.local/share/color-schemes"
+  PLASMA_LNF_DIR="$HOME/.local/share/plasma/look-and-feel"
+  PLASMA_THEME_DIR="$HOME/.local/share/plasma/desktoptheme"
+  KONSOLE_DIR="$HOME/.local/share/konsole"
   BG_DIR="$HOME/.local/share/backgrounds/celestial"
   BG_PROPS_DIRS=(
     "$HOME/.local/share/gnome-background-properties"
@@ -67,6 +75,7 @@ usage() {
   printf "  %-25s%s\n" "--cursors" "Install Celestial cursor theme"
   printf "  %-25s%s\n" "--ghostty" "Install Ghostty terminal theme"
   printf "  %-25s%s\n" "--halloy" "Install Halloy IRC client themes"
+  printf "  %-25s%s\n" "--kde" "Install KDE Plasma themes"
   printf "  %-25s%s\n" "--kitty" "Install Kitty terminal theme"
   printf "  %-25s%s\n" "--zed" "Install Zed editor themes"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme (requires sudo)"
@@ -456,6 +465,10 @@ while [[ $# -gt 0 ]]; do
       halloy='true'
       shift
       ;;
+    --kde)
+      kde='true'
+      shift
+      ;;
     --kitty)
       kitty='true'
       shift
@@ -671,6 +684,7 @@ install_kvantum() {
 
   echo "Installing Kvantum theme '${kvantum_name}'..."
   mkdir -p "${DESTDIR}${KVANTUM_DIR}"
+  [[ -d "${kvantum_dest}" ]] && rm -rf "${kvantum_dest}"
   cp -r "${kvantum_src}" "${kvantum_dest}"
 }
 
@@ -726,6 +740,158 @@ uninstall_kvantum_themes() {
       uninstall_kvantum "${name:-${THEME_NAME}}" "${theme}" "${color}"
     done
   done
+}
+
+install_kde_variant() {
+  local name="${1}"
+  local theme="${2}"
+  local color="${3}"
+
+  # Capitalize theme and color to match the color scheme / global theme names
+  local theme_cap=""
+  local color_cap=""
+
+  if [[ -n "${theme}" ]]; then
+    theme_cap="-$(echo "${theme#-}" | sed 's/.*/\u&/')"
+  fi
+
+  if [[ -n "${color}" ]]; then
+    color_cap="-$(echo "${color#-}" | sed 's/.*/\u&/')"
+  fi
+
+  local variant="${name}${theme_cap}${color_cap}"
+
+  # Color scheme
+  local cs_src="${SRC_DIR}/kde/color-schemes/${variant}.colors"
+  if [[ -f "${cs_src}" ]]; then
+    cp "${cs_src}" "${DESTDIR}${COLOR_SCHEMES_DIR}/"
+    echo "  Installed color scheme ${variant}.colors"
+  else
+    echo "Warning: color scheme '${variant}.colors' not found, skipping..."
+  fi
+
+  # Look-and-Feel (global theme) package; folder name must equal the KPlugin Id
+  local lnf_id="com.github.zquestz.${variant}"
+  local lnf_src="${SRC_DIR}/kde/look-and-feel/${lnf_id}"
+  if [[ -d "${lnf_src}" ]]; then
+    local lnf_dest="${DESTDIR}${PLASMA_LNF_DIR}/${lnf_id}"
+    [[ -d "${lnf_dest}" ]] && rm -rf "${lnf_dest}"
+    cp -r "${lnf_src}" "${lnf_dest}"
+    echo "  Installed global theme ${lnf_id}"
+  else
+    echo "Warning: global theme '${lnf_id}' not found, skipping..."
+  fi
+
+  # Standard variants (empty color) ship a dark-panel Plasma desktop theme
+  if [[ -z "${color}" ]]; then
+    local dt_src="${SRC_DIR}/kde/desktoptheme/${variant}"
+    if [[ -d "${dt_src}" ]]; then
+      local dt_dest="${DESTDIR}${PLASMA_THEME_DIR}/${variant}"
+      [[ -d "${dt_dest}" ]] && rm -rf "${dt_dest}"
+      cp -r "${dt_src}" "${dt_dest}"
+      echo "  Installed Plasma desktop theme ${variant}"
+    fi
+  fi
+}
+
+uninstall_kde_variant() {
+  local name="${1}"
+  local theme="${2}"
+  local color="${3}"
+
+  local theme_cap=""
+  local color_cap=""
+
+  if [[ -n "${theme}" ]]; then
+    theme_cap="-$(echo "${theme#-}" | sed 's/.*/\u&/')"
+  fi
+
+  if [[ -n "${color}" ]]; then
+    color_cap="-$(echo "${color#-}" | sed 's/.*/\u&/')"
+  fi
+
+  local variant="${name}${theme_cap}${color_cap}"
+
+  if [[ -f "${DESTDIR}${COLOR_SCHEMES_DIR}/${variant}.colors" ]]; then
+    rm -f "${DESTDIR}${COLOR_SCHEMES_DIR}/${variant}.colors"
+    echo "  Removed color scheme ${variant}.colors"
+  fi
+
+  local lnf_id="com.github.zquestz.${variant}"
+  if [[ -d "${DESTDIR}${PLASMA_LNF_DIR}/${lnf_id}" ]]; then
+    rm -rf "${DESTDIR}${PLASMA_LNF_DIR:?}/${lnf_id}"
+    echo "  Removed global theme ${lnf_id}"
+  fi
+
+  if [[ -z "${color}" && -d "${DESTDIR}${PLASMA_THEME_DIR}/${variant}" ]]; then
+    rm -rf "${DESTDIR}${PLASMA_THEME_DIR:?}/${variant}"
+    echo "  Removed Plasma desktop theme ${variant}"
+  fi
+}
+
+install_konsole() {
+  echo "Installing Konsole terminal scheme..."
+
+  mkdir -p "${DESTDIR}${KONSOLE_DIR}"
+  cp "${SRC_DIR}/extra/konsole/Celestial.colorscheme" "${DESTDIR}${KONSOLE_DIR}/"
+  echo "Konsole scheme installed to ${DESTDIR}${KONSOLE_DIR}/Celestial.colorscheme"
+}
+
+uninstall_konsole() {
+  echo "Removing Konsole terminal scheme..."
+
+  if [[ -f "${DESTDIR}${KONSOLE_DIR}/Celestial.colorscheme" ]]; then
+    rm -f "${DESTDIR}${KONSOLE_DIR}/Celestial.colorscheme"
+    echo "Removed ${DESTDIR}${KONSOLE_DIR}/Celestial.colorscheme"
+  fi
+}
+
+install_kde() {
+  local color_list=("${colors[@]}")
+  local theme_list=("${themes[@]}")
+
+  [[ ${#color_list[@]} -eq 0 ]] && color_list=("${COLOR_VARIANTS[@]}")
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  echo "Installing KDE Plasma themes..."
+
+  mkdir -p "${DESTDIR}${COLOR_SCHEMES_DIR}"
+  mkdir -p "${DESTDIR}${PLASMA_LNF_DIR}"
+  mkdir -p "${DESTDIR}${PLASMA_THEME_DIR}"
+
+  for color in "${color_list[@]}"; do
+    for theme in "${theme_list[@]}"; do
+      install_kde_variant "${name:-${THEME_NAME}}" "${theme}" "${color}"
+      # A global theme references the Kvantum widget style, so ship it too
+      install_kvantum "${name:-${THEME_NAME}}" "${theme}" "${color}"
+    done
+  done
+
+  install_konsole
+
+  echo "KDE Plasma themes installed."
+  echo "See INSTALL.md for the post-install steps."
+}
+
+uninstall_kde() {
+  local color_list=("${colors[@]}")
+  local theme_list=("${themes[@]}")
+
+  [[ ${#color_list[@]} -eq 0 ]] && color_list=("${COLOR_VARIANTS[@]}")
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  echo "Removing KDE Plasma themes..."
+
+  for color in "${color_list[@]}"; do
+    for theme in "${theme_list[@]}"; do
+      uninstall_kde_variant "${name:-${THEME_NAME}}" "${theme}" "${color}"
+      uninstall_kvantum "${name:-${THEME_NAME}}" "${theme}" "${color}"
+    done
+  done
+
+  uninstall_konsole
+
+  echo "KDE Plasma themes uninstalled."
 }
 
 generate_theme_xml() {
@@ -1255,6 +1421,10 @@ if [[ "${gdm:-}" != 'true' ]]; then
       install_halloy
     fi
 
+    if [[ "${kde:-}" == 'true' ]]; then
+      install_kde
+    fi
+
     if [[ "${kitty:-}" == 'true' ]]; then
       install_kitty
     fi
@@ -1284,6 +1454,9 @@ if [[ "${gdm:-}" != 'true' ]]; then
     elif [[ "${halloy:-}" == 'true' ]]; then
       uninstall_halloy
       echo -e 'Remove Halloy themes...'
+    elif [[ "${kde:-}" == 'true' ]]; then
+      uninstall_kde
+      echo -e 'Remove KDE Plasma themes...'
     elif [[ "${kitty:-}" == 'true' ]]; then
       uninstall_kitty
       echo -e 'Remove Kitty theme...'
