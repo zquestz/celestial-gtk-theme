@@ -1397,7 +1397,8 @@ if [[ "${gdm:-}" != 'true' ]]; then
       uninstall_link && link_theme
     fi
 
-    if [[ "${kvantum:-}" == 'true' ]]; then
+    # --kde already installs the Kvantum themes, so skip the duplicate pass
+    if [[ "${kvantum:-}" == 'true' && "${kde:-}" != 'true' ]]; then
       install_kvantum_themes
     fi
 
