@@ -44,6 +44,9 @@ Celestial provides native KDE Plasma theming for all 12 variants, including the 
 
 # Install a specific variant
 ./install.sh --kde -t azul -c dark
+
+# Install with the Celestial cursor theme
+./install.sh --kde --cursors
 ```
 
 Then apply from **System Settings** > **Global Theme**. One manual step remains: a global theme can select Kvantum as the widget style but can't choose which Celestial _variant_ Kvantum renders, so set it once to match:

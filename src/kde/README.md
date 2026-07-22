@@ -18,6 +18,9 @@ The Kvantum widget themes referenced by the global themes live in [`../Kvantum`]
 
 # Install a specific variant
 ./install.sh --kde -t azul -c dark
+
+# Install with the Celestial cursor theme
+./install.sh --kde --cursors
 ```
 
 This installs to:
