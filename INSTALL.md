@@ -322,7 +322,7 @@ Open **System Settings** then **Themes** and select your Celestial variant
 
 Install with `./install.sh --kde`, then:
 
-1. **Global theme** - open **System Settings** > **Global Theme** and select your Celestial variant. This applies the color scheme, Kvantum widget style, Breeze window decorations, a dark/light Plasma panel, Papirus icons, the Celestial cursor, and the Breeze splash screen. Leave "Use desktop layout from theme" unchecked to keep your current panel arrangement.
+1. **Global theme** - open **System Settings** > **Global Theme** and select your Celestial variant. This applies the color scheme, Kvantum widget style, Breeze window decorations, a dark/light Plasma panel, Papirus icons, and the Celestial cursor. Leave "Use desktop layout from theme" unchecked to keep your current panel arrangement.
 
    To apply only the colors, use **System Settings** > **Colors** instead.
 

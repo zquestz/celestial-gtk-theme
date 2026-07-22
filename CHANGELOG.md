@@ -5,12 +5,12 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.4.0] - 2026-07-21
 
 ### Added
 
-- KDE Plasma support (`--kde`): color schemes, global (Look and Feel) themes with previews, Plasma desktop themes for a dark panel on the standard variants, and a Konsole terminal scheme, all generated from the GTK palette. Each global theme sets the color scheme, Kvantum widget style, Breeze decorations, a dark/light Plasma panel, Papirus icons, the Celestial cursor, and the Breeze splash screen.
-- `src/kde/render.sh` to regenerate the KDE color schemes, global-theme packages, desktop themes, and previews from `src/gtk/sass/_colors.scss`
+- KDE Plasma 6 support with `--kde` installation flag
+- Konsole terminal color scheme
 
 ## [1.3.5] - 2026-07-16
 

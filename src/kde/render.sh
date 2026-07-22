@@ -3,7 +3,10 @@
 # Generates all KDE Plasma artifacts from the GTK sass palette:
 #   - color-schemes/*.colors            (Qt/KDE color schemes)
 #   - look-and-feel/<id>/               (global theme packages; folder name == KPlugin Id)
-#       metadata.json, contents/defaults, contents/previews/preview.png
+#       metadata.json, contents/defaults, contents/colors,
+#       contents/previews/preview.png, contents/previews/fullscreenpreview.jpg
+#   - desktoptheme/<name>/              (dark-panel Plasma desktop themes for standard variants)
+#       metadata.json, colors
 # Run this after changing src/gtk/sass/_colors.scss, then commit the outputs.
 
 if [ ! "$(which sassc 2> /dev/null)" ]; then
