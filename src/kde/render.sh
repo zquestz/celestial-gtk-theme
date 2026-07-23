@@ -404,7 +404,7 @@ cursorTheme=Celestial
 name=${plasma_theme}
 
 [kwinrc][org.kde.kdecoration2]
-library=org.kde.kwin.aurorae
+library=org.kde.kwin.aurorae.v2
 theme=__aurorae__svg__${scheme_id}
 
 [ksplashrc][KSplash]
