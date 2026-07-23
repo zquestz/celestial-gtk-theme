@@ -386,6 +386,7 @@ write_defaults() {
   local scheme_id="${2}"
   local plasma_theme="${3}"
   local icon_theme="${4}"
+  local wallpaper="${5}"
 
   cat > "${out}" << EOF
 [kdeglobals][KDE]
@@ -409,6 +410,9 @@ theme=__aurorae__svg__${scheme_id}
 
 [ksplashrc][KSplash]
 Theme=org.kde.breeze.desktop
+
+[Wallpaper]
+Image=${wallpaper}
 EOF
 }
 
@@ -584,6 +588,14 @@ for theme in sea aliz azul pueril; do
       plasma_theme="default"
     fi
 
+    # Each color's default wallpaper (Plasma wallpaper packages installed by -b)
+    case "${theme}" in
+      sea) wallpaper="Celestial-Sea-Bioluminescence" ;;
+      aliz) wallpaper="Celestial-Aliz-Temple" ;;
+      azul) wallpaper="Celestial-Azul-Ice" ;;
+      pueril) wallpaper="Celestial-Pueril-Bamboo" ;;
+    esac
+
     # Color scheme
     write_scheme_scss "${sass_variant}" "${theme}" "${sass_header}"
     sassc -t expanded -I "${SASS_DIR}" "${TMP_DIR}/scheme.scss" "${TMP_DIR}/scheme.css" || exit 1
@@ -606,7 +618,7 @@ for theme in sea aliz azul pueril; do
     echo "==> ${pkg_id}"
     mkdir -p "${pkg_dir}/contents/previews"
     write_metadata "${pkg_dir}/metadata.json" "${pkg_id}" "${display_name}"
-    write_defaults "${pkg_dir}/contents/defaults" "${scheme_id}" "${plasma_theme}" "${icon_theme}"
+    write_defaults "${pkg_dir}/contents/defaults" "${scheme_id}" "${plasma_theme}" "${icon_theme}" "${wallpaper}"
     # Bundle the color scheme so applying the global theme merges the colors
     # (the ColorScheme= label alone does not apply them)
     cp "${CS_DIR}/${scheme_id}.colors" "${pkg_dir}/contents/colors"

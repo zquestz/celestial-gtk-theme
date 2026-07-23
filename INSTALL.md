@@ -322,7 +322,7 @@ Open **System Settings** then **Themes** and select your Celestial variant
 
 Install with `./install.sh --kde`, then:
 
-1. **Global theme** - open **System Settings** > **Global Theme** and select your Celestial variant. This applies the color scheme, Kvantum widget style, Celestial window decorations, a dark/light Plasma panel, Papirus icons, and the Celestial cursor. Leave "Use desktop layout from theme" unchecked to keep your current panel arrangement.
+1. **Global theme** - open **System Settings** > **Global Theme** and select your Celestial variant. This applies the color scheme, Kvantum widget style, Celestial window decorations, a dark/light Plasma panel, Papirus icons, the Celestial cursor, and the color's matching wallpaper. Leave "Use desktop layout from theme" unchecked to keep your current panel arrangement.
 
    To apply only the colors, use **System Settings** > **Colors** instead.
 
@@ -442,6 +442,8 @@ This will create `MyCustomTheme-azul-dark` in your themes directory.
 ## Background Wallpapers
 
 Celestial includes a collection of color-coordinated background wallpapers for each theme variant.
+
+On KDE Plasma, combine the flags (`./install.sh --kde -b`) to install them as Plasma wallpaper packages instead.
 
 ### Installing Backgrounds
 

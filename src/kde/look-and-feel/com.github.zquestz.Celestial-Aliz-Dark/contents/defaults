@@ -19,3 +19,6 @@ theme=__aurorae__svg__Celestial-Aliz-Dark
 
 [ksplashrc][KSplash]
 Theme=org.kde.breeze.desktop
+
+[Wallpaper]
+Image=Celestial-Aliz-Temple

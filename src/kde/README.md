@@ -20,8 +20,8 @@ The Kvantum widget themes referenced by the global themes live in [`../Kvantum`]
 # Install a specific variant
 ./install.sh --kde -t azul -c dark
 
-# Install with the Celestial cursor theme
-./install.sh --kde --cursors
+# Install with the Celestial cursors and backgrounds
+./install.sh --kde --cursors -b
 ```
 
 This installs to:
@@ -39,7 +39,7 @@ Built for Plasma 6. The color schemes also work on Plasma 5, but the global-them
 
 ## Applying the Theme
 
-1. **Global theme** - **System Settings > Global Theme**, pick your Celestial variant. This sets the color scheme, the Kvantum widget style, the Celestial window decorations, a dark/light Plasma panel, Papirus icons, and the Celestial cursor. (You may want to leave "Use desktop layout from theme" unchecked so your panel arrangement is preserved.)
+1. **Global theme** - **System Settings > Global Theme**, pick your Celestial variant. This sets the color scheme, the Kvantum widget style, the Celestial window decorations, a dark/light Plasma panel, Papirus icons, the Celestial cursor, and the color's matching wallpaper. (You may want to leave "Use desktop layout from theme" unchecked so your panel arrangement is preserved.)
 
    Prefer just the colors? **System Settings > Colors** lets you apply a Celestial color scheme without changing anything else.
 
@@ -72,6 +72,7 @@ The global themes set the icon theme to **Papirus** and the cursor to **Celestia
 
 - **[Papirus Icon Theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)** - `Papirus-Dark` for the dark and standard variants, `Papirus-Light` for the light variants
 - The **Celestial cursor theme** - `./install.sh --cursors`
+- The **Celestial backgrounds** - `./install.sh --kde -b` - each global theme sets its color's wallpaper
 - The **Aurorae** decoration engine - ships with Plasma (the `aurorae` package); without it KWin falls back to Breeze decorations
 
 ## Development

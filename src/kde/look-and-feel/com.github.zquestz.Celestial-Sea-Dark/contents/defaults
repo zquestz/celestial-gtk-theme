@@ -19,3 +19,6 @@ theme=__aurorae__svg__Celestial-Sea-Dark
 
 [ksplashrc][KSplash]
 Theme=org.kde.breeze.desktop
+
+[Wallpaper]
+Image=Celestial-Sea-Bioluminescence

@@ -16,6 +16,7 @@ if [ "$UID" -eq "$ROOT_UID" ]; then
   PLASMA_LNF_DIR="/usr/share/plasma/look-and-feel"
   PLASMA_THEME_DIR="/usr/share/plasma/desktoptheme"
   AURORAE_DIR="/usr/share/aurorae/themes"
+  WALLPAPERS_DIR="/usr/share/wallpapers"
   KONSOLE_DIR="/usr/share/konsole"
   BG_DIR="/usr/share/backgrounds/celestial"
   BG_PROPS_DIRS=(
@@ -37,6 +38,7 @@ else
   PLASMA_LNF_DIR="$HOME/.local/share/plasma/look-and-feel"
   PLASMA_THEME_DIR="$HOME/.local/share/plasma/desktoptheme"
   AURORAE_DIR="$HOME/.local/share/aurorae/themes"
+  WALLPAPERS_DIR="$HOME/.local/share/wallpapers"
   KONSOLE_DIR="$HOME/.local/share/konsole"
   BG_DIR="$HOME/.local/share/backgrounds/celestial"
   BG_PROPS_DIRS=(
@@ -985,6 +987,18 @@ EOF
   echo "</wallpapers>" >> "${xml_file}"
 }
 
+# Plasma wallpaper packages name their image file by its real resolution
+wallpaper_resolution() {
+  case "${1}" in
+    Azul-Space)
+      echo "2688x1536"
+      ;;
+    *)
+      echo "2912x1632"
+      ;;
+  esac
+}
+
 install_background() {
   local theme="${1}"
   local bg_dest="${2}"
@@ -1013,10 +1027,67 @@ install_background() {
   }
 }
 
+# Plasma wallpaper packages (KDE's wallpaper picker); used when -b is combined with --kde
+install_wallpaper_packages() {
+  local theme="${1}"
+
+  local theme_name="${theme#-}"
+  local bg_src="${SRC_DIR}/extra/backgrounds/${theme_name}"
+
+  if [[ ! -d "${bg_src}" ]]; then
+    echo "Warning: Background directory '${bg_src}' not found, skipping..."
+    return
+  fi
+
+  local bg_file wp_name wp_dir
+  for bg_file in "${bg_src}"/*.webp; do
+    wp_name="$(basename "${bg_file}" .webp)"
+    wp_dir="${DESTDIR}${WALLPAPERS_DIR}/Celestial-${wp_name}"
+    [[ -d "${wp_dir}" ]] && rm -rf "${wp_dir}"
+    mkdir -p "${wp_dir}/contents/images"
+    cp "${bg_file}" "${wp_dir}/contents/images/$(wallpaper_resolution "${wp_name}").webp"
+    cat > "${wp_dir}/metadata.json" << EOF
+{
+    "KPackageStructure": "Wallpaper/Images",
+    "KPlugin": {
+        "Id": "Celestial-${wp_name}",
+        "License": "GPL-3.0-or-later",
+        "Name": "Celestial ${wp_name//-/ }"
+    }
+}
+EOF
+    echo "  Installed wallpaper package Celestial-${wp_name}"
+  done
+}
+
+uninstall_wallpaper_packages() {
+  local theme="${1}"
+
+  local theme_name="${theme#-}"
+  local bg_file wp_name
+  for bg_file in "${SRC_DIR}/extra/backgrounds/${theme_name}"/*.webp; do
+    wp_name="Celestial-$(basename "${bg_file}" .webp)"
+    if [[ -d "${DESTDIR}${WALLPAPERS_DIR}/${wp_name}" ]]; then
+      rm -rf "${DESTDIR}${WALLPAPERS_DIR:?}/${wp_name}"
+      echo "  Removed wallpaper package ${wp_name}"
+    fi
+  done
+}
+
 install_backgrounds() {
   local theme_list=("${themes[@]}")
 
   [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  # With --kde, backgrounds install as Plasma wallpaper packages instead
+  if [[ "${kde:-}" == 'true' ]]; then
+    echo "Installing Celestial wallpapers for KDE Plasma..."
+    for theme in "${theme_list[@]}"; do
+      install_wallpaper_packages "${theme}"
+    done
+    echo "Wallpapers installed to ${DESTDIR}${WALLPAPERS_DIR}"
+    return
+  fi
 
   echo "Installing Celestial backgrounds..."
 
@@ -1057,12 +1128,22 @@ uninstall_background() {
     rm -rf "${DESTDIR}${bg_dest:?}/${theme_name}"
     echo "  Removed ${DESTDIR}${bg_dest}/${theme_name}"
   fi
+
 }
 
 uninstall_backgrounds() {
   local theme_list=("${themes[@]}")
 
   [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  # With --kde, remove the Plasma wallpaper packages instead
+  if [[ "${kde:-}" == 'true' ]]; then
+    echo "Removing Celestial wallpapers for KDE Plasma..."
+    for theme in "${theme_list[@]}"; do
+      uninstall_wallpaper_packages "${theme}"
+    done
+    return
+  fi
 
   echo "Uninstalling Celestial backgrounds..."
 

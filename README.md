@@ -36,7 +36,7 @@ This installs all theme variants to `~/.themes/`. For system-wide installation, 
 
 ## KDE Plasma
 
-Celestial provides native KDE Plasma theming for all 12 variants, including the bundled [Kvantum](src/Kvantum/README.md) themes for Qt apps. The global themes also set [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icons and the Celestial cursor - install those for the complete look.
+Celestial provides native KDE Plasma theming for all 12 variants, including the bundled [Kvantum](src/Kvantum/README.md) themes for Qt apps. The global themes also set [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icons, the Celestial cursor, and each color's matching wallpaper - install those for the complete look.
 
 ```bash
 # Install all KDE Plasma variants
@@ -45,8 +45,8 @@ Celestial provides native KDE Plasma theming for all 12 variants, including the 
 # Install a specific variant
 ./install.sh --kde -t azul -c dark
 
-# Install with the Celestial cursor theme
-./install.sh --kde --cursors
+# Install with the Celestial cursors and backgrounds
+./install.sh --kde --cursors -b
 ```
 
 Then apply from **System Settings** > **Global Theme**. One manual step remains: a global theme can select Kvantum as the widget style but can't choose which Celestial _variant_ Kvantum renders, so set it once to match:

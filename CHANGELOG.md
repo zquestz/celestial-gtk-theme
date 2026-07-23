@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Celestial window decorations (Aurorae) for KDE Plasma, applied by the global themes
+- Plasma wallpaper packages for the Celestial backgrounds (`--kde -b`); each global theme sets its color's wallpaper
 
 ## [1.4.0] - 2026-07-21
 
