@@ -5,12 +5,16 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.4.1] - 2026-07-22
 
 ### Added
 
 - Celestial window decorations (Aurorae) for KDE Plasma, applied by the global themes
 - Plasma wallpaper packages for the Celestial backgrounds (`--kde -b`); each global theme sets its color's wallpaper
+
+### Changed
+
+- Kvantum themes now enable Dolphin's transparent view
 
 ## [1.4.0] - 2026-07-21
 
