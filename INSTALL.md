@@ -332,7 +332,7 @@ Install with `./install.sh --kde`, then:
    kvantummanager --set Celestial-Azul-Dark
    ```
 
-   or use the **Kvantum Manager** GUI. Re-run this whenever you switch to a different Celestial global theme.
+   or use the **Kvantum Manager** GUI. Re-run this whenever you switch to a different Celestial global theme. Kvantum only reads its config at startup, so relaunch any open Qt apps to see the change.
 
 3. **Konsole** - open **Settings** > **Edit Current Profile** > **Appearance** and select the **Celestial** color scheme.
 

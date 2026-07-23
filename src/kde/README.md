@@ -47,7 +47,7 @@ Built for Plasma 6. The color schemes also work on Plasma 5, but the global-them
    kvantummanager --set Celestial-Azul-Dark
    ```
 
-   or use the **Kvantum Manager** GUI (Change/Install Theme > select the variant > Use this theme). If you switch global themes later, run this again with the new variant name.
+   or use the **Kvantum Manager** GUI (Change/Install Theme > select the variant > Use this theme). If you switch global themes later, run this again with the new variant name. Kvantum only reads its config at startup, so relaunch any open Qt apps to see the change.
 
 3. **Konsole** - **Settings > Edit Current Profile > Appearance**, then select the **Celestial** color scheme. (Konsole cursor and selection colors are profile settings, not part of the scheme.)
 

@@ -342,6 +342,10 @@ xfconf-query -c xsettings -p /Net/ThemeName -s "Celestial-Azul-Dark"
 
 ```bash
 plasma-apply-lookandfeel -a com.github.zquestz.Celestial-Azul-Dark
+
+# Or apply individual layers
+plasma-apply-colorscheme Celestial-Azul-Dark
+plasma-apply-desktoptheme Celestial-Azul
 ```
 
 ### 3. Test Different Scenarios
