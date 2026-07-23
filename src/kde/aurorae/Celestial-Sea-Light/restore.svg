@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" version="1.1">
+ <g id="active-center">
+  <g transform="translate(-424.6 -54)">
+   <g transform="translate(251.06,285.64)" opacity=".7">
+    <g transform="translate(.5)" fill="#515a59" fill-rule="evenodd">
+     <path d="m188.21-220.64h-3.395c-0.4504 0-0.8188-0.36842-0.8188-0.81875v-3.3951l4.2138 4.2138" opacity="1" />
+     <path d="m179.79-220.64h3.395c0.4504 0 0.8188 0.36842 0.8188 0.81875v3.3951l-4.2138-4.2138" opacity="1" />
+    </g>
+    <rect x="176.5" y="-228.64" width="16" height="16" fill="none" opacity=".8" />
+   </g>
+  </g>
+ </g>
+ <g id="hover-center">
+  <g transform="translate(-448 -91.01)">
+   <g transform="matrix(1.0083 0 0 1.0083 249.59 286.88)">
+    <path d="m207.68-193.27c-5.4772 0-9.9174 4.4401-9.9174 9.9174s4.4401 9.9174 9.9174 9.9174 9.9174-4.4402 9.9174-9.9174-4.4402-9.9174-9.9174-9.9174z" fill="#3c3c3c" opacity=".25" />
+    <g transform="translate(-.3182 .28346)" fill="#515a59" fill-rule="evenodd">
+     <path d="m213.95-183.64h-4.7942c-0.63594 0-1.1562-0.52026-1.1562-1.1562v-4.7942l5.9504 5.9504" />
+     <path d="m202.05-183.64h4.7942c0.63593 0 1.1562 0.52026 1.1562 1.1562v4.7942l-5.9504-5.9504" />
+    </g>
+    <rect x="196.77" y="-194.26" width="21.818" height="21.818" fill="none" />
+   </g>
+  </g>
+ </g>
+ <g id="pressed-center">
+  <g transform="translate(-448 -116)">
+   <g transform="matrix(1.0083 0 0 1.0083 249.59 311.88)">
+    <path transform="matrix(.99174 0 0 .99174 -6.5331 -400.54)" d="m216 209c-5.5228 0-10 4.4772-10 10s4.4772 10 10 10 10-4.4772 10-10-4.4772-10-10-10zm0 4 6 6h-4.834c-0.64124 0-1.166-0.52481-1.166-1.166zm-6 6h4.834c0.64123 0 1.166 0.52482 1.166 1.166v4.834z" fill="#2eb398" />
+    <rect x="196.77" y="-194.26" width="21.818" height="21.818" fill="none" />
+   </g>
+  </g>
+ </g>
+ <g id="inactive-center">
+  <g transform="translate(-424.6 -70.21)">
+   <g transform="translate(251.06 301.85)" opacity=".4">
+    <g transform="translate(.5)" fill="#515a59" fill-rule="evenodd">
+     <path d="m188.21-220.64h-3.395c-0.4504 0-0.8188-0.36842-0.8188-0.81875v-3.3951l4.2138 4.2138" opacity="1" />
+     <path d="m179.79-220.64h3.395c0.4504 0 0.8188 0.36842 0.8188 0.81875v3.3951l-4.2138-4.2138" opacity="1" />
+    </g>
+    <rect x="176.5" y="-228.64" width="16" height="16" fill="none" opacity=".8" />
+   </g>
+  </g>
+ </g>
+ <g id="deactivated-center">
+  <g transform="translate(-424.6 -70.21)">
+   <g transform="translate(251.06 301.85)" opacity=".4">
+    <g transform="translate(.5)" fill="#515a59" fill-rule="evenodd">
+     <path d="m188.21-220.64h-3.395c-0.4504 0-0.8188-0.36842-0.8188-0.81875v-3.3951l4.2138 4.2138" opacity="1" />
+     <path d="m179.79-220.64h3.395c0.4504 0 0.8188 0.36842 0.8188 0.81875v3.3951l-4.2138-4.2138" opacity="1" />
+    </g>
+    <rect x="176.5" y="-228.64" width="16" height="16" fill="none" opacity=".8" />
+   </g>
+  </g>
+ </g>
+</svg>

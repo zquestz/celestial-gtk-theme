@@ -14,8 +14,8 @@ cursorTheme=Celestial
 name=default
 
 [kwinrc][org.kde.kdecoration2]
-library=org.kde.breeze
-theme=Breeze
+library=org.kde.kwin.aurorae
+theme=__aurorae__svg__Celestial-Aliz-Light
 
 [ksplashrc][KSplash]
 Theme=org.kde.breeze.desktop

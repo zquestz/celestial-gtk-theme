@@ -1,0 +1,22 @@
+<svg width="22" height="22" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <g id="active-center" opacity=".7">
+  <rect width="22" height="22" fill="none"/>
+  <path d="M 11,6.75 A 4.25,4.25 0 1 0 11,15.25 A 4.25,4.25 0 1 0 11,6.75 Z M 11,8.5 A 2.5,2.5 0 1 1 11,13.5 A 2.5,2.5 0 1 1 11,8.5 Z" fill-rule="evenodd" fill="#4e545e"/>
+ </g>
+ <g id="hover-center">
+  <circle cx="11" cy="11" r="10" fill="#4d565f" opacity=".25"/>
+  <path d="M 11,6.75 A 4.25,4.25 0 1 0 11,15.25 A 4.25,4.25 0 1 0 11,6.75 Z M 11,8.5 A 2.5,2.5 0 1 1 11,13.5 A 2.5,2.5 0 1 1 11,8.5 Z" fill-rule="evenodd" fill="#4b5161"/>
+ </g>
+ <g id="pressed-center">
+  <circle cx="11" cy="11" r="10" fill="#3498db"/>
+  <path d="M 11,6.75 A 4.25,4.25 0 1 0 11,15.25 A 4.25,4.25 0 1 0 11,6.75 Z M 11,8.5 A 2.5,2.5 0 1 1 11,13.5 A 2.5,2.5 0 1 1 11,8.5 Z" fill-rule="evenodd" fill="#f2f2f2"/>
+ </g>
+ <g id="inactive-center" opacity=".4">
+  <rect width="22" height="22" fill="none"/>
+  <path d="M 11,6.75 A 4.25,4.25 0 1 0 11,15.25 A 4.25,4.25 0 1 0 11,6.75 Z M 11,8.5 A 2.5,2.5 0 1 1 11,13.5 A 2.5,2.5 0 1 1 11,8.5 Z" fill-rule="evenodd" fill="#4e545e"/>
+ </g>
+ <g id="deactivated-center" opacity=".4">
+  <rect width="22" height="22" fill="none"/>
+  <path d="M 11,6.75 A 4.25,4.25 0 1 0 11,15.25 A 4.25,4.25 0 1 0 11,6.75 Z M 11,8.5 A 2.5,2.5 0 1 1 11,13.5 A 2.5,2.5 0 1 1 11,8.5 Z" fill-rule="evenodd" fill="#4e545e"/>
+ </g>
+</svg>

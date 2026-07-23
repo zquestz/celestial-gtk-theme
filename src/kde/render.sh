@@ -7,6 +7,10 @@
 #       contents/previews/preview.png, contents/previews/fullscreenpreview.jpg
 #   - desktoptheme/<name>/              (dark-panel Plasma desktop themes for standard variants)
 #       metadata.json, colors
+#   - aurorae/<name>/                   (window decorations; KWin id __aurorae__svg__<name>)
+#       decoration.svg, button SVGs, <name>rc, metadata.desktop
+# Aurorae inputs live in aurorae-base/: the decoration frames are vendored from
+# arc-kde (tokenized), the buttons are Celestial's own GTK titlebutton designs.
 # Run this after changing src/gtk/sass/_colors.scss, then commit the outputs.
 
 if [ ! "$(which sassc 2> /dev/null)" ]; then
@@ -34,6 +38,8 @@ KDE_DIR="${REPO_DIR}/src/kde"
 CS_DIR="${KDE_DIR}/color-schemes"
 LNF_DIR="${KDE_DIR}/look-and-feel"
 DT_DIR="${KDE_DIR}/desktoptheme"
+AUR_BASE="${KDE_DIR}/aurorae-base"
+AUR_DIR="${KDE_DIR}/aurorae"
 TEMPLATE="${KDE_DIR}/preview-template.svg"
 
 ID_PREFIX="com.github.zquestz."
@@ -47,6 +53,8 @@ rm -rf "${LNF_DIR}"
 mkdir -p "${LNF_DIR}"
 rm -rf "${DT_DIR}"
 mkdir -p "${DT_DIR}"
+rm -rf "${AUR_DIR}"
+mkdir -p "${AUR_DIR}"
 
 # Number of resolved color keys the scheme emitter produces
 EXPECTED_KEYS=100
@@ -234,6 +242,7 @@ preview {
   PANEL: $panel_bg;
   HEADER: $header_bg;
   HEADERFG: $header_fg;
+  HEADERBORDER: mix(black, $header_bg, if($header == "light", 15%, 25%));
   WINDOW: $bg_color;
   BASE: $base_color;
   FG: $fg_color;
@@ -395,11 +404,116 @@ cursorTheme=Celestial
 name=${plasma_theme}
 
 [kwinrc][org.kde.kdecoration2]
-library=org.kde.breeze
-theme=Breeze
+library=org.kde.kwin.aurorae
+theme=__aurorae__svg__${scheme_id}
 
 [ksplashrc][KSplash]
 Theme=org.kde.breeze.desktop
+EOF
+}
+
+# Per-variant titlebutton colors, extracted from the GTK theme's rendered
+# titlebutton assets (src/gtk/assets-<color>.svg). Standard and dark variants
+# use the dark-header set; light variants use the light-header set. Re-extract
+# if the GTK titlebutton designs ever change.
+button_colors() {
+  local key="${1}"
+
+  case "${key}" in
+    "sea|dark") CLOSEGLYPH="#959ba0"; GLYPH="#b9bcc2"; HOVERBG="#5f7d7c"; HOVEROP=".45"; HOVERGLYPH="#96aaa9"; PRESSBG="#2eb398" ;;
+    "sea|light") CLOSEGLYPH="#515a59"; GLYPH="#515a59"; HOVERBG="#3c3c3c"; HOVEROP=".25"; HOVERGLYPH="#515a59"; PRESSBG="#2eb398" ;;
+    "aliz|dark") CLOSEGLYPH="#c3c3c3"; GLYPH="#adadad"; HOVERBG="#838383"; HOVEROP=".45"; HOVERGLYPH="#b0b0b0"; PRESSBG="#ffffff" ;;
+    "aliz|light") CLOSEGLYPH="#4d4d4d"; GLYPH="#4d4d4d"; HOVERBG="#565656"; HOVEROP=".25"; HOVERGLYPH="#4c4c4c"; PRESSBG="#808080" ;;
+    "azul|dark") CLOSEGLYPH="#959ba0"; GLYPH="#828b98"; HOVERBG="#717e8a"; HOVEROP=".45"; HOVERGLYPH="#a9afbd"; PRESSBG="#3498db" ;;
+    "azul|light") CLOSEGLYPH="#515a59"; GLYPH="#4e545e"; HOVERBG="#4d565f"; HOVEROP=".25"; HOVERGLYPH="#4b5161"; PRESSBG="#3498db" ;;
+    "pueril|dark") CLOSEGLYPH="#c3c3c3"; GLYPH="#adadad"; HOVERBG="#838383"; HOVEROP=".45"; HOVERGLYPH="#b0b0b0"; PRESSBG="#ffffff" ;;
+    "pueril|light") CLOSEGLYPH="#4d4d4d"; GLYPH="#4d4d4d"; HOVERBG="#565656"; HOVEROP=".25"; HOVERGLYPH="#4c4c4c"; PRESSBG="#808080" ;;
+    *)
+      echo "ERROR: no button colors for '${key}'."
+      exit 1
+      ;;
+  esac
+}
+
+build_aurorae() {
+  local dest="${AUR_DIR}/${scheme_id}"
+  local bmode="dark"
+  [[ "${mode}" == "light" ]] && bmode="light"
+
+  mkdir -p "${dest}"
+  button_colors "${theme}|${bmode}"
+
+  local -a S=(
+    -e "s/{{HEADERBG}}/${P[HEADER]}/g"
+    -e "s/{{HEADERBORDER}}/${P[HEADERBORDER]}/g"
+    -e "s/{{CLOSEGLYPH}}/${CLOSEGLYPH}/g"
+    -e "s/{{GLYPH}}/${GLYPH}/g"
+    -e "s/{{HOVERBG}}/${HOVERBG}/g"
+    -e "s/{{HOVEROP}}/${HOVEROP}/g"
+    -e "s/{{HOVERGLYPH}}/${HOVERGLYPH}/g"
+    -e "s/{{PRESSBG}}/${PRESSBG}/g"
+  )
+
+  sed "${S[@]}" "${AUR_BASE}/${bmode}/decoration.svg.in" > "${dest}/decoration.svg"
+
+  local tpl
+  for tpl in "${AUR_BASE}"/buttons/*.svg.in; do
+    sed "${S[@]}" "${tpl}" > "${dest}/$(basename "${tpl%.in}")"
+  done
+
+  if grep -rq '{{' "${dest}"; then
+    echo "ERROR: unsubstituted aurorae token(s) for ${scheme_id}:" \
+      "$(grep -rho '{{[A-Z0-9]*}}' "${dest}" | sort -u | tr '\n' ' ')"
+    exit 1
+  fi
+
+  cat > "${dest}/${scheme_id}rc" << EOF
+[General]
+ActiveTextColor=${C[WmActiveForeground]}
+InactiveTextColor=${C[HeaderInactiveForegroundNormal]}
+Animation=0
+LeftButtons=
+RightButtons=IAX
+Shadow=false
+TitleAlignment=Center
+TitleVerticalAlignment=Center
+UseTextShadow=false
+
+[Layout]
+BorderBottom=1
+BorderLeft=1
+BorderRight=1
+ButtonHeight=22
+ButtonMarginTop=0
+ButtonSpacing=8
+ButtonWidth=22
+ExplicitButtonSpacer=10
+PaddingBottom=10
+PaddingLeft=10
+PaddingRight=10
+PaddingTop=10
+TitleBorderLeft=1
+TitleBorderRight=1
+TitleEdgeBottom=3
+TitleEdgeBottomMaximized=3
+TitleEdgeLeft=5
+TitleEdgeLeftMaximized=5
+TitleEdgeRight=5
+TitleEdgeRightMaximized=5
+TitleEdgeTop=3
+TitleEdgeTopMaximized=3
+TitleHeight=15
+EOF
+
+  cat > "${dest}/metadata.desktop" << EOF
+[Desktop Entry]
+Name=${display_name}
+X-KDE-PluginInfo-Author=zquestz
+X-KDE-PluginInfo-Category=
+X-KDE-PluginInfo-EnabledByDefault=true
+X-KDE-PluginInfo-License=GPL v3
+X-KDE-PluginInfo-Name=${scheme_id}
+X-KDE-PluginInfo-Website=https://github.com/zquestz/celestial-gtk-theme
 EOF
 }
 
@@ -411,6 +525,7 @@ render_previews() {
 
   cp "${TEMPLATE}" "${TMP_DIR}/preview.svg"
   while IFS='=' read -r token value; do
+    P["${token}"]="${value}"
     sed -i "s|{{${token}}}|${value}|g" "${TMP_DIR}/preview.svg"
   done < <(sed -n 's/^ *\([A-Z0-9]\+\): \(#[0-9a-fA-F]*\);$/\1=\2/p' "${TMP_DIR}/preview.css")
 
@@ -473,8 +588,8 @@ for theme in sea aliz azul pueril; do
     write_scheme_scss "${sass_variant}" "${theme}" "${sass_header}"
     sassc -t expanded -I "${SASS_DIR}" "${TMP_DIR}/scheme.scss" "${TMP_DIR}/scheme.css" || exit 1
 
-    unset C
-    declare -A C
+    unset C P
+    declare -A C P
     while IFS='=' read -r key value; do
       C["${key}"]="${value}"
     done < <(sed -n 's/^ *\([A-Za-z]\+\): \(.*\);$/\1=\2/p' "${TMP_DIR}/scheme.css")
@@ -496,6 +611,9 @@ for theme in sea aliz azul pueril; do
     # (the ColorScheme= label alone does not apply them)
     cp "${CS_DIR}/${scheme_id}.colors" "${pkg_dir}/contents/colors"
     render_previews "${pkg_dir}/contents/previews"
+
+    # Window decoration (Aurorae package)
+    build_aurorae
   done
 done
 

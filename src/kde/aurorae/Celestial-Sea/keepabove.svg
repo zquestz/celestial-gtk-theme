@@ -1,0 +1,22 @@
+<svg width="22" height="22" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <g id="active-center" opacity=".7">
+  <rect width="22" height="22" fill="none"/>
+  <path d="M 11,7.5 15.5,12 14.2,13.3 11,10.1 7.8,13.3 6.5,12 Z" fill="#b9bcc2"/>
+ </g>
+ <g id="hover-center">
+  <circle cx="11" cy="11" r="10" fill="#5f7d7c" opacity=".45"/>
+  <path d="M 11,7.5 15.5,12 14.2,13.3 11,10.1 7.8,13.3 6.5,12 Z" fill="#96aaa9"/>
+ </g>
+ <g id="pressed-center">
+  <circle cx="11" cy="11" r="10" fill="#2eb398"/>
+  <path d="M 11,7.5 15.5,12 14.2,13.3 11,10.1 7.8,13.3 6.5,12 Z" fill="#1b2224"/>
+ </g>
+ <g id="inactive-center" opacity=".4">
+  <rect width="22" height="22" fill="none"/>
+  <path d="M 11,7.5 15.5,12 14.2,13.3 11,10.1 7.8,13.3 6.5,12 Z" fill="#b9bcc2"/>
+ </g>
+ <g id="deactivated-center" opacity=".4">
+  <rect width="22" height="22" fill="none"/>
+  <path d="M 11,7.5 15.5,12 14.2,13.3 11,10.1 7.8,13.3 6.5,12 Z" fill="#b9bcc2"/>
+ </g>
+</svg>

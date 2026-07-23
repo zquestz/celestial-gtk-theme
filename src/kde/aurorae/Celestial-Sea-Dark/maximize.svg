@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" version="1.1">
+ <g id="active-center">
+  <g transform="translate(-383 -54)">
+   <g transform="translate(-230,242.64)" opacity=".7">
+    <g transform="translate(-781,-432.64)" opacity="1">
+     <path d="m1403.8 252h3.3818c0.4503 0 0.8162 0.36847 0.8187 0.8188v3.3817zm2.4074 6.0069h-3.395c-0.4504 0-0.8188-0.36842-0.8188-0.81875v-3.3951l4.2138 4.2138" fill="#b9bcc2" fill-rule="evenodd" opacity="1" />
+    </g>
+    <rect x="616" y="-185.64" width="16" height="16" fill="none" opacity="1" />
+   </g>
+  </g>
+ </g>
+ <g id="hover-center">
+  <g transform="translate(-394 -91)">
+   <g transform="matrix(1.375 0 0 1.375 -311.38 346.25)">
+    <g transform="translate(-781,-432.64)">
+     <path d="m1302 247.73c-4.0166 0-7.2727 3.2561-7.2727 7.2727s3.2561 7.2727 7.2727 7.2727 7.2727-3.2561 7.2727-7.2727-3.2561-7.2727-7.2727-7.2727z" fill="#5f7d7c" opacity=".45" />
+     <g transform="translate(1294,247)" fill="#c0e3ff">
+      <g transform="translate(-81,-967)" fill="#c0e3ff">
+       <path d="m87.841 972.09h3.2755c0.43615 0 0.79058 0.3569 0.79303 0.79308v3.2754zm2.3318 5.8182h-3.2884c-0.4362 0-0.79303-0.35684-0.79303-0.79302v-3.2884l4.0814 4.0814" fill="#96aaa9" fill-rule="evenodd" />
+      </g>
+     </g>
+    </g>
+    <rect x="513" y="-185.64" width="16" height="16" fill="none" />
+   </g>
+  </g>
+ </g>
+ <g id="pressed-center">
+  <g transform="translate(-394 -116)">
+   <g transform="matrix(1.375 0 0 1.375 -311.38 371.25)">
+    <g transform="translate(-781,-432.64)">
+     <path transform="matrix(.72727 0 0 .72727 1184.2 95.727)" d="m162 209c-5.5228 0-10 4.4772-10 10s4.4772 10 10 10 10-4.4772 10-10-4.4772-10-10-10zm-1.5938 6h4.5039c0.5997 0 1.0865 0.4901 1.0898 1.0898v4.5039zm-2.4062 2.3887 5.6113 5.6113h-4.5215c-0.59976 0-1.0898-0.4901-1.0898-1.0898z" fill="#2eb398" />
+    </g>
+    <rect x="513" y="-185.64" width="16" height="16" fill="none" />
+   </g>
+  </g>
+ </g>
+ <g id="inactive-center">
+  <g transform="translate(-383 -71)">
+   <g transform="translate(-230,242.64)" opacity=".4">
+    <g transform="translate(-781,-415.64)" opacity="1">
+     <path d="m1403.8 252h3.3818c0.4503 0 0.8162 0.36847 0.8187 0.8188v3.3817zm2.4074 6.0069h-3.395c-0.4504 0-0.8188-0.36842-0.8188-0.81875v-3.3951l4.2138 4.2138" fill="#b9bcc2" fill-rule="evenodd" opacity="1" />
+    </g>
+    <rect x="616" y="-168.64" width="16" height="16" fill="none" opacity="1" />
+   </g>
+  </g>
+ </g>
+ <g id="deactivated-center">
+  <g transform="translate(-383 -71)">
+   <g transform="translate(-230,242.64)" opacity=".4">
+    <g transform="translate(-781,-415.64)" opacity="1">
+     <path d="m1403.8 252h3.3818c0.4503 0 0.8162 0.36847 0.8187 0.8188v3.3817zm2.4074 6.0069h-3.395c-0.4504 0-0.8188-0.36842-0.8188-0.81875v-3.3951l4.2138 4.2138" fill="#b9bcc2" fill-rule="evenodd" opacity="1" />
+    </g>
+    <rect x="616" y="-168.64" width="16" height="16" fill="none" opacity="1" />
+   </g>
+  </g>
+ </g>
+</svg>

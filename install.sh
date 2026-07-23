@@ -15,6 +15,7 @@ if [ "$UID" -eq "$ROOT_UID" ]; then
   COLOR_SCHEMES_DIR="/usr/share/color-schemes"
   PLASMA_LNF_DIR="/usr/share/plasma/look-and-feel"
   PLASMA_THEME_DIR="/usr/share/plasma/desktoptheme"
+  AURORAE_DIR="/usr/share/aurorae/themes"
   KONSOLE_DIR="/usr/share/konsole"
   BG_DIR="/usr/share/backgrounds/celestial"
   BG_PROPS_DIRS=(
@@ -35,6 +36,7 @@ else
   COLOR_SCHEMES_DIR="$HOME/.local/share/color-schemes"
   PLASMA_LNF_DIR="$HOME/.local/share/plasma/look-and-feel"
   PLASMA_THEME_DIR="$HOME/.local/share/plasma/desktoptheme"
+  AURORAE_DIR="$HOME/.local/share/aurorae/themes"
   KONSOLE_DIR="$HOME/.local/share/konsole"
   BG_DIR="$HOME/.local/share/backgrounds/celestial"
   BG_PROPS_DIRS=(
@@ -782,6 +784,17 @@ install_kde_variant() {
     echo "Warning: global theme '${lnf_id}' not found, skipping..."
   fi
 
+  # Window decoration (Aurorae package)
+  local aur_src="${SRC_DIR}/kde/aurorae/${variant}"
+  if [[ -d "${aur_src}" ]]; then
+    local aur_dest="${DESTDIR}${AURORAE_DIR}/${variant}"
+    [[ -d "${aur_dest}" ]] && rm -rf "${aur_dest}"
+    cp -r "${aur_src}" "${aur_dest}"
+    echo "  Installed window decoration ${variant}"
+  else
+    echo "Warning: window decoration '${variant}' not found, skipping..."
+  fi
+
   # Standard variants (empty color) ship a dark-panel Plasma desktop theme
   if [[ -z "${color}" ]]; then
     local dt_src="${SRC_DIR}/kde/desktoptheme/${variant}"
@@ -823,6 +836,11 @@ uninstall_kde_variant() {
     echo "  Removed global theme ${lnf_id}"
   fi
 
+  if [[ -d "${DESTDIR}${AURORAE_DIR}/${variant}" ]]; then
+    rm -rf "${DESTDIR}${AURORAE_DIR:?}/${variant}"
+    echo "  Removed window decoration ${variant}"
+  fi
+
   if [[ -z "${color}" && -d "${DESTDIR}${PLASMA_THEME_DIR}/${variant}" ]]; then
     rm -rf "${DESTDIR}${PLASMA_THEME_DIR:?}/${variant}"
     echo "  Removed Plasma desktop theme ${variant}"
@@ -858,6 +876,7 @@ install_kde() {
   mkdir -p "${DESTDIR}${COLOR_SCHEMES_DIR}"
   mkdir -p "${DESTDIR}${PLASMA_LNF_DIR}"
   mkdir -p "${DESTDIR}${PLASMA_THEME_DIR}"
+  mkdir -p "${DESTDIR}${AURORAE_DIR}"
 
   for color in "${color_list[@]}"; do
     for theme in "${theme_list[@]}"; do

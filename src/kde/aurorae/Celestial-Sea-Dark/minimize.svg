@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" version="1.1">
+ <g id="active-center">
+  <g transform="translate(-363 -54)">
+   <g transform="translate(-221,242.64)" opacity=".7">
+    <g transform="translate(-781,-432.64)" opacity="1">
+     <path d="m1373 254v2h6v-2z" color="#000000" fill="#b9bcc2" opacity="1" style="text-decoration-line:none;text-indent:0;text-transform:none" />
+    </g>
+    <rect x="587" y="-185.64" width="16" height="16" fill="none" opacity="1" />
+   </g>
+  </g>
+ </g>
+ <g id="hover-center">
+  <g transform="translate(-367 -91)">
+   <g transform="matrix(1.375 0 0 1.375 -298.5 346.25)">
+    <g transform="translate(-781,-432.64)">
+     <path d="m1273 247.73c-4.0166 0-7.2727 3.2561-7.2727 7.2727s3.2561 7.2727 7.2727 7.2727 7.2727-3.2561 7.2727-7.2727-3.2561-7.2727-7.2727-7.2727z" fill="#5f7d7c" opacity=".45" />
+     <g transform="translate(1265,247)" fill="#c0e3ff">
+      <g transform="translate(-81,-967)" fill="#c0e3ff">
+       <path d="m86.091 974.27v1.4545h5.8182v-1.4545z" color="#000000" fill="#96aaa9" style="text-decoration-line:none;text-indent:0;text-transform:none" />
+      </g>
+     </g>
+    </g>
+    <rect x="484" y="-185.64" width="16" height="16" fill="none" />
+   </g>
+  </g>
+ </g>
+ <g id="pressed-center">
+  <g transform="translate(-367 -116)">
+   <g transform="matrix(1.375 0 0 1.375 -298.5 371.25)">
+    <g transform="translate(-781,-432.64)">
+     <path transform="matrix(.72727 0 0 .72727 1174.8 95.727)" d="m135 209c-5.5228 0-10 4.4772-10 10s4.4772 10 10 10 10-4.4772 10-10-4.4772-10-10-10zm-4 9h8v2h-8z" fill="#2eb398" />
+    </g>
+    <rect x="484" y="-185.64" width="16" height="16" fill="none" />
+   </g>
+  </g>
+ </g>
+ <g id="inactive-center">
+  <g transform="translate(-363 -71)">
+   <g transform="translate(-221,242.64)" opacity=".4">
+    <g transform="translate(-781,-415.64)" opacity="1">
+     <path d="m1373 254v2h6v-2z" color="#000000" fill="#b9bcc2" opacity="1" style="text-decoration-line:none;text-indent:0;text-transform:none" />
+    </g>
+    <rect x="587" y="-168.64" width="16" height="16" fill="none" opacity="1" />
+   </g>
+  </g>
+ </g>
+ <g id="deactivated-center">
+  <g transform="translate(-363 -71)">
+   <g transform="translate(-221,242.64)" opacity=".4">
+    <g transform="translate(-781,-415.64)" opacity="1">
+     <path d="m1373 254v2h6v-2z" color="#000000" fill="#b9bcc2" opacity="1" style="text-decoration-line:none;text-indent:0;text-transform:none" />
+    </g>
+    <rect x="587" y="-168.64" width="16" height="16" fill="none" opacity="1" />
+   </g>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,22 @@
+<svg width="22" height="22" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <g id="active-center" opacity=".7">
+  <rect width="22" height="22" fill="none"/>
+  <rect x="6.5" y="6" width="9" height="1.8" rx="0.9" fill="#b9bcc2"/><path d="M 11,9.8 15,13.8 13.7,15.1 11,12.4 8.3,15.1 7,13.8 Z" fill="#b9bcc2"/>
+ </g>
+ <g id="hover-center">
+  <circle cx="11" cy="11" r="10" fill="#5f7d7c" opacity=".45"/>
+  <rect x="6.5" y="6" width="9" height="1.8" rx="0.9" fill="#96aaa9"/><path d="M 11,9.8 15,13.8 13.7,15.1 11,12.4 8.3,15.1 7,13.8 Z" fill="#96aaa9"/>
+ </g>
+ <g id="pressed-center">
+  <circle cx="11" cy="11" r="10" fill="#2eb398"/>
+  <rect x="6.5" y="6" width="9" height="1.8" rx="0.9" fill="#1b2224"/><path d="M 11,9.8 15,13.8 13.7,15.1 11,12.4 8.3,15.1 7,13.8 Z" fill="#1b2224"/>
+ </g>
+ <g id="inactive-center" opacity=".4">
+  <rect width="22" height="22" fill="none"/>
+  <rect x="6.5" y="6" width="9" height="1.8" rx="0.9" fill="#b9bcc2"/><path d="M 11,9.8 15,13.8 13.7,15.1 11,12.4 8.3,15.1 7,13.8 Z" fill="#b9bcc2"/>
+ </g>
+ <g id="deactivated-center" opacity=".4">
+  <rect width="22" height="22" fill="none"/>
+  <rect x="6.5" y="6" width="9" height="1.8" rx="0.9" fill="#b9bcc2"/><path d="M 11,9.8 15,13.8 13.7,15.1 11,12.4 8.3,15.1 7,13.8 Z" fill="#b9bcc2"/>
+ </g>
+</svg>
