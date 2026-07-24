@@ -26,4 +26,5 @@
  <path id="active-bottomleft" d="M 32,8 H 36 V 12 H 34 A 2,2 0 0 1 32,10 Z" fill="{{PAGERACTIVE}}"/>
  <rect id="active-bottom" x="36" y="8" width="4" height="4" fill="{{PAGERACTIVE}}"/>
  <path id="active-bottomright" d="M 40,8 H 44 V 10 A 2,2 0 0 1 42,12 H 40 Z" fill="{{PAGERACTIVE}}"/>
+ <rect id="hint-tile-center" x="46" y="14" width="1" height="1" fill="#ff00ff"/>
 </svg>

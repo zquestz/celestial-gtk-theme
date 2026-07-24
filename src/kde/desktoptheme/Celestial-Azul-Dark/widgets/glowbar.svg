@@ -44,4 +44,5 @@
  <rect id="bottomright" x="8" y="8" width="4" height="4" fill="url(#gb-br)"/>
  <rect id="hint-glow-radius" x="14" y="0" width="4" height="4" fill="#ff00ff"/>
  <rect id="hint-stretch-borders" x="20" y="0" width="1" height="1" fill="#ff00ff"/>
+ <rect id="hint-tile-center" x="22" y="8" width="1" height="1" fill="#ff00ff"/>
 </svg>

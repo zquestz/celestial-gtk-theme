@@ -35,24 +35,40 @@
   </radialGradient>
  </defs>
  <!-- frame fills -->
- <path id="topleft" d="M 0,8 V 2 A 2,2 0 0 1 2,0 H 8 V 8 Z" fill="{{TOOLTIPBG}}"/>
- <rect id="top" x="8" y="0" width="8" height="8" fill="{{TOOLTIPBG}}"/>
- <path id="topright" d="M 16,0 h 6 A 2,2 0 0 1 24,2 V 8 H 16 Z" fill="{{TOOLTIPBG}}"/>
- <rect id="left" x="0" y="8" width="8" height="8" fill="{{TOOLTIPBG}}"/>
+ <g id="topleft">
+  <path d="M 0,8 V 2 A 2,2 0 0 1 2,0 H 8 V 8 Z" fill="{{TOOLTIPBG}}"/>
+  <path d="M 0.5,8 V 2 A 1.5,1.5 0 0 1 2,0.5 H 8" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
+ </g>
+ <g id="top">
+  <rect x="8" y="0" width="8" height="8" fill="{{TOOLTIPBG}}"/>
+  <path d="M 8,0.5 H 16" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
+ </g>
+ <g id="topright">
+  <path d="M 16,0 h 6 A 2,2 0 0 1 24,2 V 8 H 16 Z" fill="{{TOOLTIPBG}}"/>
+  <path d="M 16,0.5 h 6 A 1.5,1.5 0 0 1 23.5,2 V 8" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
+ </g>
+ <g id="left">
+  <rect x="0" y="8" width="8" height="8" fill="{{TOOLTIPBG}}"/>
+  <path d="M 0.5,8 V 16" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
+ </g>
  <rect id="center" x="8" y="8" width="8" height="8" fill="{{TOOLTIPBG}}"/>
- <rect id="right" x="16" y="8" width="8" height="8" fill="{{TOOLTIPBG}}"/>
- <path id="bottomleft" d="M 0,16 H 8 V 24 H 2 A 2,2 0 0 1 0,22 Z" fill="{{TOOLTIPBG}}"/>
- <rect id="bottom" x="8" y="16" width="8" height="8" fill="{{TOOLTIPBG}}"/>
- <path id="bottomright" d="M 16,16 H 24 V 22 A 2,2 0 0 1 22,24 H 16 Z" fill="{{TOOLTIPBG}}"/>
+ <g id="right">
+  <rect x="16" y="8" width="8" height="8" fill="{{TOOLTIPBG}}"/>
+  <path d="M 23.5,8 V 16" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
+ </g>
+ <g id="bottomleft">
+  <path d="M 0,16 H 8 V 24 H 2 A 2,2 0 0 1 0,22 Z" fill="{{TOOLTIPBG}}"/>
+  <path d="M 0.5,16 v 6 A 1.5,1.5 0 0 0 2,23.5 H 8" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
+ </g>
+ <g id="bottom">
+  <rect x="8" y="16" width="8" height="8" fill="{{TOOLTIPBG}}"/>
+  <path d="M 8,23.5 H 16" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
+ </g>
+ <g id="bottomright">
+  <path d="M 16,16 H 24 V 22 A 2,2 0 0 1 22,24 H 16 Z" fill="{{TOOLTIPBG}}"/>
+  <path d="M 23.5,16 v 6 A 1.5,1.5 0 0 1 22,23.5 h -6" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
+ </g>
  <!-- 1px outer border -->
- <path d="M 0.5,8 V 2 A 1.5,1.5 0 0 1 2,0.5 H 8" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
- <path d="M 8,0.5 H 16" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
- <path d="M 16,0.5 h 6 A 1.5,1.5 0 0 1 23.5,2 V 8" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
- <path d="M 0.5,8 V 16" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
- <path d="M 23.5,8 V 16" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
- <path d="M 0.5,16 v 6 A 1.5,1.5 0 0 0 2,23.5 H 8" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
- <path d="M 8,23.5 H 16" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
- <path d="M 23.5,16 v 6 A 1.5,1.5 0 0 1 22,23.5 h -6" fill="none" stroke="{{TOOLTIPBORDER}}" stroke-width="1"/>
  <!-- content margins -->
  <rect id="hint-top-margin" x="30" y="0" width="4" height="4" fill="#ff00ff"/>
  <rect id="hint-bottom-margin" x="30" y="8" width="4" height="4" fill="#ff00ff"/>

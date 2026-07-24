@@ -5,25 +5,40 @@
  <rect id="header-left" x="0" y="8" width="8" height="8" fill="#1a1a1a"/>
  <rect id="header-center" x="8" y="8" width="8" height="8" fill="#1a1a1a"/>
  <rect id="header-right" x="16" y="8" width="8" height="8" fill="#1a1a1a"/>
- <path id="header-bottomleft" d="M 0,16 H 8 V 24 H 3 A 3,3 0 0 1 0,21 Z" fill="#1a1a1a"/>
- <rect id="header-bottom" x="8" y="16" width="8" height="8" fill="#1a1a1a"/>
- <path id="header-bottomright" d="M 16,16 H 24 V 21 A 3,3 0 0 1 21,24 H 16 Z" fill="#1a1a1a"/>
- <rect x="0" y="16" width="24" height="8" fill="#1a1a1a"/>
- <path d="M 0,23.5 H 24" fill="none" stroke="#141414" stroke-width="1"/>
- <path id="footer-topleft" d="M 30,8 V 3 A 3,3 0 0 1 33,0 H 38 V 8 Z" fill="#1a1a1a"/>
- <rect id="footer-top" x="38" y="0" width="8" height="8" fill="#1a1a1a"/>
- <path id="footer-topright" d="M 46,0 h 5 A 3,3 0 0 1 54,3 V 8 H 46 Z" fill="#1a1a1a"/>
+ <g id="header-bottomleft">
+  <rect x="0" y="16" width="8" height="8" fill="#1a1a1a"/>
+  <path d="M 0,23.5 H 8" fill="none" stroke="#141414" stroke-width="1"/>
+ </g>
+ <g id="header-bottom">
+  <rect x="8" y="16" width="8" height="8" fill="#1a1a1a"/>
+  <path d="M 8,23.5 H 16" fill="none" stroke="#141414" stroke-width="1"/>
+ </g>
+ <g id="header-bottomright">
+  <rect x="16" y="16" width="8" height="8" fill="#1a1a1a"/>
+  <path d="M 16,23.5 H 24" fill="none" stroke="#141414" stroke-width="1"/>
+ </g>
+ <g id="footer-topleft">
+  <rect x="30" y="0" width="8" height="8" fill="#1a1a1a"/>
+  <path d="M 30,0.5 H 38" fill="none" stroke="#141414" stroke-width="1"/>
+ </g>
+ <g id="footer-top">
+  <rect x="38" y="0" width="8" height="8" fill="#1a1a1a"/>
+  <path d="M 38,0.5 H 46" fill="none" stroke="#141414" stroke-width="1"/>
+ </g>
+ <g id="footer-topright">
+  <rect x="46" y="0" width="8" height="8" fill="#1a1a1a"/>
+  <path d="M 46,0.5 H 54" fill="none" stroke="#141414" stroke-width="1"/>
+ </g>
  <rect id="footer-left" x="30" y="8" width="8" height="8" fill="#1a1a1a"/>
  <rect id="footer-center" x="38" y="8" width="8" height="8" fill="#1a1a1a"/>
  <rect id="footer-right" x="46" y="8" width="8" height="8" fill="#1a1a1a"/>
  <path id="footer-bottomleft" d="M 30,16 H 38 V 24 H 33 A 3,3 0 0 1 30,21 Z" fill="#1a1a1a"/>
  <rect id="footer-bottom" x="38" y="16" width="8" height="8" fill="#1a1a1a"/>
  <path id="footer-bottomright" d="M 46,16 H 54 V 21 A 3,3 0 0 1 51,24 H 46 Z" fill="#1a1a1a"/>
- <rect x="30" y="0" width="24" height="8" fill="#1a1a1a"/>
- <path d="M 30,0.5 H 54" fill="none" stroke="#141414" stroke-width="1"/>
  <rect id="hint-top-margin" x="60" y="0" width="4" height="4" fill="#ff00ff"/>
  <rect id="hint-bottom-margin" x="60" y="6" width="4" height="4" fill="#ff00ff"/>
  <rect id="hint-left-margin" x="68" y="0" width="4" height="4" fill="#ff00ff"/>
  <rect id="hint-right-margin" x="74" y="0" width="4" height="4" fill="#ff00ff"/>
  <rect id="hint-tile-center" x="70" y="0" width="1" height="1" fill="#ff00ff"/>
+ <rect id="hint-stretch-borders" x="73" y="0" width="1" height="1" fill="#ff00ff"/>
 </svg>
