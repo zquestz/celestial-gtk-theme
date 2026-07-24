@@ -1,49 +1,49 @@
-<svg width="170" height="30" version="1.1" xmlns="http://www.w3.org/2000/svg">
- <rect id="background-vertical-topleft" x="0" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-vertical-top" x="8" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-vertical-topright" x="16" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-vertical-left" x="0" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-vertical-center" x="8" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-vertical-right" x="16" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-vertical-bottomleft" x="0" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-vertical-bottom" x="8" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-vertical-bottomright" x="16" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-horizontal-topleft" x="30" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-horizontal-top" x="38" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-horizontal-topright" x="46" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-horizontal-left" x="30" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-horizontal-center" x="38" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-horizontal-right" x="46" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-horizontal-bottomleft" x="30" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-horizontal-bottom" x="38" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <rect id="background-horizontal-bottomright" x="46" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
- <path id="slider-topleft" d="M 60,8 V 3 A 3,3 0 0 1 63,0 H 68 V 8 Z" fill="#5b5f66"/>
- <rect id="slider-top" x="68" y="0" width="8" height="8" fill="#5b5f66"/>
- <path id="slider-topright" d="M 76,0 h 5 A 3,3 0 0 1 84,3 V 8 H 76 Z" fill="#5b5f66"/>
- <rect id="slider-left" x="60" y="8" width="8" height="8" fill="#5b5f66"/>
- <rect id="slider-center" x="68" y="8" width="8" height="8" fill="#5b5f66"/>
- <rect id="slider-right" x="76" y="8" width="8" height="8" fill="#5b5f66"/>
- <path id="slider-bottomleft" d="M 60,16 H 68 V 24 H 63 A 3,3 0 0 1 60,21 Z" fill="#5b5f66"/>
- <rect id="slider-bottom" x="68" y="16" width="8" height="8" fill="#5b5f66"/>
- <path id="slider-bottomright" d="M 76,16 H 84 V 21 A 3,3 0 0 1 81,24 H 76 Z" fill="#5b5f66"/>
- <path id="mouseover-slider-topleft" d="M 90,8 V 3 A 3,3 0 0 1 93,0 H 98 V 8 Z" fill="#4b4f55"/>
- <rect id="mouseover-slider-top" x="98" y="0" width="8" height="8" fill="#4b4f55"/>
- <path id="mouseover-slider-topright" d="M 106,0 h 5 A 3,3 0 0 1 114,3 V 8 H 106 Z" fill="#4b4f55"/>
- <rect id="mouseover-slider-left" x="90" y="8" width="8" height="8" fill="#4b4f55"/>
- <rect id="mouseover-slider-center" x="98" y="8" width="8" height="8" fill="#4b4f55"/>
- <rect id="mouseover-slider-right" x="106" y="8" width="8" height="8" fill="#4b4f55"/>
- <path id="mouseover-slider-bottomleft" d="M 90,16 H 98 V 24 H 93 A 3,3 0 0 1 90,21 Z" fill="#4b4f55"/>
- <rect id="mouseover-slider-bottom" x="98" y="16" width="8" height="8" fill="#4b4f55"/>
- <path id="mouseover-slider-bottomright" d="M 106,16 H 114 V 21 A 3,3 0 0 1 111,24 H 106 Z" fill="#4b4f55"/>
- <path id="sunken-slider-topleft" d="M 120,8 V 3 A 3,3 0 0 1 123,0 H 128 V 8 Z" fill="#3498db"/>
- <rect id="sunken-slider-top" x="128" y="0" width="8" height="8" fill="#3498db"/>
- <path id="sunken-slider-topright" d="M 136,0 h 5 A 3,3 0 0 1 144,3 V 8 H 136 Z" fill="#3498db"/>
- <rect id="sunken-slider-left" x="120" y="8" width="8" height="8" fill="#3498db"/>
- <rect id="sunken-slider-center" x="128" y="8" width="8" height="8" fill="#3498db"/>
- <rect id="sunken-slider-right" x="136" y="8" width="8" height="8" fill="#3498db"/>
- <path id="sunken-slider-bottomleft" d="M 120,16 H 128 V 24 H 123 A 3,3 0 0 1 120,21 Z" fill="#3498db"/>
- <rect id="sunken-slider-bottom" x="128" y="16" width="8" height="8" fill="#3498db"/>
- <path id="sunken-slider-bottomright" d="M 136,16 H 144 V 21 A 3,3 0 0 1 141,24 H 136 Z" fill="#3498db"/>
- <rect id="hint-scrollbar-size" x="150" y="0" width="6" height="6" fill="#ff00ff"/>
- <rect id="hint-tile-center" x="160" y="0" width="1" height="1" fill="#ff00ff"/>
+<svg width="50" height="10" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <rect id="background-vertical-topleft" x="0" y="0" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-vertical-top" x="1" y="0" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-vertical-topright" x="2" y="0" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-vertical-left" x="0" y="1" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-vertical-center" x="1" y="1" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-vertical-right" x="2" y="1" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-vertical-bottomleft" x="0" y="2" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-vertical-bottom" x="1" y="2" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-vertical-bottomright" x="2" y="2" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-horizontal-topleft" x="5" y="0" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-horizontal-top" x="6" y="0" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-horizontal-topright" x="7" y="0" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-horizontal-left" x="5" y="1" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-horizontal-center" x="6" y="1" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-horizontal-right" x="7" y="1" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-horizontal-bottomleft" x="5" y="2" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-horizontal-bottom" x="6" y="2" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <rect id="background-horizontal-bottomright" x="7" y="2" width="1" height="1" fill="#000000" fill-opacity="0"/>
+ <path id="slider-topleft" d="M 10,3 A 3,3 0 0 1 13,0 L 13,3 Z" fill="#5b5f66"/>
+ <rect id="slider-top" x="13" y="0" width="1" height="3" fill="#5b5f66"/>
+ <path id="slider-topright" d="M 14,0 A 3,3 0 0 1 17,3 L 14,3 Z" fill="#5b5f66"/>
+ <rect id="slider-left" x="10" y="3" width="3" height="1" fill="#5b5f66"/>
+ <rect id="slider-center" x="13" y="3" width="1" height="1" fill="#5b5f66"/>
+ <rect id="slider-right" x="14" y="3" width="3" height="1" fill="#5b5f66"/>
+ <path id="slider-bottomleft" d="M 10,4 L 13,4 L 13,7 A 3,3 0 0 1 10,4 Z" fill="#5b5f66"/>
+ <rect id="slider-bottom" x="13" y="4" width="1" height="3" fill="#5b5f66"/>
+ <path id="slider-bottomright" d="M 14,4 L 17,4 A 3,3 0 0 1 14,7 Z" fill="#5b5f66"/>
+ <path id="mouseover-slider-topleft" d="M 20,3 A 3,3 0 0 1 23,0 L 23,3 Z" fill="#4b4f55"/>
+ <rect id="mouseover-slider-top" x="23" y="0" width="1" height="3" fill="#4b4f55"/>
+ <path id="mouseover-slider-topright" d="M 24,0 A 3,3 0 0 1 27,3 L 24,3 Z" fill="#4b4f55"/>
+ <rect id="mouseover-slider-left" x="20" y="3" width="3" height="1" fill="#4b4f55"/>
+ <rect id="mouseover-slider-center" x="23" y="3" width="1" height="1" fill="#4b4f55"/>
+ <rect id="mouseover-slider-right" x="24" y="3" width="3" height="1" fill="#4b4f55"/>
+ <path id="mouseover-slider-bottomleft" d="M 20,4 L 23,4 L 23,7 A 3,3 0 0 1 20,4 Z" fill="#4b4f55"/>
+ <rect id="mouseover-slider-bottom" x="23" y="4" width="1" height="3" fill="#4b4f55"/>
+ <path id="mouseover-slider-bottomright" d="M 24,4 L 27,4 A 3,3 0 0 1 24,7 Z" fill="#4b4f55"/>
+ <path id="sunken-slider-topleft" d="M 30,3 A 3,3 0 0 1 33,0 L 33,3 Z" fill="#3498db"/>
+ <rect id="sunken-slider-top" x="33" y="0" width="1" height="3" fill="#3498db"/>
+ <path id="sunken-slider-topright" d="M 34,0 A 3,3 0 0 1 37,3 L 34,3 Z" fill="#3498db"/>
+ <rect id="sunken-slider-left" x="30" y="3" width="3" height="1" fill="#3498db"/>
+ <rect id="sunken-slider-center" x="33" y="3" width="1" height="1" fill="#3498db"/>
+ <rect id="sunken-slider-right" x="34" y="3" width="3" height="1" fill="#3498db"/>
+ <path id="sunken-slider-bottomleft" d="M 30,4 L 33,4 L 33,7 A 3,3 0 0 1 30,4 Z" fill="#3498db"/>
+ <rect id="sunken-slider-bottom" x="33" y="4" width="1" height="3" fill="#3498db"/>
+ <path id="sunken-slider-bottomright" d="M 34,4 L 37,4 A 3,3 0 0 1 34,7 Z" fill="#3498db"/>
+ <rect id="hint-scrollbar-size" x="40" y="0" width="6" height="6" fill="#ff00ff"/>
+ <rect id="hint-tile-center" x="48" y="0" width="1" height="1" fill="#ff00ff"/>
 </svg>
