@@ -5,7 +5,7 @@ widgetStyle=kvantum
 ColorScheme=Celestial-Sea
 
 [kdeglobals][Icons]
-Theme=Papirus-Dark
+Theme=Papirus
 
 [kcminputrc][Mouse]
 cursorTheme=Celestial
@@ -16,9 +16,10 @@ name=Celestial-Sea
 [kwinrc][org.kde.kdecoration2]
 library=org.kde.kwin.aurorae.v2
 theme=__aurorae__svg__Celestial-Sea
+BorderSize=Tiny
 
 [ksplashrc][KSplash]
-Theme=org.kde.breeze.desktop
+Theme=com.github.zquestz.Celestial-Sea
 
 [Wallpaper]
 Image=Celestial-Sea-Bioluminescence

@@ -5,6 +5,19 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Celestial splash screen for the KDE global themes
+
+### Changed
+
+- Kvantum themes now derive their metrics and scrollbar colors from the GTK theme
+- Kvantum dark variants now use the header color for the menubar and toolbar
+- Standard variants now pair with Papirus icons (GTK metatheme and KDE global themes)
+- KDE window decorations now default to tiny borders
+
 ## [1.4.1] - 2026-07-22
 
 ### Added

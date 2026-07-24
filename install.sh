@@ -120,6 +120,11 @@ install() {
   echo "Installing '${themedir}'..."
   mkdir -p                                                                            "${themedir}"
 
+  # Icon pairing: Papirus for standard, Papirus-Dark/-Light for dark/light
+  local icon_theme="Papirus"
+  [[ "${color}" == "-dark" ]] && icon_theme="Papirus-Dark"
+  [[ "${color}" == "-light" ]] && icon_theme="Papirus-Light"
+
   # Install index.theme
   {
     echo "[Desktop Entry]"
@@ -131,7 +136,7 @@ install() {
     echo "[X-GNOME-Metatheme]"
     echo "GtkTheme=${name}${theme_cap}${color_cap}"
     echo "MetacityTheme=${name}${theme_cap}${color_cap}"
-    echo "IconTheme=Papirus-Dark"
+    echo "IconTheme=${icon_theme}"
     echo "CursorTheme=Celestial"
     echo "ButtonLayout=menu:minimize,maximize,close"
   } >> "${themedir}/index.theme"

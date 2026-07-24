@@ -16,9 +16,10 @@ name=default
 [kwinrc][org.kde.kdecoration2]
 library=org.kde.kwin.aurorae.v2
 theme=__aurorae__svg__Celestial-Azul-Dark
+BorderSize=Tiny
 
 [ksplashrc][KSplash]
-Theme=org.kde.breeze.desktop
+Theme=com.github.zquestz.Celestial-Azul-Dark
 
 [Wallpaper]
 Image=Celestial-Azul-Ice

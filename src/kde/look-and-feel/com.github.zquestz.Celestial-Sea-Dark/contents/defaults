@@ -16,9 +16,10 @@ name=default
 [kwinrc][org.kde.kdecoration2]
 library=org.kde.kwin.aurorae.v2
 theme=__aurorae__svg__Celestial-Sea-Dark
+BorderSize=Tiny
 
 [ksplashrc][KSplash]
-Theme=org.kde.breeze.desktop
+Theme=com.github.zquestz.Celestial-Sea-Dark
 
 [Wallpaper]
 Image=Celestial-Sea-Bioluminescence

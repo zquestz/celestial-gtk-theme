@@ -5,7 +5,7 @@ This directory contains native theming for the KDE Plasma desktop.
 ## What's Included
 
 - **Color schemes** (`color-schemes/`) - 12 `.colors` files (4 colors x standard/light/dark) that theme every Qt and KDE application, window titlebars, and headers to match the Celestial palette.
-- **Global themes** (`look-and-feel/`) - 12 "Look and Feel" packages that appear under **System Settings > Global Theme**. Each bundles the matching color scheme, the Kvantum widget style, Breeze window decorations, a dark/light Plasma panel, Papirus icons, the Celestial cursor, and preview images - so a single click themes the whole desktop.
+- **Global themes** (`look-and-feel/`) - 12 "Look and Feel" packages that appear under **System Settings > Global Theme**. Each bundles the matching color scheme, the Kvantum widget style, Breeze window decorations, a dark/light Plasma panel, Papirus icons, the Celestial cursor, a Celestial splash screen, and preview images - so a single click themes the whole desktop.
 - **Desktop themes** (`desktoptheme/`) - 4 minimal Plasma desktop themes (one per color) that give the **standard** variants a dark panel while their app windows stay light. Installed automatically with the standard variants; dark/light variants use Breeze following the color scheme.
 - **Window decorations** (`aurorae/`) - 12 Aurorae packages that give windows Celestial's titlebars and buttons, built from the GTK theme's own titlebutton designs - including the plain close X that only turns red on hover.
 
@@ -39,7 +39,7 @@ Built for Plasma 6. The color schemes also work on Plasma 5, but the global-them
 
 ## Applying the Theme
 
-1. **Global theme** - **System Settings > Global Theme**, pick your Celestial variant. This sets the color scheme, the Kvantum widget style, the Celestial window decorations, a dark/light Plasma panel, Papirus icons, the Celestial cursor, and the color's matching wallpaper. (You may want to leave "Use desktop layout from theme" unchecked so your panel arrangement is preserved.)
+1. **Global theme** - **System Settings > Global Theme**, pick your Celestial variant. This sets the color scheme, the Kvantum widget style, the Celestial window decorations, a dark/light Plasma panel, Papirus icons, the Celestial cursor, the color's matching wallpaper, and the Celestial splash screen. (You may want to leave "Use desktop layout from theme" unchecked so your panel arrangement is preserved.)
 
    Prefer just the colors? **System Settings > Colors** lets you apply a Celestial color scheme without changing anything else.
 
@@ -70,7 +70,7 @@ The **Standard** variants reproduce Celestial's signature look - light applicati
 
 The global themes set the icon theme to **Papirus** and the cursor to **Celestial**, so install those for the intended look. (The theme still applies without them.)
 
-- **[Papirus Icon Theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)** - `Papirus-Dark` for the dark and standard variants, `Papirus-Light` for the light variants
+- **[Papirus Icon Theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)** - `Papirus` for the standard variants, `Papirus-Dark` for dark, `Papirus-Light` for light
 - The **Celestial cursor theme** - `./install.sh --cursors`
 - The **Celestial backgrounds** - `./install.sh --kde -b` - each global theme sets its color's wallpaper
 - The **Aurorae** decoration engine - ships with Plasma (the `aurorae` package); without it KWin falls back to Breeze decorations

@@ -63,7 +63,7 @@ Built for Plasma 6. See the [KDE Plasma README](src/kde/README.md) for full deta
 
 Complete your desktop with these complementary themes:
 
-- **[Papirus Icon Theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)** - Modern icon theme with excellent coverage
+- **[Papirus Icon Theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)** - Modern icon theme with excellent coverage; pair `Papirus` with the standard variants, `Papirus-Dark` with dark, and `Papirus-Light` with light
 - **[Plank Reloaded](https://github.com/zquestz/plank-reloaded)** - Modern dock with Celestial theme support
 - **[Hardcode-Tray](https://github.com/bilelmoussaoui/Hardcode-Tray)** - Fix hardcoded tray icons
 - **[Folder Color](https://github.com/costales/folder-color)** - Change folder colors in Nautilus, Nemo, and Caja

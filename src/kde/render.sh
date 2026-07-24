@@ -41,6 +41,7 @@ DT_DIR="${KDE_DIR}/desktoptheme"
 AUR_BASE="${KDE_DIR}/aurorae-base"
 AUR_DIR="${KDE_DIR}/aurorae"
 TEMPLATE="${KDE_DIR}/preview-template.svg"
+SPLASH_TEMPLATE="${KDE_DIR}/splash-template.qml"
 
 ID_PREFIX="com.github.zquestz."
 
@@ -243,6 +244,7 @@ preview {
   HEADER: $header_bg;
   HEADERFG: $header_fg;
   HEADERBORDER: mix(black, $header_bg, if($header == "light", 15%, 25%));
+  SPLASHTRACK: mix($header_fg, $header_bg, 25%);
   WINDOW: $bg_color;
   BASE: $base_color;
   FG: $fg_color;
@@ -407,13 +409,39 @@ name=${plasma_theme}
 [kwinrc][org.kde.kdecoration2]
 library=org.kde.kwin.aurorae.v2
 theme=__aurorae__svg__${scheme_id}
+BorderSize=Tiny
 
 [ksplashrc][KSplash]
-Theme=org.kde.breeze.desktop
+Theme=${ID_PREFIX}${scheme_id}
 
 [Wallpaper]
 Image=${wallpaper}
 EOF
+}
+
+# Celestial splash screen: tokenized QML plus the Splash Screen KCM preview
+render_splash() {
+  local dir="${1}"
+
+  mkdir -p "${dir}/splash"
+  sed -e "s/{{HEADER}}/${P[HEADER]}/g" \
+      -e "s/{{HEADERFG}}/${P[HEADERFG]}/g" \
+      -e "s/{{SPLASHTRACK}}/${P[SPLASHTRACK]}/g" \
+      -e "s/{{ACCENT}}/${P[ACCENT]}/g" \
+      "${SPLASH_TEMPLATE}" > "${dir}/splash/Splash.qml"
+
+  if grep -q '{{' "${dir}/splash/Splash.qml"; then
+    echo "ERROR: unsubstituted splash token(s) for ${scheme_id}:" \
+      "$(grep -o '{{[A-Z0-9]*}}' "${dir}/splash/Splash.qml" | sort -u | tr '\n' ' ')"
+    exit 1
+  fi
+
+  # Splash preview for the Splash Screen KCM
+  magick -size 300x169 "xc:${P[HEADER]}" \
+    -fill "${P[HEADERFG]}" -gravity center -pointsize 22 -kerning 3 -annotate +0-10 "Celestial" \
+    -fill "${P[SPLASHTRACK]}" -draw "roundrectangle 105,105 195,108 2,2" \
+    -fill "${P[ACCENT]}" -draw "roundrectangle 105,105 150,108 2,2" \
+    -strip "${dir}/previews/splash.png"
 }
 
 # Per-variant titlebutton colors, extracted from the GTK theme's rendered
@@ -558,7 +586,7 @@ for theme in sea aliz azul pueril; do
         sass_variant="light"
         sass_header="dark"
         suffix=""
-        icon_theme="Papirus-Dark"
+        icon_theme="Papirus"
         ;;
       light)
         sass_variant="light"
@@ -623,6 +651,7 @@ for theme in sea aliz azul pueril; do
     # (the ColorScheme= label alone does not apply them)
     cp "${CS_DIR}/${scheme_id}.colors" "${pkg_dir}/contents/colors"
     render_previews "${pkg_dir}/contents/previews"
+    render_splash "${pkg_dir}/contents"
 
     # Window decoration (Aurorae package)
     build_aurorae
