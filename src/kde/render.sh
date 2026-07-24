@@ -5,14 +5,14 @@
 #   - look-and-feel/<id>/               (global theme packages; folder name == KPlugin Id)
 #       metadata.json, contents/defaults, contents/colors,
 #       contents/previews/preview.png, contents/previews/fullscreenpreview.jpg
-#   - desktoptheme/<name>/              (Plasma desktop themes: panel, popups, tooltip)
-#       metadata.json, colors, widgets/, dialogs/, opaque/
+#   - desktoptheme/<name>/              (Plasma desktop themes: full widget set)
+#       metadata.json, colors, widgets/, dialogs/
 #   - aurorae/<name>/                   (window decorations; KWin id __aurorae__svg__<name>)
 #       decoration.svg, button SVGs, <name>rc, metadata.desktop
 # Aurorae inputs live in aurorae-base/: the decoration frames are vendored from
 # arc-kde (tokenized), the buttons are Celestial's own GTK titlebutton designs.
-# Desktop theme SVGs are vendored from arc-kde in desktoptheme-base/arc/ - they
-# are stylesheet-based, so Plasma recolors them from each variant's colors file.
+# Desktop theme SVGs live in desktoptheme-base/ - Celestial's base, originally
+# adapted from arc-kde; stylesheet-based, recolored per variant at runtime.
 # Run this after changing src/gtk/sass/_colors.scss, then commit the outputs.
 
 if [ ! "$(which sassc 2> /dev/null)" ]; then
@@ -422,14 +422,16 @@ Image=${wallpaper}
 EOF
 }
 
-# Plasma desktop theme: Arc's stylesheet-based widget set, vendored from arc-kde.
-# The SVGs use ColorScheme-* classes, so Plasma recolors them at runtime from
-# each variant's bundled colors file - no tokens needed.
+# Plasma desktop theme: Celestial's stylesheet-based widget set. The SVGs use
+# ColorScheme-* classes, so Plasma recolors them at runtime from each variant's
+# bundled colors file - no tokens needed.
 build_desktoptheme() {
   local dest="${DT_DIR}/${scheme_id}"
 
   mkdir -p "${dest}"
-  cp -r "${DT_BASE}/arc/." "${dest}/"
+  # No opaque/ variants: our surfaces are solid, so the normal files serve
+  # both compositing states (Plasma falls back to them when opaque/ is absent)
+  cp -r "${DT_BASE}/widgets" "${DT_BASE}/dialogs" "${dest}/"
 
   # Panel text needs light colors even on the light-bodied standard variants,
   # so standard bundles its color's dark scheme
