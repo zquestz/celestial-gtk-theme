@@ -16,37 +16,37 @@
    .ColorScheme-Background {color:#2f343f; } .ColorScheme-ButtonBackground { color:#444a58; } .ColorScheme-Highlight { color:#5294e2; } .ColorScheme-Text { color:#d3dae3; } .ColorScheme-NegativeText { color:#f44336; } .ColorScheme-PositiveText { color:#4caf50; } .ColorScheme-NeutralText { color:#ff9800; }
   </style>
  </defs>
- <rect id="center" style="opacity:0.90;fill:currentColor" class="ColorScheme-Background" width="50" height="50" x="7" y="51.94"/>
+ <rect id="center" style="opacity:1;fill:currentColor" class="ColorScheme-Background" width="50" height="50" x="7" y="51.94"/>
  <g id="bottomleft" transform="translate(-10,34.93893)">
-  <path style="opacity:0.90;fill:currentColor" class="ColorScheme-Background" d="m 17.000005,74.000025 0,-7 -7,0 0,2 c 0,2.77 2.23,5 5,5 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 17.000005,74.000025 0,-7 -7,0 0,2 c 0,2.77 2.23,5 5,5 z"/>
   <path style="opacity:0.2" d="m 10,67 0,2 c 0,2.77 2.23,5 5,5 l 2,0 0,-1 -2,0 c -2.233297,0 -4,-1.766703 -4,-4 l 0,-2 -1,0 z"/>
  </g>
  <g id="left" transform="translate(-10,34.93893)">
-  <path style="opacity:0.90;fill:currentColor" class="ColorScheme-Background" d="m 10.000015,16.999925 0,50 7,10e-6 0,-50 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 10.000015,16.999925 0,50 7,10e-6 0,-50 z"/>
   <path style="opacity:0.2" d="m 10,17 0,50 1,0 0,-50 -1,0 z"/>
  </g>
  <g id="right" transform="translate(-10,34.93893)">
-  <path style="opacity:0.90;fill:currentColor" class="ColorScheme-Background" d="m 73.999995,16.999935 0,50 -7,1e-5 0,-50 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 73.999995,16.999935 0,50 -7,1e-5 0,-50 z"/>
   <path style="opacity:0.2" d="m 73,17 0,50 1,0 0,-50 -1,0 z"/>
  </g>
  <g id="bottom" transform="translate(-10,34.93893)">
-  <path style="opacity:0.90;fill:currentColor" class="ColorScheme-Background" d="m 16.999975,74.000065 50.00002,0 0,-7 -50.00001,0 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 16.999975,74.000065 50.00002,0 0,-7 -50.00001,0 z"/>
   <path style="opacity:0.2" d="m 17,73 0,1 50,0 0,-1 -50,0 z"/>
  </g>
  <g id="bottomright" transform="translate(-10,34.93893)">
-  <path style="opacity:0.90;fill:currentColor" class="ColorScheme-Background" d="m 66.999995,74.000025 0,-7 7,0 0,2 c 0,2.77 -2.23,5 -5,5 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 66.999995,74.000025 0,-7 7,0 0,2 c 0,2.77 -2.23,5 -5,5 z"/>
   <path style="opacity:0.2" d="m 73,67 0,2 c 0,2.233297 -1.766703,4 -4,4 l -2,0 0,1 2,0 c 2.77,0 5,-2.23 5,-5 l 0,-2 -1,0 z"/>
  </g>
  <g id="top" transform="translate(-10,34.93893)">
-  <path style="opacity:0.90;fill:currentColor" class="ColorScheme-Background" d="m 16.999975,9.999935 50.00002,0 0,7 -50.00001,0 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 16.999975,9.999935 50.00002,0 0,7 -50.00001,0 z"/>
   <path style="opacity:0.2" d="m 17,10 0,1 50,0 0,-1 -50,0 z"/>
  </g>
  <g id="topright" transform="translate(-10,34.93893)">
-  <path style="opacity:0.90;fill:currentColor" class="ColorScheme-Background" d="m 66.999995,9.999935 0,7 7,0 0,-2 c 0,-2.77 -2.23,-5 -5,-5 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 66.999995,9.999935 0,7 7,0 0,-2 c 0,-2.77 -2.23,-5 -5,-5 z"/>
   <path style="opacity:0.2" d="m 67,10 0,1 2,0 c 2.233297,0 4,1.766703 4,4 l 0,2 1,0 0,-2 c 0,-2.77 -2.23,-5 -5,-5 l -2,0 z"/>
  </g>
  <g id="topleft" transform="translate(-10,34.93893)">
-  <path style="opacity:0.90;fill:currentColor" class="ColorScheme-Background" d="m 17.000005,9.999935 0,7 -7,0 0,-2 c 0,-2.77 2.23,-5 5,-5 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 17.000005,9.999935 0,7 -7,0 0,-2 c 0,-2.77 2.23,-5 5,-5 z"/>
   <path style="opacity:0.2" d="m 15,10 c -2.77,0 -5,2.23 -5,5 l 0,2 1,0 0,-2 c 0,-2.233297 1.766703,-4 4,-4 l 2,0 0,-1 -2,0 z"/>
  </g>
  <path id="shadow-topleft" style="fill:url(#radialGradient4275)" d="m 121,49.93904 10,0 0,-2 c 0,-2.77 2.23,-5 5,-5 l 2,0 0,-10 -17,0 z"/>

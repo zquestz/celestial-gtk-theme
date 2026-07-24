@@ -32,37 +32,37 @@
   <rect style="fill:url(#linearGradient4259)" width="50" height="10" x="138" y="-42.94" transform="scale(1,-1)"/>
   <rect style="opacity:0.001" width="7" height="50" x="42.94" y="-188" transform="rotate(90)"/>
  </g>
- <rect id="center" style="opacity:0.9;fill:currentColor" class="ColorScheme-Background" width="50" height="50" x="7" y="52"/>
+ <rect id="center" style="opacity:1;fill:currentColor" class="ColorScheme-Background" width="50" height="50" x="7" y="52"/>
  <g id="bottomleft" transform="translate(-10,34.999933)">
-  <path style="opacity:0.9;fill:currentColor" class="ColorScheme-Background" d="m 17.000005,74.000025 v -7 h -7 v 2 c 0,2.77 2.23,5 5,5 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 17.000005,74.000025 v -7 h -7 v 2 c 0,2.77 2.23,5 5,5 z"/>
   <path style="opacity:0.2" d="m 10,67 v 2 c 0,2.77 2.23,5 5,5 h 2 v -1 h -2 c -2.233297,0 -4,-1.766703 -4,-4 v -2 z"/>
  </g>
  <g id="left" transform="translate(-10,34.999933)">
-  <path style="opacity:0.9;fill:currentColor" class="ColorScheme-Background" d="m 10.000015,16.999925 v 50 l 7,10e-6 v -50 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 10.000015,16.999925 v 50 l 7,10e-6 v -50 z"/>
   <path style="opacity:0.2" d="m 10,17 v 50 h 1 V 17 Z"/>
  </g>
  <g id="right" transform="translate(-10,34.999933)">
-  <path style="opacity:0.9;fill:currentColor" class="ColorScheme-Background" d="m 73.999995,16.999935 v 50 l -7,1e-5 v -50 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 73.999995,16.999935 v 50 l -7,1e-5 v -50 z"/>
   <path style="opacity:0.2" d="m 73,17 v 50 h 1 V 17 Z"/>
  </g>
  <g id="bottom" transform="translate(-10,34.999933)">
-  <path style="opacity:0.9;fill:currentColor" class="ColorScheme-Background" d="m 16.999975,74.000065 h 50.00002 v -7 h -50.00001 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 16.999975,74.000065 h 50.00002 v -7 h -50.00001 z"/>
   <path style="opacity:0.2" d="m 17,73 v 1 h 50 v -1 z"/>
  </g>
  <g id="bottomright" transform="translate(-10,34.999933)">
-  <path style="opacity:0.9;fill:currentColor" class="ColorScheme-Background" d="m 66.999995,74.000025 v -7 h 7 v 2 c 0,2.77 -2.23,5 -5,5 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 66.999995,74.000025 v -7 h 7 v 2 c 0,2.77 -2.23,5 -5,5 z"/>
   <path style="opacity:0.2" d="m 73,67 v 2 c 0,2.233297 -1.766703,4 -4,4 h -2 v 1 h 2 c 2.77,0 5,-2.23 5,-5 v -2 z"/>
  </g>
  <g id="top" transform="translate(-10,34.999933)">
-  <path style="opacity:0.9;fill:currentColor" class="ColorScheme-Background" d="m 16.999975,9.999935 h 50.00002 v 7 h -50.00001 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 16.999975,9.999935 h 50.00002 v 7 h -50.00001 z"/>
   <path style="opacity:0.2" d="m 17,10 v 1 h 50 v -1 z"/>
  </g>
  <g id="topright" transform="translate(-10,34.999933)">
-  <path style="opacity:0.9;fill:currentColor" class="ColorScheme-Background" d="m 66.999995,9.999935 v 7 h 7 v -2 c 0,-2.77 -2.23,-5 -5,-5 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 66.999995,9.999935 v 7 h 7 v -2 c 0,-2.77 -2.23,-5 -5,-5 z"/>
   <path style="opacity:0.2" d="m 67,10 v 1 h 2 c 2.233297,0 4,1.766703 4,4 v 2 h 1 v -2 c 0,-2.77 -2.23,-5 -5,-5 z"/>
  </g>
  <g id="topleft" transform="translate(-10,34.999933)">
-  <path style="opacity:0.9;fill:currentColor" class="ColorScheme-Background" d="m 17.000005,9.999935 v 7 h -7 v -2 c 0,-2.77 2.23,-5 5,-5 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Background" d="m 17.000005,9.999935 v 7 h -7 v -2 c 0,-2.77 2.23,-5 5,-5 z"/>
   <path style="opacity:0.2" d="m 15,10 c -2.77,0 -5,2.23 -5,5 v 2 h 1 v -2 c 0,-2.233297 1.766703,-4 4,-4 h 2 v -1 z"/>
  </g>
  <g id="shadow-center" style="opacity:0.001" transform="matrix(0.80645161,0,0,0.80645161,151.83871,49.449733)">
