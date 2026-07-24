@@ -11,7 +11,8 @@
 #       decoration.svg, button SVGs, <name>rc, metadata.desktop
 # Aurorae inputs live in aurorae-base/: the decoration frames are vendored from
 # arc-kde (tokenized), the buttons are Celestial's own GTK titlebutton designs.
-# Desktop theme SVGs are authored templates in desktoptheme-base/.
+# Desktop theme SVGs are vendored from arc-kde in desktoptheme-base/arc/ - they
+# are stylesheet-based, so Plasma recolors them from each variant's colors file.
 # Run this after changing src/gtk/sass/_colors.scss, then commit the outputs.
 
 if [ ! "$(which sassc 2> /dev/null)" ]; then
@@ -247,25 +248,6 @@ preview {
   HEADERFG: $header_fg;
   HEADERBORDER: mix(black, $header_bg, if($header == "light", 15%, 25%));
   SPLASHTRACK: mix($header_fg, $header_bg, 25%);
-  DIALOGBG: $menu_bg_color;
-  DIALOGBORDER: mix(black, $menu_bg_color, if($variant == "light", 15%, 25%));
-  TOOLTIPBG: $base_color;
-  TOOLTIPBORDER: mix(black, $base_color, if($variant == "light", 15%, 25%));
-  HOVERFILL: if($variant == "light", mix(black, $menu_bg_color, 5%), mix(white, $menu_bg_color, 4%));
-  PRESSFILL: if($variant == "light", mix(black, $menu_bg_color, 15%), mix(white, $menu_bg_color, 12%));
-  ALTACCENT: lighten($selected_bg_color, 6%);
-  SCROLLSLIDER: mix($fg_color, $menu_bg_color, 40%);
-  SCROLLSLIDERHOVER: mix($fg_color, $menu_bg_color, 30%);
-  BTNBG: $button_bg;
-  BTNBORDER: mix(black, $button_bg, if($variant == "light", 15%, 25%));
-  BTNHOVERBG: lighten($button_bg, 3%);
-  BTNPRESSBG: if($variant == "light", mix(black, $button_bg, 8%), mix(white, $button_bg, 6%));
-  TASKHOVER: if($variant == "light" and $header == "light", mix(black, $panel_bg, 8%), mix(white, $panel_bg, 8%));
-  TASKFOCUSFILL: if($variant == "light" and $header == "light", mix(black, $panel_bg, 12%), mix(white, $panel_bg, 12%));
-  ATTENTIONFILL: mix($selected_bg_color, $panel_bg, 30%);
-  PROGRESSFILL: mix($selected_bg_color, $panel_bg, 35%);
-  PAGERACTIVE: mix($selected_bg_color, $panel_bg, 45%);
-  SLIDERGROOVE: mix($fg_color, $menu_bg_color, 25%);
   WINDOW: $bg_color;
   BASE: $base_color;
   FG: $fg_color;
@@ -440,59 +422,14 @@ Image=${wallpaper}
 EOF
 }
 
-# Plasma desktop theme: Celestial panel, popups, and tooltip for every variant
+# Plasma desktop theme: Arc's stylesheet-based widget set, vendored from arc-kde.
+# The SVGs use ColorScheme-* classes, so Plasma recolors them at runtime from
+# each variant's bundled colors file - no tokens needed.
 build_desktoptheme() {
   local dest="${DT_DIR}/${scheme_id}"
 
-  mkdir -p "${dest}/widgets" "${dest}/dialogs" "${dest}/opaque/widgets" "${dest}/opaque/dialogs"
-
-  local -a S=(
-    -e "s/{{PANEL}}/${P[PANEL]}/g"
-    -e "s/{{DIALOGBG}}/${P[DIALOGBG]}/g"
-    -e "s/{{DIALOGBORDER}}/${P[DIALOGBORDER]}/g"
-    -e "s/{{TOOLTIPBG}}/${P[TOOLTIPBG]}/g"
-    -e "s/{{TOOLTIPBORDER}}/${P[TOOLTIPBORDER]}/g"
-    -e "s/{{BASE}}/${P[BASE]}/g"
-    -e "s/{{HEADER}}/${P[HEADER]}/g"
-    -e "s/{{HEADERBORDER}}/${P[HEADERBORDER]}/g"
-    -e "s/{{ACCENT}}/${P[ACCENT]}/g"
-    -e "s/{{ALTACCENT}}/${P[ALTACCENT]}/g"
-    -e "s/{{HOVERFILL}}/${P[HOVERFILL]}/g"
-    -e "s/{{PRESSFILL}}/${P[PRESSFILL]}/g"
-    -e "s/{{SCROLLSLIDER}}/${P[SCROLLSLIDER]}/g"
-    -e "s/{{SCROLLSLIDERHOVER}}/${P[SCROLLSLIDERHOVER]}/g"
-    -e "s/{{BTNBG}}/${P[BTNBG]}/g"
-    -e "s/{{BTNBORDER}}/${P[BTNBORDER]}/g"
-    -e "s/{{BTNHOVERBG}}/${P[BTNHOVERBG]}/g"
-    -e "s/{{BTNPRESSBG}}/${P[BTNPRESSBG]}/g"
-    -e "s/{{FG}}/${P[FG]}/g"
-    -e "s/{{TASKHOVER}}/${P[TASKHOVER]}/g"
-    -e "s/{{TASKFOCUSFILL}}/${P[TASKFOCUSFILL]}/g"
-    -e "s/{{ATTENTIONFILL}}/${P[ATTENTIONFILL]}/g"
-    -e "s/{{PROGRESSFILL}}/${P[PROGRESSFILL]}/g"
-    -e "s/{{PAGERACTIVE}}/${P[PAGERACTIVE]}/g"
-    -e "s/{{SLIDERGROOVE}}/${P[SLIDERGROOVE]}/g"
-  )
-  sed "${S[@]}" "${DT_BASE}/panel-background.svg.in" > "${dest}/widgets/panel-background.svg"
-  sed "${S[@]}" "${DT_BASE}/dialogs-background.svg.in" > "${dest}/dialogs/background.svg"
-  sed "${S[@]}" "${DT_BASE}/tooltip.svg.in" > "${dest}/widgets/tooltip.svg"
-
-  local w
-  for w in viewitem listitem lineedit button plasmoidheading tabbar scrollbar \
-           tasks pager slider switch checkmarks arrows line \
-           bar_meter_horizontal bar_meter_vertical glowbar busywidget actionbutton background; do
-    sed "${S[@]}" "${DT_BASE}/${w}.svg.in" > "${dest}/widgets/${w}.svg"
-  done
-  # Our surfaces are solid, so the opaque variants are identical
-  cp "${dest}/widgets/panel-background.svg" "${dest}/opaque/widgets/panel-background.svg"
-  cp "${dest}/dialogs/background.svg" "${dest}/opaque/dialogs/background.svg"
-  cp "${dest}/widgets/tooltip.svg" "${dest}/opaque/widgets/tooltip.svg"
-
-  if grep -rq '{{' "${dest}"; then
-    echo "ERROR: unsubstituted desktoptheme token(s) for ${scheme_id}:" \
-      "$(grep -rho '{{[A-Z0-9]*}}' "${dest}" | sort -u | tr '\n' ' ')"
-    exit 1
-  fi
+  mkdir -p "${dest}"
+  cp -r "${DT_BASE}/arc/." "${dest}/"
 
   # Panel text needs light colors even on the light-bodied standard variants,
   # so standard bundles its color's dark scheme

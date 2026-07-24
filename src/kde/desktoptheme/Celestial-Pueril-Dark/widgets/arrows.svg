@@ -1,6 +1,23 @@
-<svg width="64" height="16" version="1.1" xmlns="http://www.w3.org/2000/svg">
- <path id="up-arrow" d="M 2,10 L 8,4 L 14,10 L 12.5,11.5 L 8,7 L 3.5,11.5 Z" fill="#bfbfbf"/>
- <path id="down-arrow" d="M 18,6 L 24,12 L 30,6 L 28.5,4.5 L 24,9 L 19.5,4.5 Z" fill="#bfbfbf"/>
- <path id="left-arrow" d="M 42,2 L 36,8 L 42,14 L 43.5,12.5 L 39,8 L 43.5,3.5 Z" fill="#bfbfbf"/>
- <path id="right-arrow" d="M 54,2 L 60,8 L 54,14 L 52.5,12.5 L 57,8 L 52.5,3.5 Z" fill="#bfbfbf"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" version="1.1">
+<defs>
+  <style id="current-color-scheme" type="text/css">
+   .ColorScheme-Background {color:#2f343f; } .ColorScheme-ButtonBackground { color:#444a58; } .ColorScheme-Highlight { color:#5294e2; } .ColorScheme-Text { color:#d3dae3; } .ColorScheme-NegativeText { color:#f44336; } .ColorScheme-PositiveText { color:#4caf50; } .ColorScheme-NeutralText { color:#ff9800; }
+  </style>
+ </defs>
+ <g id="up-arrow" transform="matrix(3.7796976,0,0,3.7796976,-44.001078,-963.56316)">
+  <rect style="fill:none" width="3.704" height="3.704" x="254.93" y="15.61" transform="matrix(0,1,1,0,0,0)"/>
+  <path style="fill:currentColor" class="ColorScheme-Text" d="m 17.462495,256.25414 -1.058333,1.05833 h 2.116667 z"/>
+ </g>
+ <g id="down-arrow" transform="matrix(3.7796976,0,0,-3.7796976,-44.001078,1007.5632)">
+  <rect style="fill:none" width="3.704" height="3.704" x="254.93" y="15.61" transform="matrix(0,1,1,0,0,0)"/>
+  <path style="fill:currentColor" class="ColorScheme-Text" d="m 17.462495,256.25414 -1.058333,1.05833 h 2.116667 z"/>
+ </g>
+ <g id="right-arrow" transform="matrix(0,3.7796976,-3.7796976,0,1007.5632,-44.001078)">
+  <rect style="fill:none" width="3.704" height="3.704" x="254.93" y="15.61" transform="matrix(0,1,1,0,0,0)"/>
+  <path style="fill:currentColor" class="ColorScheme-Text" d="m 17.462495,256.25414 -1.058333,1.05833 h 2.116667 z"/>
+ </g>
+ <g id="left-arrow" transform="matrix(0,3.7796976,3.7796976,0,-963.56333,-44.001078)">
+  <rect style="fill:none" width="3.704" height="3.704" x="254.93" y="15.61" transform="matrix(0,1,1,0,0,0)"/>
+  <path style="fill:currentColor" class="ColorScheme-Text" d="m 17.462495,256.25414 -1.058333,1.05833 h 2.116667 z"/>
+ </g>
 </svg>

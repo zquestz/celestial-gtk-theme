@@ -1,4 +1,17 @@
-<svg width="32" height="16" version="1.1" xmlns="http://www.w3.org/2000/svg">
- <path id="checkbox" d="M 3.5,8.5 L 7,12 L 12.5,5" fill="none" stroke="#f0544c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
- <circle id="radiobutton" cx="24" cy="8" r="4" fill="#f0544c"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" version="1">
+<defs>
+  <style id="current-color-scheme" type="text/css">
+   .ColorScheme-Background {color:#2f343f; } .ColorScheme-ButtonBackground { color:#444a58; } .ColorScheme-Highlight { color:#5294e2; } .ColorScheme-Text { color:#d3dae3; } .ColorScheme-NegativeText { color:#f44336; } .ColorScheme-PositiveText { color:#4caf50; } .ColorScheme-NeutralText { color:#ff9800; }
+  </style>
+ </defs>
+ <g id="checkbox">
+  <rect style="opacity:0.001" width="16" height="16" x="16" y="0"/>
+  <rect width="14" height="14" x="17" y="1" rx="2" style="fill:currentColor" class="ColorScheme-Highlight" ry="2"/>
+  <path style="fill:currentColor" class="ColorScheme-Background" d="M 27.279297 4.4296875 L 23.037109 8.671875 L 21.386719 7.0234375 C 21.12543 6.7621488 20.704648 6.7621488 20.443359 7.0234375 L 19.972656 7.4941406 C 19.711368 7.7554293 19.711368 8.1762113 19.972656 8.4375 L 21.623047 10.085938 L 22.566406 11.029297 L 23.037109 11.5 L 23.492188 11.044922 L 23.980469 10.558594 C 23.986134 10.552929 23.990675 10.546827 23.996094 10.541016 L 28.693359 5.84375 L 27.279297 4.4296875 z"/>
+ </g>
+ <g id="radiobutton">
+  <rect width="16" height="16" x="0" y="0" style="opacity:0.001"/>
+  <rect width="14" height="14" x="1" y="1" rx="7" style="fill:currentColor" class="ColorScheme-Highlight" ry="7"/>
+  <rect width="4" height="4" x="6" y="6" rx="1.999" style="fill:currentColor" class="ColorScheme-Background" ry="2"/>
+ </g>
 </svg>

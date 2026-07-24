@@ -98,7 +98,7 @@ celestial-gtk-theme/
 |   |   |-- aurorae-base/      # Decoration sources (frames + button templates)
 |   |   |-- color-schemes/     # KDE color schemes
 |   |   |-- desktoptheme/      # Plasma desktop themes (panel, popups, tooltip)
-|   |   |-- desktoptheme-base/ # Desktop theme SVG templates
+|   |   |-- desktoptheme-base/ # Vendored Arc desktop theme SVGs
 |   |   `-- look-and-feel/     # Global Theme packages
 |   |-- Kvantum/               # Kvantum themes for Qt applications
 |   |-- labwc/                 # Labwc window manager theme

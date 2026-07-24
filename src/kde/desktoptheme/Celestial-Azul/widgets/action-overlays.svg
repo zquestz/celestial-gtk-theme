@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="66" height="66" version="1.1">
+<defs>
+  <style id="current-color-scheme" type="text/css">
+   .ColorScheme-Background {color:#2f343f; } .ColorScheme-ButtonBackground { color:#444a58; } .ColorScheme-Highlight { color:#5294e2; } .ColorScheme-Text { color:#d3dae3; } .ColorScheme-NegativeText { color:#f44336; } .ColorScheme-PositiveText { color:#4caf50; } .ColorScheme-NeutralText { color:#ff9800; }
+  </style>
+ </defs>
+ <g id="add-normal" transform="translate(-13,-13)">
+  <rect style="opacity:0.001" width="22" height="22" x="13" y="13"/>
+  <path style="fill:currentColor" class="ColorScheme-Text" transform="translate(13,79)" d="m 10,-60 v 4 H 6 v 2 h 4 v 4 h 2 v -4 h 4 v -2 h -4 v -4 z"/>
+ </g>
+ <g id="remove-normal" transform="translate(-13,9)">
+  <rect style="opacity:0.001" width="22" height="22" x="13" y="13"/>
+  <rect style="fill:currentColor" class="ColorScheme-Text" width="2" height="10" x="23" y="-29" transform="rotate(90)"/>
+ </g>
+ <g id="add-hover" transform="translate(9,-13)">
+  <rect style="opacity:0.001" width="22" height="22" x="13" y="13"/>
+  <path style="opacity:0.2" d="m 34,24.000001 a 9.9999999,9.9999999 0 0 1 -10,9.999998 9.9999999,9.9999999 0 0 1 -10,-9.999998 9.9999999,9.9999999 0 0 1 10,-10 9.9999999,9.9999999 0 0 1 10,10 z"/>
+  <path style="fill:currentColor" class="ColorScheme-ButtonBackground" d="M 33,24.000002 A 8.9999999,8.9999999 0 0 1 24,33 a 8.9999999,8.9999999 0 0 1 -9,-8.999998 8.9999999,8.9999999 0 0 1 9,-9 8.9999999,8.9999999 0 0 1 9,9 z"/>
+  <path style="fill:currentColor" class="ColorScheme-Text" transform="translate(-9,79)" d="m 32,-60 v 4 h -4 v 2 h 4 v 4 h 2 v -4 h 4 v -2 h -4 v -4 z"/>
+ </g>
+ <g id="remove-hover" transform="translate(9,9)">
+  <rect style="opacity:0.001" width="22" height="22" x="13" y="13"/>
+  <path style="opacity:0.2" d="m 34,24.000001 a 9.9999999,9.9999999 0 0 1 -10,9.999998 9.9999999,9.9999999 0 0 1 -10,-9.999998 9.9999999,9.9999999 0 0 1 10,-10 9.9999999,9.9999999 0 0 1 10,10 z"/>
+  <path style="fill:currentColor" class="ColorScheme-ButtonBackground" d="M 33,24.000002 A 8.9999999,8.9999999 0 0 1 24,33 a 8.9999999,8.9999999 0 0 1 -9,-8.999998 8.9999999,8.9999999 0 0 1 9,-9 8.9999999,8.9999999 0 0 1 9,9 z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Text" width="2" height="10" x="23" y="-29" transform="rotate(90)"/>
+ </g>
+ <g id="add-pressed" transform="translate(31,-13)">
+  <rect style="opacity:0.001" width="22" height="22" x="13" y="13"/>
+  <path style="opacity:0.2" d="m 34,24.000001 a 9.9999999,9.9999999 0 0 1 -10,9.999998 9.9999999,9.9999999 0 0 1 -10,-9.999998 9.9999999,9.9999999 0 0 1 10,-10 9.9999999,9.9999999 0 0 1 10,10 z"/>
+  <path style="fill:currentColor" class="ColorScheme-ButtonBackground" d="M 33,24.000002 A 8.9999999,8.9999999 0 0 1 24,33 a 8.9999999,8.9999999 0 0 1 -9,-8.999998 8.9999999,8.9999999 0 0 1 9,-9 8.9999999,8.9999999 0 0 1 9,9 z"/>
+  <path style="fill:currentColor" class="ColorScheme-Text" transform="translate(-31,79)" d="m 54,-60 v 4 h -4 v 2 h 4 v 4 h 2 v -4 h 4 v -2 h -4 v -4 z"/>
+ </g>
+ <g id="remove-pressed" transform="translate(31,9)">
+  <rect style="opacity:0.001" width="22" height="22" x="13" y="13"/>
+  <path style="opacity:0.2" d="m 34,24.000001 a 9.9999999,9.9999999 0 0 1 -10,9.999998 9.9999999,9.9999999 0 0 1 -10,-9.999998 9.9999999,9.9999999 0 0 1 10,-10 9.9999999,9.9999999 0 0 1 10,10 z"/>
+  <path style="fill:currentColor" class="ColorScheme-ButtonBackground" d="M 33,24.000002 A 8.9999999,8.9999999 0 0 1 24,33 a 8.9999999,8.9999999 0 0 1 -9,-8.999998 8.9999999,8.9999999 0 0 1 9,-9 8.9999999,8.9999999 0 0 1 9,9 z"/>
+  <rect style="fill:currentColor" class="ColorScheme-Text" width="2" height="10" x="23" y="-29" transform="rotate(90)"/>
+ </g>
+ <g id="open-hover">
+  <rect style="opacity:0.001" width="22" height="22" x="22" y="44"/>
+  <path style="opacity:0.2" d="m 43,55.000001 a 9.9999999,9.9999999 0 0 1 -10,9.999998 9.9999999,9.9999999 0 0 1 -10,-9.999998 9.9999999,9.9999999 0 0 1 10,-10 9.9999999,9.9999999 0 0 1 10,10 z"/>
+  <path style="fill:currentColor" class="ColorScheme-ButtonBackground" d="M 42,55.000002 A 8.9999999,8.9999999 0 0 1 33,64 a 8.9999999,8.9999999 0 0 1 -9,-8.999998 8.9999999,8.9999999 0 0 1 9,-9 8.9999999,8.9999999 0 0 1 9,9 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Text" d="m 33,50 -5,5 h 3 v 3.333333 C 31,59.256667 32.076667,60 33,60 c 0.923333,0 2.091875,-0.747915 2,-1.666667 V 55 h 3 z"/>
+ </g>
+ <g id="open-pressed">
+  <rect style="opacity:0.001" width="22" height="22" x="44" y="44"/>
+  <path style="opacity:0.2" d="m 65,55.000001 a 9.9999999,9.9999999 0 0 1 -10,9.999998 9.9999999,9.9999999 0 0 1 -10,-9.999998 9.9999999,9.9999999 0 0 1 10,-10 9.9999999,9.9999999 0 0 1 10,10 z"/>
+  <path style="fill:currentColor" class="ColorScheme-ButtonBackground" d="M 64,55.000002 A 8.9999999,8.9999999 0 0 1 55,64 a 8.9999999,8.9999999 0 0 1 -9,-8.999998 8.9999999,8.9999999 0 0 1 9,-9 8.9999999,8.9999999 0 0 1 9,9 z"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Text" d="m 55,50 -5,5 h 3 v 3.333333 C 53,59.256667 54.076667,60 55,60 c 0.923333,0 2.091875,-0.747915 2,-1.666667 V 55 h 3 z"/>
+ </g>
+ <g id="open-normal">
+  <rect style="opacity:0.001" width="22" height="22" x="0" y="44"/>
+  <path style="opacity:1;fill:currentColor" class="ColorScheme-Text" d="m 11,50 -5,5 h 3 v 3.333333 C 9,59.256667 10.076667,60 11,60 c 0.923333,0 2.091875,-0.747915 2,-1.666667 V 55 h 3 z"/>
+ </g>
+</svg>

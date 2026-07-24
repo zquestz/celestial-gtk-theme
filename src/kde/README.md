@@ -6,7 +6,7 @@ This directory contains native theming for the KDE Plasma desktop.
 
 - **Color schemes** (`color-schemes/`) - 12 `.colors` files (4 colors x standard/light/dark) that theme every Qt and KDE application, window titlebars, and headers to match the Celestial palette.
 - **Global themes** (`look-and-feel/`) - 12 "Look and Feel" packages that appear under **System Settings > Global Theme**. Each bundles the matching color scheme, the Kvantum widget style, Breeze window decorations, a dark/light Plasma panel, Papirus icons, the Celestial cursor, a Celestial splash screen, and preview images - so a single click themes the whole desktop.
-- **Desktop themes** (`desktoptheme/`) - 12 Plasma desktop themes with Celestial's own panel, popup, and widget artwork (view items, tabs, buttons, search fields, scrollbars, headers) - flat and solid like the GTK theme. The standard variants keep a dark panel while their app windows stay light.
+- **Desktop themes** (`desktoptheme/`) - 12 Plasma desktop themes covering the full widget set (panel, popups, tooltips, tasks, sliders, and more), built on Arc's proven artwork and recolored live from each variant's Celestial color scheme. The standard variants keep a dark panel while their app windows stay light.
 - **Window decorations** (`aurorae/`) - 12 Aurorae packages that give windows Celestial's titlebars and buttons, built from the GTK theme's own titlebutton designs - including the plain close X that only turns red on hover.
 
 The Kvantum widget themes referenced by the global themes live in [`../Kvantum`](../Kvantum), and a matching [Konsole](../extra/konsole) terminal scheme lives in `../extra/konsole`. Everything is installed together by the `--kde` flag.
@@ -83,8 +83,8 @@ The `color-schemes/`, `look-and-feel/`, `desktoptheme/`, and `aurorae/` director
 ./src/kde/render.sh
 ```
 
-This requires `sassc`, `rsvg-convert`, and ImageMagick. Each global-theme package contains `metadata.json`, `contents/defaults`, `contents/colors` (a bundled copy of the color scheme), and `contents/previews/` images (`preview.png` and the fullscreen `fullscreenpreview.jpg`), rendered from `preview-template.svg`. The desktop themes' widget SVGs come from the authored templates in `desktoptheme-base/`; standard variants bundle their color's dark `.colors` so panel text stays light. Two things Plasma is strict about: each global-theme package folder **must** be named exactly after its `KPlugin` Id, and the color scheme only applies if it is bundled as `contents/colors` (the `ColorScheme=` line in `defaults` just sets the label).
+This requires `sassc`, `rsvg-convert`, and ImageMagick. Each global-theme package contains `metadata.json`, `contents/defaults`, `contents/colors` (a bundled copy of the color scheme), and `contents/previews/` images (`preview.png` and the fullscreen `fullscreenpreview.jpg`), rendered from `preview-template.svg`. The desktop themes' widget SVGs are vendored from [arc-kde](https://github.com/PapirusDevelopmentTeam/arc-kde) in `desktoptheme-base/arc/` - they are stylesheet-based (`ColorScheme-*` classes), so Plasma recolors them at runtime from each package's bundled colors file; standard variants bundle their color's dark `.colors` so the panel stays dark. Two things Plasma is strict about: each global-theme package folder **must** be named exactly after its `KPlugin` Id, and the color scheme only applies if it is bundled as `contents/colors` (the `ColorScheme=` line in `defaults` just sets the label).
 
 ## Credits
 
-The KDE theming structure is based on [Matcha-kde](https://github.com/vinceliuice/Matcha-kde) by Vince Liuice, adapted for Celestial.
+The KDE theming structure is based on [Matcha-kde](https://github.com/vinceliuice/Matcha-kde) by Vince Liuice. The window decoration frames and the Plasma desktop theme artwork are from [arc-kde](https://github.com/PapirusDevelopmentTeam/arc-kde) by Alexey Varfolomeev, recolored for Celestial.
