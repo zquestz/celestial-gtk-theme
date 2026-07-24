@@ -260,6 +260,12 @@ preview {
   BTNBORDER: mix(black, $button_bg, if($variant == "light", 15%, 25%));
   BTNHOVERBG: lighten($button_bg, 3%);
   BTNPRESSBG: if($variant == "light", mix(black, $button_bg, 8%), mix(white, $button_bg, 6%));
+  TASKHOVER: if($variant == "light" and $header == "light", mix(black, $panel_bg, 8%), mix(white, $panel_bg, 8%));
+  TASKFOCUSFILL: if($variant == "light" and $header == "light", mix(black, $panel_bg, 12%), mix(white, $panel_bg, 12%));
+  ATTENTIONFILL: mix($selected_bg_color, $panel_bg, 30%);
+  PROGRESSFILL: mix($selected_bg_color, $panel_bg, 35%);
+  PAGERACTIVE: mix($selected_bg_color, $panel_bg, 45%);
+  SLIDERGROOVE: mix($fg_color, $menu_bg_color, 25%);
   WINDOW: $bg_color;
   BASE: $base_color;
   FG: $fg_color;
@@ -459,13 +465,22 @@ build_desktoptheme() {
     -e "s/{{BTNBORDER}}/${P[BTNBORDER]}/g"
     -e "s/{{BTNHOVERBG}}/${P[BTNHOVERBG]}/g"
     -e "s/{{BTNPRESSBG}}/${P[BTNPRESSBG]}/g"
+    -e "s/{{FG}}/${P[FG]}/g"
+    -e "s/{{TASKHOVER}}/${P[TASKHOVER]}/g"
+    -e "s/{{TASKFOCUSFILL}}/${P[TASKFOCUSFILL]}/g"
+    -e "s/{{ATTENTIONFILL}}/${P[ATTENTIONFILL]}/g"
+    -e "s/{{PROGRESSFILL}}/${P[PROGRESSFILL]}/g"
+    -e "s/{{PAGERACTIVE}}/${P[PAGERACTIVE]}/g"
+    -e "s/{{SLIDERGROOVE}}/${P[SLIDERGROOVE]}/g"
   )
   sed "${S[@]}" "${DT_BASE}/panel-background.svg.in" > "${dest}/widgets/panel-background.svg"
   sed "${S[@]}" "${DT_BASE}/dialogs-background.svg.in" > "${dest}/dialogs/background.svg"
   sed "${S[@]}" "${DT_BASE}/tooltip.svg.in" > "${dest}/widgets/tooltip.svg"
 
   local w
-  for w in viewitem listitem lineedit button plasmoidheading tabbar scrollbar; do
+  for w in viewitem listitem lineedit button plasmoidheading tabbar scrollbar \
+           tasks pager slider switch checkmarks arrows line \
+           bar_meter_horizontal bar_meter_vertical glowbar busywidget actionbutton background; do
     sed "${S[@]}" "${DT_BASE}/${w}.svg.in" > "${dest}/widgets/${w}.svg"
   done
   # Our surfaces are solid, so the opaque variants are identical

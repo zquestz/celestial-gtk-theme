@@ -1,0 +1,4 @@
+<svg width="16" height="12" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <rect id="horizontal-line" x="0" y="0" width="10" height="1" fill="{{DIALOGBORDER}}"/>
+ <rect id="vertical-line" x="12" y="0" width="1" height="10" fill="{{DIALOGBORDER}}"/>
+</svg>

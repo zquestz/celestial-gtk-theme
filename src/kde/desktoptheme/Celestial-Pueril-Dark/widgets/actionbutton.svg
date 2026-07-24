@@ -1,0 +1,10 @@
+<svg width="104" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <circle id="normal" cx="12" cy="12" r="10.5" fill="#2b2b2b" stroke="#202020" stroke-width="1"/>
+ <circle id="22-22-normal" cx="12" cy="38" r="10.5" fill="#2b2b2b" stroke="#202020" stroke-width="1"/>
+ <circle id="hover" cx="38" cy="12" r="10.5" fill="#333333" stroke="#202020" stroke-width="1"/>
+ <circle id="22-22-hover" cx="38" cy="38" r="10.5" fill="#333333" stroke="#202020" stroke-width="1"/>
+ <circle id="pressed" cx="64" cy="12" r="10.5" fill="#383838" stroke="#202020" stroke-width="1"/>
+ <circle id="22-22-pressed" cx="64" cy="38" r="10.5" fill="#383838" stroke="#202020" stroke-width="1"/>
+ <circle id="focus" cx="90" cy="12" r="10.5" fill="#2b2b2b" stroke="#97bb72" stroke-width="1"/>
+ <circle id="22-22-focus" cx="90" cy="38" r="10.5" fill="#2b2b2b" stroke="#97bb72" stroke-width="1"/>
+</svg>

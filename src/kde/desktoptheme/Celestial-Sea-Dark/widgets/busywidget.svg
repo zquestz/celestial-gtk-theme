@@ -1,0 +1,10 @@
+<svg width="52" height="22" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <g id="busywidget">
+  <circle cx="11" cy="11" r="9" fill="none" stroke="#474f50" stroke-width="2"/>
+  <path d="M 11,2 A 9,9 0 0 1 20,11" fill="none" stroke="#2eb398" stroke-width="2" stroke-linecap="round"/>
+ </g>
+ <g id="stopped">
+  <circle cx="35" cy="11" r="9" fill="none" stroke="#474f50" stroke-width="2"/>
+ </g>
+ <rect id="hint-rotation-angle" x="48" y="0" width="1" height="1" fill="#ff00ff"/>
+</svg>

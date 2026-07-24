@@ -1,0 +1,47 @@
+<svg width="24" height="12" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<defs>
+ <linearGradient id="gb-t" x1="0" y1="1" x2="0" y2="0">
+  <stop offset="0" stop-color="{{ACCENT}}" stop-opacity="0.5"/>
+  <stop offset="1" stop-color="{{ACCENT}}" stop-opacity="0"/>
+ </linearGradient>
+ <linearGradient id="gb-b" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="{{ACCENT}}" stop-opacity="0.5"/>
+  <stop offset="1" stop-color="{{ACCENT}}" stop-opacity="0"/>
+ </linearGradient>
+ <linearGradient id="gb-l" x1="1" y1="0" x2="0" y2="0">
+  <stop offset="0" stop-color="{{ACCENT}}" stop-opacity="0.5"/>
+  <stop offset="1" stop-color="{{ACCENT}}" stop-opacity="0"/>
+ </linearGradient>
+ <linearGradient id="gb-r" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="{{ACCENT}}" stop-opacity="0.5"/>
+  <stop offset="1" stop-color="{{ACCENT}}" stop-opacity="0"/>
+ </linearGradient>
+ <radialGradient id="gb-tl" cx="1" cy="1" r="1">
+  <stop offset="0" stop-color="{{ACCENT}}" stop-opacity="0.5"/>
+  <stop offset="1" stop-color="{{ACCENT}}" stop-opacity="0"/>
+ </radialGradient>
+ <radialGradient id="gb-tr" cx="0" cy="1" r="1">
+  <stop offset="0" stop-color="{{ACCENT}}" stop-opacity="0.5"/>
+  <stop offset="1" stop-color="{{ACCENT}}" stop-opacity="0"/>
+ </radialGradient>
+ <radialGradient id="gb-bl" cx="1" cy="0" r="1">
+  <stop offset="0" stop-color="{{ACCENT}}" stop-opacity="0.5"/>
+  <stop offset="1" stop-color="{{ACCENT}}" stop-opacity="0"/>
+ </radialGradient>
+ <radialGradient id="gb-br" cx="0" cy="0" r="1">
+  <stop offset="0" stop-color="{{ACCENT}}" stop-opacity="0.5"/>
+  <stop offset="1" stop-color="{{ACCENT}}" stop-opacity="0"/>
+ </radialGradient>
+</defs>
+ <rect id="topleft" x="0" y="0" width="4" height="4" fill="url(#gb-tl)"/>
+ <rect id="top" x="4" y="0" width="4" height="4" fill="url(#gb-t)"/>
+ <rect id="topright" x="8" y="0" width="4" height="4" fill="url(#gb-tr)"/>
+ <rect id="left" x="0" y="4" width="4" height="4" fill="url(#gb-l)"/>
+ <rect id="center" x="4" y="4" width="4" height="4" fill="{{ACCENT}}" fill-opacity="0.5"/>
+ <rect id="right" x="8" y="4" width="4" height="4" fill="url(#gb-r)"/>
+ <rect id="bottomleft" x="0" y="8" width="4" height="4" fill="url(#gb-bl)"/>
+ <rect id="bottom" x="4" y="8" width="4" height="4" fill="url(#gb-b)"/>
+ <rect id="bottomright" x="8" y="8" width="4" height="4" fill="url(#gb-br)"/>
+ <rect id="hint-glow-radius" x="14" y="0" width="4" height="4" fill="#ff00ff"/>
+ <rect id="hint-stretch-borders" x="20" y="0" width="1" height="1" fill="#ff00ff"/>
+</svg>
