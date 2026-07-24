@@ -499,27 +499,27 @@
        d="m 400,92.5 -20,20 20,0 z" />
   </g>
   <path
-     style="fill:#1b1d24;fill-opacity:1"
+     style="fill:#14161b;fill-opacity:1"
      inkscape:connector-curvature="0"
      d="m 305,805 h 20 v 20 h -20 z"
      id="menubar-normal" />
   <path
-     style="fill:#1b1d24;fill-opacity:1"
+     style="fill:#14161b;fill-opacity:1"
      inkscape:connector-curvature="0"
      d="m 305,805 v 20 h -5 v -20 z"
      id="menubar-normal-left" />
   <path
-     style="fill:#1b1d24;fill-opacity:1"
+     style="fill:#14161b;fill-opacity:1"
      inkscape:connector-curvature="0"
      d="m 305,800 v 5 h -5 v -5 z"
      id="menubar-normal-topleft" />
   <path
-     style="fill:#1b1d24;fill-opacity:1"
+     style="fill:#14161b;fill-opacity:1"
      inkscape:connector-curvature="0"
      d="m 305,800 h 20 v 5 h -20 z"
      id="menubar-normal-top" />
   <path
-     style="fill:#1b1d24;fill-opacity:1"
+     style="fill:#14161b;fill-opacity:1"
      inkscape:connector-curvature="0"
      d="m 330,805 v 20 h -5 v -20 z"
      id="menubar-normal-right" />
@@ -605,7 +605,7 @@
   </g>
   <path
      inkscape:connector-curvature="0"
-     style="fill:#1b1d24;fill-opacity:1"
+     style="fill:#14161b;fill-opacity:1"
      d="m 330,800 v 5 h -5 v -5 z"
      id="menubar-normal-topright" />
   <path
