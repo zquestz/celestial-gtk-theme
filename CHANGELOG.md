@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Kvantum themes now derive their metrics and scrollbar colors from the GTK theme
+- KDE view text now uses the GTK foreground color, fixing dim sidebar text in Dolphin
 - Kvantum dark variants now use the header color for the menubar and toolbar
 - Standard variants now pair with Papirus icons (GTK metatheme and KDE global themes)
 - KDE window decorations now default to tiny borders

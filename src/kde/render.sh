@@ -200,7 +200,7 @@ scheme {
   ViewForegroundLink: #{kde($link_color)};
   ViewForegroundNegative: #{kde($error_color)};
   ViewForegroundNeutral: #{kde($warning_color)};
-  ViewForegroundNormal: #{kde($text_color)};
+  ViewForegroundNormal: #{kde($fg_color)};
   ViewForegroundPositive: #{kde($success_color)};
   ViewForegroundVisited: #{kde($link_visited_color)};
   WindowBackgroundAlternate: #{kde($window_alt)};
