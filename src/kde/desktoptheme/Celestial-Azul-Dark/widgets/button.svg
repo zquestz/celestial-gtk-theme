@@ -1,0 +1,86 @@
+<svg width="150" height="60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <path id="normal-topleft" d="M 0,8 V 2 A 2,2 0 0 1 2,0 H 8 V 8 Z" fill="#262a32"/>
+ <rect id="normal-top" x="8" y="0" width="8" height="8" fill="#262a32"/>
+ <path id="normal-topright" d="M 16,0 h 6 A 2,2 0 0 1 24,2 V 8 H 16 Z" fill="#262a32"/>
+ <rect id="normal-left" x="0" y="8" width="8" height="8" fill="#262a32"/>
+ <rect id="normal-center" x="8" y="8" width="8" height="8" fill="#262a32"/>
+ <rect id="normal-right" x="16" y="8" width="8" height="8" fill="#262a32"/>
+ <path id="normal-bottomleft" d="M 0,16 H 8 V 24 H 2 A 2,2 0 0 1 0,22 Z" fill="#262a32"/>
+ <rect id="normal-bottom" x="8" y="16" width="8" height="8" fill="#262a32"/>
+ <path id="normal-bottomright" d="M 16,16 H 24 V 22 A 2,2 0 0 1 22,24 H 16 Z" fill="#262a32"/>
+ <path d="M 0.5,8 V 2 A 1.5,1.5 0 0 1 2,0.5 H 8" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 8,0.5 H 16" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 16,0.5 h 6 A 1.5,1.5 0 0 1 23.5,2 V 8" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 0.5,8 V 16" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 23.5,8 V 16" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 0.5,16 v 6 A 1.5,1.5 0 0 0 2,23.5 H 8" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 8,23.5 H 16" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 23.5,16 v 6 A 1.5,1.5 0 0 1 22,23.5 h -6" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <rect id="normal-hint-top-margin" x="30" y="0" width="4" height="4" fill="#ff00ff"/>
+ <rect id="normal-hint-bottom-margin" x="30" y="6" width="4" height="4" fill="#ff00ff"/>
+ <rect id="normal-hint-left-margin" x="38" y="0" width="4" height="4" fill="#ff00ff"/>
+ <rect id="normal-hint-right-margin" x="44" y="0" width="4" height="4" fill="#ff00ff"/>
+ <path id="hover-topleft" d="M 50,8 V 2 A 2,2 0 0 1 52,0 H 58 V 8 Z" fill="#2d313a"/>
+ <rect id="hover-top" x="58" y="0" width="8" height="8" fill="#2d313a"/>
+ <path id="hover-topright" d="M 66,0 h 6 A 2,2 0 0 1 74,2 V 8 H 66 Z" fill="#2d313a"/>
+ <rect id="hover-left" x="50" y="8" width="8" height="8" fill="#2d313a"/>
+ <rect id="hover-center" x="58" y="8" width="8" height="8" fill="#2d313a"/>
+ <rect id="hover-right" x="66" y="8" width="8" height="8" fill="#2d313a"/>
+ <path id="hover-bottomleft" d="M 50,16 H 58 V 24 H 52 A 2,2 0 0 1 50,22 Z" fill="#2d313a"/>
+ <rect id="hover-bottom" x="58" y="16" width="8" height="8" fill="#2d313a"/>
+ <path id="hover-bottomright" d="M 66,16 H 74 V 22 A 2,2 0 0 1 72,24 H 66 Z" fill="#2d313a"/>
+ <path d="M 50.5,8 V 2 A 1.5,1.5 0 0 1 52,0.5 H 58" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 58,0.5 H 66" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 66,0.5 h 6 A 1.5,1.5 0 0 1 73.5,2 V 8" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 50.5,8 V 16" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 73.5,8 V 16" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 50.5,16 v 6 A 1.5,1.5 0 0 0 52,23.5 H 58" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 58,23.5 H 66" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 73.5,16 v 6 A 1.5,1.5 0 0 1 72,23.5 h -6" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <rect id="hover-hint-top-margin" x="80" y="0" width="4" height="4" fill="#ff00ff"/>
+ <rect id="hover-hint-bottom-margin" x="80" y="6" width="4" height="4" fill="#ff00ff"/>
+ <rect id="hover-hint-left-margin" x="88" y="0" width="4" height="4" fill="#ff00ff"/>
+ <rect id="hover-hint-right-margin" x="94" y="0" width="4" height="4" fill="#ff00ff"/>
+ <path id="focus-topleft" d="M 100,8 V 2 A 2,2 0 0 1 102,0 H 108 V 8 Z" fill="#262a32"/>
+ <rect id="focus-top" x="108" y="0" width="8" height="8" fill="#262a32"/>
+ <path id="focus-topright" d="M 116,0 h 6 A 2,2 0 0 1 124,2 V 8 H 116 Z" fill="#262a32"/>
+ <rect id="focus-left" x="100" y="8" width="8" height="8" fill="#262a32"/>
+ <rect id="focus-center" x="108" y="8" width="8" height="8" fill="#262a32"/>
+ <rect id="focus-right" x="116" y="8" width="8" height="8" fill="#262a32"/>
+ <path id="focus-bottomleft" d="M 100,16 H 108 V 24 H 102 A 2,2 0 0 1 100,22 Z" fill="#262a32"/>
+ <rect id="focus-bottom" x="108" y="16" width="8" height="8" fill="#262a32"/>
+ <path id="focus-bottomright" d="M 116,16 H 124 V 22 A 2,2 0 0 1 122,24 H 116 Z" fill="#262a32"/>
+ <path d="M 100.5,8 V 2 A 1.5,1.5 0 0 1 102,0.5 H 108" fill="none" stroke="#3498db" stroke-width="1"/>
+ <path d="M 108,0.5 H 116" fill="none" stroke="#3498db" stroke-width="1"/>
+ <path d="M 116,0.5 h 6 A 1.5,1.5 0 0 1 123.5,2 V 8" fill="none" stroke="#3498db" stroke-width="1"/>
+ <path d="M 100.5,8 V 16" fill="none" stroke="#3498db" stroke-width="1"/>
+ <path d="M 123.5,8 V 16" fill="none" stroke="#3498db" stroke-width="1"/>
+ <path d="M 100.5,16 v 6 A 1.5,1.5 0 0 0 102,23.5 H 108" fill="none" stroke="#3498db" stroke-width="1"/>
+ <path d="M 108,23.5 H 116" fill="none" stroke="#3498db" stroke-width="1"/>
+ <path d="M 123.5,16 v 6 A 1.5,1.5 0 0 1 122,23.5 h -6" fill="none" stroke="#3498db" stroke-width="1"/>
+ <rect id="focus-hint-top-margin" x="130" y="0" width="4" height="4" fill="#ff00ff"/>
+ <rect id="focus-hint-bottom-margin" x="130" y="6" width="4" height="4" fill="#ff00ff"/>
+ <rect id="focus-hint-left-margin" x="138" y="0" width="4" height="4" fill="#ff00ff"/>
+ <rect id="focus-hint-right-margin" x="144" y="0" width="4" height="4" fill="#ff00ff"/>
+ <path id="pressed-topleft" d="M 0,38 V 32 A 2,2 0 0 1 2,30 H 8 V 38 Z" fill="#33373e"/>
+ <rect id="pressed-top" x="8" y="30" width="8" height="8" fill="#33373e"/>
+ <path id="pressed-topright" d="M 16,30 h 6 A 2,2 0 0 1 24,32 V 38 H 16 Z" fill="#33373e"/>
+ <rect id="pressed-left" x="0" y="38" width="8" height="8" fill="#33373e"/>
+ <rect id="pressed-center" x="8" y="38" width="8" height="8" fill="#33373e"/>
+ <rect id="pressed-right" x="16" y="38" width="8" height="8" fill="#33373e"/>
+ <path id="pressed-bottomleft" d="M 0,46 H 8 V 54 H 2 A 2,2 0 0 1 0,52 Z" fill="#33373e"/>
+ <rect id="pressed-bottom" x="8" y="46" width="8" height="8" fill="#33373e"/>
+ <path id="pressed-bottomright" d="M 16,46 H 24 V 52 A 2,2 0 0 1 22,54 H 16 Z" fill="#33373e"/>
+ <path d="M 0.5,38 V 32 A 1.5,1.5 0 0 1 2,30.5 H 8" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 8,30.5 H 16" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 16,30.5 h 6 A 1.5,1.5 0 0 1 23.5,32 V 38" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 0.5,38 V 46" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 23.5,38 V 46" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 0.5,46 v 6 A 1.5,1.5 0 0 0 2,53.5 H 8" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 8,53.5 H 16" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <path d="M 23.5,46 v 6 A 1.5,1.5 0 0 1 22,53.5 h -6" fill="none" stroke="#1d1f25" stroke-width="1"/>
+ <rect id="pressed-hint-top-margin" x="30" y="30" width="4" height="4" fill="#ff00ff"/>
+ <rect id="pressed-hint-bottom-margin" x="30" y="36" width="4" height="4" fill="#ff00ff"/>
+ <rect id="pressed-hint-left-margin" x="38" y="30" width="4" height="4" fill="#ff00ff"/>
+ <rect id="pressed-hint-right-margin" x="44" y="30" width="4" height="4" fill="#ff00ff"/>
+</svg>

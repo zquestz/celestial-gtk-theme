@@ -1,0 +1,51 @@
+<svg width="130" height="60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <rect id="normal-topleft" x="0" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-top" x="8" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-topright" x="16" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-left" x="0" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-center" x="8" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-right" x="16" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-bottomleft" x="0" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-bottom" x="8" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-bottomright" x="16" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-hint-top-margin" x="30" y="0" width="4" height="2" fill="#ff00ff"/>
+ <rect id="normal-hint-bottom-margin" x="30" y="6" width="4" height="2" fill="#ff00ff"/>
+ <rect id="normal-hint-left-margin" x="38" y="0" width="2" height="4" fill="#ff00ff"/>
+ <rect id="normal-hint-right-margin" x="44" y="0" width="2" height="4" fill="#ff00ff"/>
+ <path id="hover-topleft" d="M 50,8 V 2 A 2,2 0 0 1 52,0 H 58 V 8 Z" fill="#2b2b2b"/>
+ <rect id="hover-top" x="58" y="0" width="8" height="8" fill="#2b2b2b"/>
+ <path id="hover-topright" d="M 66,0 h 6 A 2,2 0 0 1 74,2 V 8 H 66 Z" fill="#2b2b2b"/>
+ <rect id="hover-left" x="50" y="8" width="8" height="8" fill="#2b2b2b"/>
+ <rect id="hover-center" x="58" y="8" width="8" height="8" fill="#2b2b2b"/>
+ <rect id="hover-right" x="66" y="8" width="8" height="8" fill="#2b2b2b"/>
+ <path id="hover-bottomleft" d="M 50,16 H 58 V 24 H 52 A 2,2 0 0 1 50,22 Z" fill="#2b2b2b"/>
+ <rect id="hover-bottom" x="58" y="16" width="8" height="8" fill="#2b2b2b"/>
+ <path id="hover-bottomright" d="M 66,16 H 74 V 22 A 2,2 0 0 1 72,24 H 66 Z" fill="#2b2b2b"/>
+ <path id="pressed-topleft" d="M 80,8 V 2 A 2,2 0 0 1 82,0 H 88 V 8 Z" fill="#3d3d3d"/>
+ <rect id="pressed-top" x="88" y="0" width="8" height="8" fill="#3d3d3d"/>
+ <path id="pressed-topright" d="M 96,0 h 6 A 2,2 0 0 1 104,2 V 8 H 96 Z" fill="#3d3d3d"/>
+ <rect id="pressed-left" x="80" y="8" width="8" height="8" fill="#3d3d3d"/>
+ <rect id="pressed-center" x="88" y="8" width="8" height="8" fill="#3d3d3d"/>
+ <rect id="pressed-right" x="96" y="8" width="8" height="8" fill="#3d3d3d"/>
+ <path id="pressed-bottomleft" d="M 80,16 H 88 V 24 H 82 A 2,2 0 0 1 80,22 Z" fill="#3d3d3d"/>
+ <rect id="pressed-bottom" x="88" y="16" width="8" height="8" fill="#3d3d3d"/>
+ <path id="pressed-bottomright" d="M 96,16 H 104 V 22 A 2,2 0 0 1 102,24 H 96 Z" fill="#3d3d3d"/>
+ <rect id="pressed-hint-top-margin" x="110" y="0" width="4" height="2" fill="#ff00ff"/>
+ <rect id="pressed-hint-bottom-margin" x="110" y="6" width="4" height="2" fill="#ff00ff"/>
+ <rect id="pressed-hint-left-margin" x="118" y="0" width="2" height="4" fill="#ff00ff"/>
+ <rect id="pressed-hint-right-margin" x="124" y="0" width="2" height="4" fill="#ff00ff"/>
+ <rect id="section-topleft" x="0" y="30" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="section-top" x="8" y="30" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="section-topright" x="16" y="30" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="section-left" x="0" y="38" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="section-center" x="8" y="38" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="section-right" x="16" y="38" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="section-bottomleft" x="0" y="46" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="section-bottom" x="8" y="46" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="section-bottomright" x="16" y="46" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="section-hint-top-margin" x="30" y="30" width="4" height="2" fill="#ff00ff"/>
+ <rect id="section-hint-bottom-margin" x="30" y="36" width="4" height="2" fill="#ff00ff"/>
+ <rect id="section-hint-left-margin" x="38" y="30" width="2" height="4" fill="#ff00ff"/>
+ <rect id="section-hint-right-margin" x="44" y="30" width="2" height="4" fill="#ff00ff"/>
+ <rect id="hint-tile-center" x="120" y="0" width="1" height="1" fill="#ff00ff"/>
+</svg>

@@ -1,0 +1,71 @@
+<svg width="120" height="60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <rect id="north-active-tab-topleft" x="0" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="north-active-tab-top" x="8" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="north-active-tab-topright" x="16" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="north-active-tab-left" x="0" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="north-active-tab-center" x="8" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="north-active-tab-right" x="16" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="north-active-tab-bottomleft" x="0" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="north-active-tab-bottom" x="8" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="north-active-tab-bottomright" x="16" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect x="0" y="22" width="8" height="2" fill="#97bb72"/>
+ <rect x="8" y="22" width="8" height="2" fill="#97bb72"/>
+ <rect x="16" y="22" width="8" height="2" fill="#97bb72"/>
+ <rect id="north-active-tab-hint-top-margin" x="30" y="0" width="4" height="2" fill="#ff00ff"/>
+ <rect id="north-active-tab-hint-bottom-margin" x="30" y="6" width="4" height="2" fill="#ff00ff"/>
+ <rect id="north-active-tab-hint-left-margin" x="38" y="0" width="2" height="4" fill="#ff00ff"/>
+ <rect id="north-active-tab-hint-right-margin" x="44" y="0" width="2" height="4" fill="#ff00ff"/>
+ <rect id="south-active-tab-topleft" x="0" y="30" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="south-active-tab-top" x="8" y="30" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="south-active-tab-topright" x="16" y="30" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="south-active-tab-left" x="0" y="38" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="south-active-tab-center" x="8" y="38" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="south-active-tab-right" x="16" y="38" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="south-active-tab-bottomleft" x="0" y="46" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="south-active-tab-bottom" x="8" y="46" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="south-active-tab-bottomright" x="16" y="46" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect x="0" y="30" width="8" height="2" fill="#97bb72"/>
+ <rect x="8" y="30" width="8" height="2" fill="#97bb72"/>
+ <rect x="16" y="30" width="8" height="2" fill="#97bb72"/>
+ <rect id="south-active-tab-hint-top-margin" x="30" y="30" width="4" height="2" fill="#ff00ff"/>
+ <rect id="south-active-tab-hint-bottom-margin" x="30" y="36" width="4" height="2" fill="#ff00ff"/>
+ <rect id="south-active-tab-hint-left-margin" x="38" y="30" width="2" height="4" fill="#ff00ff"/>
+ <rect id="south-active-tab-hint-right-margin" x="44" y="30" width="2" height="4" fill="#ff00ff"/>
+ <rect id="west-active-tab-topleft" x="50" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="west-active-tab-top" x="58" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="west-active-tab-topright" x="66" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="west-active-tab-left" x="50" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="west-active-tab-center" x="58" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="west-active-tab-right" x="66" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="west-active-tab-bottomleft" x="50" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="west-active-tab-bottom" x="58" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="west-active-tab-bottomright" x="66" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect x="72" y="0" width="2" height="8" fill="#97bb72"/>
+ <rect x="72" y="8" width="2" height="8" fill="#97bb72"/>
+ <rect x="72" y="16" width="2" height="8" fill="#97bb72"/>
+ <rect id="west-active-tab-hint-top-margin" x="80" y="0" width="4" height="2" fill="#ff00ff"/>
+ <rect id="west-active-tab-hint-bottom-margin" x="80" y="6" width="4" height="2" fill="#ff00ff"/>
+ <rect id="west-active-tab-hint-left-margin" x="88" y="0" width="2" height="4" fill="#ff00ff"/>
+ <rect id="west-active-tab-hint-right-margin" x="94" y="0" width="2" height="4" fill="#ff00ff"/>
+ <rect id="east-active-tab-topleft" x="50" y="30" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="east-active-tab-top" x="58" y="30" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="east-active-tab-topright" x="66" y="30" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="east-active-tab-left" x="50" y="38" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="east-active-tab-center" x="58" y="38" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="east-active-tab-right" x="66" y="38" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="east-active-tab-bottomleft" x="50" y="46" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="east-active-tab-bottom" x="58" y="46" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="east-active-tab-bottomright" x="66" y="46" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect x="50" y="30" width="2" height="8" fill="#97bb72"/>
+ <rect x="50" y="38" width="2" height="8" fill="#97bb72"/>
+ <rect x="50" y="46" width="2" height="8" fill="#97bb72"/>
+ <rect id="east-active-tab-hint-top-margin" x="80" y="30" width="4" height="2" fill="#ff00ff"/>
+ <rect id="east-active-tab-hint-bottom-margin" x="80" y="36" width="4" height="2" fill="#ff00ff"/>
+ <rect id="east-active-tab-hint-left-margin" x="88" y="30" width="2" height="4" fill="#ff00ff"/>
+ <rect id="east-active-tab-hint-right-margin" x="94" y="30" width="2" height="4" fill="#ff00ff"/>
+ <rect id="north-focus-hint-top-margin" x="100" y="0" width="4" height="2" fill="#ff00ff"/>
+ <rect id="north-focus-hint-bottom-margin" x="100" y="6" width="4" height="2" fill="#ff00ff"/>
+ <rect id="north-focus-hint-left-margin" x="108" y="0" width="2" height="4" fill="#ff00ff"/>
+ <rect id="north-focus-hint-right-margin" x="114" y="0" width="2" height="4" fill="#ff00ff"/>
+ <rect id="hint-tile-center" x="110" y="0" width="1" height="1" fill="#ff00ff"/>
+</svg>

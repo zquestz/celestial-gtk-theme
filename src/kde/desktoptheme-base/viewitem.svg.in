@@ -1,0 +1,39 @@
+<svg width="130" height="30" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <rect id="normal-topleft" x="0" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-top" x="8" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-topright" x="16" y="0" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-left" x="0" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-center" x="8" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-right" x="16" y="8" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-bottomleft" x="0" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-bottom" x="8" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <rect id="normal-bottomright" x="16" y="16" width="8" height="8" fill="#000000" fill-opacity="0"/>
+ <path id="hover-topleft" d="M 30,8 V 2 A 2,2 0 0 1 32,0 H 38 V 8 Z" fill="{{HOVERFILL}}"/>
+ <rect id="hover-top" x="38" y="0" width="8" height="8" fill="{{HOVERFILL}}"/>
+ <path id="hover-topright" d="M 46,0 h 6 A 2,2 0 0 1 54,2 V 8 H 46 Z" fill="{{HOVERFILL}}"/>
+ <rect id="hover-left" x="30" y="8" width="8" height="8" fill="{{HOVERFILL}}"/>
+ <rect id="hover-center" x="38" y="8" width="8" height="8" fill="{{HOVERFILL}}"/>
+ <rect id="hover-right" x="46" y="8" width="8" height="8" fill="{{HOVERFILL}}"/>
+ <path id="hover-bottomleft" d="M 30,16 H 38 V 24 H 32 A 2,2 0 0 1 30,22 Z" fill="{{HOVERFILL}}"/>
+ <rect id="hover-bottom" x="38" y="16" width="8" height="8" fill="{{HOVERFILL}}"/>
+ <path id="hover-bottomright" d="M 46,16 H 54 V 22 A 2,2 0 0 1 52,24 H 46 Z" fill="{{HOVERFILL}}"/>
+ <path id="selected-topleft" d="M 60,8 V 2 A 2,2 0 0 1 62,0 H 68 V 8 Z" fill="{{ACCENT}}"/>
+ <rect id="selected-top" x="68" y="0" width="8" height="8" fill="{{ACCENT}}"/>
+ <path id="selected-topright" d="M 76,0 h 6 A 2,2 0 0 1 84,2 V 8 H 76 Z" fill="{{ACCENT}}"/>
+ <rect id="selected-left" x="60" y="8" width="8" height="8" fill="{{ACCENT}}"/>
+ <rect id="selected-center" x="68" y="8" width="8" height="8" fill="{{ACCENT}}"/>
+ <rect id="selected-right" x="76" y="8" width="8" height="8" fill="{{ACCENT}}"/>
+ <path id="selected-bottomleft" d="M 60,16 H 68 V 24 H 62 A 2,2 0 0 1 60,22 Z" fill="{{ACCENT}}"/>
+ <rect id="selected-bottom" x="68" y="16" width="8" height="8" fill="{{ACCENT}}"/>
+ <path id="selected-bottomright" d="M 76,16 H 84 V 22 A 2,2 0 0 1 82,24 H 76 Z" fill="{{ACCENT}}"/>
+ <path id="selected+hover-topleft" d="M 90,8 V 2 A 2,2 0 0 1 92,0 H 98 V 8 Z" fill="{{ALTACCENT}}"/>
+ <rect id="selected+hover-top" x="98" y="0" width="8" height="8" fill="{{ALTACCENT}}"/>
+ <path id="selected+hover-topright" d="M 106,0 h 6 A 2,2 0 0 1 114,2 V 8 H 106 Z" fill="{{ALTACCENT}}"/>
+ <rect id="selected+hover-left" x="90" y="8" width="8" height="8" fill="{{ALTACCENT}}"/>
+ <rect id="selected+hover-center" x="98" y="8" width="8" height="8" fill="{{ALTACCENT}}"/>
+ <rect id="selected+hover-right" x="106" y="8" width="8" height="8" fill="{{ALTACCENT}}"/>
+ <path id="selected+hover-bottomleft" d="M 90,16 H 98 V 24 H 92 A 2,2 0 0 1 90,22 Z" fill="{{ALTACCENT}}"/>
+ <rect id="selected+hover-bottom" x="98" y="16" width="8" height="8" fill="{{ALTACCENT}}"/>
+ <path id="selected+hover-bottomright" d="M 106,16 H 114 V 22 A 2,2 0 0 1 112,24 H 106 Z" fill="{{ALTACCENT}}"/>
+ <rect id="hint-tile-center" x="120" y="0" width="1" height="1" fill="#ff00ff"/>
+</svg>

@@ -251,6 +251,15 @@ preview {
   DIALOGBORDER: mix(black, $menu_bg_color, if($variant == "light", 15%, 25%));
   TOOLTIPBG: $base_color;
   TOOLTIPBORDER: mix(black, $base_color, if($variant == "light", 15%, 25%));
+  HOVERFILL: if($variant == "light", mix(black, $menu_bg_color, 5%), mix(white, $menu_bg_color, 4%));
+  PRESSFILL: if($variant == "light", mix(black, $menu_bg_color, 15%), mix(white, $menu_bg_color, 12%));
+  ALTACCENT: lighten($selected_bg_color, 6%);
+  SCROLLSLIDER: mix($fg_color, $menu_bg_color, 40%);
+  SCROLLSLIDERHOVER: mix($fg_color, $menu_bg_color, 30%);
+  BTNBG: $button_bg;
+  BTNBORDER: mix(black, $button_bg, if($variant == "light", 15%, 25%));
+  BTNHOVERBG: lighten($button_bg, 3%);
+  BTNPRESSBG: if($variant == "light", mix(black, $button_bg, 8%), mix(white, $button_bg, 6%));
   WINDOW: $bg_color;
   BASE: $base_color;
   FG: $fg_color;
@@ -437,10 +446,28 @@ build_desktoptheme() {
     -e "s/{{DIALOGBORDER}}/${P[DIALOGBORDER]}/g"
     -e "s/{{TOOLTIPBG}}/${P[TOOLTIPBG]}/g"
     -e "s/{{TOOLTIPBORDER}}/${P[TOOLTIPBORDER]}/g"
+    -e "s/{{BASE}}/${P[BASE]}/g"
+    -e "s/{{HEADER}}/${P[HEADER]}/g"
+    -e "s/{{HEADERBORDER}}/${P[HEADERBORDER]}/g"
+    -e "s/{{ACCENT}}/${P[ACCENT]}/g"
+    -e "s/{{ALTACCENT}}/${P[ALTACCENT]}/g"
+    -e "s/{{HOVERFILL}}/${P[HOVERFILL]}/g"
+    -e "s/{{PRESSFILL}}/${P[PRESSFILL]}/g"
+    -e "s/{{SCROLLSLIDER}}/${P[SCROLLSLIDER]}/g"
+    -e "s/{{SCROLLSLIDERHOVER}}/${P[SCROLLSLIDERHOVER]}/g"
+    -e "s/{{BTNBG}}/${P[BTNBG]}/g"
+    -e "s/{{BTNBORDER}}/${P[BTNBORDER]}/g"
+    -e "s/{{BTNHOVERBG}}/${P[BTNHOVERBG]}/g"
+    -e "s/{{BTNPRESSBG}}/${P[BTNPRESSBG]}/g"
   )
   sed "${S[@]}" "${DT_BASE}/panel-background.svg.in" > "${dest}/widgets/panel-background.svg"
   sed "${S[@]}" "${DT_BASE}/dialogs-background.svg.in" > "${dest}/dialogs/background.svg"
   sed "${S[@]}" "${DT_BASE}/tooltip.svg.in" > "${dest}/widgets/tooltip.svg"
+
+  local w
+  for w in viewitem listitem lineedit button plasmoidheading tabbar scrollbar; do
+    sed "${S[@]}" "${DT_BASE}/${w}.svg.in" > "${dest}/widgets/${w}.svg"
+  done
   # Our surfaces are solid, so the opaque variants are identical
   cp "${dest}/widgets/panel-background.svg" "${dest}/opaque/widgets/panel-background.svg"
   cp "${dest}/dialogs/background.svg" "${dest}/opaque/dialogs/background.svg"

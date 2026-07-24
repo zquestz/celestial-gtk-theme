@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Celestial splash screen for the KDE global themes
-- Celestial Plasma desktop themes for every variant, with the panel, popup, and tooltip artwork matching the GTK theme
+- Celestial Plasma desktop themes for every variant, with panel, popup, and widget artwork matching the GTK theme
 
 ### Changed
 
