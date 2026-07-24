@@ -1,0 +1,84 @@
+<svg width="100" height="60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <!-- Celestial tooltip: OSD background, 1px border, 2px radius - matches GTK tooltips -->
+ <defs>
+  <linearGradient id="tsh-t" x1="0" y1="1" x2="0" y2="0">
+   <stop offset="0" stop-color="#000000" stop-opacity="0.18"/>
+   <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="tsh-b" x1="0" y1="0" x2="0" y2="1">
+   <stop offset="0" stop-color="#000000" stop-opacity="0.18"/>
+   <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="tsh-l" x1="1" y1="0" x2="0" y2="0">
+   <stop offset="0" stop-color="#000000" stop-opacity="0.18"/>
+   <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="tsh-r" x1="0" y1="0" x2="1" y2="0">
+   <stop offset="0" stop-color="#000000" stop-opacity="0.18"/>
+   <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="tsh-tl" cx="1" cy="1" r="1">
+   <stop offset="0" stop-color="#000000" stop-opacity="0.18"/>
+   <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="tsh-tr" cx="0" cy="1" r="1">
+   <stop offset="0" stop-color="#000000" stop-opacity="0.18"/>
+   <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="tsh-bl" cx="1" cy="0" r="1">
+   <stop offset="0" stop-color="#000000" stop-opacity="0.18"/>
+   <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="tsh-br" cx="0" cy="0" r="1">
+   <stop offset="0" stop-color="#000000" stop-opacity="0.18"/>
+   <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+  </radialGradient>
+ </defs>
+ <!-- frame fills -->
+ <path id="topleft" d="M 0,8 V 2 A 2,2 0 0 1 2,0 H 8 V 8 Z" fill="#22252c"/>
+ <rect id="top" x="8" y="0" width="8" height="8" fill="#22252c"/>
+ <path id="topright" d="M 16,0 h 6 A 2,2 0 0 1 24,2 V 8 H 16 Z" fill="#22252c"/>
+ <rect id="left" x="0" y="8" width="8" height="8" fill="#22252c"/>
+ <rect id="center" x="8" y="8" width="8" height="8" fill="#22252c"/>
+ <rect id="right" x="16" y="8" width="8" height="8" fill="#22252c"/>
+ <path id="bottomleft" d="M 0,16 H 8 V 24 H 2 A 2,2 0 0 1 0,22 Z" fill="#22252c"/>
+ <rect id="bottom" x="8" y="16" width="8" height="8" fill="#22252c"/>
+ <path id="bottomright" d="M 16,16 H 24 V 22 A 2,2 0 0 1 22,24 H 16 Z" fill="#22252c"/>
+ <!-- 1px outer border -->
+ <path d="M 0.5,8 V 2 A 1.5,1.5 0 0 1 2,0.5 H 8" fill="none" stroke="#1a1c21" stroke-width="1"/>
+ <path d="M 8,0.5 H 16" fill="none" stroke="#1a1c21" stroke-width="1"/>
+ <path d="M 16,0.5 h 6 A 1.5,1.5 0 0 1 23.5,2 V 8" fill="none" stroke="#1a1c21" stroke-width="1"/>
+ <path d="M 0.5,8 V 16" fill="none" stroke="#1a1c21" stroke-width="1"/>
+ <path d="M 23.5,8 V 16" fill="none" stroke="#1a1c21" stroke-width="1"/>
+ <path d="M 0.5,16 v 6 A 1.5,1.5 0 0 0 2,23.5 H 8" fill="none" stroke="#1a1c21" stroke-width="1"/>
+ <path d="M 8,23.5 H 16" fill="none" stroke="#1a1c21" stroke-width="1"/>
+ <path d="M 23.5,16 v 6 A 1.5,1.5 0 0 1 22,23.5 h -6" fill="none" stroke="#1a1c21" stroke-width="1"/>
+ <!-- content margins -->
+ <rect id="hint-top-margin" x="30" y="0" width="4" height="4" fill="#ff00ff"/>
+ <rect id="hint-bottom-margin" x="30" y="8" width="4" height="4" fill="#ff00ff"/>
+ <rect id="hint-left-margin" x="38" y="0" width="4" height="4" fill="#ff00ff"/>
+ <rect id="hint-right-margin" x="46" y="0" width="4" height="4" fill="#ff00ff"/>
+ <!-- shape mask -->
+ <path id="mask-topleft" d="M 0,38 V 32 A 2,2 0 0 1 2,30 H 8 V 38 Z" fill="#000000"/>
+ <rect id="mask-top" x="8" y="30" width="8" height="8" fill="#000000"/>
+ <path id="mask-topright" d="M 16,30 h 6 A 2,2 0 0 1 24,32 V 38 H 16 Z" fill="#000000"/>
+ <rect id="mask-left" x="0" y="38" width="8" height="8" fill="#000000"/>
+ <rect id="mask-center" x="8" y="38" width="8" height="8" fill="#000000"/>
+ <rect id="mask-right" x="16" y="38" width="8" height="8" fill="#000000"/>
+ <path id="mask-bottomleft" d="M 0,46 H 8 V 54 H 2 A 2,2 0 0 1 0,52 Z" fill="#000000"/>
+ <rect id="mask-bottom" x="8" y="46" width="8" height="8" fill="#000000"/>
+ <path id="mask-bottomright" d="M 16,46 H 24 V 52 A 2,2 0 0 1 22,54 H 16 Z" fill="#000000"/>
+ <!-- soft drop shadow -->
+ <rect id="shadow-topleft" x="60" y="0" width="4" height="3" fill="url(#tsh-tl)"/>
+ <rect id="shadow-top" x="64" y="0" width="8" height="3" fill="url(#tsh-t)"/>
+ <rect id="shadow-topright" x="72" y="0" width="4" height="3" fill="url(#tsh-tr)"/>
+ <rect id="shadow-left" x="60" y="3" width="4" height="8" fill="url(#tsh-l)"/>
+ <rect id="shadow-right" x="72" y="3" width="4" height="8" fill="url(#tsh-r)"/>
+ <rect id="shadow-bottomleft" x="60" y="11" width="4" height="5" fill="url(#tsh-bl)"/>
+ <rect id="shadow-bottom" x="64" y="11" width="8" height="5" fill="url(#tsh-b)"/>
+ <rect id="shadow-bottomright" x="72" y="11" width="4" height="5" fill="url(#tsh-br)"/>
+ <rect id="shadow-hint-top-margin" x="82" y="0" width="4" height="3" fill="#ff00ff"/>
+ <rect id="shadow-hint-bottom-margin" x="82" y="7" width="4" height="5" fill="#ff00ff"/>
+ <rect id="shadow-hint-left-margin" x="90" y="0" width="4" height="4" fill="#ff00ff"/>
+ <rect id="shadow-hint-right-margin" x="95" y="8" width="4" height="4" fill="#ff00ff"/>
+</svg>

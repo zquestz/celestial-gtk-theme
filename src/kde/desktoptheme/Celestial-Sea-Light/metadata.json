@@ -1,0 +1,16 @@
+{
+    "KPackageStructure": "Plasma/Theme",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "zquestz"
+            }
+        ],
+        "Category": "",
+        "Description": "Dark panel for the Celestial Sea Light standard theme",
+        "Id": "Celestial-Sea-Light",
+        "License": "GPL-3.0-or-later",
+        "Name": "Celestial Sea Light",
+        "Website": "https://github.com/zquestz/celestial-gtk-theme"
+    }
+}

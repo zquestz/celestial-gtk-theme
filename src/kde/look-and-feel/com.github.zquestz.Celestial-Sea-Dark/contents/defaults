@@ -11,7 +11,7 @@ Theme=Papirus-Dark
 cursorTheme=Celestial
 
 [plasmarc][Theme]
-name=default
+name=Celestial-Sea-Dark
 
 [kwinrc][org.kde.kdecoration2]
 library=org.kde.kwin.aurorae.v2

@@ -802,15 +802,15 @@ install_kde_variant() {
     echo "Warning: window decoration '${variant}' not found, skipping..."
   fi
 
-  # Standard variants (empty color) ship a dark-panel Plasma desktop theme
-  if [[ -z "${color}" ]]; then
-    local dt_src="${SRC_DIR}/kde/desktoptheme/${variant}"
-    if [[ -d "${dt_src}" ]]; then
-      local dt_dest="${DESTDIR}${PLASMA_THEME_DIR}/${variant}"
-      [[ -d "${dt_dest}" ]] && rm -rf "${dt_dest}"
-      cp -r "${dt_src}" "${dt_dest}"
-      echo "  Installed Plasma desktop theme ${variant}"
-    fi
+  # Plasma desktop theme (panel, popups, tooltip)
+  local dt_src="${SRC_DIR}/kde/desktoptheme/${variant}"
+  if [[ -d "${dt_src}" ]]; then
+    local dt_dest="${DESTDIR}${PLASMA_THEME_DIR}/${variant}"
+    [[ -d "${dt_dest}" ]] && rm -rf "${dt_dest}"
+    cp -r "${dt_src}" "${dt_dest}"
+    echo "  Installed Plasma desktop theme ${variant}"
+  else
+    echo "Warning: Plasma desktop theme '${variant}' not found, skipping..."
   fi
 }
 
@@ -848,7 +848,7 @@ uninstall_kde_variant() {
     echo "  Removed window decoration ${variant}"
   fi
 
-  if [[ -z "${color}" && -d "${DESTDIR}${PLASMA_THEME_DIR}/${variant}" ]]; then
+  if [[ -d "${DESTDIR}${PLASMA_THEME_DIR}/${variant}" ]]; then
     rm -rf "${DESTDIR}${PLASMA_THEME_DIR:?}/${variant}"
     echo "  Removed Plasma desktop theme ${variant}"
   fi

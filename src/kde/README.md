@@ -6,7 +6,7 @@ This directory contains native theming for the KDE Plasma desktop.
 
 - **Color schemes** (`color-schemes/`) - 12 `.colors` files (4 colors x standard/light/dark) that theme every Qt and KDE application, window titlebars, and headers to match the Celestial palette.
 - **Global themes** (`look-and-feel/`) - 12 "Look and Feel" packages that appear under **System Settings > Global Theme**. Each bundles the matching color scheme, the Kvantum widget style, Breeze window decorations, a dark/light Plasma panel, Papirus icons, the Celestial cursor, a Celestial splash screen, and preview images - so a single click themes the whole desktop.
-- **Desktop themes** (`desktoptheme/`) - 4 minimal Plasma desktop themes (one per color) that give the **standard** variants a dark panel while their app windows stay light. Installed automatically with the standard variants; dark/light variants use Breeze following the color scheme.
+- **Desktop themes** (`desktoptheme/`) - 12 Plasma desktop themes with Celestial's own panel, popup, and tooltip artwork - flat and solid like the GTK panels. The standard variants keep a dark panel while their app windows stay light.
 - **Window decorations** (`aurorae/`) - 12 Aurorae packages that give windows Celestial's titlebars and buttons, built from the GTK theme's own titlebutton designs - including the plain close X that only turns red on hover.
 
 The Kvantum widget themes referenced by the global themes live in [`../Kvantum`](../Kvantum), and a matching [Konsole](../extra/konsole) terminal scheme lives in `../extra/konsole`. Everything is installed together by the `--kde` flag.
@@ -83,7 +83,7 @@ The `color-schemes/`, `look-and-feel/`, `desktoptheme/`, and `aurorae/` director
 ./src/kde/render.sh
 ```
 
-This requires `sassc`, `rsvg-convert`, and ImageMagick. Each global-theme package contains `metadata.json`, `contents/defaults`, `contents/colors` (a bundled copy of the color scheme), and `contents/previews/` images (`preview.png` and the fullscreen `fullscreenpreview.jpg`), rendered from `preview-template.svg`; each desktop theme reuses the matching dark `.colors` for its panel colors. Two things Plasma is strict about: each global-theme package folder **must** be named exactly after its `KPlugin` Id, and the color scheme only applies if it is bundled as `contents/colors` (the `ColorScheme=` line in `defaults` just sets the label).
+This requires `sassc`, `rsvg-convert`, and ImageMagick. Each global-theme package contains `metadata.json`, `contents/defaults`, `contents/colors` (a bundled copy of the color scheme), and `contents/previews/` images (`preview.png` and the fullscreen `fullscreenpreview.jpg`), rendered from `preview-template.svg`. The desktop themes' panel/popup/tooltip SVGs come from the authored templates in `desktoptheme-base/`; standard variants bundle their color's dark `.colors` so panel text stays light. Two things Plasma is strict about: each global-theme package folder **must** be named exactly after its `KPlugin` Id, and the color scheme only applies if it is bundled as `contents/colors` (the `ColorScheme=` line in `defaults` just sets the label).
 
 ## Credits
 

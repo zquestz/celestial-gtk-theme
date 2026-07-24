@@ -5,12 +5,13 @@
 #   - look-and-feel/<id>/               (global theme packages; folder name == KPlugin Id)
 #       metadata.json, contents/defaults, contents/colors,
 #       contents/previews/preview.png, contents/previews/fullscreenpreview.jpg
-#   - desktoptheme/<name>/              (dark-panel Plasma desktop themes for standard variants)
-#       metadata.json, colors
+#   - desktoptheme/<name>/              (Plasma desktop themes: panel, popups, tooltip)
+#       metadata.json, colors, widgets/, dialogs/, opaque/
 #   - aurorae/<name>/                   (window decorations; KWin id __aurorae__svg__<name>)
 #       decoration.svg, button SVGs, <name>rc, metadata.desktop
 # Aurorae inputs live in aurorae-base/: the decoration frames are vendored from
 # arc-kde (tokenized), the buttons are Celestial's own GTK titlebutton designs.
+# Desktop theme SVGs are authored templates in desktoptheme-base/.
 # Run this after changing src/gtk/sass/_colors.scss, then commit the outputs.
 
 if [ ! "$(which sassc 2> /dev/null)" ]; then
@@ -40,6 +41,7 @@ LNF_DIR="${KDE_DIR}/look-and-feel"
 DT_DIR="${KDE_DIR}/desktoptheme"
 AUR_BASE="${KDE_DIR}/aurorae-base"
 AUR_DIR="${KDE_DIR}/aurorae"
+DT_BASE="${KDE_DIR}/desktoptheme-base"
 TEMPLATE="${KDE_DIR}/preview-template.svg"
 SPLASH_TEMPLATE="${KDE_DIR}/splash-template.qml"
 
@@ -245,6 +247,10 @@ preview {
   HEADERFG: $header_fg;
   HEADERBORDER: mix(black, $header_bg, if($header == "light", 15%, 25%));
   SPLASHTRACK: mix($header_fg, $header_bg, 25%);
+  DIALOGBG: $menu_bg_color;
+  DIALOGBORDER: mix(black, $menu_bg_color, if($variant == "light", 15%, 25%));
+  TOOLTIPBG: $base_color;
+  TOOLTIPBORDER: mix(black, $base_color, if($variant == "light", 15%, 25%));
   WINDOW: $bg_color;
   BASE: $base_color;
   FG: $fg_color;
@@ -419,6 +425,42 @@ Image=${wallpaper}
 EOF
 }
 
+# Plasma desktop theme: Celestial panel, popups, and tooltip for every variant
+build_desktoptheme() {
+  local dest="${DT_DIR}/${scheme_id}"
+
+  mkdir -p "${dest}/widgets" "${dest}/dialogs" "${dest}/opaque/widgets" "${dest}/opaque/dialogs"
+
+  local -a S=(
+    -e "s/{{PANEL}}/${P[PANEL]}/g"
+    -e "s/{{DIALOGBG}}/${P[DIALOGBG]}/g"
+    -e "s/{{DIALOGBORDER}}/${P[DIALOGBORDER]}/g"
+    -e "s/{{TOOLTIPBG}}/${P[TOOLTIPBG]}/g"
+    -e "s/{{TOOLTIPBORDER}}/${P[TOOLTIPBORDER]}/g"
+  )
+  sed "${S[@]}" "${DT_BASE}/panel-background.svg.in" > "${dest}/widgets/panel-background.svg"
+  sed "${S[@]}" "${DT_BASE}/dialogs-background.svg.in" > "${dest}/dialogs/background.svg"
+  sed "${S[@]}" "${DT_BASE}/tooltip.svg.in" > "${dest}/widgets/tooltip.svg"
+  # Our surfaces are solid, so the opaque variants are identical
+  cp "${dest}/widgets/panel-background.svg" "${dest}/opaque/widgets/panel-background.svg"
+  cp "${dest}/dialogs/background.svg" "${dest}/opaque/dialogs/background.svg"
+  cp "${dest}/widgets/tooltip.svg" "${dest}/opaque/widgets/tooltip.svg"
+
+  if grep -rq '{{' "${dest}"; then
+    echo "ERROR: unsubstituted desktoptheme token(s) for ${scheme_id}:" \
+      "$(grep -rho '{{[A-Z0-9]*}}' "${dest}" | sort -u | tr '\n' ' ')"
+    exit 1
+  fi
+
+  # Panel text needs light colors even on the light-bodied standard variants,
+  # so standard bundles its color's dark scheme
+  local colors_src="${CS_DIR}/${scheme_id}.colors"
+  [[ "${mode}" == "standard" ]] && colors_src="${CS_DIR}/${scheme_id}-Dark.colors"
+  cp "${colors_src}" "${dest}/colors"
+
+  write_desktoptheme_metadata "${dest}/metadata.json" "${scheme_id}"
+}
+
 # Celestial splash screen: tokenized QML plus the Splash Screen KCM preview
 render_splash() {
   local dir="${1}"
@@ -580,7 +622,8 @@ render_previews() {
 }
 
 for theme in sea aliz azul pueril; do
-  for mode in standard light dark; do
+  # dark first: the standard variant's desktop theme bundles the dark color scheme
+  for mode in dark light standard; do
     case "${mode}" in
       standard)
         sass_variant="light"
@@ -608,13 +651,8 @@ for theme in sea aliz azul pueril; do
     pkg_id="${ID_PREFIX}${scheme_id}"
     pkg_dir="${LNF_DIR}/${pkg_id}"
 
-    # Standard variants have light app bodies but want a dark panel, so they use our
-    # Celestial-<Color> desktop theme; dark/light use "default" (Breeze follows the scheme)
-    if [[ "${mode}" == "standard" ]]; then
-      plasma_theme="Celestial-${theme_cap}"
-    else
-      plasma_theme="default"
-    fi
+    # Every variant ships its own Celestial desktop theme (panel, popups, tooltip)
+    plasma_theme="${scheme_id}"
 
     # Each color's default wallpaper (Plasma wallpaper packages installed by -b)
     case "${theme}" in
@@ -655,18 +693,8 @@ for theme in sea aliz azul pueril; do
 
     # Window decoration (Aurorae package)
     build_aurorae
+
+    # Plasma desktop theme (panel, popups, tooltip)
+    build_desktoptheme
   done
-done
-
-# Dark-panel Plasma desktop themes for the standard variants. Each reuses the matching
-# dark color scheme (all-dark), so the inherited Breeze panel renders dark in our colors.
-for theme in sea aliz azul pueril; do
-  theme_cap="${theme^}"
-  dt_id="Celestial-${theme_cap}"
-  dt_dir="${DT_DIR}/${dt_id}"
-
-  echo "==> ${dt_id} (Plasma desktop theme)"
-  mkdir -p "${dt_dir}"
-  write_desktoptheme_metadata "${dt_dir}/metadata.json" "${dt_id}"
-  cp "${CS_DIR}/${dt_id}-Dark.colors" "${dt_dir}/colors"
 done

@@ -1,0 +1,33 @@
+<svg width="60" height="60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <!-- Celestial panel: flat, solid, square - matches the GTK panel -->
+ <rect id="topleft" x="0" y="0" width="8" height="8" fill="#222222"/>
+ <rect id="top" x="8" y="0" width="8" height="8" fill="#222222"/>
+ <rect id="topright" x="16" y="0" width="8" height="8" fill="#222222"/>
+ <rect id="left" x="0" y="8" width="8" height="8" fill="#222222"/>
+ <rect id="center" x="8" y="8" width="8" height="8" fill="#222222"/>
+ <rect id="right" x="16" y="8" width="8" height="8" fill="#222222"/>
+ <rect id="bottomleft" x="0" y="16" width="8" height="8" fill="#222222"/>
+ <rect id="bottom" x="8" y="16" width="8" height="8" fill="#222222"/>
+ <rect id="bottomright" x="16" y="16" width="8" height="8" fill="#222222"/>
+ <!-- content margins -->
+ <rect id="hint-top-margin" x="28" y="0" width="4" height="2" fill="#ff00ff"/>
+ <rect id="hint-bottom-margin" x="28" y="6" width="4" height="2" fill="#ff00ff"/>
+ <rect id="hint-left-margin" x="36" y="0" width="2" height="4" fill="#ff00ff"/>
+ <rect id="hint-right-margin" x="42" y="0" width="2" height="4" fill="#ff00ff"/>
+ <!-- panel shape mask -->
+ <rect id="mask-topleft" x="0" y="30" width="8" height="8" fill="#000000"/>
+ <rect id="mask-top" x="8" y="30" width="8" height="8" fill="#000000"/>
+ <rect id="mask-topright" x="16" y="30" width="8" height="8" fill="#000000"/>
+ <rect id="mask-left" x="0" y="38" width="8" height="8" fill="#000000"/>
+ <rect id="mask-center" x="8" y="38" width="8" height="8" fill="#000000"/>
+ <rect id="mask-right" x="16" y="38" width="8" height="8" fill="#000000"/>
+ <rect id="mask-bottomleft" x="0" y="46" width="8" height="8" fill="#000000"/>
+ <rect id="mask-bottom" x="8" y="46" width="8" height="8" fill="#000000"/>
+ <rect id="mask-bottomright" x="16" y="46" width="8" height="8" fill="#000000"/>
+ <!-- thick panel variant -->
+ <rect id="thick-center" x="30" y="30" width="8" height="8" fill="#222222"/>
+ <rect id="thick-hint-top-margin" x="42" y="30" width="4" height="4" fill="#ff00ff"/>
+ <rect id="thick-hint-bottom-margin" x="42" y="38" width="4" height="4" fill="#ff00ff"/>
+ <rect id="thick-hint-left-margin" x="48" y="30" width="4" height="4" fill="#ff00ff"/>
+ <rect id="thick-hint-right-margin" x="54" y="30" width="4" height="4" fill="#ff00ff"/>
+</svg>
