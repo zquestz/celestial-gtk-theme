@@ -112,11 +112,6 @@ $compl_visited: flat(rgba($compl_fg, 0.8), $compl_bg);
 $header_link: if($header == "light", $link_color, $dark_surface_link);
 $header_visited: if($header == "light", $link_visited_color, flat(rgba($header_fg, 0.8), $header_bg));
 
-// Dark variants unify selection text with the window foreground: KIO paints
-// selected-but-unfocused items with the plain text color, so distinct roles
-// make sidebar selections shift color as focus moves (Arc unifies the same way)
-$selection_fg: if($variant == "dark", $fg_color, $selected_fg_color);
-
 $selection_link: flat(rgba($selected_fg_color, 0.9), $selected_bg_color);
 $selection_visited: flat(rgba($selected_fg_color, 0.75), $selected_bg_color);
 $selection_negative: mix($error_color, $selected_fg_color, 70%);
@@ -181,7 +176,7 @@ scheme {
   SelectionForegroundLink: #{kde($selection_link)};
   SelectionForegroundNegative: #{kde($selection_negative)};
   SelectionForegroundNeutral: #{kde($selection_neutral)};
-  SelectionForegroundNormal: #{kde($selection_fg)};
+  SelectionForegroundNormal: #{kde($selected_fg_color)};
   SelectionForegroundPositive: #{kde($selection_positive)};
   SelectionForegroundVisited: #{kde($selection_visited)};
   TooltipBackgroundAlternate: #{kde($tooltip_alt)};
