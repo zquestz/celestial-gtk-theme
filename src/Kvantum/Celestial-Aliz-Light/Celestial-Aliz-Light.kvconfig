@@ -15,7 +15,7 @@ menu_shadow_depth=7
 menu_separator_height=6
 tooltip_shadow_depth=6
 splitter_width=4
-scroll_width=13
+scroll_width=9
 scroll_arrows=false
 scroll_min_extent=40
 slider_width=5
@@ -93,7 +93,7 @@ progress.indicator.text.color=white
 
 [Hacks]
 transparent_ktitle_label=false
-transparent_dolphin_view=true
+transparent_dolphin_view=false
 transparent_pcmanfm_sidepane=false
 blur_translucent=false
 transparent_menutitle=false

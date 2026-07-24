@@ -1098,7 +1098,7 @@
        id="scrollbarslider-normal-topleft0-9"
        d="m 155,1089 c -6.648,0 -12,5.3521 -12,12 h 12 v -12 z " />
     <path
-       style="fill:#b8babf"
+       style="fill:#a4a8a9"
        id="path4475-1"
        d="m 155,1092.5 c -4,0.011 -4,2.7501 -4,8.4998 l 4,2e-4 z" />
   </g>
@@ -1111,7 +1111,7 @@
        id="scrollbarslider-normal-left0-1"
        d="m 143,1101 0,16.4064 0,.094 12,0 0,-16.5 -12,0 z " />
     <path
-       style="fill:#b8babf"
+       style="fill:#a4a8a9"
        id="path4477-3"
        d="m 151,1100.9998 0,16.4064 0,0.094 4,2e-4 0,-16.5 -4,-2e-4 z" />
   </g>
@@ -2809,7 +2809,7 @@
        id="rect5155"
        d="m 225,669.797 c 6.66669,-2.7e-4 12,3.86779 12,8.70287 h -12 z" />
     <path
-       style="fill:#2eb398;fill-rule:evenodd"
+       style="fill:#b9bcbd;fill-rule:evenodd"
        id="path5158"
        d="M 225,671.73076 V 678.5 h 9.33336 c 0,-3.86819 -4,-6.76924 -9.33336,-6.76925 z" />
   </g>
@@ -2821,7 +2821,7 @@
        id="rect5162"
        d="m 225,669.79687 v 8.70291 h -12 c -2e-5,-4.8351 5.33333,-8.70316 12,-8.70291 z" />
     <path
-       style="fill:#2eb398;fill-rule:evenodd"
+       style="fill:#b9bcbd;fill-rule:evenodd"
        id="path5164"
        d="m 225,671.73066 c -5.33333,-10e-6 -9.33334,2.90104 -9.33334,6.76924 H 225 Z" />
   </g>
@@ -2836,7 +2836,7 @@
        style="opacity:0"
        id="rect5168" />
     <path
-       style="fill:#2eb398;fill-rule:evenodd"
+       style="fill:#b9bcbd;fill-rule:evenodd"
        id="path5170"
        d="m 215.66667,678.5 0,23 H 225 v -23 z" />
   </g>
@@ -2851,7 +2851,7 @@
        style="opacity:0"
        id="rect5174" />
     <path
-       style="fill:#2eb398;fill-rule:evenodd"
+       style="fill:#b9bcbd;fill-rule:evenodd"
        id="path5176"
        d="m 225,678.5005 v 23 h 9.3333 v -23 z" />
   </g>
