@@ -10,13 +10,13 @@
 // ============================================================================
 // Panel-specific dark colors (matching dark variant values)
 
-$panel_fg_color: $_fg_color_dark;
+$panel_fg_color: $dark_surface_fg;
 $panel_text_color: $_text_color_dark;
-$panel_borders_color: darken($_bg_color_dark, 3%);
-$panel_light_bg: lighten($_base_color_dark, 5%);
-$panel_lighter_bg: lighten($_base_color_dark, 8%);
-$panel_lightest_bg: lighten($_base_color_dark, 15%);
-$panel_insensitive_fg: transparentize($_fg_color_dark, 0.55);
+$panel_borders_color: $dark_surface_border;
+$panel_light_bg: $dark_surface_bg;
+$panel_lighter_bg: $dark_surface_bg_hover;
+$panel_lightest_bg: $dark_surface_bg_active;
+$panel_insensitive_fg: transparentize($dark_surface_fg, 0.55);
 
 // ============================================================================
 // Panel Border Styling

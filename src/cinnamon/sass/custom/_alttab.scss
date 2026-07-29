@@ -1,0 +1,27 @@
+// ============================================================================
+// Window Switcher Styling
+// ============================================================================
+// The alt-tab popup sits on $panel_bg, which is dark in every Celestial
+// variant. This file contains overrides to force dark colors for everything
+// drawn on it, so light themes get the same switcher as dark themes instead
+// of near-white selection blocks on a dark popup.
+// ============================================================================
+
+.switcher-list {
+  border-color: $dark_surface_border;
+  color: $dark_surface_fg;
+
+  .item-box:selected {
+    border-color: $dark_surface_border;
+    background-color: $dark_surface_bg;
+  }
+}
+
+// Icon + window title for each entry
+.alt-tab-app {
+  color: $dark_surface_fg;
+}
+
+.switcher-arrow {
+  color: $dark_surface_fg;
+}

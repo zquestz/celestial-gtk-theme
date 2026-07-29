@@ -2219,6 +2219,24 @@ StScrollBar StButton#hhandle:hover {
   icon-size: 1.091em;
 }
 
+.switcher-list {
+  border-color: #1a1a1a;
+  color: #cbbfbf;
+}
+
+.switcher-list .item-box:selected {
+  border-color: #1a1a1a;
+  background-color: #333333;
+}
+
+.alt-tab-app {
+  color: #cbbfbf;
+}
+
+.switcher-arrow {
+  color: #cbbfbf;
+}
+
 .ripple-box {
   background-image: url("corner-ripple.svg");
 }
@@ -2233,6 +2251,57 @@ StScrollBar StButton#hhandle:hover {
 
 .system-status-icon {
   icon-size: 1.091em;
+}
+
+.vkeyboard-key {
+  color: #cbbfbf;
+  background-color: #3a3a3a;
+}
+
+.vkeyboard-key:focus {
+  color: #cbbfbf;
+  background-color: #333333;
+  box-shadow: inset 0 0 1px 1px rgba(203, 191, 191, 0.4);
+}
+
+.vkeyboard-key:hover, .vkeyboard-key:checked {
+  color: #cbbfbf;
+  background-color: #3a3a3a;
+}
+
+.vkeyboard-key:active {
+  color: #cbbfbf;
+  background-color: #4c4c4c;
+}
+
+.vkeyboard-key.shift-key-lowercase, .vkeyboard-key.escape-key, .vkeyboard-key.hide-key, .vkeyboard-key.non-alpha-key {
+  background-color: #333333;
+}
+
+.vkeyboard-key.shift-key-lowercase:focus, .vkeyboard-key.escape-key:focus, .vkeyboard-key.hide-key:focus, .vkeyboard-key.non-alpha-key:focus {
+  color: #cbbfbf;
+  background-color: #333333;
+  box-shadow: inset 0 0 1px 1px rgba(203, 191, 191, 0.4);
+}
+
+.vkeyboard-key.shift-key-lowercase:hover, .vkeyboard-key.shift-key-lowercase:checked, .vkeyboard-key.escape-key:hover, .vkeyboard-key.escape-key:checked, .vkeyboard-key.hide-key:hover, .vkeyboard-key.hide-key:checked, .vkeyboard-key.non-alpha-key:hover, .vkeyboard-key.non-alpha-key:checked {
+  color: #cbbfbf;
+  background-color: #3a3a3a;
+}
+
+.vkeyboard-key.shift-key-lowercase:active, .vkeyboard-key.escape-key:active, .vkeyboard-key.hide-key:active, .vkeyboard-key.non-alpha-key:active {
+  color: #cbbfbf;
+  background-color: #4c4c4c;
+}
+
+.vkeyboard-key.shift-key-uppercase {
+  background-color: #4c4c4c;
+}
+
+.vkeyboard-subkeys {
+  color: #cbbfbf;
+  -arrow-background-color: #222222;
+  -arrow-border-color: #393939;
 }
 
 .menu {

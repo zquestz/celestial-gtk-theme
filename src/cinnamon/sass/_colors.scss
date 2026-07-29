@@ -218,3 +218,17 @@ $notification_badge_bg_color: $accent_bg_color;
 
 $large_icon_color: transparentize($fg_color, 0.6);
 $shadow_color: rgba(0, 0, 0, 0.5);
+
+// ============================================================================
+// Dark Surface Colors
+// ============================================================================
+// Some surfaces stay dark in every variant (the panel, the window switcher,
+// the on-screen keyboard). Anything drawn on them needs dark-variant colors
+// even in light themes, so those values are pinned here rather than following
+// $variant. The custom/ overrides that force these surfaces dark share them.
+
+$dark_surface_fg: $_fg_color_dark;
+$dark_surface_border: darken($_bg_color_dark, 3%);
+$dark_surface_bg: lighten($_base_color_dark, 5%);
+$dark_surface_bg_hover: lighten($_base_color_dark, 8%);
+$dark_surface_bg_active: lighten($_base_color_dark, 15%);

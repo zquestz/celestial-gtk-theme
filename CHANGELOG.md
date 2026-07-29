@@ -5,6 +5,13 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.1] - 2026-07-28
+
+### Fixed
+
+- Cinnamon window switcher now uses dark colors on its dark surface in light theme variants
+- Cinnamon on-screen keyboard now uses dark keys on its dark surface in light theme variants
+
 ## [1.5.0] - 2026-07-23
 
 ### Added

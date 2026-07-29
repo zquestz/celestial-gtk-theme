@@ -2219,6 +2219,24 @@ StScrollBar StButton#hhandle:hover {
   icon-size: 1.091em;
 }
 
+.switcher-list {
+  border-color: #14161b;
+  color: #bbc3c8;
+}
+
+.switcher-list .item-box:selected {
+  border-color: #14161b;
+  background-color: #2d313a;
+}
+
+.alt-tab-app {
+  color: #bbc3c8;
+}
+
+.switcher-arrow {
+  color: #bbc3c8;
+}
+
 .ripple-box {
   background-image: url("corner-ripple.svg");
 }
@@ -2233,6 +2251,57 @@ StScrollBar StButton#hhandle:hover {
 
 .system-status-icon {
   icon-size: 1.091em;
+}
+
+.vkeyboard-key {
+  color: #bbc3c8;
+  background-color: #343843;
+}
+
+.vkeyboard-key:focus {
+  color: #bbc3c8;
+  background-color: #2d313a;
+  box-shadow: inset 0 0 1px 1px rgba(187, 195, 200, 0.4);
+}
+
+.vkeyboard-key:hover, .vkeyboard-key:checked {
+  color: #bbc3c8;
+  background-color: #343843;
+}
+
+.vkeyboard-key:active {
+  color: #bbc3c8;
+  background-color: #434957;
+}
+
+.vkeyboard-key.shift-key-lowercase, .vkeyboard-key.escape-key, .vkeyboard-key.hide-key, .vkeyboard-key.non-alpha-key {
+  background-color: #2d313a;
+}
+
+.vkeyboard-key.shift-key-lowercase:focus, .vkeyboard-key.escape-key:focus, .vkeyboard-key.hide-key:focus, .vkeyboard-key.non-alpha-key:focus {
+  color: #bbc3c8;
+  background-color: #2d313a;
+  box-shadow: inset 0 0 1px 1px rgba(187, 195, 200, 0.4);
+}
+
+.vkeyboard-key.shift-key-lowercase:hover, .vkeyboard-key.shift-key-lowercase:checked, .vkeyboard-key.escape-key:hover, .vkeyboard-key.escape-key:checked, .vkeyboard-key.hide-key:hover, .vkeyboard-key.hide-key:checked, .vkeyboard-key.non-alpha-key:hover, .vkeyboard-key.non-alpha-key:checked {
+  color: #bbc3c8;
+  background-color: #343843;
+}
+
+.vkeyboard-key.shift-key-lowercase:active, .vkeyboard-key.escape-key:active, .vkeyboard-key.hide-key:active, .vkeyboard-key.non-alpha-key:active {
+  color: #bbc3c8;
+  background-color: #434957;
+}
+
+.vkeyboard-key.shift-key-uppercase {
+  background-color: #434957;
+}
+
+.vkeyboard-subkeys {
+  color: #bbc3c8;
+  -arrow-background-color: #1b1d24;
+  -arrow-border-color: #2f323e;
 }
 
 .menu {
