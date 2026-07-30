@@ -66,8 +66,21 @@ Complete your desktop with these complementary themes:
 - **[Papirus Icon Theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)** - Modern icon theme with excellent coverage; pair `Papirus` with the standard variants, `Papirus-Dark` with dark, and `Papirus-Light` with light
 - **[Plank Reloaded](https://github.com/zquestz/plank-reloaded)** - Modern dock with Celestial theme support
 - **[Hardcode-Tray](https://github.com/bilelmoussaoui/Hardcode-Tray)** - Fix hardcoded tray icons
-- **[Folder Color](https://github.com/costales/folder-color)** - Change folder colors in Nautilus, Nemo, and Caja
+- **[Folder Color](https://github.com/costales/folder-color)** - Change individual folder colors in Nautilus, Nemo, and Caja
 - **[Transparent panels](https://cinnamon-spices.linuxmint.com/extensions/view/81)** - Cinnamon extension with full theme color support
+
+### Matching Folder Colors
+
+Papirus ships folder icons in every Celestial hue, and [papirus-folders](https://github.com/PapirusDevelopmentTeam/papirus-folders) sets which one is the default. Pick the color for your variant, and the Papirus flavor you paired it with:
+
+```bash
+papirus-folders -C teal  -t Papirus-Dark -u   # Sea
+papirus-folders -C green -t Papirus-Dark -u   # Pueril
+papirus-folders -C blue  -t Papirus-Dark -u   # Azul (Papirus default)
+papirus-folders -C red   -t Papirus-Dark -u   # Aliz
+```
+
+Use `-t Papirus` for the standard variants and `-t Papirus-Light` for light, matching the pairing above. This changes the Papirus theme itself, so it applies everywhere Papirus is used, not just under Celestial - `papirus-folders -D -t <theme>` restores the default blue. The command elevates itself with `sudo` when Papirus is installed system-wide.
 
 ### Qt Theming
 
