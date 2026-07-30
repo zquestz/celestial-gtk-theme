@@ -307,6 +307,24 @@ gsettings set org.gnome.desktop.interface gtk-theme "Celestial-Azul-Dark"
 gsettings set org.gnome.desktop.wm.preferences theme "Celestial-Azul-Dark"
 ```
 
+The **GNOME Shell theme** - the panel, overview, and shell menus - is a separate setting that requires the User Themes extension, which GNOME does not enable by default:
+
+```bash
+# Fedora
+sudo dnf install gnome-shell-extension-user-theme
+
+# Debian/Ubuntu
+sudo apt install gnome-shell-extensions
+
+gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
+```
+
+Log out and back in, then select your variant under **Tweaks** > **Appearance** > **Shell**, or:
+
+```bash
+gsettings set org.gnome.shell.extensions.user-theme name "Celestial-Azul-Dark"
+```
+
 ### Xfce Desktop
 
 ```bash

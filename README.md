@@ -59,6 +59,17 @@ GTK/GNOME apps don't follow a Plasma global theme - set them to match under **Sy
 
 Built for Plasma 6. See the [KDE Plasma README](src/kde/README.md) for full details.
 
+## GNOME Desktop
+
+Select your Celestial variant in **GNOME Tweaks** > **Appearance**. The shell theme is a separate setting that needs the User Themes extension - see [INSTALL.md](INSTALL.md#gnome-desktop) for both steps.
+
+The panel's **Dark Style** toggle flips GNOME's `color-scheme` preference, which only reaches GTK 4 apps: each installed variant is paired with its color's dark stylesheet, so a light or standard variant switches to dark and back. GTK 3 apps, the shell theme, and Qt apps follow the theme you selected, and a dark variant is already dark - so on a dark variant the toggle looks like it does nothing. To switch the whole desktop, change the theme:
+
+```bash
+gsettings set org.gnome.desktop.interface gtk-theme "Celestial-Sea-Light"
+gsettings set org.gnome.shell.extensions.user-theme name "Celestial-Sea-Light"
+```
+
 ## Recommended Companions
 
 Complete your desktop with these complementary themes:
