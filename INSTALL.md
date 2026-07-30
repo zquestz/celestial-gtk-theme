@@ -15,6 +15,7 @@ This guide covers installation, customization, and application of the Celestial 
 - `inkscape` - For rendering theme assets
 - `optipng` - For optimizing PNG assets
 - `kvantum` - For theming Qt applications
+- `glib2` - For the GDM login screen theme (`glib-compile-resources` and `gresource`)
 
 ## Installing Dependencies
 

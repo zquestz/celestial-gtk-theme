@@ -397,6 +397,8 @@ revert_gdm() {
     echo "Reverting '${GS_THEME_FILE}'..."
     rm -rf "${GS_THEME_FILE}"
     mv "${GS_THEME_FILE}.bak" "${GS_THEME_FILE}"
+  else
+    echo "No backup found at '${GS_THEME_FILE}.bak' - nothing to revert."
   fi
 }
 
@@ -1566,7 +1568,7 @@ if [[ "${gdm:-}" == 'true' && "${remove:-}" != 'true' && "$UID" -eq "$ROOT_UID" 
     exit 1
   fi
 
-  echo -e "\nNOTICE: Only GDM theme will installed..."
+  echo -e "\nNOTICE: Only the GDM theme will be installed..."
 
   gcolor_list=("${gcolors[@]}")
   theme_list=("${themes[@]}")
