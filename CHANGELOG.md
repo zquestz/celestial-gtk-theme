@@ -5,6 +5,12 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- Disabled toolbar and header button labels are now readable in standard variants (Caja, Thunar, Nemo, headerbars) (#9)
+
 ## [1.5.1] - 2026-07-28
 
 ### Fixed

@@ -2379,15 +2379,21 @@ headerbar entry image:hover {
 }
 
 .sidebar-pane button:disabled, headerbar button:disabled {
-  color: rgba(50, 50, 50, 0.45);
   background-color: transparent;
   border-color: transparent;
 }
 
+.sidebar-pane button:disabled label, headerbar button:disabled label, .sidebar-pane button:disabled, headerbar button:disabled {
+  color: rgba(50, 50, 50, 0.45);
+}
+
 .sidebar-pane button:disabled:active, headerbar button:disabled:active, .sidebar-pane button:disabled:checked, headerbar button:disabled:checked {
-  color: rgba(255, 255, 255, 0.5);
   border-color: rgba(151, 187, 114, 0.75);
   background-color: rgba(151, 187, 114, 0.75);
+}
+
+.sidebar-pane button:disabled:active label, headerbar button:disabled:active label, .sidebar-pane button:disabled:active, headerbar button:disabled:active, .sidebar-pane button:disabled:checked label, headerbar button:disabled:checked label, .sidebar-pane button:disabled:checked, headerbar button:disabled:checked {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .sidebar-pane .linked.raised > button:not(:last-child):not(:only-child), headerbar .linked.raised > button:not(:last-child):not(:only-child) {
@@ -2700,9 +2706,12 @@ headerbar button.suggested-action:active, headerbar button.suggested-action:chec
 }
 
 headerbar button.suggested-action.flat:disabled, headerbar button.suggested-action:disabled {
-  color: rgba(50, 50, 50, 0.45);
   background-color: transparent;
   border-color: transparent;
+}
+
+headerbar button.suggested-action.flat:disabled label, headerbar button.suggested-action.flat:disabled, headerbar button.suggested-action:disabled label, headerbar button.suggested-action:disabled {
+  color: rgba(50, 50, 50, 0.45);
 }
 
 headerbar button.suggested-action:backdrop,
@@ -2739,9 +2748,12 @@ headerbar button.destructive-action:active, headerbar button.destructive-action:
 }
 
 headerbar button.destructive-action.flat:disabled, headerbar button.destructive-action:disabled {
-  color: rgba(50, 50, 50, 0.45);
   background-color: transparent;
   border-color: transparent;
+}
+
+headerbar button.destructive-action.flat:disabled label, headerbar button.destructive-action.flat:disabled, headerbar button.destructive-action:disabled label, headerbar button.destructive-action:disabled {
+  color: rgba(50, 50, 50, 0.45);
 }
 
 headerbar button.destructive-action:backdrop,
