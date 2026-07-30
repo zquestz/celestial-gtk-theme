@@ -6,7 +6,7 @@
 }
 
 .datemenu-popover {
-  border-radius: $base_border_radius + $base_padding;
+  border-radius: $modal_radius;
 }
 
 // Calendar menu side column
@@ -59,7 +59,7 @@
       @extend %heading;
       padding: 8px 0;
       width: 10em;
-      border-radius: $circular_radius;
+      border-radius: $base_border_radius;
       text-align: center;
       color: $fg_color !important;
       background-color: transparent;

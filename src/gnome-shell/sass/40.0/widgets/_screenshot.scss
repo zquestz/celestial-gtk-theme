@@ -25,7 +25,7 @@
 
 $screenshot_ui_panel_padding: $base_padding * 3;
 $screenshot_ui_shot_cast_margin: $base_padding * 3;
-$screenshot_ui_panel_border_radius: $base_padding * 4;
+$screenshot_ui_panel_border_radius: $modal_radius;
 $screenshot_ui_shot_cast_spacing: $base_padding / 2;
 $screenshot_ui_button_red: $error_color;
 
@@ -57,8 +57,8 @@ $screenshot_ui_button_red: $error_color;
   @extend %osd_button;
   min-width: 48px;
   padding: $base_padding * 2 $base_padding * 3 !important;
-  border-radius: $screenshot_ui_panel_border_radius -
-    $screenshot_ui_panel_padding;
+  // the panel is no longer round enough for a concentric inner radius, so the
+  // standard button shape from %osd_button applies
 }
 
 .screenshot-ui-capture-button {
@@ -247,7 +247,7 @@ $screenshot_ui_button_red: $error_color;
 .screenshot-ui-tooltip {
   color: $osd_fg_color;
   background-color: $osd_bg_color;
-  border-radius: $circular_radius;
+  border-radius: $base_border_radius;
   padding: $base_padding $base_padding * 2;
   text-align: center;
   -y-offset: 24px;

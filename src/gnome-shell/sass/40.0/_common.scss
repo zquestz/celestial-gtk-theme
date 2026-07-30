@@ -372,7 +372,7 @@ stage {
   background-color: transparentize(black, 0.1);
   border: 1px solid transparentize(white, 0.9);
   color: white;
-  border-radius: $circular_radius;
+  border-radius: $base_border_radius;
   padding: $base_padding $base_padding * 2;
   text-align: center;
 }

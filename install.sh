@@ -71,7 +71,7 @@ usage() {
   printf "  %-25s%s\n" "-n, --name NAME" "Theme name (Default: ${THEME_NAME})"
   printf "  %-25s%s\n" "-c, --color VARIANTS" "Color variant [standard|light|dark] (Default: All)"
   printf "  %-25s%s\n" "-t, --theme VARIANTS" "Theme variant [sea|aliz|azul|pueril] (Default: All)"
-  printf "  %-25s%s\n" "-s, --gnome-shell" "GNOME Shell version [38|40|42|44|46|47|48] (Default: Auto)"
+  printf "  %-25s%s\n" "-s, --gnome-shell" "GNOME Shell version [38|40|42|44|46|47|48|49|50] (Default: Auto)"
   printf "  %-25s%s\n" "-l, --libadwaita" "Link libadwaita apps to GTK-4.0 theme"
   printf "  %-25s%s\n" "-k, --kvantum" "Install Kvantum theme for Qt applications"
   printf "  %-25s%s\n" "-b, --backgrounds" "Install theme backgrounds"
@@ -520,6 +520,14 @@ while [[ $# -gt 0 ]]; do
           SHELL_VERSION=48
           shift 2
           ;;
+        49)
+          SHELL_VERSION=49
+          shift 2
+          ;;
+        50)
+          SHELL_VERSION=50
+          shift 2
+          ;;
         -*)
           break
           ;;
@@ -612,7 +620,11 @@ if [[ -z "$SHELL_VERSION" ]]; then
 
     SHELL_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -1)"
 
-    if [[ "${SHELL_VERSION:-}" -ge "48" ]]; then
+    if [[ "${SHELL_VERSION:-}" -ge "50" ]]; then
+      SHELL_VERSION="50"
+    elif [[ "${SHELL_VERSION:-}" -ge "49" ]]; then
+      SHELL_VERSION="49"
+    elif [[ "${SHELL_VERSION:-}" -ge "48" ]]; then
       SHELL_VERSION="48"
     elif [[ "${SHELL_VERSION:-}" -ge "47" ]]; then
       SHELL_VERSION="47"
@@ -629,7 +641,7 @@ if [[ -z "$SHELL_VERSION" ]]; then
     fi
   else
     echo "'gnome-shell' not found, using styles for last gnome-shell version available."
-    SHELL_VERSION="48"
+    SHELL_VERSION="50"
   fi
 fi
 

@@ -99,6 +99,21 @@ $insensitive_fg_color: mix($fg_color, $bg_color, 35%);
 $insensitive_bg_color: mix($bg_color, $base_color, 60%);
 $insensitive_borders_color: mix($borders_color, $base_color, 60%);
 
+//insensitive text on card elements (calendar, message list), which sit on a
+//lighter background than the shell body and so need more contrast (GNOME 49+)
+$card_insensitive_fg_color: if(
+  $variant == "light",
+  darken($insensitive_fg_color, 5%),
+  lighten($insensitive_fg_color, 9%)
+);
+
+//panel hairline, only drawn on the light variant (GNOME 49+)
+$panel_border_color: if(
+  $variant == "light",
+  transparentize($fg_color, 0.9),
+  transparent
+);
+
 //colors for the backdrop state, derived from the main colors.
 $backdrop_base_color: if(
   $variant == "light",

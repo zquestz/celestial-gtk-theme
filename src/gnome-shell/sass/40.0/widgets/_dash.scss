@@ -7,7 +7,7 @@ $dash_spacing: $base_padding / 4;
 
 $dash_bottom_margin: $base_margin * 4;
 
-$dash_border_radius: $base_border_radius + $dash_padding;
+$dash_border_radius: $modal_radius;
 
 #dash {
   @include fontsize($base_font_size - 2);

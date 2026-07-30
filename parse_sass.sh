@@ -48,6 +48,10 @@ for color in "${_ECOLOR_VARIANTS[@]}"; do
     echo "==> Generating the 47.0 gnome-shell${theme}${color}.css..."
     sassc $SASSC_OPT "src/gnome-shell/48/gnome-shell${theme}${color}.scss" "src/gnome-shell/48/gnome-shell${theme}${color}.css"
     echo "==> Generating the 48.0 gnome-shell${theme}${color}.css..."
+    sassc $SASSC_OPT "src/gnome-shell/49/gnome-shell${theme}${color}.scss" "src/gnome-shell/49/gnome-shell${theme}${color}.css"
+    echo "==> Generating the 49.0 gnome-shell${theme}${color}.css..."
+    sassc $SASSC_OPT "src/gnome-shell/50/gnome-shell${theme}${color}.scss" "src/gnome-shell/50/gnome-shell${theme}${color}.css"
+    echo "==> Generating the 50.0 gnome-shell${theme}${color}.css..."
   done
 done
 

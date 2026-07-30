@@ -524,7 +524,7 @@ stage {
   background-color: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
-  border-radius: 1000px;
+  border-radius: 3px;
   padding: 6px 12px;
   text-align: center;
 }
@@ -1091,7 +1091,7 @@ StScrollBar StButton#hhandle:active {
 }
 
 .datemenu-popover {
-  border-radius: 9px;
+  border-radius: 5px;
 }
 
 .datemenu-calendar-column {
@@ -1203,7 +1203,7 @@ StScrollBar StButton#hhandle:active {
 .calendar .calendar-month-header .calendar-month-label {
   padding: 8px 0;
   width: 10em;
-  border-radius: 1000px;
+  border-radius: 3px;
   text-align: center;
   color: #363636 !important;
   background-color: transparent;
@@ -2525,7 +2525,7 @@ StScrollBar StButton#hhandle:active {
 }
 
 .switcher-list {
-  border-radius: 9px;
+  border-radius: 5px;
 }
 
 .switcher-list .item-box {
@@ -2814,7 +2814,7 @@ StScrollBar StButton#hhandle:active {
 .search-entry {
   width: 320px;
   padding: 6px 9px;
-  border-radius: 18px;
+  border-radius: 3px;
   color: rgba(255, 255, 255, 0.75);
   background-color: rgba(255, 255, 255, 0.1);
   border: 2px solid transparent !important;
@@ -2872,7 +2872,7 @@ StScrollBar StButton#hhandle:active {
 .search-section-content {
   background-color: #2e2f35;
   color: white;
-  border-radius: 7.5px;
+  border-radius: 5px;
   padding: 12px;
   margin: 0 12px;
   border: 2px solid transparent;
@@ -2984,7 +2984,7 @@ StScrollBar StButton#hhandle:active {
 
 #dash .dash-background {
   background-color: #2e2f35;
-  border-radius: 17px;
+  border-radius: 5px;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 10px;
@@ -3226,7 +3226,7 @@ StScrollBar StButton#hhandle:active {
 .app-folder-dialog {
   width: 720px;
   height: 720px;
-  border-radius: 20px;
+  border-radius: 5px;
   background-color: #2e2f35;
   color: white;
   padding: 0 1px;
@@ -3240,7 +3240,7 @@ StScrollBar StButton#hhandle:active {
 
 .app-folder-dialog .folder-name-container .folder-name-entry {
   width: 12em;
-  border-radius: 1000px;
+  border-radius: 3px;
   border: 2px solid transparent;
   background-color: #27282d;
   color: #efefef;
@@ -4351,7 +4351,7 @@ StScrollBar StButton#hhandle:active {
 }
 
 .screenshot-ui-panel {
-  border-radius: 24px;
+  border-radius: 5px;
   padding: 18px;
   margin-bottom: 4em;
   spacing: 12px;
@@ -4376,7 +4376,6 @@ StScrollBar StButton#hhandle:active {
 .screenshot-ui-type-button {
   min-width: 48px;
   padding: 12px 18px !important;
-  border-radius: 6px;
 }
 
 .screenshot-ui-capture-button {
@@ -4545,7 +4544,7 @@ StScrollBar StButton#hhandle:active {
 .screenshot-ui-tooltip {
   color: #efefef;
   background-color: #22242d;
-  border-radius: 1000px;
+  border-radius: 3px;
   padding: 6px 12px;
   text-align: center;
   -y-offset: 24px;

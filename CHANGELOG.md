@@ -5,6 +5,18 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- GNOME Shell 49 and 50 support, including the renamed scrollbar and notification widgets, the light panel hairline, and the GNOME 50 parental controls lock screen
+
+### Changed
+
+- GNOME Shell tooltips, entries, and text buttons now use Celestial's button shape instead of GNOME's pill shape
+- GNOME Shell overview search field, dash, app folders, and screenshot panel now use Celestial's container radius instead of GNOME's large rounded corners
+- GNOME Shell popovers, the window switcher, and search sections now share the same corner radius as dialogs
+
 ## [1.5.2] - 2026-07-29
 
 ### Fixed

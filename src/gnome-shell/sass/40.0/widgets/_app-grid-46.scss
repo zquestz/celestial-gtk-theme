@@ -59,7 +59,7 @@ $app_folder_size: 720px;
 .app-folder-dialog {
   width: $app_folder_size;
   height: $app_folder_size;
-  border-radius: $modal_radius * 4;
+  border-radius: $modal_radius;
   background-color: $system_overlay_bg_color;
   color: $system_fg_color;
   padding: 0 1px;
@@ -76,7 +76,7 @@ $app_folder_size: 720px;
 
     & .folder-name-entry {
       width: 12em;
-      border-radius: $circular_radius;
+      border-radius: $base_border_radius;
       border: 2px solid transparent;
       background-color: darken($dash_background_color, 3%);
       color: $osd_fg_color;

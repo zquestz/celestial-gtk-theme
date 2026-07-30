@@ -8,7 +8,7 @@
 // switcher onscreen panel
 .switcher-list {
   @extend %osd_panel;
-  border-radius: $base_border_radius + $base_padding;
+  border-radius: $modal_radius;
 
   .item-box {
     padding: 8px;

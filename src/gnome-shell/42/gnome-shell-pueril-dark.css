@@ -2305,7 +2305,7 @@ StScrollBar StButton#hhandle:active {
 }
 
 .switcher-list {
-  border-radius: 9px;
+  border-radius: 5px;
 }
 
 .switcher-list .item-box {
@@ -2594,7 +2594,7 @@ StScrollBar StButton#hhandle:active {
 .search-entry {
   width: 320px;
   padding: 6px 9px;
-  border-radius: 18px;
+  border-radius: 3px;
   color: rgba(255, 255, 255, 0.75);
   background-color: rgba(255, 255, 255, 0.1);
   border: 2px solid transparent !important;
@@ -2722,7 +2722,7 @@ StScrollBar StButton#hhandle:active {
   background-color: rgba(255, 255, 255, 0.1);
   margin-bottom: 16px;
   padding: 10px;
-  border-radius: 13px;
+  border-radius: 5px;
 }
 
 .dash-item-container .app-well-app,
@@ -2854,7 +2854,7 @@ StScrollBar StButton#hhandle:active {
 }
 
 .app-folder-dialog {
-  border-radius: 7.5px;
+  border-radius: 5px;
   background-color: #1d1d1d;
   padding: 8px !important;
   box-shadow: none;
@@ -2876,7 +2876,7 @@ StScrollBar StButton#hhandle:active {
 .app-folder-dialog .folder-name-container .folder-name-entry {
   width: 300px;
   box-shadow: none;
-  border-radius: 1000px;
+  border-radius: 3px;
   border: 2px solid transparent;
   background-color: rgba(247, 247, 247, 0.1);
   color: #efefef;
@@ -3938,7 +3938,7 @@ StScrollBar StButton#hhandle:active {
 }
 
 .screenshot-ui-panel {
-  border-radius: 24px;
+  border-radius: 5px;
   padding: 18px;
   margin-bottom: 4em;
   spacing: 12px;
@@ -3963,7 +3963,6 @@ StScrollBar StButton#hhandle:active {
 .screenshot-ui-type-button {
   min-width: 48px;
   padding: 12px 18px !important;
-  border-radius: 6px;
 }
 
 .screenshot-ui-capture-button {
@@ -4132,7 +4131,7 @@ StScrollBar StButton#hhandle:active {
 .screenshot-ui-tooltip {
   color: #efefef;
   background-color: #2a2a2a;
-  border-radius: 1000px;
+  border-radius: 3px;
   padding: 6px 12px;
   text-align: center;
   -y-offset: 24px;
