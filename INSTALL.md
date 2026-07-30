@@ -69,26 +69,26 @@ The install script provides extensive customization options:
 
 ### Available Options
 
-| Option                 | Description                                                      |
-| ---------------------- | ---------------------------------------------------------------- |
-| `-d, --dest DIR`       | Destination directory (Default: `/home/USER/.themes`)            |
-| `-n, --name NAME`      | Theme name (Default: `Celestial`)                                |
-| `-c, --color VARIANTS` | Color variant [standard\|light\|dark] (Default: All)             |
-| `-t, --theme VARIANTS` | Theme variant [sea\|aliz\|azul\|pueril] (Default: All)           |
+| Option                 | Description                                                              |
+| ---------------------- | ------------------------------------------------------------------------ |
+| `-d, --dest DIR`       | Destination directory (Default: `/home/USER/.themes`)                    |
+| `-n, --name NAME`      | Theme name (Default: `Celestial`)                                        |
+| `-c, --color VARIANTS` | Color variant [standard\|light\|dark] (Default: All)                     |
+| `-t, --theme VARIANTS` | Theme variant [sea\|aliz\|azul\|pueril] (Default: All)                   |
 | `-s, --gnome-shell`    | GNOME Shell version [38\|40\|42\|44\|46\|47\|48\|49\|50] (Default: Auto) |
-| `-l, --libadwaita`     | Link libadwaita apps to GTK-4.0 theme                            |
-| `-k, --kvantum`        | Install Kvantum theme for Qt applications                        |
-| `-b, --backgrounds`    | Install theme backgrounds                                        |
-| `--copyq`              | Install CopyQ clipboard manager themes                           |
-| `--cursors`            | Install Celestial cursor theme                                   |
-| `--ghostty`            | Install Ghostty terminal theme                                   |
-| `--halloy`             | Install Halloy IRC client themes                                 |
-| `--kde`                | Install KDE Plasma themes                                        |
-| `--kitty`              | Install Kitty terminal theme                                     |
-| `--zed`                | Install Zed editor themes                                        |
-| `-g, --gdm`            | Install GDM theme (requires sudo)                                |
-| `-r, --remove`         | Uninstall theme                                                  |
-| `-h, --help`           | Show this help                                                   |
+| `-l, --libadwaita`     | Link libadwaita apps to GTK-4.0 theme                                    |
+| `-k, --kvantum`        | Install Kvantum theme for Qt applications                                |
+| `-b, --backgrounds`    | Install theme backgrounds                                                |
+| `--copyq`              | Install CopyQ clipboard manager themes                                   |
+| `--cursors`            | Install Celestial cursor theme                                           |
+| `--ghostty`            | Install Ghostty terminal theme                                           |
+| `--halloy`             | Install Halloy IRC client themes                                         |
+| `--kde`                | Install KDE Plasma themes                                                |
+| `--kitty`              | Install Kitty terminal theme                                             |
+| `--zed`                | Install Zed editor themes                                                |
+| `-g, --gdm`            | Install GDM theme (requires sudo)                                        |
+| `-r, --remove`         | Uninstall theme                                                          |
+| `-h, --help`           | Show this help                                                           |
 
 ### Installation Examples
 
@@ -121,6 +121,8 @@ The install script provides extensive customization options:
 ```bash
 sudo ./install.sh -g -t azul -c dark
 ```
+
+This themes the GNOME login screen by replacing `/usr/share/gnome-shell/gnome-shell-theme.gresource`, keeping the original as `.bak`. It requires **GNOME 45 or newer** and applies the variant you select to the login screen whether it is showing its light or dark style. GNOME provides no supported hook for login screen themes, so a GNOME update can replace that file and restore the stock login screen - rerun the command if that happens. `sudo ./install.sh -g -r` restores the original.
 
 **Install with libadwaita support:**
 

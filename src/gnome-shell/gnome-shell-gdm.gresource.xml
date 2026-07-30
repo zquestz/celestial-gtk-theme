@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Resource list for the GDM login screen on GNOME 45 and newer.
+
+  The first group is what the shell itself loads; the second is what our
+  stylesheet references, which GNOME dropped from its own gresource.
+  install.sh extracts the files we do not provide from the stock gresource.
+-->
+<gresources>
+  <gresource prefix="/org/gnome/shell/theme">
+    <file>gnome-shell-light.css</file>
+    <file>gnome-shell-dark.css</file>
+    <file>gnome-shell-high-contrast.css</file>
+    <file>calendar-today.svg</file>
+    <file>calendar-today-light.svg</file>
+    <file>workspace-placeholder.svg</file>
+    <file>gnome-shell-start.svg</file>
+    <file>pad-osd.css</file>
+
+    <file>dash-placeholder.svg</file>
+    <file>assets/checkbox.svg</file>
+    <file>assets/checkbox-off.svg</file>
+    <file>assets/toggle-on.svg</file>
+    <file>assets/toggle-off.svg</file>
+    <file>assets/window-close-symbolic.svg</file>
+  </gresource>
+</gresources>

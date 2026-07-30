@@ -17,6 +17,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GNOME Shell overview search field, dash, app folders, and screenshot panel now use Celestial's container radius instead of GNOME's large rounded corners
 - GNOME Shell popovers, the window switcher, and search sections now share the same corner radius as dialogs
 
+### Removed
+
+- GDM support for GNOME 44 and older, and the Ubuntu 18.04/20.04 login screen paths
+
+### Fixed
+
+- GDM theme now works on GNOME 45 and newer, which renamed the login screen stylesheets; it previously replaced the system resource with one the shell could not load
+
 ## [1.5.2] - 2026-07-29
 
 ### Fixed

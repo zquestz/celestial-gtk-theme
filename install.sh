@@ -276,23 +276,12 @@ install() {
   fi
 }
 
-# Backup and install files related to GDM theme
+# GDM theming replaces the shell's theme gresource; the original is kept as .bak
 GS_THEME_FILE="/usr/share/gnome-shell/gnome-shell-theme.gresource"
-SHELL_THEME_FOLDER="/usr/share/gnome-shell/theme"
-ETC_THEME_FOLDER="/etc/alternatives"
-ETC_THEME_FILE="/etc/alternatives/gdm3.css"
-# ETC_NEW_THEME_FILE is currently unused but kept for potential future use
-# shellcheck disable=SC2034
-ETC_NEW_THEME_FILE="/etc/alternatives/gdm3-theme.gresource"
-UBUNTU_THEME_FILE="/usr/share/gnome-shell/theme/ubuntu.css"
-UBUNTU_NEW_THEME_FILE="/usr/share/gnome-shell/theme/gnome-shell.css"
-UBUNTU_YARU_THEME_FILE="/usr/share/gnome-shell/theme/Yaru/gnome-shell-theme.gresource"
 
 install_gdm() {
-  local dest="${1}"
-  local name="${2}"
-  local theme="${3}"
-  local gcolor="${4}"
+  local theme="${1}"
+  local gcolor="${2}"
 
   # Skip GDM installation when DESTDIR is set (packaging mode)
   # GDM theme installation modifies system files and should not be done during packaging
@@ -301,134 +290,113 @@ install_gdm() {
     return
   fi
 
-  # Capitalize theme and color for display names (must match install)
-  local theme_cap=""
-  local color_cap=""
-
-  if [[ -n "${theme}" ]]; then
-    theme_cap="-$(echo "${theme#-}" | sed 's/.*/\u&/')"
-  fi
-
-  if [[ -n "${gcolor}" ]]; then
-    color_cap="-$(echo "${gcolor#-}" | sed 's/.*/\u&/')"
-  fi
-
-  local GDM_THEME_DIR="${dest}/${name}${theme_cap}${color_cap}"
-  local YARU_GDM_THEME_DIR="$SHELL_THEME_FOLDER/Yaru/${name}${theme_cap}${color_cap}"
-
-  [[ "${gcolor}" == '-dark' ]] && local ELSE_DARK="${gcolor}"
-  # ELSE_LIGHT is set but not currently used in GDM theme files
-  # shellcheck disable=SC2034
-  [[ "${gcolor}" == '-light' ]] && local ELSE_LIGHT="${gcolor}"
+  local ELSE_DARK=""
+  [[ "${gcolor}" == '-dark' ]] && ELSE_DARK="${gcolor}"
 
   echo
-  echo "Installing ${name}${theme_cap}${color_cap} gdm theme..."
+  echo "Installing gdm theme..."
 
-  if ! command -v glib-compile-resources >/dev/null ; then
-    echo "glib-compile-resources not found! Exit."
+  if ! command -v glib-compile-resources >/dev/null || ! command -v gresource >/dev/null; then
+    echo "glib-compile-resources and gresource are required (install glib2)! Exit."
     exit 1
   fi
 
-  if [[ -f "$GS_THEME_FILE" ]] ; then
-    echo "Installing '$GS_THEME_FILE'..."
-    cp -an "$GS_THEME_FILE" "$GS_THEME_FILE.bak"
-    glib-compile-resources \
-      --sourcedir="$GDM_THEME_DIR/gnome-shell" \
-      --target="$GS_THEME_FILE" \
-      "${SRC_DIR}/gnome-shell/gnome-shell-theme.gresource.xml"
+  if [[ ! -f "${GS_THEME_FILE}" ]]; then
+    echo "'${GS_THEME_FILE}' not found - is GNOME Shell installed? Skipping GDM theme."
+    return
   fi
 
-  if [[ -f "$UBUNTU_THEME_FILE" && -f "$GS_THEME_FILE.bak" ]]; then
-    echo "Installing '$UBUNTU_THEME_FILE'..."
-    cp -an "$UBUNTU_THEME_FILE" "$UBUNTU_THEME_FILE.bak"
-    cp -af "$GDM_THEME_DIR/gnome-shell/gnome-shell.css" "$UBUNTU_THEME_FILE"
+  # GNOME 45 replaced gnome-shell.css with gnome-shell-{light,dark,high-contrast}.css.
+  # Ask the installed gresource which layout it uses rather than guessing a
+  # version, and check before making a backup so a refusal leaves no trace.
+  if ! gresource list "${GS_THEME_FILE}" | grep -q 'gnome-shell-dark.css'; then
+    echo "GDM theming requires GNOME 45 or newer. Skipping."
+    return
   fi
 
-  if [[ -f "$UBUNTU_NEW_THEME_FILE" && -f "$GS_THEME_FILE.bak" ]]; then
-    echo "Installing '$UBUNTU_NEW_THEME_FILE'..."
-    cp -an "$UBUNTU_NEW_THEME_FILE" "$UBUNTU_NEW_THEME_FILE.bak"
-    cp -af "$GDM_THEME_DIR"/gnome-shell/* "$SHELL_THEME_FOLDER"
+  # A file only our theme ships, used to tell ours apart from the stock one
+  local ours='theme/assets/checkbox.svg'
+
+  # Never let a repeat run capture our own theme as the "original". cp -an
+  # already refuses to clobber an existing backup, but if that backup went
+  # missing while our theme is installed there is nothing left to restore.
+  if [[ -f "${GS_THEME_FILE}.bak" ]] && gresource list "${GS_THEME_FILE}.bak" | grep -q "${ours}"; then
+    echo "'${GS_THEME_FILE}.bak' is a Celestial theme, not the original login screen."
+    echo "Reinstall the gnome-shell package to restore it, then run this again."
+    return
   fi
 
-  # > Ubuntu 18.04
-  if [[ -f "$ETC_THEME_FILE" && -f "$GS_THEME_FILE.bak" ]]; then
-    echo "Installing Ubuntu GDM theme..."
-    cp -an "$ETC_THEME_FILE" "$ETC_THEME_FILE.bak"
-    [[ -d "${SHELL_THEME_FOLDER:?}/$THEME_NAME" ]] && rm -rf "${SHELL_THEME_FOLDER:?}/$THEME_NAME"
-    cp -r "$GDM_THEME_DIR/gnome-shell" "$SHELL_THEME_FOLDER/$THEME_NAME"
-    cd "$ETC_THEME_FOLDER" || return
-    [[ -f "$ETC_THEME_FILE.bak" ]] && ln -sf "$SHELL_THEME_FOLDER/$THEME_NAME/gnome-shell.css" gdm3.css
+  if [[ ! -f "${GS_THEME_FILE}.bak" ]] && gresource list "${GS_THEME_FILE}" | grep -q "${ours}"; then
+    echo "'${GS_THEME_FILE}' is already a Celestial theme and the backup is missing."
+    echo "Reinstall the gnome-shell package to restore the original, then run this again."
+    return
   fi
 
-  # > Ubuntu 20.04
-  if [[ -d "$SHELL_THEME_FOLDER/Yaru" && -f "$GS_THEME_FILE.bak" ]]; then
-    echo "Installing Ubuntu GDM theme..."
-    cp -an "$UBUNTU_YARU_THEME_FILE" "$UBUNTU_YARU_THEME_FILE.bak"
-    rm -rf "$UBUNTU_YARU_THEME_FILE"
-    rm -rf "$YARU_GDM_THEME_DIR" && mkdir -p "$YARU_GDM_THEME_DIR"
+  # Keep the pristine gresource so we can extract from it and revert later
+  cp -an "${GS_THEME_FILE}" "${GS_THEME_FILE}.bak"
 
-    mkdir -p                                                                           "$YARU_GDM_THEME_DIR"/gnome-shell
-    mkdir -p                                                                           "$YARU_GDM_THEME_DIR"/gnome-shell/Yaru
-    cp -r "$SRC_DIR"/gnome-shell/{icons,pad-osd.css}                                   "$YARU_GDM_THEME_DIR"/gnome-shell
-    cp -r "$SRC_DIR/gnome-shell/${SHELL_VERSION}/gnome-shell${theme}${ELSE_DARK}.css"  "$YARU_GDM_THEME_DIR/gnome-shell/gdm3.css"
-    cp -r "$SRC_DIR/gnome-shell/${SHELL_VERSION}/gnome-shell${theme}${ELSE_DARK}.css"  "$YARU_GDM_THEME_DIR/gnome-shell/Yaru/gnome-shell.css"
-    cp -r "$SRC_DIR"/gnome-shell/common-assets                                         "$YARU_GDM_THEME_DIR"/gnome-shell/assets
-    cp -r "$SRC_DIR"/gnome-shell/assets"${ELSE_DARK}"/calendar-arrow-left.svg          "$YARU_GDM_THEME_DIR"/gnome-shell/assets/calendar-arrow-left.svg
-    cp -r "$SRC_DIR"/gnome-shell/assets"${ELSE_DARK}"/calendar-arrow-right.svg         "$YARU_GDM_THEME_DIR"/gnome-shell/assets/calendar-arrow-right.svg
-    cp -r "$SRC_DIR"/gnome-shell/assets"${ELSE_DARK}"/checkbox-off.svg                 "$YARU_GDM_THEME_DIR"/gnome-shell/assets/checkbox-off.svg
-    cp -r "$SRC_DIR"/gnome-shell/assets"${ELSE_DARK}"/calendar-today.svg               "$YARU_GDM_THEME_DIR"/gnome-shell/assets/calendar-today.svg
-    cp -r "$SRC_DIR/gnome-shell/theme-assets/checkbox${theme}.svg"                     "$YARU_GDM_THEME_DIR/gnome-shell/assets/checkbox.svg"
-    cp -r "$SRC_DIR/gnome-shell/theme-assets/more-results${theme}.svg"                 "$YARU_GDM_THEME_DIR/gnome-shell/assets/more-results.svg"
-    cp -r "$SRC_DIR/gnome-shell/theme-assets/toggle-on${theme}${ELSE_DARK}.svg"        "$YARU_GDM_THEME_DIR/gnome-shell/assets/toggle-on.svg"
+  local build
+  build="$(mktemp -d)"
+  mkdir -p "${build}/assets"
 
-    cd "$YARU_GDM_THEME_DIR"/gnome-shell || return
-    mv -f assets/no-events.svg no-events.svg
-    mv -f assets/process-working.svg process-working.svg
-    mv -f assets/no-notifications.svg no-notifications.svg
+  # Our stylesheet, used for both the light and dark login screens so the
+  # variant that was asked for is the one that shows up
+  local shell_css="${SRC_DIR}/gnome-shell/${SHELL_VERSION}/gnome-shell${theme}${ELSE_DARK}.css"
+  cp -a "${shell_css}" "${build}/gnome-shell-light.css"
+  cp -a "${shell_css}" "${build}/gnome-shell-dark.css"
 
-    glib-compile-resources \
-      --sourcedir="$YARU_GDM_THEME_DIR"/gnome-shell \
-      --target="$UBUNTU_YARU_THEME_FILE" \
-      "$SRC_DIR"/gnome-shell/gdm-theme.gresource.xml
+  # Assets our stylesheet references
+  cp -a "${SRC_DIR}/gnome-shell/assets${ELSE_DARK}/checkbox-off.svg"          "${build}/assets/checkbox-off.svg"
+  cp -a "${SRC_DIR}/gnome-shell/assets${ELSE_DARK}/toggle-off.svg"            "${build}/assets/toggle-off.svg"
+  cp -a "${SRC_DIR}/gnome-shell/common-assets/window-close-symbolic.svg"      "${build}/assets/window-close-symbolic.svg"
+  cp -a "${SRC_DIR}/gnome-shell/theme-assets/checkbox${theme}.svg"            "${build}/assets/checkbox.svg"
+  cp -a "${SRC_DIR}/gnome-shell/theme-assets/toggle-on${theme}${ELSE_DARK}.svg" "${build}/assets/toggle-on.svg"
+  cp -a "${SRC_DIR}/gnome-shell/common-assets/dash-placeholder.svg"           "${build}/dash-placeholder.svg"
+  cp -a "${SRC_DIR}/gnome-shell/assets${ELSE_DARK}/calendar-today.svg"        "${build}/calendar-today.svg"
+  cp -a "${SRC_DIR}/gnome-shell/gnome-shell-start.svg"                        "${build}/gnome-shell-start.svg"
+  cp -a "${SRC_DIR}/gnome-shell/pad-osd.css"                                  "${build}/pad-osd.css"
 
-    rm -rf "$YARU_GDM_THEME_DIR"
+  # Files we do not theme are taken from the stock gresource, so the
+  # high contrast stylesheet keeps working for anyone who relies on it
+  local f
+  for f in calendar-today-light.svg workspace-placeholder.svg gnome-shell-high-contrast.css; do
+    if gresource list "${GS_THEME_FILE}.bak" | grep -q "/${f}$"; then
+      gresource extract "${GS_THEME_FILE}.bak" "/org/gnome/shell/theme/${f}" > "${build}/${f}"
+    else
+      echo "  note: '${f}' is not in the stock gresource, skipping it"
+      : > "${build}/${f}"
+    fi
+  done
+
+  if ! glib-compile-resources \
+    --sourcedir="${build}" \
+    --target="${GS_THEME_FILE}" \
+    "${SRC_DIR}/gnome-shell/gnome-shell-gdm.gresource.xml"; then
+    echo "Failed to compile the login screen theme - restoring the original."
+    rm -rf "${build}"
+    mv -f "${GS_THEME_FILE}.bak" "${GS_THEME_FILE}"
+    exit 1
   fi
+
+  rm -rf "${build}"
+
+  # An incomplete gresource leaves an unstyled login screen. Check for a file
+  # only our theme ships, so an untouched stock gresource cannot pass.
+  if ! gresource list "${GS_THEME_FILE}" | grep -q "${ours}"; then
+    echo "Compiled gresource is missing our theme files - restoring the original."
+    mv -f "${GS_THEME_FILE}.bak" "${GS_THEME_FILE}"
+    exit 1
+  fi
+
+  echo "Installed. Log out for the login screen to pick it up."
+  echo "Note: a GNOME update may replace this file and restore the stock login screen."
 }
 
 revert_gdm() {
-  if [[ -f "$GS_THEME_FILE.bak" ]]; then
-    echo "Reverting '$GS_THEME_FILE'..."
-    rm -rf "$GS_THEME_FILE"
-    mv "$GS_THEME_FILE.bak" "$GS_THEME_FILE"
-  fi
-
-  if [[ -f "$UBUNTU_THEME_FILE.bak" ]]; then
-    echo "Reverting '$UBUNTU_THEME_FILE'..."
-    rm -rf "$UBUNTU_THEME_FILE"
-    mv "$UBUNTU_THEME_FILE.bak" "$UBUNTU_THEME_FILE"
-  fi
-
-  if [[ -f "$UBUNTU_NEW_THEME_FILE.bak" ]]; then
-    echo "Reverting '$UBUNTU_NEW_THEME_FILE'..."
-    rm -rf "$UBUNTU_NEW_THEME_FILE" "$SHELL_THEME_FOLDER"/{assets,no-events.svg,process-working.svg,no-notifications.svg}
-    mv "$UBUNTU_NEW_THEME_FILE.bak" "$UBUNTU_NEW_THEME_FILE"
-  fi
-
-  # > Ubuntu 18.04
-  if [[ -f "$ETC_THEME_FILE.bak" ]]; then
-
-    echo "reverting Ubuntu GDM theme..."
-
-    rm -rf "$ETC_THEME_FILE"
-    mv "$ETC_THEME_FILE.bak" "$ETC_THEME_FILE"
-    [[ -d "${SHELL_THEME_FOLDER:?}/$THEME_NAME" ]] && rm -rf "${SHELL_THEME_FOLDER:?}/$THEME_NAME"
-  fi
-
-  # > Ubuntu 20.04
-  if [[ -f "$UBUNTU_YARU_THEME_FILE.bak" ]]; then
-    echo "reverting Ubuntu GDM theme..."
-    rm -rf "$UBUNTU_YARU_THEME_FILE"
-    mv "$UBUNTU_YARU_THEME_FILE.bak" "$UBUNTU_YARU_THEME_FILE"
+  if [[ -f "${GS_THEME_FILE}.bak" ]]; then
+    echo "Reverting '${GS_THEME_FILE}'..."
+    rm -rf "${GS_THEME_FILE}"
+    mv "${GS_THEME_FILE}.bak" "${GS_THEME_FILE}"
   fi
 }
 
@@ -1608,7 +1576,7 @@ if [[ "${gdm:-}" == 'true' && "${remove:-}" != 'true' && "$UID" -eq "$ROOT_UID" 
 
   for gcolor in "${gcolor_list[@]}"; do
     for theme in "${theme_list[@]}"; do
-      install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${theme}" "${gcolor}"
+      install_gdm "${theme}" "${gcolor}"
     done
   done
 fi
