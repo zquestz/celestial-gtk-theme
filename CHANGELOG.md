@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - GDM support for GNOME 44 and older, and the Ubuntu 18.04/20.04 login screen paths
+- Firefox userChrome theme - Firefox's default theme follows the system GTK theme, and the upcoming Firefox redesign would break it
 
 ### Fixed
 
