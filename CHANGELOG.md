@@ -10,9 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - GNOME Shell 49 and 50 support, including the renamed scrollbar and notification widgets, the light panel hairline, and the GNOME 50 parental controls lock screen
+- Alacritty terminal theme with `--alacritty` installation flag
+- foot terminal theme with `--foot` installation flag
 
 ### Changed
 
+- Terminal themes now default to 85% background opacity, matching Konsole (Alacritty, foot, Ghostty, Kitty)
 - GNOME Shell tooltips, entries, and text buttons now use Celestial's button shape instead of GNOME's pill shape
 - GNOME Shell overview search field, dash, app folders, and screenshot panel now use Celestial's container radius instead of GNOME's large rounded corners
 - GNOME Shell popovers, the window switcher, and search sections now share the same corner radius as dialogs

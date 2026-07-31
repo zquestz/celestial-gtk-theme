@@ -1,20 +1,20 @@
-# Celestial Theme for Kitty Terminal
+# Celestial Theme for Alacritty
 
-A dark terminal theme for [Kitty](https://sw.kovidgoyal.net/kitty/) that incorporates the Celestial color palette.
+A dark terminal theme for [Alacritty](https://alacritty.org/) that incorporates the Celestial color palette.
 
 ## Color Palette
 
-The Celestial Kitty theme uses a balanced 16-color ANSI palette:
+The Celestial Alacritty theme uses a balanced 16-color ANSI palette:
 
 **Standard Colors (0-7):**
 
 - Black: `#2a2a2a`
 - Red: `#f0544c` - Aliz red for errors and warnings
 - Green: `#2eb398` - Teal for success messages
-- Yellow: `#F39C12` - Orange for highlights
+- Yellow: `#f39c12` - Orange for highlights
 - Blue: `#3498db` - Keyword blue
 - Magenta: `#c678dd` - Purple for special text
-- Cyan: `#42A5F5` - Light blue for info
+- Cyan: `#42a5f5` - Light blue for info
 - White: `#cfdcd8` - Default text color
 
 **Bright Colors (8-15):**
@@ -37,40 +37,25 @@ The Celestial Kitty theme uses a balanced 16-color ANSI palette:
 
 ## Installation
 
-### Using the Theme Kitten
-
-Kitty includes a built-in theme manager. If you want to use this theme with the theme kitten:
-
-1. Copy the theme file to Kitty's themes directory:
+1. Copy the theme file to your Alacritty themes directory (or run `./install.sh --alacritty` from the repository root):
 
    ```bash
-   mkdir -p ~/.config/kitty/themes
-   cp Celestial.conf ~/.config/kitty/themes/
+   mkdir -p ~/.config/alacritty/themes
+   cp Celestial.toml ~/.config/alacritty/themes/
    ```
 
-2. Use the theme kitten to select it:
+2. Import it from your Alacritty configuration file (`~/.config/alacritty/alacritty.toml`):
 
-   ```bash
-   kitty +kitten themes
+   ```toml
+   [general]
+   import = ["~/.config/alacritty/themes/Celestial.toml"]
    ```
 
-3. Search for "Celestial" and select it
-
-### Using the Installer Script
-
-The Celestial GTK Theme installer can install the Kitty theme for you:
-
-```bash
-./install.sh --kitty
-```
-
-This will copy the theme to `~/.config/kitty/themes/Celestial.conf`.
-
-**Note:** Kitty themes can only be installed for user accounts (not system-wide).
+3. Alacritty reloads its configuration automatically
 
 ## Features
 
 - **True Black Background**: Pure black (`#000000`) for maximum contrast and OLED friendliness
-- **85% Background Opacity**: Subtle transparency by default - set `background_opacity 1.0` after the theme include in your `kitty.conf` to disable
+- **85% Background Opacity**: Subtle transparency by default - set `[window]` `opacity = 1.0` in your `alacritty.toml` to disable
 - **Balanced Palette**: Colors chosen to work well with common terminal applications
 - **Consistent Design**: Matches the Celestial GTK theme aesthetic

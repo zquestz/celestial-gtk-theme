@@ -57,5 +57,6 @@ The Celestial Ghostty theme uses a balanced 16-color ANSI palette:
 ## Features
 
 - **True Black Background**: Pure black (`#000000`) for maximum contrast and OLED friendliness
+- **85% Background Opacity**: Subtle transparency by default - set `background-opacity = 1` in your Ghostty configuration to disable
 - **Balanced Palette**: Colors chosen to work well with common terminal applications
 - **Consistent Design**: Matches the Celestial GTK theme aesthetic

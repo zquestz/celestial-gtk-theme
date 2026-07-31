@@ -25,8 +25,10 @@ if [ "$UID" -eq "$ROOT_UID" ]; then
     "/usr/share/cinnamon-background-properties"
   )
   GHOSTTY_DIR="/usr/share/ghostty/themes"
+  FOOT_DIR="/usr/share/foot/themes"
   COPYQ_DIR="/usr/share/copyq/themes"
   CURSORS_DIR="/usr/share/icons"
+  ALACRITTY_DIR=""
   KITTY_DIR=""
   ZED_DIR=""
   HALLOY_DIR=""
@@ -47,8 +49,10 @@ else
     "$HOME/.local/share/cinnamon-background-properties"
   )
   GHOSTTY_DIR="$HOME/.config/ghostty/themes"
+  FOOT_DIR="$HOME/.config/foot/themes"
   COPYQ_DIR="$HOME/.config/copyq/themes"
   CURSORS_DIR="$HOME/.local/share/icons"
+  ALACRITTY_DIR="$HOME/.config/alacritty/themes"
   KITTY_DIR="$HOME/.config/kitty/themes"
   ZED_DIR="$HOME/.config/zed/themes"
   HALLOY_DIR="$HOME/.config/halloy/themes"
@@ -75,8 +79,10 @@ usage() {
   printf "  %-25s%s\n" "-l, --libadwaita" "Link libadwaita apps to GTK-4.0 theme"
   printf "  %-25s%s\n" "-k, --kvantum" "Install Kvantum theme for Qt applications"
   printf "  %-25s%s\n" "-b, --backgrounds" "Install theme backgrounds"
+  printf "  %-25s%s\n" "--alacritty" "Install Alacritty terminal theme"
   printf "  %-25s%s\n" "--copyq" "Install CopyQ clipboard manager themes"
   printf "  %-25s%s\n" "--cursors" "Install Celestial cursor theme"
+  printf "  %-25s%s\n" "--foot" "Install foot terminal theme"
   printf "  %-25s%s\n" "--ghostty" "Install Ghostty terminal theme"
   printf "  %-25s%s\n" "--halloy" "Install Halloy IRC client themes"
   printf "  %-25s%s\n" "--kde" "Install KDE Plasma themes"
@@ -428,12 +434,20 @@ while [[ $# -gt 0 ]]; do
       backgrounds='true'
       shift
       ;;
+    --alacritty)
+      alacritty='true'
+      shift
+      ;;
     --copyq)
       copyq='true'
       shift
       ;;
     --cursors)
       cursors='true'
+      shift
+      ;;
+    --foot)
+      foot='true'
       shift
       ;;
     --ghostty)
@@ -1196,6 +1210,54 @@ uninstall_link() {
   rm -rf "${HOME}/.config/gtk-4.0"/{assets,gtk.css,gtk-dark.css}
 }
 
+install_alacritty() {
+  echo "Installing Alacritty terminal theme..."
+
+  if [[ -z "${ALACRITTY_DIR}" ]]; then
+    echo "Alacritty theme installation is not available for system-wide installs (root)"
+    echo "Alacritty themes must be installed per-user"
+    return
+  fi
+
+  mkdir -p "${DESTDIR}${ALACRITTY_DIR}"
+  cp "${SRC_DIR}/extra/alacritty/Celestial.toml" "${DESTDIR}${ALACRITTY_DIR}/"
+  echo "Alacritty theme installed to ${DESTDIR}${ALACRITTY_DIR}/Celestial.toml"
+}
+
+uninstall_alacritty() {
+  echo "Removing Alacritty terminal theme..."
+
+  if [[ -z "${ALACRITTY_DIR}" ]]; then
+    return
+  fi
+
+  if [[ -f "${DESTDIR}${ALACRITTY_DIR}/Celestial.toml" ]]; then
+    rm -f "${DESTDIR}${ALACRITTY_DIR}/Celestial.toml"
+    echo "Removed ${DESTDIR}${ALACRITTY_DIR}/Celestial.toml"
+  else
+    echo "Alacritty theme not found at ${DESTDIR}${ALACRITTY_DIR}/Celestial.toml"
+  fi
+}
+
+install_foot() {
+  echo "Installing foot terminal theme..."
+
+  mkdir -p "${DESTDIR}${FOOT_DIR}"
+  cp "${SRC_DIR}/extra/foot/Celestial" "${DESTDIR}${FOOT_DIR}/"
+  echo "foot theme installed to ${DESTDIR}${FOOT_DIR}/Celestial"
+}
+
+uninstall_foot() {
+  echo "Removing foot terminal theme..."
+
+  if [[ -f "${DESTDIR}${FOOT_DIR}/Celestial" ]]; then
+    rm -f "${DESTDIR}${FOOT_DIR}/Celestial"
+    echo "Removed ${DESTDIR}${FOOT_DIR}/Celestial"
+  else
+    echo "foot theme not found at ${DESTDIR}${FOOT_DIR}/Celestial"
+  fi
+}
+
 install_ghostty() {
   echo "Installing Ghostty terminal theme..."
 
@@ -1489,6 +1551,10 @@ if [[ "${gdm:-}" != 'true' ]]; then
       install_kvantum_themes
     fi
 
+    if [[ "${alacritty:-}" == 'true' ]]; then
+      install_alacritty
+    fi
+
     if [[ "${backgrounds:-}" == 'true' ]]; then
       install_backgrounds
     fi
@@ -1499,6 +1565,10 @@ if [[ "${gdm:-}" != 'true' ]]; then
 
     if [[ "${cursors:-}" == 'true' ]]; then
       install_cursors
+    fi
+
+    if [[ "${foot:-}" == 'true' ]]; then
+      install_foot
     fi
 
     if [[ "${ghostty:-}" == 'true' ]]; then
@@ -1527,6 +1597,9 @@ if [[ "${gdm:-}" != 'true' ]]; then
     elif [[ "${kvantum:-}" == 'true' ]]; then
       uninstall_kvantum_themes
       echo -e 'Remove Kvantum themes...'
+    elif [[ "${alacritty:-}" == 'true' ]]; then
+      uninstall_alacritty
+      echo -e 'Remove Alacritty theme...'
     elif [[ "${backgrounds:-}" == 'true' ]]; then
       uninstall_backgrounds
       echo -e 'Remove backgrounds...'
@@ -1536,6 +1609,9 @@ if [[ "${gdm:-}" != 'true' ]]; then
     elif [[ "${cursors:-}" == 'true' ]]; then
       uninstall_cursors
       echo -e 'Remove Celestial cursor theme...'
+    elif [[ "${foot:-}" == 'true' ]]; then
+      uninstall_foot
+      echo -e 'Remove foot theme...'
     elif [[ "${ghostty:-}" == 'true' ]]; then
       uninstall_ghostty
       echo -e 'Remove Ghostty theme...'

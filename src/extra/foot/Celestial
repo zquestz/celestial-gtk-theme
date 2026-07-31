@@ -1,0 +1,28 @@
+# Celestial theme for foot
+# https://github.com/zquestz/celestial-gtk-theme
+
+[cursor]
+color=ffffff 7e8e8c
+
+[colors]
+alpha=0.85
+background=000000
+foreground=cfdcd8
+selection-foreground=ffffff
+selection-background=3d4d4f
+regular0=2a2a2a
+regular1=f0544c
+regular2=2eb398
+regular3=f39c12
+regular4=3498db
+regular5=c678dd
+regular6=42a5f5
+regular7=cfdcd8
+bright0=7e8e8c
+bright1=e74c3c
+bright2=2eb398
+bright3=f5b041
+bright4=5ba3e0
+bright5=d291e6
+bright6=6dd4f7
+bright7=ffffff

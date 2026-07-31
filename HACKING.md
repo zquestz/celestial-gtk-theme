@@ -74,9 +74,11 @@ celestial-gtk-theme/
 |   |-- cinnamon/              # Cinnamon desktop theme
 |   |-- cursors/               # Cursor theme (build.sh renders dist/)
 |   |-- extra/
+|   |   |-- alacritty/         # Alacritty terminal theme
 |   |   |-- backgrounds/       # Wallpapers for each color variant
 |   |   |-- copyq/             # CopyQ clipboard manager themes
 |   |   |-- firefox/           # Firefox theme
+|   |   |-- foot/              # foot terminal theme
 |   |   |-- ghostty/           # Ghostty terminal theme
 |   |   |-- gtksourceview/     # Text editor syntax highlighting
 |   |   |-- halloy/            # Halloy IRC client themes

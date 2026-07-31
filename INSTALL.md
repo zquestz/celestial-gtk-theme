@@ -80,8 +80,10 @@ The install script provides extensive customization options:
 | `-l, --libadwaita`     | Link libadwaita apps to GTK-4.0 theme                                    |
 | `-k, --kvantum`        | Install Kvantum theme for Qt applications                                |
 | `-b, --backgrounds`    | Install theme backgrounds                                                |
+| `--alacritty`          | Install Alacritty terminal theme                                         |
 | `--copyq`              | Install CopyQ clipboard manager themes                                   |
 | `--cursors`            | Install Celestial cursor theme                                           |
+| `--foot`               | Install foot terminal theme                                              |
 | `--ghostty`            | Install Ghostty terminal theme                                           |
 | `--halloy`             | Install Halloy IRC client themes                                         |
 | `--kde`                | Install KDE Plasma themes                                                |
@@ -173,6 +175,18 @@ This themes the GNOME login screen by replacing `/usr/share/gnome-shell/gnome-sh
 ./install.sh --copyq
 ```
 
+**Install Alacritty terminal theme:**
+
+```bash
+./install.sh --alacritty
+```
+
+**Install foot terminal theme:**
+
+```bash
+./install.sh --foot
+```
+
 **Install Ghostty terminal theme:**
 
 ```bash
@@ -203,10 +217,10 @@ This themes the GNOME login screen by replacing `/usr/share/gnome-shell/gnome-sh
 ./install.sh --cursors
 ```
 
-**Install everything (theme + backgrounds + Kvantum + CopyQ + cursors + Ghostty + Halloy + Kitty + Zed):**
+**Install everything (theme + backgrounds + Kvantum + Alacritty + CopyQ + cursors + foot + Ghostty + Halloy + Kitty + Zed):**
 
 ```bash
-./install.sh -k -b --copyq --cursors --ghostty --halloy --kitty --zed
+./install.sh -k -b --alacritty --copyq --cursors --foot --ghostty --halloy --kitty --zed
 ```
 
 > On KDE Plasma, also add `--kde`.
@@ -259,6 +273,18 @@ Remove Kvantum themes:
 
 ```bash
 ./install.sh --cursors -r
+```
+
+**Remove Alacritty terminal theme:**
+
+```bash
+./install.sh --alacritty -r
+```
+
+**Remove foot terminal theme:**
+
+```bash
+./install.sh --foot -r
 ```
 
 **Remove Ghostty terminal theme:**

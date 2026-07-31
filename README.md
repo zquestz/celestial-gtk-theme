@@ -18,7 +18,7 @@ Based on the excellent [Arc](https://github.com/horst3180/Arc-theme) and [Matcha
 - **Dock Support** - [Plank Reloaded](https://github.com/zquestz/plank-reloaded) theming
 - **HiDPI Support** - Standard, HiDPI, and XHiDPI variants for retina displays
 - **Color-Matched Backgrounds** - Minimalistic wallpapers coordinated with each theme variant
-- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, cursor theme, Zed editor themes, Ghostty, Kitty, and Konsole terminal themes, Halloy IRC client themes, CopyQ clipboard manager themes, Slack themes, Sniffnet network monitor themes
+- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, cursor theme, Zed editor themes, Alacritty, foot, Ghostty, Kitty, and Konsole terminal themes, Halloy IRC client themes, CopyQ clipboard manager themes, Slack themes, Sniffnet network monitor themes
 
 ## Installation
 
@@ -194,6 +194,32 @@ For more details, see the [Zed theme README](src/extra/zed/README.md).
 ## Terminal Themes
 
 Celestial includes color themes for popular terminal emulators:
+
+### Alacritty Terminal
+
+For [Alacritty](https://alacritty.org/) terminal users, Celestial provides a terminal theme that incorporates the Celestial color palette.
+
+To install the Alacritty theme:
+
+```bash
+./install.sh --alacritty
+```
+
+Then import it from your `alacritty.toml` with `[general]` `import = ["~/.config/alacritty/themes/Celestial.toml"]`. For more details, see the [Alacritty theme README](src/extra/alacritty/README.md).
+
+**Note:** Alacritty themes can only be installed for user accounts (not system-wide).
+
+### foot Terminal
+
+For [foot](https://codeberg.org/dnkl/foot) terminal users, Celestial provides a terminal theme that incorporates the Celestial color palette.
+
+To install the foot theme:
+
+```bash
+./install.sh --foot
+```
+
+Then add `include=~/.config/foot/themes/Celestial` to the top of your `foot.ini`. For more details, see the [foot theme README](src/extra/foot/README.md).
 
 ### Ghostty Terminal
 

@@ -1,0 +1,37 @@
+# Celestial theme for Alacritty
+# https://github.com/zquestz/celestial-gtk-theme
+
+[window]
+opacity = 0.85
+
+[colors.primary]
+background = "#000000"
+foreground = "#cfdcd8"
+
+[colors.cursor]
+text = "#ffffff"
+cursor = "#7e8e8c"
+
+[colors.selection]
+text = "#ffffff"
+background = "#3d4d4f"
+
+[colors.normal]
+black = "#2a2a2a"
+red = "#f0544c"
+green = "#2eb398"
+yellow = "#f39c12"
+blue = "#3498db"
+magenta = "#c678dd"
+cyan = "#42a5f5"
+white = "#cfdcd8"
+
+[colors.bright]
+black = "#7e8e8c"
+red = "#e74c3c"
+green = "#2eb398"
+yellow = "#f5b041"
+blue = "#5ba3e0"
+magenta = "#d291e6"
+cyan = "#6dd4f7"
+white = "#ffffff"
