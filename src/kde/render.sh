@@ -43,6 +43,8 @@ DT_DIR="${KDE_DIR}/desktoptheme"
 AUR_BASE="${KDE_DIR}/aurorae-base"
 AUR_DIR="${KDE_DIR}/aurorae"
 DT_BASE="${KDE_DIR}/desktoptheme-base"
+SDDM_BASE="${KDE_DIR}/sddm-base"
+SDDM_DIR="${KDE_DIR}/sddm"
 TEMPLATE="${KDE_DIR}/preview-template.svg"
 SPLASH_TEMPLATE="${KDE_DIR}/splash-template.qml"
 
@@ -59,6 +61,8 @@ rm -rf "${DT_DIR}"
 mkdir -p "${DT_DIR}"
 rm -rf "${AUR_DIR}"
 mkdir -p "${AUR_DIR}"
+rm -rf "${SDDM_DIR}"
+mkdir -p "${SDDM_DIR}"
 
 # Number of resolved color keys the scheme emitter produces
 EXPECTED_KEYS=100
@@ -239,6 +243,11 @@ write_preview_scss() {
 
 @import "colors";
 
+// Composite a translucent color over an opaque backdrop
+@function flat($fg, $bg) {
+  @return mix(rgb(red($fg), green($fg), blue($fg)), rgb(red($bg), green($bg), blue($bg)), alpha($fg) * 100%);
+}
+
 preview {
   WALL1: $selected_bg_color;
   WALL2: darken($selected_bg_color, 28%);
@@ -252,6 +261,12 @@ preview {
   BASE: $base_color;
   FG: $fg_color;
   CLOSE: $wm_button_close_bg;
+  COMPLBG: flat($dark_sidebar_bg, $bg_color);
+  COMPLFG: $dark_sidebar_fg;
+  COMPLDIM: flat(rgba($dark_sidebar_fg, 0.55), flat($dark_sidebar_bg, $bg_color));
+  WINDIM: flat($insensitive_fg_color, $bg_color);
+  SELFG: $selected_fg_color;
+  ERROR: $error_color;
 }
 EOF
   } > "${TMP_DIR}/preview.scss"
@@ -490,6 +505,44 @@ button_colors() {
   esac
 }
 
+# SDDM login theme: tokenized Breeze QML (sddm-base/) with the palette baked
+# in - the greeter has no color scheme configuration, so the Kirigami colors
+# are pinned per variant at generation time. The KCM preview reuses the
+# variant's look-and-feel preview image.
+build_sddm() {
+  local dest="${SDDM_DIR}/${scheme_id}"
+  mkdir -p "${dest}/faces"
+
+  cp "${SDDM_BASE}/Login.qml" "${SDDM_BASE}/Background.qml" "${dest}/"
+  cp "${SDDM_BASE}/faces/.face.icon" "${dest}/faces/"
+
+  local f
+  for f in Main.qml SessionButton.qml KeyboardButton.qml theme.conf; do
+    sed -e "s/{{COMPLBG}}/${P[COMPLBG]}/g" \
+        -e "s/{{COMPLFG}}/${P[COMPLFG]}/g" \
+        -e "s/{{COMPLDIM}}/${P[COMPLDIM]}/g" \
+        -e "s/{{WINBG}}/${P[WINDOW]}/g" \
+        -e "s/{{WINFG}}/${P[FG]}/g" \
+        -e "s/{{WINDIM}}/${P[WINDIM]}/g" \
+        -e "s/{{ACCENT}}/${P[ACCENT]}/g" \
+        -e "s/{{SELFG}}/${P[SELFG]}/g" \
+        -e "s/{{ERROR}}/${P[ERROR]}/g" \
+        "${SDDM_BASE}/${f}.in" > "${dest}/${f}"
+  done
+
+  sed -e "s/{{DISPLAY}}/${display_name}/g" \
+      -e "s/{{THEMEID}}/${scheme_id}/g" \
+      "${SDDM_BASE}/metadata.desktop.in" > "${dest}/metadata.desktop"
+
+  cp "${pkg_dir}/contents/previews/preview.png" "${dest}/preview.png"
+
+  if grep -rIq '{{' "${dest}"; then
+    echo "ERROR: unsubstituted sddm token(s) for ${scheme_id}:" \
+      "$(grep -rIho '{{[A-Z]*}}' "${dest}" | sort -u | tr '\n' ' ')"
+    exit 1
+  fi
+}
+
 build_aurorae() {
   local dest="${AUR_DIR}/${scheme_id}"
   local bmode="dark"
@@ -677,5 +730,7 @@ for theme in sea aliz azul pueril; do
 
     # Plasma desktop theme (panel, popups, tooltip)
     build_desktoptheme
+
+    build_sddm
   done
 done

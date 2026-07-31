@@ -58,6 +58,11 @@ else
   HALLOY_DIR="$HOME/.config/halloy/themes"
 fi
 
+# SDDM themes only exist system-wide - the greeter runs before any user
+# session - so a live install needs root; non-root runs may stage them into
+# a package with DESTDIR
+SDDM_THEME_DIR="/usr/share/sddm/themes"
+
 REO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SRC_DIR="${REO_DIR}/src"
 
@@ -87,8 +92,9 @@ usage() {
   printf "  %-25s%s\n" "--halloy" "Install Halloy IRC client themes"
   printf "  %-25s%s\n" "--kde" "Install KDE Plasma themes"
   printf "  %-25s%s\n" "--kitty" "Install Kitty terminal theme"
+  printf "  %-25s%s\n" "--sddm" "Install SDDM login themes (requires root)"
   printf "  %-25s%s\n" "--zed" "Install Zed editor themes"
-  printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme (requires sudo)"
+  printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme (requires root)"
   printf "  %-25s%s\n" "-r, --remove" "Uninstall theme"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
 }
@@ -464,6 +470,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     --kitty)
       kitty='true'
+      shift
+      ;;
+    --sddm)
+      sddm='true'
       shift
       ;;
     --zed)
@@ -1419,6 +1429,88 @@ uninstall_copyq() {
   done
 }
 
+install_sddm() {
+  local color_list=("${colors[@]}")
+  local theme_list=("${themes[@]}")
+
+  [[ ${#color_list[@]} -eq 0 ]] && color_list=("${COLOR_VARIANTS[@]}")
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  echo "Installing SDDM login themes..."
+
+  if [[ -z "${DESTDIR}" && "$UID" -ne "$ROOT_UID" ]]; then
+    echo "SDDM themes install system-wide to ${SDDM_THEME_DIR}; run this with sudo (or set DESTDIR for packaging)"
+    return
+  fi
+
+  mkdir -p "${DESTDIR}${SDDM_THEME_DIR}"
+
+  local color theme theme_cap color_cap sddm_dest sddm_bg
+  for color in "${color_list[@]}"; do
+    for theme in "${theme_list[@]}"; do
+      theme_cap="-$(echo "${theme#-}" | sed 's/.*/\u&/')"
+      color_cap=""
+      [[ -n "${color}" ]] && color_cap="-$(echo "${color#-}" | sed 's/.*/\u&/')"
+
+      sddm_dest="${DESTDIR}${SDDM_THEME_DIR}/Celestial${theme_cap}${color_cap}"
+      [[ -d "${sddm_dest}" ]] && rm -rf "${sddm_dest}"
+      cp -r "${SRC_DIR}/kde/sddm/Celestial${theme_cap}${color_cap}" "${sddm_dest}"
+
+      # Default the login background to the variant's global theme wallpaper.
+      # The image is bundled into the theme because the greeter cannot read
+      # user homes; picking another image in the KCM still overrides this
+      # via theme.conf.user.
+      case "${theme#-}" in
+        sea) sddm_bg="sea/Sea-Bioluminescence.webp" ;;
+        aliz) sddm_bg="aliz/Aliz-Temple.webp" ;;
+        azul) sddm_bg="azul/Azul-Ice.webp" ;;
+        pueril) sddm_bg="pueril/Pueril-Bamboo.webp" ;;
+      esac
+      if [[ -f "${SRC_DIR}/extra/backgrounds/${sddm_bg}" ]]; then
+        cp "${SRC_DIR}/extra/backgrounds/${sddm_bg}" "${sddm_dest}/background.webp"
+        sed -i 's/^type=color$/type=image/' "${sddm_dest}/theme.conf"
+        echo "background=${SDDM_THEME_DIR}/Celestial${theme_cap}${color_cap}/background.webp" >> "${sddm_dest}/theme.conf"
+      fi
+
+      echo "Installed ${sddm_dest}"
+    done
+  done
+}
+
+uninstall_sddm() {
+  local color_list=("${colors[@]}")
+  local theme_list=("${themes[@]}")
+
+  echo "Removing SDDM login themes..."
+
+  if [[ -z "${DESTDIR}" && "$UID" -ne "$ROOT_UID" ]]; then
+    echo "SDDM themes are system-wide; run this with sudo"
+    return
+  fi
+
+  # No filter: sweep the whole Celestial namespace
+  if [[ ${#color_list[@]} -eq 0 && ${#theme_list[@]} -eq 0 ]]; then
+    rm -rf "${DESTDIR}${SDDM_THEME_DIR}"/Celestial-*
+    echo "Removed Celestial themes from ${DESTDIR}${SDDM_THEME_DIR}"
+    return
+  fi
+
+  [[ ${#color_list[@]} -eq 0 ]] && color_list=("${COLOR_VARIANTS[@]}")
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  local color theme theme_cap color_cap
+  for color in "${color_list[@]}"; do
+    for theme in "${theme_list[@]}"; do
+      theme_cap="-$(echo "${theme#-}" | sed 's/.*/\u&/')"
+      color_cap=""
+      [[ -n "${color}" ]] && color_cap="-$(echo "${color#-}" | sed 's/.*/\u&/')"
+
+      rm -rf "${DESTDIR}${SDDM_THEME_DIR}/Celestial${theme_cap}${color_cap}"
+      echo "Removed ${DESTDIR}${SDDM_THEME_DIR}/Celestial${theme_cap}${color_cap}"
+    done
+  done
+}
+
 install_zed() {
   local theme_list=("${themes[@]}")
 
@@ -1587,6 +1679,10 @@ if [[ "${gdm:-}" != 'true' ]]; then
       install_kitty
     fi
 
+    if [[ "${sddm:-}" == 'true' ]]; then
+      install_sddm
+    fi
+
     if [[ "${zed:-}" == 'true' ]]; then
       install_zed
     fi
@@ -1624,6 +1720,9 @@ if [[ "${gdm:-}" != 'true' ]]; then
     elif [[ "${kitty:-}" == 'true' ]]; then
       uninstall_kitty
       echo -e 'Remove Kitty theme...'
+    elif [[ "${sddm:-}" == 'true' ]]; then
+      uninstall_sddm
+      echo -e 'Remove SDDM themes...'
     elif [[ "${zed:-}" == 'true' ]]; then
       uninstall_zed
       echo -e 'Remove Zed theme...'

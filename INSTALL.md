@@ -88,8 +88,9 @@ The install script provides extensive customization options:
 | `--halloy`             | Install Halloy IRC client themes                                         |
 | `--kde`                | Install KDE Plasma themes                                                |
 | `--kitty`              | Install Kitty terminal theme                                             |
+| `--sddm`               | Install SDDM login themes (requires root)                                |
 | `--zed`                | Install Zed editor themes                                                |
-| `-g, --gdm`            | Install GDM theme (requires sudo)                                        |
+| `-g, --gdm`            | Install GDM theme (requires root)                                        |
 | `-r, --remove`         | Uninstall theme                                                          |
 | `-h, --help`           | Show this help                                                           |
 
@@ -156,6 +157,20 @@ This themes the GNOME login screen by replacing `/usr/share/gnome-shell/gnome-sh
 ```bash
 ./install.sh --kde -t azul -c dark
 ```
+
+**Install SDDM login themes (requires root):**
+
+```bash
+sudo ./install.sh --sddm
+```
+
+**Install a specific SDDM variant:**
+
+```bash
+sudo ./install.sh --sddm -t azul -c dark
+```
+
+This installs to `/usr/share/sddm/themes/` (all 12 variants unless `-t`/`-c` narrow it); pick one under **System Settings** > **Colors & Themes** > **Login Screen (SDDM)**, then click **Apply Plasma Settings** on the same page so the greeter uses your active Celestial color scheme (login text fields fall back to Breeze colors without it). Each login screen defaults to its color's wallpaper - the same image its global theme sets - and the settings page lets you pick a different one per theme. Pair it with `--kde` for the complete look; it stays a separate flag because the login screen is system-wide, while the KDE themes install per-user.
 
 **Install theme backgrounds:**
 
@@ -303,6 +318,12 @@ Remove Kvantum themes:
 
 ```bash
 ./install.sh --kde -r
+```
+
+**Remove SDDM login themes:**
+
+```bash
+sudo ./install.sh --sddm -r
 ```
 
 **Remove Kitty terminal theme:**

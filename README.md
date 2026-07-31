@@ -36,7 +36,7 @@ This installs all theme variants to `~/.themes/`. For system-wide installation, 
 
 ## KDE Plasma
 
-Celestial provides native KDE Plasma theming for all 12 variants, including the bundled [Kvantum](src/Kvantum/README.md) themes for Qt apps. The global themes also set [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icons, the Celestial cursor, and each color's matching wallpaper - install those for the complete look.
+Celestial provides native KDE Plasma theming for all 12 variants, including the bundled [Kvantum](src/Kvantum/README.md) themes for Qt apps. The global themes also set [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icons, the Celestial cursor, and each color's matching wallpaper - install those, plus the matching SDDM login screen, for the complete look.
 
 ```bash
 # Install all KDE Plasma variants
@@ -47,6 +47,9 @@ Celestial provides native KDE Plasma theming for all 12 variants, including the 
 
 # Install with the Celestial cursors and backgrounds
 ./install.sh --kde --cursors -b
+
+# Add the matching login screen (system-wide, so it needs root)
+sudo ./install.sh --sddm
 ```
 
 Then apply from **System Settings** > **Global Theme**. One manual step remains: a global theme can select Kvantum as the widget style but can't choose which Celestial _variant_ Kvantum renders, so set it once to match:
@@ -56,6 +59,8 @@ kvantummanager --set Celestial-Azul-Dark
 ```
 
 GTK/GNOME apps don't follow a Plasma global theme - set them to match under **System Settings** > **Application Style** > **GNOME/GTK Application Style**, selecting your Celestial variant.
+
+The **SDDM login screen** is applied separately: pick your variant under **System Settings** > **Colors & Themes** > **Login Screen (SDDM)**, then click **Apply Plasma Settings** on the same page (a global theme can't switch the login screen, so it's a one-time selection like the Kvantum step).
 
 Built for Plasma 6. See the [KDE Plasma README](src/kde/README.md) for full details.
 

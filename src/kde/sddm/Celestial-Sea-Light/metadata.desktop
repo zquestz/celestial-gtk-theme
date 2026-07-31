@@ -1,0 +1,15 @@
+[SddmGreeterTheme]
+Name=Celestial Sea Light
+Description=Celestial Sea Light login theme
+Author=Celestial GTK Theme contributors
+Copyright=(c) 2016 David Edmundson, (c) 2026 Celestial GTK Theme contributors
+License=LGPL-2.0-or-later
+Type=sddm-theme
+Version=1.0
+Website=https://github.com/zquestz/celestial-gtk-theme
+Screenshot=preview.png
+MainScript=Main.qml
+ConfigFile=theme.conf
+Theme-Id=Celestial-Sea-Light
+Theme-API=2.0
+QtVersion=6

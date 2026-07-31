@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GNOME Shell 49 and 50 support, including the renamed scrollbar and notification widgets, the light panel hairline, and the GNOME 50 parental controls lock screen
 - Alacritty terminal theme with `--alacritty` installation flag
 - foot terminal theme with `--foot` installation flag
+- Celestial SDDM login themes for every variant with `--sddm` installation flag
 
 ### Changed
 

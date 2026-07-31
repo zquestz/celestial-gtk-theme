@@ -100,7 +100,9 @@ celestial-gtk-theme/
 |   |   |-- color-schemes/     # KDE color schemes
 |   |   |-- desktoptheme/      # Plasma desktop themes (panel, popups, tooltip)
 |   |   |-- desktoptheme-base/ # Desktop theme SVG sources
-|   |   `-- look-and-feel/     # Global Theme packages
+|   |   |-- look-and-feel/     # Global Theme packages
+|   |   |-- sddm/              # SDDM login themes
+|   |   `-- sddm-base/         # Login theme QML sources
 |   |-- Kvantum/               # Kvantum themes for Qt applications
 |   |-- labwc/                 # Labwc window manager theme
 |   |-- metacity-1/            # Metacity window manager theme
@@ -127,7 +129,7 @@ celestial-gtk-theme/
 
 **Always edit the SCSS source files**, not the generated CSS files. The CSS files are automatically generated and will be overwritten.
 
-The same applies to the KDE artifacts in `src/kde/` (`color-schemes/`, `look-and-feel/`, `desktoptheme/`) - they are generated from the SCSS palette by `src/kde/render.sh` and will be overwritten.
+The same applies to the KDE artifacts in `src/kde/` (`color-schemes/`, `look-and-feel/`, `desktoptheme/`, `aurorae/`, `sddm/`) - they are generated from the SCSS palette by `src/kde/render.sh` and will be overwritten.
 
 ### SCSS Source Files
 
