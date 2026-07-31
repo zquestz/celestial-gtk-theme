@@ -193,6 +193,8 @@ This script:
 - `src/gnome-shell/*/gnome-shell-*.css`
 - `src/cinnamon/cinnamon-*.css`
 
+CI (`.github/workflows/verify.yml`) reruns `parse_sass.sh` and `src/kde/render.sh` on every push and fails if the committed output is stale, so commit regenerated files together with source changes.
+
 ## Working with SCSS
 
 ### Color Variants

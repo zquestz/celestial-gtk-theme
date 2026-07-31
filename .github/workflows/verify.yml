@@ -1,0 +1,49 @@
+name: Verify
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  generated-files:
+    name: Generated files are in sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sassc librsvg2-bin imagemagick
+
+      - name: Regenerate theme CSS
+        run: ./parse_sass.sh
+
+      - name: Regenerate KDE artifacts
+        run: ./src/kde/render.sh
+
+      - name: Committed output matches the generators
+        run: |
+          # Rasterized previews (png/jpg) vary with the runner's font and
+          # librsvg versions, so only the text outputs are compared.
+          git diff --exit-code -- . ':(exclude)*.png' ':(exclude)*.jpg'
+          untracked="$(git ls-files --others --exclude-standard -- . ':(exclude)*.png' ':(exclude)*.jpg')"
+          if [ -n "${untracked}" ]; then
+            echo "Generators produced files that are not committed:"
+            echo "${untracked}"
+            exit 1
+          fi
+
+  shellcheck:
+    name: Shell scripts pass shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install shellcheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+
+      - name: Lint the installer and generators
+        run: shellcheck install.sh parse_sass.sh src/kde/render.sh
