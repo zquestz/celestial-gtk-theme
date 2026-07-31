@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Schematic login screen preview for the SDDM KCM grid; shapes only so the
+     render never depends on fonts. Tokens are substituted by render.sh. -->
+<svg width="600" height="337" viewBox="0 0 600 337" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="{{WALL1}}"/>
+      <stop offset="1" stop-color="{{WALL2}}"/>
+    </linearGradient>
+  </defs>
+
+  <!-- wallpaper backdrop -->
+  <rect width="600" height="337" fill="url(#wall)"/>
+
+  <!-- avatar -->
+  <circle cx="300" cy="128" r="38" fill="{{SELFG}}" opacity="0.1"/>
+  <circle cx="300" cy="128" r="38" fill="none" stroke="{{COMPLFG}}" stroke-width="2" opacity="0.3"/>
+  <circle cx="300" cy="118" r="12" fill="{{COMPLFG}}" opacity="0.45"/>
+  <path d="M 279 152 a 21 16 0 0 1 42 0 z" fill="{{COMPLFG}}" opacity="0.45"/>
+
+  <!-- password field + login button -->
+  <rect x="212" y="196" width="150" height="24" rx="4" fill="{{BASE}}" stroke="{{ACCENT}}" stroke-width="2"/>
+  <rect x="370" y="196" width="24" height="24" rx="4" fill="{{ACCENT}}"/>
+  <path d="M 378 203 l 8 5 l -8 5 z" fill="{{SELFG}}"/>
+</svg>

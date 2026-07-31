@@ -46,6 +46,7 @@ DT_BASE="${KDE_DIR}/desktoptheme-base"
 SDDM_BASE="${KDE_DIR}/sddm-base"
 SDDM_DIR="${KDE_DIR}/sddm"
 TEMPLATE="${KDE_DIR}/preview-template.svg"
+SDDM_TEMPLATE="${KDE_DIR}/sddm-preview-template.svg"
 SPLASH_TEMPLATE="${KDE_DIR}/splash-template.qml"
 
 ID_PREFIX="com.github.zquestz."
@@ -534,7 +535,25 @@ build_sddm() {
       -e "s/{{THEMEID}}/${scheme_id}/g" \
       "${SDDM_BASE}/metadata.desktop.in" > "${dest}/metadata.desktop"
 
-  cp "${pkg_dir}/contents/previews/preview.png" "${dest}/preview.png"
+  # KCM grid thumbnail: a schematic login screen in the variant's palette
+  sed -e "s/{{WALL1}}/${P[WALL1]}/g" \
+      -e "s/{{WALL2}}/${P[WALL2]}/g" \
+      -e "s/{{COMPLFG}}/${P[COMPLFG]}/g" \
+      -e "s/{{BASE}}/${P[BASE]}/g" \
+      -e "s/{{ACCENT}}/${P[ACCENT]}/g" \
+      -e "s/{{SELFG}}/${P[SELFG]}/g" \
+      "${SDDM_TEMPLATE}" > "${TMP_DIR}/sddm-preview.svg"
+
+  if grep -q '{{' "${TMP_DIR}/sddm-preview.svg"; then
+    echo "ERROR: unsubstituted sddm preview token(s) for ${scheme_id}:" \
+      "$(grep -o '{{[A-Z0-9]*}}' "${TMP_DIR}/sddm-preview.svg" | sort -u | tr '\n' ' ')"
+    exit 1
+  fi
+
+  rsvg-convert -w 600 -h 337 "${TMP_DIR}/sddm-preview.svg" -o "${dest}/preview.png" || exit 1
+  if [ "$(which optipng 2> /dev/null)" ]; then
+    optipng -quiet -o2 "${dest}/preview.png" > /dev/null 2>&1
+  fi
 
   if grep -rIq '{{' "${dest}"; then
     echo "ERROR: unsubstituted sddm token(s) for ${scheme_id}:" \
