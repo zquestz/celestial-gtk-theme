@@ -70,6 +70,21 @@ gsettings set org.gnome.desktop.interface gtk-theme "Celestial-Sea-Light"
 gsettings set org.gnome.shell.extensions.user-theme name "Celestial-Sea-Light"
 ```
 
+### Qt Applications
+
+On GNOME's Wayland session, Qt applications draw their own titlebars - Mutter offers no server-side decorations - so no theme can style them, and Qt's `adwaita` decoration plugin (`qt6-qtwayland-adwaita-decoration` on Fedora, usually preinstalled with GNOME) is hardcoded to the Adwaita look. Two options:
+
+```bash
+# GNOME-style Qt titlebars (follows light/dark, but always Adwaita)
+QT_WAYLAND_DECORATION=adwaita
+
+# Celestial Qt titlebars: run the app under XWayland, where Mutter
+# decorates it from the GTK theme; Kvantum still styles the widgets
+QT_QPA_PLATFORM=xcb
+```
+
+Set either persistently with a file in `~/.config/environment.d/` (one `VAR=value` per line), then log out and back in. On KDE Plasma none of this applies - KWin draws the Celestial window decorations for every app.
+
 ## Recommended Companions
 
 Complete your desktop with these complementary themes:
