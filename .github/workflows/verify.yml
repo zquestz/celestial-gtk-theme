@@ -22,12 +22,16 @@ jobs:
       - name: Regenerate KDE artifacts
         run: ./src/kde/render.sh
 
+      - name: Regenerate Telegram palettes
+        run: ./src/extra/telegram/render.sh
+
       - name: Committed output matches the generators
         run: |
           # Rasterized previews (png/jpg) vary with the runner's font and
-          # librsvg versions, so only the text outputs are compared.
-          git diff --exit-code -- . ':(exclude)*.png' ':(exclude)*.jpg'
-          untracked="$(git ls-files --others --exclude-standard -- . ':(exclude)*.png' ':(exclude)*.jpg')"
+          # librsvg versions, and the Telegram themes are zips containing a
+          # rendered background, so only the text outputs are compared.
+          git diff --exit-code -- . ':(exclude)*.png' ':(exclude)*.jpg' ':(exclude)*.tdesktop-theme'
+          untracked="$(git ls-files --others --exclude-standard -- . ':(exclude)*.png' ':(exclude)*.jpg' ':(exclude)*.tdesktop-theme')"
           if [ -n "${untracked}" ]; then
             echo "Generators produced files that are not committed:"
             echo "${untracked}"
@@ -46,4 +50,4 @@ jobs:
           sudo apt-get install -y shellcheck
 
       - name: Lint the installer and generators
-        run: shellcheck install.sh parse_sass.sh src/kde/render.sh
+        run: shellcheck install.sh parse_sass.sh src/kde/render.sh src/extra/telegram/render.sh

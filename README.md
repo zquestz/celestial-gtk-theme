@@ -18,7 +18,7 @@ Based on the excellent [Arc](https://github.com/horst3180/Arc-theme) and [Matcha
 - **Dock Support** - [Plank Reloaded](https://github.com/zquestz/plank-reloaded) theming
 - **HiDPI Support** - Standard, HiDPI, and XHiDPI variants for retina displays
 - **Color-Matched Backgrounds** - Minimalistic wallpapers coordinated with each theme variant
-- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, cursor theme, Zed editor themes, Alacritty, foot, Ghostty, Kitty, and Konsole terminal themes, Halloy IRC client themes, CopyQ clipboard manager themes, Slack themes, Sniffnet network monitor themes
+- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, cursor theme, Zed editor themes, Alacritty, foot, Ghostty, Kitty, and Konsole terminal themes, Telegram Desktop themes, Halloy IRC client themes, CopyQ clipboard manager themes, Slack themes, Sniffnet network monitor themes
 
 ## Installation
 
@@ -322,6 +322,22 @@ theme = "celestial-sea"
 For more details and installation instructions, see the [Halloy theme README](src/extra/halloy/README.md).
 
 **Note:** Halloy themes can only be installed for user accounts (not system-wide).
+
+### Telegram Desktop
+
+For [Telegram Desktop](https://desktop.telegram.org/) users, Celestial provides 8 color palettes - 4 color variants (Sea, Aliz, Azul, Pueril) in light and dark.
+
+Message bubbles stay neutral and are separated by elevation, with the accent reserved for links, controls, and the selected chat. Each theme also sets a flat Celestial chat background, replacing Telegram's patterned default.
+
+To install one, open the theme file for your variant with Telegram Desktop:
+
+```bash
+xdg-open src/extra/telegram/Celestial-Sea-Dark.tdesktop-theme
+```
+
+Double-clicking the file or dragging it onto the Telegram window works too.
+
+For more details, see the [Telegram theme README](src/extra/telegram/README.md).
 
 ### Slack
 
