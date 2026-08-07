@@ -140,6 +140,12 @@ If you prefer a different approach, consider:
 
 These plugins provide alternative ways to ensure Qt applications (KDE apps, VLC, Telegram, etc.) match your GTK theme.
 
+## Community
+
+**[Celestial Theme Forge](https://github.com/erikdubois/celestial-theme-forge)** by [Erik Dubois](https://github.com/erikdubois) generates Celestial in any accent color you like - 58 colors x light, standard, and dark. It ships a GTK4 picker that lets you grab a color with an eyedropper or a swatch, then builds and installs the theme to `~/.themes`, covering GTK 2/3/4, GNOME Shell, Cinnamon, Xfwm4, Metacity, Openbox, Labwc, Plank, Kvantum, and KDE Plasma color schemes, global themes, desktop themes, and Aurorae decorations.
+
+The generated themes are published ready to use at **[celestial-themes](https://github.com/erikdubois/celestial-themes)**.
+
 ## Cursor Theme
 
 Celestial includes a modern cursor theme designed to complement all theme variants.
