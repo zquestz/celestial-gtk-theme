@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Telegram Desktop themes for every variant, in light and dark, with a flat chat background
+- Four new backgrounds, one for each color variant: Sea Glacier, Aliz Canyon, Azul Delta, and Pueril Hills
 
 ## [1.6.0] - 2026-07-30
 

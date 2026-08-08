@@ -17,6 +17,12 @@ Dynamic abstract design with flowing shapes
 
 ![Aliz Abstract](aliz/Aliz-Abstract.webp)
 
+#### Aliz-Canyon.webp
+
+Sculpted slot canyon walls in deep coral with a shaft of daylight from above
+
+![Aliz Canyon](aliz/Aliz-Canyon.webp)
+
 #### Aliz-Temple.webp
 
 Layered pagoda temple scene with coral sun and mountain silhouettes
@@ -34,11 +40,17 @@ Minimalistic volcanic landscape with glowing lava flows and layered rock formati
 **Primary Color:** `#3498db`
 **Dark Accent:** `#1b1d24`
 
-#### Azul-Space.webp
+#### Azul-Abstract.webp
 
-Abstract space scene with nebula clouds
+Material design wallpaper with clean geometric shapes and blue tones
 
-![Azul Space](azul/Azul-Space.webp)
+![Azul Abstract](azul/Azul-Abstract.webp)
+
+#### Azul-Delta.webp
+
+Aerial view of braided glacial meltwater channels winding through dark sediment
+
+![Azul Delta](azul/Azul-Delta.webp)
 
 #### Azul-Ice.webp
 
@@ -46,16 +58,22 @@ Serene Arctic landscape with layered icebergs and frozen waters
 
 ![Azul Ice](azul/Azul-Ice.webp)
 
-#### Azul-Abstract.webp
+#### Azul-Space.webp
 
-Material design wallpaper with clean geometric shapes and blue tones
+Abstract space scene with nebula clouds
 
-![Azul Abstract](azul/Azul-Abstract.webp)
+![Azul Space](azul/Azul-Space.webp)
 
 ### Pueril (Green)
 
 **Primary Color:** `#97bb72`
 **Dark Accent:** `#222222`
+
+#### Pueril-Bamboo.webp
+
+Misty bamboo grove with layered depth and silhouettes
+
+![Pueril Bamboo](pueril/Pueril-Bamboo.webp)
 
 #### Pueril-Forest.webp
 
@@ -63,11 +81,11 @@ Minimalistic forest scene with soft lighting
 
 ![Pueril Forest](pueril/Pueril-Forest.webp)
 
-#### Pueril-Bamboo.webp
+#### Pueril-Hills.webp
 
-Misty bamboo grove with layered depth and silhouettes
+Layered hills fading into morning haze beneath a golden dawn sky
 
-![Pueril Bamboo](pueril/Pueril-Bamboo.webp)
+![Pueril Hills](pueril/Pueril-Hills.webp)
 
 #### Pueril-Meadow.webp
 
@@ -80,11 +98,17 @@ Peaceful meadow landscape at dawn with morning mist and soft green tones
 **Primary Color:** `#2eb398`
 **Dark Accent:** `#1b2224`
 
-#### Sea-Underwater.webp
+#### Sea-Bioluminescence.webp
 
-Serene underwater scene with bioluminescent elements
+Bioluminescent bay at night with glowing plankton creating ethereal teal light
 
-![Sea Underwater](sea/Sea-Underwater.webp)
+![Sea Bioluminescence](sea/Sea-Bioluminescence.webp)
+
+#### Sea-Glacier.webp
+
+Glacial ice cave in luminous teal, opening onto a distant mountain
+
+![Sea Glacier](sea/Sea-Glacier.webp)
 
 #### Sea-Turtles.webp
 
@@ -92,11 +116,11 @@ Sea turtles swimming through sunlit ocean depths with coral silhouettes
 
 ![Sea Turtles](sea/Sea-Turtles.webp)
 
-#### Sea-Bioluminescence.webp
+#### Sea-Underwater.webp
 
-Bioluminescent bay at night with glowing plankton creating ethereal teal light
+Serene underwater scene with bioluminescent elements
 
-![Sea Bioluminescence](sea/Sea-Bioluminescence.webp)
+![Sea Underwater](sea/Sea-Underwater.webp)
 
 ## Design Philosophy
 
