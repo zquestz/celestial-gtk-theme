@@ -5,12 +5,13 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.6.1] - 2026-08-07
 
 ### Added
 
 - Telegram Desktop themes for every variant, in light and dark, with a flat chat background
 - Four new backgrounds, one for each color variant: Sea Glacier, Aliz Canyon, Azul Delta, and Pueril Hills
+- Link to the Celestial Theme Forge in the README
 
 ## [1.6.0] - 2026-07-30
 
