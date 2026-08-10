@@ -95,6 +95,7 @@ Set either persistently with a file in `~/.config/environment.d/` (one `VAR=valu
 Complete your desktop with these complementary themes:
 
 - **[Papirus Icon Theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)** - Modern icon theme with excellent coverage; pair `Papirus` with the standard variants, `Papirus-Dark` with dark, and `Papirus-Light` with light
+- **[Papirus XApp Symbolic Icons](https://github.com/zquestz/papirus-xapp-symbolic-icons)** - Redraws the XApp symbolic icons used by Cinnamon and Linux Mint apps in Papirus style at 16, 22, and 24px, so they stop looking out of place; installs into an existing Papirus theme
 - **[Plank Reloaded](https://github.com/zquestz/plank-reloaded)** - Modern dock with Celestial theme support
 - **[Hardcode-Tray](https://github.com/bilelmoussaoui/Hardcode-Tray)** - Fix hardcoded tray icons
 - **[Folder Color](https://github.com/costales/folder-color)** - Change individual folder colors in Nautilus, Nemo, and Caja
