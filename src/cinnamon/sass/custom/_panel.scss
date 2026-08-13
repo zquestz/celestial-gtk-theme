@@ -97,6 +97,13 @@ $panel_insensitive_fg: transparentize($dark_surface_fg, 0.55);
     &:focus {
       background-color: $panel_lightest_bg;
     }
+
+    // Urgent state: outrank the rules above so the attention colour survives
+    // hover instead of being replaced by the neutral panel background.
+    &.window-list-item-demands-attention {
+      &:hover { background-color: lighten($destructive_color, 8%); }
+      &:focus { background-color: darken($destructive_color, 8%); }
+    }
   }
 
   .grouped-window-list-item-box {
@@ -108,6 +115,11 @@ $panel_insensitive_fg: transparentize($dark_surface_fg, 0.55);
 
     &:focus {
       background-color: $panel_lightest_bg;
+    }
+
+    &.grouped-window-list-item-demands-attention {
+      &:hover { background-color: lighten($destructive_color, 8%); }
+      &:focus { background-color: darken($destructive_color, 8%); }
     }
   }
 

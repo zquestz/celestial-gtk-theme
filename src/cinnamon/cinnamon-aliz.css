@@ -2435,6 +2435,20 @@ StScrollBar StButton#hhandle:hover {
   background-color: #4c4c4c;
 }
 
+.panel-top .window-list-item-box.window-list-item-demands-attention:hover,
+.panel-bottom .window-list-item-box.window-list-item-demands-attention:hover,
+.panel-left .window-list-item-box.window-list-item-demands-attention:hover,
+.panel-right .window-list-item-box.window-list-item-demands-attention:hover {
+  background-color: #e27c7c;
+}
+
+.panel-top .window-list-item-box.window-list-item-demands-attention:focus,
+.panel-bottom .window-list-item-box.window-list-item-demands-attention:focus,
+.panel-left .window-list-item-box.window-list-item-demands-attention:focus,
+.panel-right .window-list-item-box.window-list-item-demands-attention:focus {
+  background-color: #d43a3a;
+}
+
 .panel-top .grouped-window-list-item-box,
 .panel-bottom .grouped-window-list-item-box,
 .panel-left .grouped-window-list-item-box,
@@ -2454,6 +2468,20 @@ StScrollBar StButton#hhandle:hover {
 .panel-left .grouped-window-list-item-box:focus,
 .panel-right .grouped-window-list-item-box:focus {
   background-color: #4c4c4c;
+}
+
+.panel-top .grouped-window-list-item-box.grouped-window-list-item-demands-attention:hover,
+.panel-bottom .grouped-window-list-item-box.grouped-window-list-item-demands-attention:hover,
+.panel-left .grouped-window-list-item-box.grouped-window-list-item-demands-attention:hover,
+.panel-right .grouped-window-list-item-box.grouped-window-list-item-demands-attention:hover {
+  background-color: #e27c7c;
+}
+
+.panel-top .grouped-window-list-item-box.grouped-window-list-item-demands-attention:focus,
+.panel-bottom .grouped-window-list-item-box.grouped-window-list-item-demands-attention:focus,
+.panel-left .grouped-window-list-item-box.grouped-window-list-item-demands-attention:focus,
+.panel-right .grouped-window-list-item-box.grouped-window-list-item-demands-attention:focus {
+  background-color: #d43a3a;
 }
 
 .panel-top .grouped-window-list-badge,
