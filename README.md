@@ -1,6 +1,6 @@
 # Celestial GTK Theme
 
-[![CI](https://img.shields.io/github/actions/workflow/status/zquestz/celestial-gtk-theme/verify.yml?style=flat-square&label=CI)](https://github.com/zquestz/celestial-gtk-theme/actions/workflows/verify.yml) ![Version](https://img.shields.io/badge/Version-1.6.2-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2050-blue?style=flat-square) ![KDE Plasma](https://img.shields.io/badge/KDE%20Plasma-6-blue?style=flat-square)
+[![CI](https://img.shields.io/github/actions/workflow/status/zquestz/celestial-gtk-theme/verify.yml?style=flat-square&label=CI)](https://github.com/zquestz/celestial-gtk-theme/actions/workflows/verify.yml) ![Version](https://img.shields.io/badge/Version-1.6.3-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2050-blue?style=flat-square) ![KDE Plasma](https://img.shields.io/badge/KDE%20Plasma-6-blue?style=flat-square)
 
 **A modern, customizable GTK theme with multiple color variants**
 
