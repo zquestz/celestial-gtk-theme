@@ -5,6 +5,12 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Cinnamon panel hover, focus, checked, and urgent backgrounds are now slightly translucent so transparent panels show through
+
 ## [1.6.2] - 2026-08-13
 
 ### Added

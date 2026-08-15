@@ -13,9 +13,11 @@
 $panel_fg_color: $dark_surface_fg;
 $panel_text_color: $_text_color_dark;
 $panel_borders_color: $dark_surface_border;
-$panel_light_bg: $dark_surface_bg;
-$panel_lighter_bg: $dark_surface_bg_hover;
-$panel_lightest_bg: $dark_surface_bg_active;
+// Panel highlight states are 85% opacity so transparent panels show through;
+// over the opaque panel the difference is imperceptible.
+$panel_light_bg: transparentize($dark_surface_bg, 0.15);
+$panel_lighter_bg: transparentize($dark_surface_bg_hover, 0.15);
+$panel_lightest_bg: transparentize($dark_surface_bg_active, 0.15);
 $panel_insensitive_fg: transparentize($dark_surface_fg, 0.55);
 
 // ============================================================================
@@ -62,7 +64,7 @@ $panel_insensitive_fg: transparentize($dark_surface_fg, 0.55);
 
     &:checked,
     &:checked:hover {
-      background-color: $accent_bg_color;
+      background-color: transparentize($accent_bg_color, 0.15);
 
       .applet-icon {
         color: white;
@@ -101,8 +103,8 @@ $panel_insensitive_fg: transparentize($dark_surface_fg, 0.55);
     // Urgent state: outrank the rules above so the attention colour survives
     // hover instead of being replaced by the neutral panel background.
     &.window-list-item-demands-attention {
-      &:hover { background-color: lighten($destructive_color, 8%); }
-      &:focus { background-color: darken($destructive_color, 8%); }
+      &:hover { background-color: transparentize(lighten($destructive_color, 8%), 0.15); }
+      &:focus { background-color: transparentize(darken($destructive_color, 8%), 0.15); }
     }
   }
 
@@ -118,8 +120,8 @@ $panel_insensitive_fg: transparentize($dark_surface_fg, 0.55);
     }
 
     &.grouped-window-list-item-demands-attention {
-      &:hover { background-color: lighten($destructive_color, 8%); }
-      &:focus { background-color: darken($destructive_color, 8%); }
+      &:hover { background-color: transparentize(lighten($destructive_color, 8%), 0.15); }
+      &:focus { background-color: transparentize(darken($destructive_color, 8%), 0.15); }
     }
   }
 
