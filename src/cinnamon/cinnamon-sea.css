@@ -2312,12 +2312,6 @@ StScrollBar StButton#hhandle:hover {
   background-color: #f7f7f7;
 }
 
-#menu-search-entry,
-#menu-search-entry:focus,
-#menu-search-entry:hover {
-  background-color: #f7f7f7;
-}
-
 .media-keys-osd {
   border-radius: 1px;
 }

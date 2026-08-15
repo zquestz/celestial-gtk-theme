@@ -20,10 +20,3 @@
 .menu-favorites-box {
   background-color: $bg_color;
 }
-
-// Menu search entry - use $bg_color like original instead of $light_bg_color
-#menu-search-entry,
-#menu-search-entry:focus,
-#menu-search-entry:hover {
-  background-color: $bg_color;
-}

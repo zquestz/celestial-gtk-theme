@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Cinnamon panel hover, focus, checked, and urgent backgrounds are now slightly translucent so transparent panels show through
 
+### Fixed
+
+- Cinnamenu's search entry now matches the stock menu's search entry, instead of picking up a stale override meant for the pre-rename Cinnamon menu
+
 ## [1.6.2] - 2026-08-13
 
 ### Added
