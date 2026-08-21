@@ -9150,6 +9150,10 @@ menubutton.flat.popup.sources-button > button image.calendar-color-image {
   color: rgba(198, 205, 203, 0.45);
 }
 
+mathdisplay > box {
+  background-color: #222b2e;
+}
+
 @define-color theme_fg_color #ccd7d4;
 @define-color theme_text_color #abb9b6;
 @define-color theme_bg_color #1b2224;

@@ -513,3 +513,10 @@ menubutton.flat.popup.sources-button {
     }
   }
 }
+
+// Gnome Calculator
+// The backspace button sits in a box next to the display's textview. Without
+// this the box shows the card color and reads as a lighter square.
+mathdisplay > box {
+  background-color: $base_color;
+}
