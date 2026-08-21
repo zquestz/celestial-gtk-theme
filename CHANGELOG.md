@@ -5,11 +5,11 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.6.4] - 2026-08-20
 
 ### Fixed
 
-- GNOME Calculator's display no longer shows a seam around the backspace button, caused by the theme overriding the app's transparent textviews ([#10](https://github.com/zquestz/celestial-gtk-theme/issues/10))
+- GNOME Calculator no longer draws a lighter box around the backspace button ([#10](https://github.com/zquestz/celestial-gtk-theme/issues/10))
 
 ## [1.6.3] - 2026-08-15
 
