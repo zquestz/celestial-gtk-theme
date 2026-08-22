@@ -23,10 +23,10 @@ two-mode extras:
 
 | Color  | Accent    | Light                    | Dark                    |
 | ------ | --------- | ------------------------ | ----------------------- |
-| Sea    | `#2eb398` | `celestial-sea-light`    | `celestial-sea-dark`    |
 | Aliz   | `#f0544c` | `celestial-aliz-light`   | `celestial-aliz-dark`   |
 | Azul   | `#3498db` | `celestial-azul-light`   | `celestial-azul-dark`   |
 | Pueril | `#97bb72` | `celestial-pueril-light` | `celestial-pueril-dark` |
+| Sea    | `#2eb398` | `celestial-sea-light`    | `celestial-sea-dark`    |
 
 Celestial's Standard and Light modes differ only in window-manager chrome,
 which Tk does not draw, so both use the `-light` theme — a `Celestial-Azul`
@@ -130,6 +130,130 @@ Because Tk has no alpha channel, Celestial's translucent tokens (`borders`,
 the insensitive foreground, and the tab hover accent) are pre-composited over
 each variant's own background. Those flattened values are recorded in the
 header of each variant file.
+
+## gitk
+
+gitk paints its history and diff panes from its own saved preferences rather
+than the ttk theme, with light-theme defaults. Paste the block for your
+variant into `~/.config/git/gitk` while gitk is closed — it rewrites that
+file on exit, and picks the values up on next start.
+
+`selectbgcolor` stays a muted surface rather than the accent: gitk has no
+selected-foreground setting, so selected rows keep `fgcolor`, which would not
+read on an accent fill. hgk (Mercurial's gitk cousin) manages its colors the
+same way, and the same values apply.
+
+#### Aliz Dark
+
+```tcl
+set bgcolor #262626
+set fgcolor #b5abab
+set selectbgcolor #404040
+set diffcolors {"#fc4138" "#3498db" "#f0544c"}
+set diffbgcolors {"#462a29" "#283741"}
+set markbgcolor #404040
+set headbgcolor #3498db
+set foundbgcolor #f27835
+set linkfgcolor #f8aeaa
+```
+
+#### Aliz Light
+
+```tcl
+set bgcolor #ffffff
+set fgcolor #363636
+set selectbgcolor #d2d2d2
+set diffcolors {"#fc4138" "#3498db" "#f0544c"}
+set diffbgcolors {"#ffe3e1" "#e1f0fa"}
+set markbgcolor #d2d2d2
+set headbgcolor #3498db
+set foundbgcolor #f27835
+set linkfgcolor #ec271d
+```
+
+#### Azul Dark
+
+```tcl
+set bgcolor #22252c
+set fgcolor #afb4ba
+set selectbgcolor #383d49
+set diffcolors {"#fc4138" "#2eb398" "#3498db"}
+set diffbgcolors {"#43292e" "#243a3c"}
+set markbgcolor #383d49
+set headbgcolor #2eb398
+set foundbgcolor #f27835
+set linkfgcolor #8bc4ea
+```
+
+#### Azul Light
+
+```tcl
+set bgcolor #ffffff
+set fgcolor #2e313d
+set selectbgcolor #d2d2d2
+set diffcolors {"#fc4138" "#2eb398" "#3498db"}
+set diffbgcolors {"#ffe3e1" "#e0f4f0"}
+set markbgcolor #d2d2d2
+set headbgcolor #2eb398
+set foundbgcolor #f27835
+set linkfgcolor #217dbb
+```
+
+#### Pueril Dark
+
+```tcl
+set bgcolor #262626
+set fgcolor #bababa
+set selectbgcolor #404040
+set diffcolors {"#fc4138" "#3498db" "#97bb72"}
+set diffbgcolors {"#462a29" "#283741"}
+set markbgcolor #404040
+set headbgcolor #3498db
+set foundbgcolor #f27835
+set linkfgcolor #cadcb7
+```
+
+#### Pueril Light
+
+```tcl
+set bgcolor #ffffff
+set fgcolor #363636
+set selectbgcolor #d2d2d2
+set diffcolors {"#fc4138" "#3498db" "#97bb72"}
+set diffbgcolors {"#ffe3e1" "#e1f0fa"}
+set markbgcolor #d2d2d2
+set headbgcolor #3498db
+set foundbgcolor #f27835
+set linkfgcolor #7ea951
+```
+
+#### Sea Dark
+
+```tcl
+set bgcolor #222b2e
+set fgcolor #abb9b6
+set selectbgcolor #38464b
+set diffcolors {"#fc4138" "#2eb398" "#2eb398"}
+set diffbgcolors {"#432e30" "#243f3e"}
+set markbgcolor #38464b
+set headbgcolor #2eb398
+set foundbgcolor #f27835
+set linkfgcolor #6ddac4
+```
+
+#### Sea Light
+
+```tcl
+set bgcolor #ffffff
+set fgcolor #303d41
+set selectbgcolor #d2d2d2
+set diffcolors {"#fc4138" "#2eb398" "#2eb398"}
+set diffbgcolors {"#ffe3e1" "#e0f4f0"}
+set markbgcolor #d2d2d2
+set headbgcolor #2eb398
+set foundbgcolor #f27835
+set linkfgcolor #248a76
+```
 
 ## Development
 
