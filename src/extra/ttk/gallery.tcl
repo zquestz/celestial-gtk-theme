@@ -12,6 +12,15 @@
 #   wish gallery.tcl celestial-azul-dark    # sources the matching .tcl here
 
 set here [file dirname [file normalize [info script]]]
+
+# This directory carries a pkgIndex.tcl, so putting it on auto_path makes the
+# local variants selectable from the theme dropdown without any install.
+# Prepended, so on a machine that also has the themes installed system-wide
+# the gallery exercises the in-tree code, not the installed copy.
+if {[lsearch -exact $auto_path $here] < 0} {
+  set auto_path [linsert $auto_path 0 $here]
+}
+
 set requested [lindex $argv 0]
 
 if {$requested ne ""} {
@@ -159,10 +168,18 @@ pack $row.lb $row.tx $row.btn -side left -padx 6 -pady 4 -anchor n
 set bar [ttk::frame .bar -padding {10 0 10 10}]
 pack $bar -fill x
 ttk::label $bar.l -text "Theme:"
-ttk::combobox $bar.c -values [lsort [ttk::style theme names]] -state readonly -width 26
+# ttk::themes lists registered theme packages as well as loaded themes, so
+# every installed or in-tree variant is offered; loading happens on selection.
+ttk::combobox $bar.c -values [lsort [ttk::themes]] -state readonly -width 26
 $bar.c set [ttk::style theme use]
 bind $bar.c <<ComboboxSelected>> {
-  ttk::style theme use [%W get]
+  set pick [%W get]
+  if {[lsearch -exact [ttk::style theme names] $pick] < 0} {
+    catch {package require ttk::theme::$pick}
+  }
+  if {[lsearch -exact [ttk::style theme names] $pick] >= 0} {
+    ttk::style theme use $pick
+  }
   wm title . "Celestial ttk gallery - [ttk::style theme use]"
 }
 pack $bar.l $bar.c -side left -padx 3

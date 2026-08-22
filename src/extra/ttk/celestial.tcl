@@ -138,6 +138,12 @@ namespace eval ::celestial::ttk {
     option add *Menu.activeBackground [dict get $colors -selectbg] widgetDefault
     option add *Menu.activeForeground [dict get $colors -selectfg] widgetDefault
     option add *Menu.activeBorderWidth 0 widgetDefault
+    # Menus default to a raised 3D bevel, and Tk brightens the highlight
+    # aggressively on near-black backgrounds - a white line over every
+    # menubar. Solid keeps a 1px outline so dropdown menus (same widget
+    # class) do not float borderless over a dark window.
+    option add *Menu.relief solid widgetDefault
+    option add *Menu.borderWidth 1 widgetDefault
     option add *tearOff 0
   }
 
@@ -158,6 +164,15 @@ namespace eval ::celestial::ttk {
 
     array set opt {-variant "" -gtkcolor "" -suffix "" -colors {}}
     array set opt $args
+
+    # Already created in this interpreter - typically auto-loaded through
+    # *TkTheme from an installed copy before a local file is sourced.
+    # ttk themes cannot be redefined, so refresh the palette and stop rather
+    # than erroring out of the caller's source.
+    if {[lsearch -exact [ttk::style theme names] $name] >= 0} {
+      setpalette $opt(-colors)
+      return
+    }
 
     # Staged in the namespace so the -settings script can reach them by
     # fully-qualified upvar regardless of the scope ttk evaluates it in.
