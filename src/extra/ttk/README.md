@@ -114,7 +114,9 @@ including the accent while the slider is dragged.
 
 Some applications also hardcode their own widget colors on top of whatever
 theme is active — git-gui's gold diff header and its salmon and green section
-titles are the best-known examples. Explicit widget options outrank any
+titles are the best-known examples, and the Tk widget demo's blue-on-dark
+hyperlinks are the same thing (Tk has no link-color resource for applications
+to consult, so each picks its own). Explicit widget options outrank any
 theme, so those survive under this one exactly as they do under every other
 dark theme. Menu separators are similar: Tk draws them from shadow colors it
 computes internally from the menu background, brightening them sharply on
