@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # shellcheck disable=SC2086,SC2001
 # Celestial GTK Theme Installer
-# Version: 1.6.4
+# Version: 1.7.0
 
 ROOT_UID=0
 DEST_DIR=
@@ -80,7 +80,7 @@ THEME_VARIANTS=('-sea' '-aliz' '-azul' '-pueril')
 SHELL_VERSION=""
 
 usage() {
-  printf "%s\n" "Celestial GTK Theme Installer v1.6.4"
+  printf "%s\n" "Celestial GTK Theme Installer v1.7.0"
   printf "%s\n" "Usage: $0 [OPTIONS...]"
   printf "\n%s\n" "OPTIONS:"
   printf "  %-25s%s\n" "-d, --dest DIR" "Destination directory (Default: ${DEST_DIR})"
@@ -97,10 +97,10 @@ usage() {
   printf "  %-25s%s\n" "--foot" "Install foot terminal theme"
   printf "  %-25s%s\n" "--ghostty" "Install Ghostty terminal theme"
   printf "  %-25s%s\n" "--halloy" "Install Halloy IRC client themes"
-  printf "  %-25s%s\n" "--ttk" "Install Tk/ttk themes for Tk applications"
   printf "  %-25s%s\n" "--kde" "Install KDE Plasma themes"
   printf "  %-25s%s\n" "--kitty" "Install Kitty terminal theme"
   printf "  %-25s%s\n" "--sddm" "Install SDDM login themes (requires root)"
+  printf "  %-25s%s\n" "--ttk" "Install Tk/ttk themes for Tk applications"
   printf "  %-25s%s\n" "--zed" "Install Zed editor themes"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme (requires root)"
   printf "  %-25s%s\n" "-r, --remove" "Uninstall theme"
@@ -1397,6 +1397,11 @@ install_ttk() {
 
       # The indicator artwork is shared with the GTK theme; copying it beside
       # the theme keeps the installed package self-contained and relocatable.
+      # The GTK files carry a -dark suffix only for dark mode - the light
+      # artwork is unsuffixed - so the asset suffix is not the theme suffix.
+      local asset_suffix=""
+      [[ "${suffix}" == "-dark" ]] && asset_suffix="-dark"
+
       mkdir -p "${DESTDIR}${TTK_DIR}/assets-${variant}"
       local asset
       for asset in checkbox-unchecked checkbox-checked checkbox-mixed \
@@ -1405,7 +1410,7 @@ install_ttk() {
                    radio-unchecked radio-checked radio-mixed \
                    radio-unchecked-insensitive radio-checked-insensitive \
                    radio-mixed-insensitive; do
-        cp "${SRC_DIR}/gtk/assets-${theme_name}/${asset}${suffix}.png" \
+        cp "${SRC_DIR}/gtk/assets-${theme_name}/${asset}${asset_suffix}.png" \
            "${DESTDIR}${TTK_DIR}/assets-${variant}/"
       done
 
