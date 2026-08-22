@@ -332,7 +332,7 @@ their colors cannot drift from the rest of the theme:
 
 Run it after `parse_sass.sh` whenever a palette changes; CI regenerates and
 fails if the committed output is stale. All styling lives in
-`src/extra/ttk/celestial.tcl` and is not generated — the per-variant files are
+`src/extra/ttk/celestial.tcl` and is not generated. The per-variant files are
 colors only. The check and radio indicators reuse the GTK PNGs rather than
 shipping their own artwork, so there is no extra asset step.
 
