@@ -89,6 +89,7 @@ The install script provides extensive customization options:
 | `--kde`                | Install KDE Plasma themes                                                |
 | `--kitty`              | Install Kitty terminal theme                                             |
 | `--sddm`               | Install SDDM login themes (requires root)                                |
+| `--ttk`                | Install Tk/ttk themes for Tk applications                                |
 | `--zed`                | Install Zed editor themes                                                |
 | `-g, --gdm`            | Install GDM theme (requires root)                                        |
 | `-r, --remove`         | Uninstall theme                                                          |
@@ -226,16 +227,25 @@ This installs to `/usr/share/sddm/themes/` (all 12 variants unless `-t`/`-c` nar
 ./install.sh --halloy
 ```
 
+**Install Tk/ttk themes:**
+
+```bash
+./install.sh --ttk
+```
+
+> A per-user install needs `TCLLIBPATH` set, and the theme is selected with a
+> `*TkTheme` X resource. See [src/extra/ttk/README.md](src/extra/ttk/README.md).
+
 **Install cursor theme:**
 
 ```bash
 ./install.sh --cursors
 ```
 
-**Install everything (theme + backgrounds + Kvantum + Alacritty + CopyQ + cursors + foot + Ghostty + Halloy + Kitty + Zed):**
+**Install everything (theme + backgrounds + Kvantum + Alacritty + CopyQ + cursors + foot + Ghostty + Halloy + Kitty + ttk + Zed):**
 
 ```bash
-./install.sh -k -b --alacritty --copyq --cursors --foot --ghostty --halloy --kitty --zed
+./install.sh -k -b --alacritty --copyq --cursors --foot --ghostty --halloy --kitty --ttk --zed
 ```
 
 > On KDE Plasma, also add `--kde`.

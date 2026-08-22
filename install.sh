@@ -32,6 +32,10 @@ if [ "$UID" -eq "$ROOT_UID" ]; then
   KITTY_DIR=""
   ZED_DIR=""
   HALLOY_DIR=""
+  # Tcl scans subdirectories of every auto_path entry for pkgIndex.tcl, and
+  # /usr/lib is always on auto_path, so this is found without pinning a Tcl
+  # version into the path.
+  TTK_DIR="/usr/lib/celestial-ttk"
 else
   DEST_DIR="$HOME/.themes"
   GTKSV_DIR="$HOME/.local/share/gtksourceview-4/styles"
@@ -56,6 +60,9 @@ else
   KITTY_DIR="$HOME/.config/kitty/themes"
   ZED_DIR="$HOME/.config/zed/themes"
   HALLOY_DIR="$HOME/.config/halloy/themes"
+  # No user directory is on Tcl's auto_path, so a per-user install needs
+  # TCLLIBPATH set; install_ttk explains that when it runs.
+  TTK_DIR="$HOME/.local/share/celestial-ttk"
 fi
 
 # SDDM themes only exist system-wide - the greeter runs before any user
@@ -90,6 +97,7 @@ usage() {
   printf "  %-25s%s\n" "--foot" "Install foot terminal theme"
   printf "  %-25s%s\n" "--ghostty" "Install Ghostty terminal theme"
   printf "  %-25s%s\n" "--halloy" "Install Halloy IRC client themes"
+  printf "  %-25s%s\n" "--ttk" "Install Tk/ttk themes for Tk applications"
   printf "  %-25s%s\n" "--kde" "Install KDE Plasma themes"
   printf "  %-25s%s\n" "--kitty" "Install Kitty terminal theme"
   printf "  %-25s%s\n" "--sddm" "Install SDDM login themes (requires root)"
@@ -462,6 +470,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     --halloy)
       halloy='true'
+      shift
+      ;;
+    --ttk)
+      ttk='true'
       shift
       ;;
     --kde)
@@ -1341,6 +1353,90 @@ install_halloy() {
   echo "Configure in your Halloy config.toml with: theme = \"celestial-<variant>\""
 }
 
+# Map a Celestial colour variant onto a ttk theme suffix. Standard and Light
+# differ only in window-manager chrome, which ttk does not draw, so both
+# resolve to the -light theme and the pair is de-duplicated by the caller.
+ttk_suffix_for() {
+  case "$1" in
+    -dark) echo "-dark" ;;
+    *) echo "-light" ;;
+  esac
+}
+
+install_ttk() {
+  local color_list=("${colors[@]}")
+  local theme_list=("${themes[@]}")
+
+  [[ ${#color_list[@]} -eq 0 ]] && color_list=("${COLOR_VARIANTS[@]}")
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  echo "Installing Tk/ttk themes..."
+
+  mkdir -p "${DESTDIR}${TTK_DIR}"
+
+  cp "${SRC_DIR}/extra/ttk/celestial.tcl" "${DESTDIR}${TTK_DIR}/"
+  cp "${SRC_DIR}/extra/ttk/pkgIndex.tcl" "${DESTDIR}${TTK_DIR}/"
+
+  local installed=()
+
+  for theme in "${theme_list[@]}"; do
+    local theme_name="${theme#-}"
+
+    for color in "${color_list[@]}"; do
+      local suffix
+      suffix="$(ttk_suffix_for "${color}")"
+      local variant="${theme_name}${suffix}"
+
+      # Standard and Light both map to the unsuffixed theme; install it once.
+      if [[ " ${installed[*]} " == *" ${variant} "* ]]; then
+        continue
+      fi
+      installed+=("${variant}")
+
+      cp "${SRC_DIR}/extra/ttk/celestial-${variant}.tcl" "${DESTDIR}${TTK_DIR}/"
+
+      # The indicator artwork is shared with the GTK theme; copying it beside
+      # the theme keeps the installed package self-contained and relocatable.
+      mkdir -p "${DESTDIR}${TTK_DIR}/assets-${variant}"
+      local asset
+      for asset in checkbox-unchecked checkbox-checked checkbox-mixed \
+                   checkbox-unchecked-insensitive checkbox-checked-insensitive \
+                   checkbox-mixed-insensitive \
+                   radio-unchecked radio-checked radio-mixed \
+                   radio-unchecked-insensitive radio-checked-insensitive \
+                   radio-mixed-insensitive; do
+        cp "${SRC_DIR}/gtk/assets-${theme_name}/${asset}${suffix}.png" \
+           "${DESTDIR}${TTK_DIR}/assets-${variant}/"
+      done
+
+      echo "  Installed celestial-${variant}"
+    done
+  done
+
+  echo "Tk/ttk themes installed to ${DESTDIR}${TTK_DIR}/"
+
+  if [[ "${UID}" -ne "${ROOT_UID}" ]]; then
+    echo "Per-user install: Tcl does not search \$HOME, so add this directory"
+    echo "to TCLLIBPATH somewhere your desktop session reads, for example"
+    echo "  ~/.config/environment.d/celestial-ttk.conf:"
+    echo "    TCLLIBPATH=${TTK_DIR}"
+    echo "A shell profile is not enough; menu-launched apps do not read it."
+  fi
+
+  echo "Then select a theme for all Tk apps with:"
+  echo "  echo '*TkTheme: celestial-<variant>' | xrdb -merge -"
+}
+
+uninstall_ttk() {
+  echo "Removing Tk/ttk themes..."
+
+  if [[ -d "${DESTDIR}${TTK_DIR}" ]]; then
+    rm -rf "${DESTDIR}${TTK_DIR}"
+    echo "Removed ${DESTDIR}${TTK_DIR}/"
+    echo "Any '*TkTheme: celestial-*' line in your X resources is left in place"
+  fi
+}
+
 uninstall_halloy() {
   local theme_list=("${themes[@]}")
 
@@ -1671,6 +1767,10 @@ if [[ "${gdm:-}" != 'true' ]]; then
       install_halloy
     fi
 
+    if [[ "${ttk:-}" == 'true' ]]; then
+      install_ttk
+    fi
+
     if [[ "${kde:-}" == 'true' ]]; then
       install_kde
     fi
@@ -1714,6 +1814,9 @@ if [[ "${gdm:-}" != 'true' ]]; then
     elif [[ "${halloy:-}" == 'true' ]]; then
       uninstall_halloy
       echo -e 'Remove Halloy themes...'
+    elif [[ "${ttk:-}" == 'true' ]]; then
+      uninstall_ttk
+      echo -e 'Remove Tk/ttk themes...'
     elif [[ "${kde:-}" == 'true' ]]; then
       uninstall_kde
       echo -e 'Remove KDE Plasma themes...'

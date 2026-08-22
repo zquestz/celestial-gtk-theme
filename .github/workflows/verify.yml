@@ -25,6 +25,9 @@ jobs:
       - name: Regenerate Telegram palettes
         run: ./src/extra/telegram/render.sh
 
+      - name: Regenerate ttk themes
+        run: ./src/extra/ttk/render.sh
+
       - name: Committed output matches the generators
         run: |
           # Rasterized previews (png/jpg) vary with the runner's font and
@@ -50,4 +53,4 @@ jobs:
           sudo apt-get install -y shellcheck
 
       - name: Lint the installer and generators
-        run: shellcheck install.sh parse_sass.sh src/kde/render.sh src/extra/telegram/render.sh
+        run: shellcheck install.sh parse_sass.sh src/kde/render.sh src/extra/telegram/render.sh src/extra/ttk/render.sh
