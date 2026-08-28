@@ -34,20 +34,21 @@ else
   exit 1
 fi
 
-REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-SASS_DIR="${REPO_DIR}/src/gtk/sass"
-KDE_DIR="${REPO_DIR}/src/kde"
-CS_DIR="${KDE_DIR}/color-schemes"
-LNF_DIR="${KDE_DIR}/look-and-feel"
-DT_DIR="${KDE_DIR}/desktoptheme"
-AUR_BASE="${KDE_DIR}/aurorae-base"
-AUR_DIR="${KDE_DIR}/aurorae"
-DT_BASE="${KDE_DIR}/desktoptheme-base"
-SDDM_BASE="${KDE_DIR}/sddm-base"
-SDDM_DIR="${KDE_DIR}/sddm"
-TEMPLATE="${KDE_DIR}/preview-template.svg"
-SDDM_TEMPLATE="${KDE_DIR}/sddm-preview-template.svg"
-SPLASH_TEMPLATE="${KDE_DIR}/splash-template.qml"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "${SCRIPT_DIR}" || exit 1
+
+SASS_DIR="../gtk/sass"
+CS_DIR="color-schemes"
+LNF_DIR="look-and-feel"
+DT_DIR="desktoptheme"
+AUR_BASE="aurorae-base"
+AUR_DIR="aurorae"
+DT_BASE="desktoptheme-base"
+SDDM_BASE="sddm-base"
+SDDM_DIR="sddm"
+TEMPLATE="preview-template.svg"
+SDDM_TEMPLATE="sddm-preview-template.svg"
+SPLASH_TEMPLATE="splash-template.qml"
 
 ID_PREFIX="com.github.zquestz."
 

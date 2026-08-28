@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "Celestial Azul Dark",
+  "description": "Blue accent on a dark interface.",
+  "author": "Josh Ellithorpe",
+  "homepage_url": "https://github.com/zquestz/celestial-gtk-theme",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "celestial-azul-dark@zquestz.github.io"
+    }
+  },
+  "theme": {
+    "colors": {
+      "frame": "#14161b",
+      "tab_background_text": "#a2a7ab",
+      "tab_selected": "#3498db",
+      "tab_text": "#ffffff",
+      "tab_line": "#3498db",
+      "tab_loading": "#3498db",
+      "toolbar": "#22252c",
+      "toolbar_text": "#bbc3c8",
+      "toolbar_field": "rgba(175, 180, 186, 0.08)",
+      "toolbar_field_text": "#afb4ba",
+      "toolbar_field_focus": "#22252c",
+      "toolbar_field_text_focus": "#afb4ba",
+      "toolbar_field_highlight": "#3498db",
+      "toolbar_field_highlight_text": "#ffffff",
+      "popup": "#22252c",
+      "popup_text": "#afb4ba",
+      "popup_highlight": "#3498db",
+      "popup_highlight_text": "#ffffff",
+      "button_background_active": "#3498db",
+      "ntp_background": "#1b1d24",
+      "ntp_text": "#bbc3c8"
+    },
+    "properties": {
+      "color_scheme": "dark"
+    }
+  }
+}

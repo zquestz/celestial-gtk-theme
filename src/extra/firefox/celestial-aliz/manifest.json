@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "Celestial Aliz",
+  "description": "Coral red accent on a light interface with a dark titlebar.",
+  "author": "Josh Ellithorpe",
+  "homepage_url": "https://github.com/zquestz/celestial-gtk-theme",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "celestial-aliz@zquestz.github.io"
+    }
+  },
+  "theme": {
+    "colors": {
+      "frame": "#222222",
+      "tab_background_text": "#ada7a7",
+      "tab_selected": "#f0544c",
+      "tab_text": "#ffffff",
+      "tab_line": "#f0544c",
+      "tab_loading": "#f0544c",
+      "toolbar": "#ffffff",
+      "toolbar_text": "#323232",
+      "toolbar_field": "rgba(54, 54, 54, 0.08)",
+      "toolbar_field_text": "#363636",
+      "toolbar_field_focus": "#ffffff",
+      "toolbar_field_text_focus": "#363636",
+      "toolbar_field_highlight": "#f0544c",
+      "toolbar_field_highlight_text": "#ffffff",
+      "popup": "#ffffff",
+      "popup_text": "#363636",
+      "popup_highlight": "#f0544c",
+      "popup_highlight_text": "#ffffff",
+      "button_background_active": "#f0544c",
+      "ntp_background": "#f7f7f7",
+      "ntp_text": "#323232"
+    },
+    "properties": {
+      "color_scheme": "light"
+    }
+  }
+}

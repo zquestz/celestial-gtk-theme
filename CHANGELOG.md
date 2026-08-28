@@ -5,11 +5,16 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.7.1] - 2026-08-28
 
 ### Added
 
+- Firefox themes for all 12 variants, generated from the GTK stylesheets and loadable in dev mode, with signing instructions in the README
 - Pastable gitk color blocks for every variant in the Tk/ttk README, including link colors
+
+### Changed
+
+- All generator scripts now resolve paths from their own location, so they can be run from any directory
 
 ## [1.7.0] - 2026-08-21
 

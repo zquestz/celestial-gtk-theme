@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "Celestial Azul Light",
+  "description": "Blue accent on a light interface.",
+  "author": "Josh Ellithorpe",
+  "homepage_url": "https://github.com/zquestz/celestial-gtk-theme",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "celestial-azul-light@zquestz.github.io"
+    }
+  },
+  "theme": {
+    "colors": {
+      "frame": "#f2f2f2",
+      "tab_background_text": "#535660",
+      "tab_selected": "#3498db",
+      "tab_text": "#ffffff",
+      "tab_line": "#3498db",
+      "tab_loading": "#3498db",
+      "toolbar": "#ffffff",
+      "toolbar_text": "#2b2f3b",
+      "toolbar_field": "rgba(46, 49, 61, 0.08)",
+      "toolbar_field_text": "#2e313d",
+      "toolbar_field_focus": "#ffffff",
+      "toolbar_field_text_focus": "#2e313d",
+      "toolbar_field_highlight": "#3498db",
+      "toolbar_field_highlight_text": "#ffffff",
+      "popup": "#ffffff",
+      "popup_text": "#2e313d",
+      "popup_highlight": "#3498db",
+      "popup_highlight_text": "#ffffff",
+      "button_background_active": "#3498db",
+      "ntp_background": "#f7f7f7",
+      "ntp_text": "#2b2f3b"
+    },
+    "properties": {
+      "color_scheme": "light"
+    }
+  }
+}

@@ -36,10 +36,11 @@ else
   exit 1
 fi
 
-REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
-SASS_DIR="${REPO_DIR}/src/gtk/sass"
-TG_DIR="${REPO_DIR}/src/extra/telegram"
-BASE_DIR="${TG_DIR}/base"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "${SCRIPT_DIR}" || exit 1
+
+SASS_DIR="../../gtk/sass"
+BASE_DIR="base"
 
 TMP_DIR="$(mktemp -d)"
 trap "rm -rf '${TMP_DIR}'" EXIT
@@ -258,7 +259,7 @@ render() {
   base="${BASE_DIR}/$([[ "${mode}" == "light" ]] && echo day || echo night).tdesktop-palette"
   theme_cap="$(echo "${theme}" | sed 's/.*/\u&/')"
   color_cap="$(echo "${mode}" | sed 's/.*/\u&/')"
-  out="${TG_DIR}/Celestial-${theme_cap}-${color_cap}.tdesktop-theme"
+  out="${SCRIPT_DIR}/Celestial-${theme_cap}-${color_cap}.tdesktop-theme"
 
   write_scss "${mode}" "${theme}"
   sassc -t expanded -I "${SASS_DIR}" "${TMP_DIR}/palette.scss" "${TMP_DIR}/palette.css" || exit 1

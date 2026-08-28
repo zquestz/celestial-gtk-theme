@@ -6,6 +6,9 @@ if [ ! "$(which sassc 2> /dev/null)" ]; then
    exit 1
 fi
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "${SCRIPT_DIR}" || exit 1
+
 SASSC_OPT="-M -t expanded"
 
 _COLOR_VARIANTS=('' '-light' '-dark')

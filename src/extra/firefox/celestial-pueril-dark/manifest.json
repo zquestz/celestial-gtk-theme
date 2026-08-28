@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "Celestial Pueril Dark",
+  "description": "Green accent on a dark interface.",
+  "author": "Josh Ellithorpe",
+  "homepage_url": "https://github.com/zquestz/celestial-gtk-theme",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "celestial-pueril-dark@zquestz.github.io"
+    }
+  },
+  "theme": {
+    "colors": {
+      "frame": "#1a1a1a",
+      "tab_background_text": "#a8a9a6",
+      "tab_selected": "#97bb72",
+      "tab_text": "#ffffff",
+      "tab_line": "#97bb72",
+      "tab_loading": "#97bb72",
+      "toolbar": "#262626",
+      "toolbar_text": "#bfbfbf",
+      "toolbar_field": "rgba(186, 186, 186, 0.08)",
+      "toolbar_field_text": "#bababa",
+      "toolbar_field_focus": "#262626",
+      "toolbar_field_text_focus": "#bababa",
+      "toolbar_field_highlight": "#97bb72",
+      "toolbar_field_highlight_text": "#ffffff",
+      "popup": "#262626",
+      "popup_text": "#bababa",
+      "popup_highlight": "#97bb72",
+      "popup_highlight_text": "#ffffff",
+      "button_background_active": "#97bb72",
+      "ntp_background": "#222222",
+      "ntp_text": "#bfbfbf"
+    },
+    "properties": {
+      "color_scheme": "dark"
+    }
+  }
+}

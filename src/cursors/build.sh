@@ -6,6 +6,11 @@ set -e  # Exit on error
 
 # Get the directory where the script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR" || exit 1
+
+# Unlike the other generators, the paths below stay absolute: this script
+# navigates while it runs (into src/svg, src, then the output directory), so
+# relative paths would resolve against whichever directory it last entered.
 ROOT="$SCRIPT_DIR"
 
 # Theme configuration

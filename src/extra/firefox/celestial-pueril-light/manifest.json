@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "Celestial Pueril Light",
+  "description": "Green accent on a light interface.",
+  "author": "Josh Ellithorpe",
+  "homepage_url": "https://github.com/zquestz/celestial-gtk-theme",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "celestial-pueril-light@zquestz.github.io"
+    }
+  },
+  "theme": {
+    "colors": {
+      "frame": "#f2f2f2",
+      "tab_background_text": "#585858",
+      "tab_selected": "#97bb72",
+      "tab_text": "#ffffff",
+      "tab_line": "#97bb72",
+      "tab_loading": "#97bb72",
+      "toolbar": "#ffffff",
+      "toolbar_text": "#323232",
+      "toolbar_field": "rgba(54, 54, 54, 0.08)",
+      "toolbar_field_text": "#363636",
+      "toolbar_field_focus": "#ffffff",
+      "toolbar_field_text_focus": "#363636",
+      "toolbar_field_highlight": "#97bb72",
+      "toolbar_field_highlight_text": "#ffffff",
+      "popup": "#ffffff",
+      "popup_text": "#363636",
+      "popup_highlight": "#97bb72",
+      "popup_highlight_text": "#ffffff",
+      "button_background_active": "#97bb72",
+      "ntp_background": "#f7f7f7",
+      "ntp_text": "#323232"
+    },
+    "properties": {
+      "color_scheme": "light"
+    }
+  }
+}

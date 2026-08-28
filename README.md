@@ -1,6 +1,6 @@
 # Celestial GTK Theme
 
-[![CI](https://img.shields.io/github/actions/workflow/status/zquestz/celestial-gtk-theme/verify.yml?style=flat-square&label=CI)](https://github.com/zquestz/celestial-gtk-theme/actions/workflows/verify.yml) ![Version](https://img.shields.io/badge/Version-1.7.0-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2050-blue?style=flat-square) ![KDE Plasma](https://img.shields.io/badge/KDE%20Plasma-6-blue?style=flat-square)
+[![CI](https://img.shields.io/github/actions/workflow/status/zquestz/celestial-gtk-theme/verify.yml?style=flat-square&label=CI)](https://github.com/zquestz/celestial-gtk-theme/actions/workflows/verify.yml) ![Version](https://img.shields.io/badge/Version-1.7.1-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2050-blue?style=flat-square) ![KDE Plasma](https://img.shields.io/badge/KDE%20Plasma-6-blue?style=flat-square)
 
 **A modern, customizable GTK theme with multiple color variants**
 
@@ -18,7 +18,7 @@ Based on the excellent [Arc](https://github.com/horst3180/Arc-theme) and [Matcha
 - **Dock Support** - [Plank Reloaded](https://github.com/zquestz/plank-reloaded) theming
 - **HiDPI Support** - Standard, HiDPI, and XHiDPI variants for retina displays
 - **Color-Matched Backgrounds** - Minimalistic wallpapers coordinated with each theme variant
-- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, cursor theme, Zed editor themes, Alacritty, foot, Ghostty, Kitty, and Konsole terminal themes, Telegram Desktop themes, Halloy IRC client themes, CopyQ clipboard manager themes, Slack themes, Sniffnet network monitor themes, Tk/ttk themes
+- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, cursor theme, Zed editor themes, Alacritty, foot, Ghostty, Kitty, and Konsole terminal themes, Telegram Desktop themes, Halloy IRC client themes, CopyQ clipboard manager themes, Slack themes, Sniffnet network monitor themes, Tk/ttk themes, Firefox themes
 
 ## Installation
 

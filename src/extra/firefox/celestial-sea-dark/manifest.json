@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "Celestial Sea Dark",
+  "description": "Teal accent on a dark interface.",
+  "author": "Josh Ellithorpe",
+  "homepage_url": "https://github.com/zquestz/celestial-gtk-theme",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "celestial-sea-dark@zquestz.github.io"
+    }
+  },
+  "theme": {
+    "colors": {
+      "frame": "#141a1b",
+      "tab_background_text": "#a2a9a8",
+      "tab_selected": "#2eb398",
+      "tab_text": "#ffffff",
+      "tab_line": "#2eb398",
+      "tab_loading": "#2eb398",
+      "toolbar": "#222b2e",
+      "toolbar_text": "#ccd7d4",
+      "toolbar_field": "rgba(171, 185, 182, 0.08)",
+      "toolbar_field_text": "#abb9b6",
+      "toolbar_field_focus": "#222b2e",
+      "toolbar_field_text_focus": "#abb9b6",
+      "toolbar_field_highlight": "#2eb398",
+      "toolbar_field_highlight_text": "#ffffff",
+      "popup": "#222b2e",
+      "popup_text": "#abb9b6",
+      "popup_highlight": "#2eb398",
+      "popup_highlight_text": "#ffffff",
+      "button_background_active": "#2eb398",
+      "ntp_background": "#1b2224",
+      "ntp_text": "#ccd7d4"
+    },
+    "properties": {
+      "color_scheme": "dark"
+    }
+  }
+}
