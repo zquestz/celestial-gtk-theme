@@ -30,7 +30,10 @@
       "popup_text": "#363636",
       "popup_highlight": "#f0544c",
       "popup_highlight_text": "#ffffff",
-      "button_background_active": "#f0544c",
+      "icons": "#323232",
+      "icons_attention": "#f0544c",
+      "button_background_hover": "#ebebeb",
+      "button_background_active": "#dbdbdb",
       "ntp_background": "#f7f7f7",
       "ntp_text": "#323232"
     },

@@ -146,6 +146,21 @@ emit_variant() {
   local field
   field="$(to_rgba "${text}" 0.08)"
 
+  # Toolbar button states. GTK fills a pressed button with the accent and
+  # recolours its icon to match, but Firefox has a single global "icons"
+  # colour and cannot vary it per state, so an accent fill leaves icons
+  # unreadable on the lighter accents. These are neutral overlays over the
+  # toolbar instead, which is what Firefox itself draws, and they keep icon
+  # contrast well clear of the accessible threshold on every variant.
+  local hover_bg active_bg
+  if [[ "${mode}" == "-dark" ]]; then
+    hover_bg="$(composite "#ffffff" 10 "${base}")"
+    active_bg="$(composite "#ffffff" 18 "${base}")"
+  else
+    hover_bg="$(composite "#000000" 8 "${base}")"
+    active_bg="$(composite "#000000" 14 "${base}")"
+  fi
+
   local titled name accent_name interface
   titled="$(title_case "${color}")"
   accent_name="$(accent_word "${color}")"
@@ -214,7 +229,10 @@ emit_variant() {
       "popup_text": "${text}",
       "popup_highlight": "${accent}",
       "popup_highlight_text": "${selectfg}",
-      "button_background_active": "${accent}",
+      "icons": "${fg}",
+      "icons_attention": "${accent}",
+      "button_background_hover": "${hover_bg}",
+      "button_background_active": "${active_bg}",
       "ntp_background": "${bg}",
       "ntp_text": "${fg}"
     },
