@@ -520,3 +520,34 @@ menubutton.flat.popup.sources-button {
 mathdisplay > box {
   background-color: $base_color;
 }
+
+// Gajim
+// Its stylesheet makes these list boxes and sidebar rows transparent and
+// marks the selected workspace with a bar instead of a filled row, but
+// ~/.config/gtk-4.0/gtk.css outranks application CSS, so our generic list
+// and row colors painted over it.
+#AppSideBar list,
+list.chatlist,
+.content-pane list.chatlist {
+  background-color: transparent;
+}
+
+#AppSideBar row {
+  &:hover,
+  &:active,
+  &:selected {
+    background-color: transparent;
+    color: inherit;
+  }
+}
+
+// Gajim pins the labels of selected rows to the view foreground color, which
+// is grey on our accent-colored selection.
+list.chatlist > row:selected,
+.activity-list-view row:selected {
+  label:not(.unread-counter):not(.unread-counter-silent),
+  image,
+  spinner {
+    color: $selected_fg_color;
+  }
+}

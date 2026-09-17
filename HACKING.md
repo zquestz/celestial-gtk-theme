@@ -178,6 +178,14 @@ Helper mixins and functions for drawing widgets. Contains reusable code for:
 - Popovers and menus
 - Application-specific styles
 
+#### `src/gtk/sass/_libadwaita.scss`
+
+GTK 4 only. Styles the libadwaita widgets and exports libadwaita's named colors (`window_bg_color`, `view_bg_color`, `sidebar_bg_color`, `accent_bg_color`, ...) from the Celestial palette. libadwaita defines its CSS variables as aliases of these names, so apps that paint their own widgets with either form pick up the theme.
+
+#### `src/gtk/sass/apps/`
+
+Per-application fixes, split by desktop and GTK version (`_gnome-3.0.scss`, `_gnome-4.0.scss`, `_misc.scss`, ...). GTK 4 apps go in `_gnome-4.0.scss` whether they are GNOME apps or not.
+
 ### Building the Theme
 
 After making changes to SCSS files, compile the theme:

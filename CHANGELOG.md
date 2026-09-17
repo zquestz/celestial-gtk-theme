@@ -5,6 +5,13 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- libadwaita apps that paint their own widgets with libadwaita's named colors or CSS variables, such as Gajim, now get Celestial colors instead of stock Adwaita for chat rows, sidebars, dialogs, cards, popovers and accents ([#12](https://github.com/zquestz/celestial-gtk-theme/issues/12))
+- Gajim keeps its transparent sidebar and chat list boxes and its workspace selection bar under the theme, and labels on selected chat rows stay readable
+
 ## [1.7.1] - 2026-08-28
 
 ### Added

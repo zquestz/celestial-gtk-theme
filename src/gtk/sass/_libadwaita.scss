@@ -2145,3 +2145,78 @@ floating-sheet {
       0 0 0 1px $_wm_border;
   }
 }
+
+//
+// Named colors for libadwaita apps
+//
+// libadwaita defines its CSS variables as aliases of these named colors
+// (for example `--view-bg-color: @view_bg_color`), and applications style
+// their own widgets with either form. Without these exports anything an app
+// paints itself falls back to stock Adwaita colors, see
+// https://github.com/zquestz/celestial-gtk-theme/issues/12
+//
+// The `"" + $var` interpolation matches _colors-public.scss and keeps Sass
+// from treating the colors as strings.
+
+// Accent and semantic colors. libadwaita derives the standalone
+// `accent_color`, `success_color` and friends from these background colors.
+@define-color accent_bg_color #{"" + $selected_bg_color};
+@define-color accent_fg_color #{"" + $selected_fg_color};
+@define-color destructive_bg_color #{"" + $destructive_color};
+@define-color destructive_fg_color #{"" + $destructive_fg_color};
+@define-color success_bg_color #{"" + $success_color};
+@define-color success_fg_color #{"" + $success_fg_color};
+@define-color warning_bg_color #{"" + $warning_color};
+@define-color warning_fg_color #{"" + $warning_fg_color};
+@define-color error_bg_color #{"" + $error_color};
+@define-color error_fg_color #{"" + $error_fg_color};
+
+// Surfaces, matching the colors our own widget rules paint.
+@define-color window_bg_color #{"" + $bg_color};
+@define-color window_fg_color #{"" + $fg_color};
+@define-color view_bg_color #{"" + $base_color};
+@define-color view_fg_color #{"" + $text_color};
+
+@define-color headerbar_bg_color #{"" + $header_bg};
+@define-color headerbar_fg_color #{"" + $header_fg};
+@define-color headerbar_border_color #{"" + $header_fg};
+@define-color headerbar_backdrop_color #{"" + $header_bg_backdrop};
+@define-color headerbar_shade_color #{"" + $header_border};
+@define-color headerbar_darker_shade_color #{"" + $header_border};
+
+@define-color sidebar_bg_color #{"" + $sidebar_pane_bg};
+@define-color sidebar_fg_color #{"" + $sidebar_pane_fg};
+@define-color sidebar_backdrop_color #{"" + $sidebar_pane_bg_backdrop};
+@define-color sidebar_border_color #{"" + $dark_sidebar_border};
+@define-color sidebar_shade_color #{"" + $borders_color};
+
+// The middle pane of three-pane layouts, see `.content-pane .sidebar-pane`.
+@define-color secondary_sidebar_bg_color #{"" + $base_color};
+@define-color secondary_sidebar_fg_color #{"" + $text_color};
+@define-color secondary_sidebar_backdrop_color #{"" + $base_color};
+@define-color secondary_sidebar_border_color #{"" + $borders_color};
+@define-color secondary_sidebar_shade_color #{"" + $borders_color};
+
+@define-color card_bg_color #{"" + $button_bg};
+@define-color card_fg_color #{"" + $fg_color};
+@define-color card_shade_color #{"" + $borders_color};
+
+@define-color dialog_bg_color #{"" + $bg_color};
+@define-color dialog_fg_color #{"" + $fg_color};
+
+@define-color popover_bg_color #{"" + $menu_bg_color};
+@define-color popover_fg_color #{"" + $fg_color};
+@define-color popover_shade_color #{"" + $borders_color};
+
+@define-color thumbnail_bg_color #{"" + $base_color};
+@define-color thumbnail_fg_color #{"" + $text_color};
+
+@define-color shade_color #{"" + $borders_color};
+@define-color scrollbar_outline_color #{"" + if($variant == "light", white, rgba(black, 0.5))};
+
+// The tab overview colors are the only ones libadwaita defines as plain
+// variables rather than as named colors, so they need GTK 4.16 syntax.
+:root {
+  --overview-bg-color: #{"" + $bg_color};
+  --overview-fg-color: #{"" + $fg_color};
+}

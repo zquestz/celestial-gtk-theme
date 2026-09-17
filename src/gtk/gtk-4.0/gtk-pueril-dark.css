@@ -8739,6 +8739,53 @@ floating-sheet > sheet {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 12px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.65);
 }
 
+@define-color accent_bg_color #97bb72;
+@define-color accent_fg_color #ffffff;
+@define-color destructive_bg_color #db5b5b;
+@define-color destructive_fg_color white;
+@define-color success_bg_color #3498db;
+@define-color success_fg_color white;
+@define-color warning_bg_color #f27835;
+@define-color warning_fg_color white;
+@define-color error_bg_color #fc4138;
+@define-color error_fg_color white;
+@define-color window_bg_color #222222;
+@define-color window_fg_color #bfbfbf;
+@define-color view_bg_color #262626;
+@define-color view_fg_color #bababa;
+@define-color headerbar_bg_color #1a1a1a;
+@define-color headerbar_fg_color #cbcdc9;
+@define-color headerbar_border_color #cbcdc9;
+@define-color headerbar_backdrop_color #272727;
+@define-color headerbar_shade_color rgba(0, 0, 0, 0.25);
+@define-color headerbar_darker_shade_color rgba(0, 0, 0, 0.25);
+@define-color sidebar_bg_color rgba(54, 54, 54, 0.95);
+@define-color sidebar_fg_color #cbcdc9;
+@define-color sidebar_backdrop_color #222222;
+@define-color sidebar_border_color #191919;
+@define-color sidebar_shade_color rgba(0, 0, 0, 0.25);
+@define-color secondary_sidebar_bg_color #262626;
+@define-color secondary_sidebar_fg_color #bababa;
+@define-color secondary_sidebar_backdrop_color #262626;
+@define-color secondary_sidebar_border_color rgba(0, 0, 0, 0.25);
+@define-color secondary_sidebar_shade_color rgba(0, 0, 0, 0.25);
+@define-color card_bg_color #2b2b2b;
+@define-color card_fg_color #bfbfbf;
+@define-color card_shade_color rgba(0, 0, 0, 0.25);
+@define-color dialog_bg_color #222222;
+@define-color dialog_fg_color #bfbfbf;
+@define-color popover_bg_color #222222;
+@define-color popover_fg_color #bfbfbf;
+@define-color popover_shade_color rgba(0, 0, 0, 0.25);
+@define-color thumbnail_bg_color #262626;
+@define-color thumbnail_fg_color #bababa;
+@define-color shade_color rgba(0, 0, 0, 0.25);
+@define-color scrollbar_outline_color rgba(0, 0, 0, 0.5);
+:root {
+  --overview-bg-color: #222222;
+  --overview-fg-color: #bfbfbf;
+}
+
 #NautilusPathBar > menubutton > button, #NautilusPathBar #NautilusPathButton, .nautilus-window headerbar splitbutton > button,
 .nautilus-window headerbar splitbutton > menubutton > button {
   border-radius: 2px;
@@ -9152,6 +9199,26 @@ menubutton.flat.popup.sources-button > button image.calendar-color-image {
 
 mathdisplay > box {
   background-color: #262626;
+}
+
+#AppSideBar list,
+list.chatlist,
+.content-pane list.chatlist {
+  background-color: transparent;
+}
+
+#AppSideBar row:hover, #AppSideBar row:active, #AppSideBar row:selected {
+  background-color: transparent;
+  color: inherit;
+}
+
+list.chatlist > row:selected label:not(.unread-counter):not(.unread-counter-silent),
+list.chatlist > row:selected image,
+list.chatlist > row:selected spinner,
+.activity-list-view row:selected label:not(.unread-counter):not(.unread-counter-silent),
+.activity-list-view row:selected image,
+.activity-list-view row:selected spinner {
+  color: #ffffff;
 }
 
 @define-color theme_fg_color #bfbfbf;
