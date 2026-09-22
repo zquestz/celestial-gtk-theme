@@ -2149,17 +2149,17 @@ floating-sheet {
 //
 // Named colors for libadwaita apps
 //
-// libadwaita defines its CSS variables as aliases of these named colors
-// (for example `--view-bg-color: @view_bg_color`), and applications style
-// their own widgets with either form. Without these exports anything an app
-// paints itself falls back to stock Adwaita colors, see
+// Many libadwaita CSS variables default to these named colors
+// (for example `--view-bg-color: @view_bg_color`). Applications using these
+// names or their corresponding CSS variables otherwise pick up stock
+// Adwaita colors when painting their own widgets, see
 // https://github.com/zquestz/celestial-gtk-theme/issues/12
 //
-// The `"" + $var` interpolation matches _colors-public.scss and keeps Sass
-// from treating the colors as strings.
+// Convert colors to strings before interpolation to avoid Sass warnings,
+// matching the `"" + $var` pattern in _colors-public.scss.
 
-// Accent and semantic colors. libadwaita derives the standalone
-// `accent_color`, `success_color` and friends from these background colors.
+// Accent and semantic colors. libadwaita derives standalone CSS variables
+// such as `--accent-color` and `--success-color` from the background colors.
 @define-color accent_bg_color #{"" + $selected_bg_color};
 @define-color accent_fg_color #{"" + $selected_fg_color};
 @define-color destructive_bg_color #{"" + $destructive_color};
@@ -2214,8 +2214,8 @@ floating-sheet {
 @define-color shade_color #{"" + $borders_color};
 @define-color scrollbar_outline_color #{"" + if($variant == "light", white, rgba(black, 0.5))};
 
-// The tab overview colors are the only ones libadwaita defines as plain
-// variables rather than as named colors, so they need GTK 4.16 syntax.
+// Tab overview colors have no corresponding named colors, so set their
+// CSS variables directly using GTK 4.16 syntax.
 :root {
   --overview-bg-color: #{"" + $bg_color};
   --overview-fg-color: #{"" + $fg_color};

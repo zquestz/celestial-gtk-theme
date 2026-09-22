@@ -60,13 +60,16 @@ this component.
 
 ## Development
 
-The manifests are generated from `src/gtk/`:
+The manifests are generated from the compiled GTK stylesheets. From the repository root:
 
 ```bash
-./render.sh
+./src/extra/firefox/render.sh
 ```
 
-Change a palette in `sass/_colors.scss`, run `parse_sass.sh`, then re-run
-this. CI regenerates and fails if the committed output is stale. The theme
-`version` in the manifests is bumped by hand when the palettes change, since
-AMO versioning is independent of this repo's releases.
+Change a palette in `src/gtk/sass/_colors.scss`, run `./parse_sass.sh`, then
+rerun the generator. CI regenerates and fails if the committed output is stale.
+
+When changing the Firefox theme colors or metadata, bump the `version` in
+`src/extra/firefox/render.sh` and regenerate all 12 manifests. Do not edit the
+generated manifests directly. Firefox theme versioning is independent of
+this repo's releases; the toolbar contrast fix advances the themes to `1.1`.

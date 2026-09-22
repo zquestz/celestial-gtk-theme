@@ -180,7 +180,7 @@ Helper mixins and functions for drawing widgets. Contains reusable code for:
 
 #### `src/gtk/sass/_libadwaita.scss`
 
-GTK 4 only. Styles the libadwaita widgets and exports libadwaita's named colors (`window_bg_color`, `view_bg_color`, `sidebar_bg_color`, `accent_bg_color`, ...) from the Celestial palette. libadwaita defines its CSS variables as aliases of these names, so apps that paint their own widgets with either form pick up the theme.
+GTK 4 only. Styles the libadwaita widgets and exports libadwaita's named colors (`window_bg_color`, `view_bg_color`, `sidebar_bg_color`, `accent_bg_color`, ...) from the Celestial palette. Many corresponding CSS variables use these named colors as their defaults, so apps that use either form pick up the theme. Standalone CSS colors such as `--accent-color` are derived by libadwaita from the background colors. The tab overview colors are set directly as CSS variables, which require GTK 4.16 or newer.
 
 #### `src/gtk/sass/apps/`
 
@@ -208,7 +208,7 @@ This script:
 - `src/gnome-shell/*/gnome-shell-*.css`
 - `src/cinnamon/cinnamon-*.css`
 
-CI (`.github/workflows/verify.yml`) reruns `parse_sass.sh`, `src/kde/render.sh`, and `src/extra/telegram/render.sh` on every push and fails if the committed output is stale, so commit regenerated files together with source changes.
+CI (`.github/workflows/verify.yml`) reruns `parse_sass.sh`, `src/kde/render.sh`, `src/extra/telegram/render.sh`, `src/extra/ttk/render.sh`, and `src/extra/firefox/render.sh` on every push and pull request. It fails if generated text files differ from the committed output or are untracked, so commit regenerated files together with source changes. Rendered PNG/JPEG previews and Telegram theme archives are excluded from this comparison because their rendering can vary between environments. CI also runs ShellCheck on the installer and these generators.
 
 ## Working with SCSS
 

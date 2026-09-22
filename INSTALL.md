@@ -450,13 +450,19 @@ Run the flatpak override commands mentioned in the Applying the Theme section.
 
 ### libadwaita Apps Not Themed
 
-GNOME 43+ uses libadwaita which doesn't support custom themes by default. Use the `-l` flag:
+libadwaita apps do not follow the selected GTK theme by default. Use the `-l` flag:
 
 ```bash
 ./install.sh -l -t azul -c dark
 ```
 
-Note: This will apply the theme to all GTK4 apps and cannot be easily switched.
+This links the selected variant's stylesheets and assets into `~/.config/gtk-4.0/`, applying the override to GTK 4 apps for your user. To switch variants, rerun the command with a different `-t` and/or `-c` value. Restart running apps to pick up the change.
+
+To remove the override while keeping the installed themes:
+
+```bash
+./install.sh -l -r
+```
 
 ### KDE Qt Apps Not Themed
 

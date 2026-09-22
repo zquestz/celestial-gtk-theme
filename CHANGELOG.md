@@ -5,10 +5,11 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.7.2] - 2026-09-21
 
 ### Fixed
 
+- Firefox toolbar icons remain readable on hovered and pressed buttons across all 12 variants
 - libadwaita apps that paint their own widgets with libadwaita's named colors or CSS variables, such as Gajim, now get Celestial colors instead of stock Adwaita for chat rows, sidebars, dialogs, cards, popovers and accents ([#12](https://github.com/zquestz/celestial-gtk-theme/issues/12))
 - Gajim keeps its transparent sidebar and chat list boxes and its workspace selection bar under the theme, and labels on selected chat rows stay readable
 
@@ -383,20 +384,38 @@ Initial release of Celestial GTK Theme.
   - Development guide (HACKING.md)
   - Asset generation guides in component directories
 
-[1.3.0]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.3.0
-[1.2.0]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.2.0
-[1.1.9]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.9
-[1.1.8]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.8
-[1.1.7]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.7
-[1.1.6]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.6
-[1.1.5]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.5
-[1.1.4]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.4
-[1.1.3]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.3
-[1.1.2]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.2
-[1.1.1]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.1
-[1.1.0]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.1.0
-[1.0.4]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.0.4
-[1.0.3]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.0.3
-[1.0.2]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.0.2
-[1.0.1]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.0.1
-[1.0.0]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/v1.0.0
+[1.7.2]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.7.2
+[1.7.1]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.7.1
+[1.7.0]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.7.0
+[1.6.4]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.6.4
+[1.6.3]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.6.3
+[1.6.2]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.6.2
+[1.6.1]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.6.1
+[1.6.0]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.6.0
+[1.5.2]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.5.2
+[1.5.1]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.5.1
+[1.5.0]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.5.0
+[1.4.1]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.4.1
+[1.4.0]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.4.0
+[1.3.5]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.3.5
+[1.3.4]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.3.4
+[1.3.3]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.3.3
+[1.3.2]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.3.2
+[1.3.1]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.3.1
+[1.3.0]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.3.0
+[1.2.0]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.2.0
+[1.1.9]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.1.9
+[1.1.8]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.1.8
+[1.1.7]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.1.7
+[1.1.6]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.1.6
+[1.1.5]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.1.5
+[1.1.4]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.1.4
+[1.1.3]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.1.3
+[1.1.2]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.1.2
+[1.1.1]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.1.1
+[1.1.0]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.1.0
+[1.0.4]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.0.4
+[1.0.3]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.0.3
+[1.0.2]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.0.2
+[1.0.1]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.0.1
+[1.0.0]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.0.0

@@ -6,7 +6,7 @@
 # celestial-<variant>/manifest.json, loadable in dev mode via
 # about:debugging. Every colour is read out of src/gtk/, so the themes
 # cannot drift from the rest of the theme: change a palette in
-# sass/_colors.scss, run parse_sass.sh, then run this.
+# src/gtk/sass/_colors.scss, run parse_sass.sh, then run this.
 #
 # Firefox draws the titlebar (the manifest's "frame"), which is the only
 # place Celestial's Standard and Light modes differ, so all twelve variants
@@ -146,12 +146,9 @@ emit_variant() {
   local field
   field="$(to_rgba "${text}" 0.08)"
 
-  # Toolbar button states. GTK fills a pressed button with the accent and
-  # recolours its icon to match, but Firefox has a single global "icons"
-  # colour and cannot vary it per state, so an accent fill leaves icons
-  # unreadable on the lighter accents. These are neutral overlays over the
-  # toolbar instead, which is what Firefox itself draws, and they keep icon
-  # contrast well clear of the accessible threshold on every variant.
+  # Firefox's "icons" colour cannot vary between normal, hovered and pressed
+  # toolbar buttons. Neutral hover and active backgrounds improve contrast
+  # for regular icons; attention icons keep the accent colour.
   local hover_bg active_bg
   if [[ "${mode}" == "-dark" ]]; then
     hover_bg="$(composite "#ffffff" 10 "${base}")"
@@ -199,7 +196,7 @@ emit_variant() {
   cat > "${dir}/manifest.json" <<EOF
 {
   "manifest_version": 3,
-  "version": "1.0",
+  "version": "1.1",
   "name": "${name}",
   "description": "${description}",
   "author": "Josh Ellithorpe",
