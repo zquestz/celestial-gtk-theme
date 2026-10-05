@@ -17,7 +17,7 @@ Based on the excellent [Arc](https://github.com/horst3180/Arc-theme) and [Matcha
 - **KDE Plasma Support** - Native theming for KDE Plasma 6
 - **Dock Support** - [Plank Reloaded](https://github.com/zquestz/plank-reloaded) theming
 - **HiDPI Support** - Standard, HiDPI, and XHiDPI variants for retina displays
-- **Color-Matched Backgrounds** - Minimalistic wallpapers coordinated with each theme variant
+- **Color-Matched Backgrounds** - Wallpapers coordinated with each theme variant
 - **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, cursor theme, Zed editor themes, Alacritty, foot, Ghostty, Kitty, and Konsole terminal themes, Telegram Desktop themes, Halloy IRC client themes, CopyQ clipboard manager themes, Slack themes, Sniffnet network monitor themes, Tk/ttk themes, Firefox themes
 
 ## Installation

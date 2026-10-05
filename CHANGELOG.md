@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.7.3] - 2026-10-05
 
+### Added
+
+- Four new backgrounds, one for each color variant: Aliz Cinnabar, Azul Labradorite, Pueril Peridot, and Sea Chrysocolla
+
 ### Changed
 
 - Cinnamon's Window list and CobiWindowList applets now space their buttons 1px apart, matching Grouped window list

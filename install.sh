@@ -1016,6 +1016,12 @@ wallpaper_resolution() {
     Azul-Space)
       echo "2688x1536"
       ;;
+    Aliz-Canyon|Azul-Delta|Pueril-Hills|Sea-Glacier)
+      echo "5504x3072"
+      ;;
+    Aliz-Cinnabar|Azul-Labradorite|Pueril-Peridot|Sea-Chrysocolla)
+      echo "3840x2160"
+      ;;
     *)
       echo "2912x1632"
       ;;

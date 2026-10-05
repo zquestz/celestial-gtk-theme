@@ -1,6 +1,6 @@
 # Celestial Backgrounds
 
-A collection of minimalistic backgrounds designed to complement the Celestial GTK theme variants.
+A collection of backgrounds designed to complement the Celestial GTK theme variants.
 
 ## Collection
 
@@ -13,7 +13,7 @@ Each theme has its own color-coordinated background collection:
 
 #### Aliz-Abstract.webp
 
-Dynamic abstract design with flowing shapes
+Material design wallpaper with layered diagonal bands in coral, red and charcoal
 
 ![Aliz Abstract](aliz/Aliz-Abstract.webp)
 
@@ -22,6 +22,12 @@ Dynamic abstract design with flowing shapes
 Sculpted slot canyon walls in deep coral with a shaft of daylight from above
 
 ![Aliz Canyon](aliz/Aliz-Canyon.webp)
+
+#### Aliz-Cinnabar.webp
+
+Charcoal stone veined with glittering coral-red cinnabar
+
+![Aliz Cinnabar](aliz/Aliz-Cinnabar.webp)
 
 #### Aliz-Temple.webp
 
@@ -58,6 +64,12 @@ Serene Arctic landscape with layered icebergs and frozen waters
 
 ![Azul Ice](azul/Azul-Ice.webp)
 
+#### Azul-Labradorite.webp
+
+Polished labradorite in deep blue-slate, with flashes of blue labradorescence
+
+![Azul Labradorite](azul/Azul-Labradorite.webp)
+
 #### Azul-Space.webp
 
 Abstract space scene with nebula clouds
@@ -77,7 +89,7 @@ Misty bamboo grove with layered depth and silhouettes
 
 #### Pueril-Forest.webp
 
-Minimalistic forest scene with soft lighting
+Bare tree branches silhouetted against a soft green-to-gold sky
 
 ![Pueril Forest](pueril/Pueril-Forest.webp)
 
@@ -93,6 +105,12 @@ Peaceful meadow landscape at dawn with morning mist and soft green tones
 
 ![Pueril Meadow](pueril/Pueril-Meadow.webp)
 
+#### Pueril-Peridot.webp
+
+Black basalt with flow lines wrapping around a nodule of glassy green peridot
+
+![Pueril Peridot](pueril/Pueril-Peridot.webp)
+
 ### Sea (Teal)
 
 **Primary Color:** `#2eb398`
@@ -103,6 +121,12 @@ Peaceful meadow landscape at dawn with morning mist and soft green tones
 Bioluminescent bay at night with glowing plankton creating ethereal teal light
 
 ![Sea Bioluminescence](sea/Sea-Bioluminescence.webp)
+
+#### Sea-Chrysocolla.webp
+
+Dark slate veined with swirling teal chrysocolla that branches like river channels
+
+![Sea Chrysocolla](sea/Sea-Chrysocolla.webp)
 
 #### Sea-Glacier.webp
 
@@ -118,7 +142,7 @@ Sea turtles swimming through sunlit ocean depths with coral silhouettes
 
 #### Sea-Underwater.webp
 
-Serene underwater scene with bioluminescent elements
+Soft teal coral formations fading into misty open water
 
 ![Sea Underwater](sea/Sea-Underwater.webp)
 
@@ -126,10 +150,10 @@ Serene underwater scene with bioluminescent elements
 
 All backgrounds follow these principles:
 
-- **Minimalistic:** Clean, uncluttered designs that don't distract from your work
+- **Unobtrusive:** Designs that stay in the background and don't distract from your work
 - **Professional:** Suitable for workspace environments
 - **Color Matched:** Carefully coordinated with each theme's color palette
-- **High Resolution:** QHD+ quality for modern displays
+- **High Resolution:** QHD (2560x1440) or higher for modern displays
 - **Versatile:** Works well with both light and dark theme variants
 
 ## Installation
@@ -165,12 +189,12 @@ The installer automatically creates theme-specific XML property files for each i
 - **Cinnamon:** `cinnamon-background-properties/celestial-[theme].xml`
 - **Xfce:** Manual selection from file manager (no XML needed)
 
-After installation, backgrounds will appear automatically in your desktop environment's wallpaper settings grouped by theme. For example:
+After installation, backgrounds will appear automatically in your desktop environment's wallpaper settings, grouped by theme:
 
-- "Aliz Abstract", "Aliz Temple", "Aliz Volcano" (from celestial-aliz.xml)
-- "Azul Abstract", "Azul Ice", "Azul Space" (from celestial-azul.xml)
-- "Pueril Bamboo", "Pueril Forest", "Pueril Meadow" (from celestial-pueril.xml)
-- "Sea Bioluminescence", "Sea Turtles", "Sea Underwater" (from celestial-sea.xml)
+- "Aliz Abstract", "Aliz Canyon", "Aliz Cinnabar", "Aliz Temple", "Aliz Volcano" (from celestial-aliz.xml)
+- "Azul Abstract", "Azul Delta", "Azul Ice", "Azul Labradorite", "Azul Space" (from celestial-azul.xml)
+- "Pueril Bamboo", "Pueril Forest", "Pueril Hills", "Pueril Meadow", "Pueril Peridot" (from celestial-pueril.xml)
+- "Sea Bioluminescence", "Sea Chrysocolla", "Sea Glacier", "Sea Turtles", "Sea Underwater" (from celestial-sea.xml)
 
 **Slideshow Mode:** Since backgrounds are grouped by theme color, you can enable slideshow mode in your desktop environment to automatically rotate between color-coordinated wallpapers!
 
@@ -217,7 +241,7 @@ Have a background design that fits the Celestial aesthetic? We welcome contribut
 Please ensure designs:
 
 - Match the theme color palettes (see colors above)
-- Maintain the minimalistic philosophy
+- Stay unobtrusive, so they don't distract from your work
 - Are high resolution (minimum 2560x1440, prefer QHD+ 2880x1620)
 - Are provided in WebP format for optimal file size (under 5 MB)
 - Are named consistently: `[Theme]-[Description].webp` (e.g., `Azul-Space.webp`)
