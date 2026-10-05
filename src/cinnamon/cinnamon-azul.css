@@ -2443,6 +2443,16 @@ StScrollBar StButton#hhandle:hover {
   background-color: rgba(212, 58, 58, 0.85);
 }
 
+.panel-top .window-list-box, .panel-top .window-list-box.vertical,
+.panel-bottom .window-list-box,
+.panel-bottom .window-list-box.vertical,
+.panel-left .window-list-box,
+.panel-left .window-list-box.vertical,
+.panel-right .window-list-box,
+.panel-right .window-list-box.vertical {
+  spacing: 1px;
+}
+
 .panel-top .grouped-window-list-item-box,
 .panel-bottom .grouped-window-list-item-box,
 .panel-left .grouped-window-list-item-box,
@@ -2476,6 +2486,13 @@ StScrollBar StButton#hhandle:hover {
 .panel-left .grouped-window-list-item-box.grouped-window-list-item-demands-attention:focus,
 .panel-right .grouped-window-list-item-box.grouped-window-list-item-demands-attention:focus {
   background-color: rgba(212, 58, 58, 0.85);
+}
+
+.panel-top .grouped-window-list-box,
+.panel-bottom .grouped-window-list-box,
+.panel-left .grouped-window-list-box,
+.panel-right .grouped-window-list-box {
+  spacing: 1px;
 }
 
 .panel-top .grouped-window-list-badge,
