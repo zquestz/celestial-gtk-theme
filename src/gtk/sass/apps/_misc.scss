@@ -968,3 +968,22 @@ menubar.-vala-panel-appmenu-private {
 .csstage .osk-popover {
   background-color: black;
 }
+
+//
+// GIMP
+//
+
+// GIMP's System theme zeroes the dock tab padding at application priority,
+// leaving only our 16px minimum, so the icon tabs crowd together. Give them
+// the 30px minimum that Adwaita and GIMP's own theme use.
+GimpDock notebook > header {
+  &.top,
+  &.bottom,
+  &.left,
+  &.right {
+    > tabs > tab {
+      min-width: 30px;
+      min-height: 30px;
+    }
+  }
+}

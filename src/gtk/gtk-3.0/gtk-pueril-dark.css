@@ -4751,8 +4751,10 @@ paned.horizontal > separator:dir(rtl) {
 paned.horizontal > separator.wide {
   margin: 0;
   padding: 0;
-  background-repeat: repeat-y, repeat-y;
-  background-position: left, right;
+  background-image: repeating-linear-gradient(to bottom, rgba(191, 191, 191, 0.45) 0, rgba(191, 191, 191, 0.45) 2px, transparent 2px, transparent 4px), linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+  background-size: 3px 10px, 1px 1px, 1px 1px;
+  background-repeat: no-repeat, repeat-y, repeat-y;
+  background-position: center, left, right;
 }
 
 paned.vertical > separator {
@@ -4765,8 +4767,10 @@ paned.vertical > separator {
 paned.vertical > separator.wide {
   margin: 0;
   padding: 0;
-  background-repeat: repeat-x, repeat-x;
-  background-position: bottom, top;
+  background-image: repeating-linear-gradient(to right, rgba(191, 191, 191, 0.45) 0, rgba(191, 191, 191, 0.45) 2px, transparent 2px, transparent 4px), linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+  background-size: 10px 3px, 1px 1px, 1px 1px;
+  background-repeat: no-repeat, repeat-x, repeat-x;
+  background-position: center, bottom, top;
 }
 
 infobar {
@@ -7687,6 +7691,11 @@ menubar.-vala-panel-appmenu-private > menuitem > window.background.popup > menu 
 
 .csstage .osk-popover {
   background-color: black;
+}
+
+GimpDock notebook > header.top > tabs > tab, GimpDock notebook > header.bottom > tabs > tab, GimpDock notebook > header.left > tabs > tab, GimpDock notebook > header.right > tabs > tab {
+  min-width: 30px;
+  min-height: 30px;
 }
 
 /****************

@@ -4298,11 +4298,27 @@ paned {
       background-position: right;
     }
 
+    // Wide handles are meant to be dragged, so give them a grip: three short
+    // ridges centred between the edge lines.
     &.wide {
       margin: 0;
       padding: 0;
-      background-repeat: repeat-y, repeat-y;
-      background-position: left, right;
+      background-image:
+        repeating-linear-gradient(
+          to bottom,
+          $insensitive_fg_color 0,
+          $insensitive_fg_color 2px,
+          transparent 2px,
+          transparent 4px
+        ),
+        _solid($borders_color),
+        _solid($borders_color);
+      background-size:
+        3px 10px,
+        1px 1px,
+        1px 1px;
+      background-repeat: no-repeat, repeat-y, repeat-y;
+      background-position: center, left, right;
     }
   }
 
@@ -4315,8 +4331,22 @@ paned {
     &.wide {
       margin: 0;
       padding: 0;
-      background-repeat: repeat-x, repeat-x;
-      background-position: bottom, top;
+      background-image:
+        repeating-linear-gradient(
+          to right,
+          $insensitive_fg_color 0,
+          $insensitive_fg_color 2px,
+          transparent 2px,
+          transparent 4px
+        ),
+        _solid($borders_color),
+        _solid($borders_color);
+      background-size:
+        10px 3px,
+        1px 1px,
+        1px 1px;
+      background-repeat: no-repeat, repeat-x, repeat-x;
+      background-position: center, bottom, top;
     }
   }
 }

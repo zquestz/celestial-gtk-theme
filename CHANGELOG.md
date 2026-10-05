@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Cinnamon's Grouped window list no longer leaves 6px gaps between buttons that broke up the indicator line under running apps
+- GIMP's dock tabs no longer crowd together when GIMP uses the System theme
+- Wide pane dividers in GTK 3 apps, including all of GIMP's, now show a grip
 
 ## [1.7.2] - 2026-09-21
 
