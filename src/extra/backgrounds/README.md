@@ -241,8 +241,9 @@ Have a background design that fits the Celestial aesthetic? We welcome contribut
 Please ensure designs:
 
 - Match the theme color palettes (see colors above)
-- Stay unobtrusive, so they don't distract from your work
+- Stay unobtrusive, so they don't distract from work
 - Are high resolution (minimum 2560x1440, prefer QHD+ 2880x1620)
 - Are provided in WebP format for optimal file size (under 5 MB)
 - Are named consistently: `[Theme]-[Description].webp` (e.g., `Azul-Space.webp`)
 - Include appropriate color values for XML integration
+- Have their resolution added to `wallpaper_resolution()` in `install.sh` if it isn't 2912x1632, so the KDE wallpaper packages are labeled correctly
