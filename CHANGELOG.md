@@ -5,6 +5,17 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.3] - 2026-10-05
+
+### Changed
+
+- Cinnamon's Window list and CobiWindowList applets now space their buttons 1px apart, matching Grouped window list
+- Semi-transparent Cinnamon panels from the Transparent panels extension now use the Plank dock's opacity, about 84% instead of 40%
+
+### Fixed
+
+- Cinnamon's Grouped window list no longer leaves 6px gaps between buttons that broke up the indicator line under running apps
+
 ## [1.7.2] - 2026-09-21
 
 ### Fixed
@@ -384,6 +395,7 @@ Initial release of Celestial GTK Theme.
   - Development guide (HACKING.md)
   - Asset generation guides in component directories
 
+[1.7.3]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.7.3
 [1.7.2]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.7.2
 [1.7.1]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.7.1
 [1.7.0]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.7.0
