@@ -31,6 +31,9 @@ jobs:
       - name: Regenerate Firefox themes
         run: ./src/extra/firefox/render.sh
 
+      - name: Regenerate Spotifast themes
+        run: ./src/extra/spotifast/render.sh
+
       - name: Committed output matches the generators
         run: |
           # Rasterized previews (png/jpg) vary with the runner's font and
@@ -56,4 +59,4 @@ jobs:
           sudo apt-get install -y shellcheck
 
       - name: Lint the installer and generators
-        run: shellcheck install.sh parse_sass.sh src/kde/render.sh src/extra/telegram/render.sh src/extra/ttk/render.sh src/extra/firefox/render.sh
+        run: shellcheck install.sh parse_sass.sh src/kde/render.sh src/extra/telegram/render.sh src/extra/ttk/render.sh src/extra/firefox/render.sh src/extra/spotifast/render.sh

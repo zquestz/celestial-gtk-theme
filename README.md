@@ -1,6 +1,6 @@
 # Celestial GTK Theme
 
-[![CI](https://img.shields.io/github/actions/workflow/status/zquestz/celestial-gtk-theme/verify.yml?style=flat-square&label=CI)](https://github.com/zquestz/celestial-gtk-theme/actions/workflows/verify.yml) ![Version](https://img.shields.io/badge/Version-1.7.3-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2050-blue?style=flat-square) ![KDE Plasma](https://img.shields.io/badge/KDE%20Plasma-6-blue?style=flat-square)
+[![CI](https://img.shields.io/github/actions/workflow/status/zquestz/celestial-gtk-theme/verify.yml?style=flat-square&label=CI)](https://github.com/zquestz/celestial-gtk-theme/actions/workflows/verify.yml) ![Version](https://img.shields.io/badge/Version-1.7.4-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2050-blue?style=flat-square) ![KDE Plasma](https://img.shields.io/badge/KDE%20Plasma-6-blue?style=flat-square)
 
 **A modern, customizable GTK theme with multiple color variants**
 
@@ -18,7 +18,7 @@ Based on the excellent [Arc](https://github.com/horst3180/Arc-theme) and [Matcha
 - **Dock Support** - [Plank Reloaded](https://github.com/zquestz/plank-reloaded) theming
 - **HiDPI Support** - Standard, HiDPI, and XHiDPI variants for retina displays
 - **Color-Matched Backgrounds** - Wallpapers coordinated with each theme variant
-- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, cursor theme, Zed editor themes, Alacritty, foot, Ghostty, Kitty, and Konsole terminal themes, Telegram Desktop themes, Halloy IRC client themes, CopyQ clipboard manager themes, Slack themes, Sniffnet network monitor themes, Tk/ttk themes, Firefox themes
+- **Additional Theming** - GDM login screen, libadwaita apps, GTKSourceView syntax highlighting, cursor theme, Zed editor themes, Alacritty, foot, Ghostty, Kitty, and Konsole terminal themes, Telegram Desktop themes, Halloy IRC client themes, CopyQ clipboard manager themes, Slack themes, Sniffnet network monitor themes, Tk/ttk themes, Firefox themes, Spotifast music player themes
 
 ## Installation
 
@@ -389,6 +389,38 @@ Available themes:
 - Celestial Sea Dark / Light
 
 For more details, see the [Sniffnet theme README](src/extra/sniffnet/README.md).
+
+## Music Player Themes
+
+### Spotifast
+
+For [Spotifast](https://spotifast.rocks/) users, Celestial provides 8 palettes - 4 color variants (Aliz, Azul, Pueril, Sea) in light and dark, generated from the GTK theme colors.
+
+To install all Spotifast palettes:
+
+```bash
+./install.sh --spotifast
+```
+
+To install specific variant(s):
+
+```bash
+./install.sh --spotifast -t azul
+./install.sh --spotifast -t sea -c dark
+```
+
+Then in Spotifast: **Settings** > **Appearance** > **Theme** and pick a Celestial palette. If Spotifast is already open, run `spotifast reload-themes` first so it sees the new files. Turn off **Colour from album art** in the same section to keep Celestial's colors throughout.
+
+Available themes:
+
+- Celestial Aliz Dark / Light
+- Celestial Azul Dark / Light
+- Celestial Pueril Dark / Light
+- Celestial Sea Dark / Light
+
+For more details, see the [Spotifast theme README](src/extra/spotifast/README.md).
+
+**Note:** Spotifast themes can only be installed for user accounts (not system-wide).
 
 ## Development
 

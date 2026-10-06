@@ -5,8 +5,8 @@
 # change sass/_colors.scss, run parse_sass.sh, then re-run render.sh.
 #
 # Colour definitions only; all widget styling lives in celestial.tcl.
-# Serves both the Standard and Light Celestial modes: they differ only in
-# window-manager chrome, which Tk does not draw.
+# Serves both the Standard and Light Celestial modes; render.sh explains why
+# Standard shares this theme.
 #
 # Tk has no alpha, so Celestial's translucent tokens arrive here already
 # composited over this variant's background:

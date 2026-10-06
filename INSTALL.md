@@ -89,6 +89,7 @@ The install script provides extensive customization options:
 | `--kde`                | Install KDE Plasma themes                                                |
 | `--kitty`              | Install Kitty terminal theme                                             |
 | `--sddm`               | Install SDDM login themes (requires root)                                |
+| `--spotifast`          | Install Spotifast music player themes                                    |
 | `--ttk`                | Install Tk/ttk themes for Tk applications                                |
 | `--zed`                | Install Zed editor themes                                                |
 | `-g, --gdm`            | Install GDM theme (requires root)                                        |
@@ -236,16 +237,25 @@ This installs to `/usr/share/sddm/themes/` (all 12 variants unless `-t`/`-c` nar
 > A per-user install needs `TCLLIBPATH` set, and the theme is selected with a
 > `*TkTheme` X resource. See [src/extra/ttk/README.md](src/extra/ttk/README.md).
 
+**Install Spotifast music player themes:**
+
+```bash
+./install.sh --spotifast
+```
+
+> Pick a palette in Spotifast under **Settings** > **Appearance** > **Theme**.
+> See [src/extra/spotifast/README.md](src/extra/spotifast/README.md).
+
 **Install cursor theme:**
 
 ```bash
 ./install.sh --cursors
 ```
 
-**Install everything (theme + backgrounds + Kvantum + Alacritty + CopyQ + cursors + foot + Ghostty + Halloy + Kitty + ttk + Zed):**
+**Install everything (theme + backgrounds + Kvantum + Alacritty + CopyQ + cursors + foot + Ghostty + Halloy + Kitty + Spotifast + ttk + Zed):**
 
 ```bash
-./install.sh -k -b --alacritty --copyq --cursors --foot --ghostty --halloy --kitty --ttk --zed
+./install.sh -k -b --alacritty --copyq --cursors --foot --ghostty --halloy --kitty --spotifast --ttk --zed
 ```
 
 > On KDE Plasma, also add `--kde`.
@@ -340,6 +350,12 @@ sudo ./install.sh --sddm -r
 
 ```bash
 ./install.sh --kitty -r
+```
+
+**Remove Spotifast music player themes:**
+
+```bash
+./install.sh --spotifast -r
 ```
 
 **Remove Zed editor themes:**

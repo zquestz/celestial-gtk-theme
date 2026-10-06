@@ -5,10 +5,11 @@ Firefox static themes matching every Celestial GTK theme variant.
 ## Overview
 
 Each variant is an unpacked WebExtension theme, a single `manifest.json` of
-colors generated from the compiled GTK stylesheets. Firefox draws its own
-titlebar (the manifest's `frame`), which is where Celestial's Standard and
-Light modes differ, so all twelve variants exist here: Standard keeps its
-signature dark frame over light content.
+colors generated from the compiled GTK stylesheets. Celestial's Standard mode
+pairs light content with dark chrome such as titlebars, menubars, and
+sidebars. Firefox draws its own titlebar (the manifest's `frame`), so all
+twelve variants exist here: Standard keeps its signature dark frame over light
+content.
 
 The active tab is an accent-filled pill with white text, Celestial's checked
 header-button language. Firefox's floating tabs cannot draw a bottom-only

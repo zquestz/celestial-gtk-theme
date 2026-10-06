@@ -10,9 +10,12 @@
 # insensitive foreground, and the tab hover accent) are composited over each
 # variant's own background here and emitted as solid values.
 #
-# Celestial's Standard and Light modes differ only in window-manager chrome,
-# which Tk does not draw, so they share one theme under the -light name,
-# matching how the other two-mode extras are named.
+# Celestial's Standard mode pairs light content with dark chrome such as
+# titlebars, menubars and sidebars. In Tk the window manager draws the
+# titlebar and ttk has no sidebar style, while a menubar is the same Menu
+# widget as the dropdowns it opens, which Standard keeps light. Standard and
+# Light therefore share one theme under the -light name, matching how the
+# other two-mode extras are named, so a Tk menubar stays light under Standard.
 
 set -euo pipefail
 
@@ -237,8 +240,8 @@ emit_variant() {
   local standardnote=""
   if [[ "${mode}" != "-dark" ]]; then
     standardnote="
-# Serves both the Standard and Light Celestial modes: they differ only in
-# window-manager chrome, which Tk does not draw."
+# Serves both the Standard and Light Celestial modes; render.sh explains why
+# Standard shares this theme."
   fi
 
   cat > "${out}" <<EOF

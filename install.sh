@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # shellcheck disable=SC2086,SC2001
 # Celestial GTK Theme Installer
-# Version: 1.7.3
+# Version: 1.7.4
 
 ROOT_UID=0
 DEST_DIR=
@@ -32,6 +32,7 @@ if [ "$UID" -eq "$ROOT_UID" ]; then
   KITTY_DIR=""
   ZED_DIR=""
   HALLOY_DIR=""
+  SPOTIFAST_DIR=""
   # Tcl scans subdirectories of every auto_path entry for pkgIndex.tcl, and
   # /usr/lib is always on auto_path, so this is found without pinning a Tcl
   # version into the path.
@@ -60,6 +61,7 @@ else
   KITTY_DIR="$HOME/.config/kitty/themes"
   ZED_DIR="$HOME/.config/zed/themes"
   HALLOY_DIR="$HOME/.config/halloy/themes"
+  SPOTIFAST_DIR="$HOME/.config/spotifast/themes"
   # No user directory is on Tcl's auto_path, so a per-user install needs
   # TCLLIBPATH set; install_ttk explains that when it runs.
   TTK_DIR="$HOME/.local/share/celestial-ttk"
@@ -80,7 +82,7 @@ THEME_VARIANTS=('-sea' '-aliz' '-azul' '-pueril')
 SHELL_VERSION=""
 
 usage() {
-  printf "%s\n" "Celestial GTK Theme Installer v1.7.3"
+  printf "%s\n" "Celestial GTK Theme Installer v1.7.4"
   printf "%s\n" "Usage: $0 [OPTIONS...]"
   printf "\n%s\n" "OPTIONS:"
   printf "  %-25s%s\n" "-d, --dest DIR" "Destination directory (Default: ${DEST_DIR})"
@@ -100,6 +102,7 @@ usage() {
   printf "  %-25s%s\n" "--kde" "Install KDE Plasma themes"
   printf "  %-25s%s\n" "--kitty" "Install Kitty terminal theme"
   printf "  %-25s%s\n" "--sddm" "Install SDDM login themes (requires root)"
+  printf "  %-25s%s\n" "--spotifast" "Install Spotifast music player themes"
   printf "  %-25s%s\n" "--ttk" "Install Tk/ttk themes for Tk applications"
   printf "  %-25s%s\n" "--zed" "Install Zed editor themes"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme (requires root)"
@@ -486,6 +489,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     --sddm)
       sddm='true'
+      shift
+      ;;
+    --spotifast)
+      spotifast='true'
       shift
       ;;
     --zed)
@@ -1359,9 +1366,10 @@ install_halloy() {
   echo "Configure in your Halloy config.toml with: theme = \"celestial-<variant>\""
 }
 
-# Map a Celestial colour variant onto a ttk theme suffix. Standard and Light
-# differ only in window-manager chrome, which ttk does not draw, so both
-# resolve to the -light theme and the pair is de-duplicated by the caller.
+# Map a Celestial colour variant onto a ttk theme suffix. Standard's dark
+# chrome does not carry over to Tk (src/extra/ttk/render.sh explains why), so
+# Standard and Light both resolve to the -light theme and the pair is
+# de-duplicated by the caller.
 ttk_suffix_for() {
   case "$1" in
     -dark) echo "-dark" ;;
@@ -1468,6 +1476,93 @@ uninstall_halloy() {
   done
 
   echo "Halloy themes uninstalled."
+}
+
+# Map a Celestial colour variant onto a Spotifast palette mode. Standard's
+# dark sidebars cannot carry over, since a palette has one set of text colours
+# for every surface, so Standard and Light both resolve to Light and the
+# caller de-duplicates.
+spotifast_mode_for() {
+  case "$1" in
+    -dark) echo "Dark" ;;
+    *) echo "Light" ;;
+  esac
+}
+
+install_spotifast() {
+  local color_list=("${colors[@]}")
+  local theme_list=("${themes[@]}")
+
+  [[ ${#color_list[@]} -eq 0 ]] && color_list=("${COLOR_VARIANTS[@]}")
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  echo "Installing Spotifast themes..."
+
+  if [[ -z "${SPOTIFAST_DIR}" ]]; then
+    echo "Spotifast theme installation is not available for system-wide installs (root)"
+    echo "Spotifast themes must be installed per-user"
+    return
+  fi
+
+  mkdir -p "${DESTDIR}${SPOTIFAST_DIR}"
+
+  local installed=()
+
+  for theme in "${theme_list[@]}"; do
+    local theme_name
+    theme_name="$(echo "${theme#-}" | sed 's/.*/\u&/')"
+
+    for color in "${color_list[@]}"; do
+      local mode
+      mode="$(spotifast_mode_for "${color}")"
+
+      # Standard and Light both map to the Light palette; install it once.
+      if [[ " ${installed[*]} " == *" ${theme_name}-${mode} "* ]]; then
+        continue
+      fi
+      installed+=("${theme_name}-${mode}")
+
+      local file="Celestial ${theme_name} ${mode}.json"
+      cp "${SRC_DIR}/extra/spotifast/${file}" "${DESTDIR}${SPOTIFAST_DIR}/"
+      echo "  Installed ${file}"
+    done
+  done
+
+  echo "Spotifast themes installed to ${DESTDIR}${SPOTIFAST_DIR}/"
+  echo "If Spotifast is running, run 'spotifast reload-themes' so it sees them"
+  echo "Then select one under Settings > Appearance > Theme"
+}
+
+uninstall_spotifast() {
+  local color_list=("${colors[@]}")
+  local theme_list=("${themes[@]}")
+
+  [[ ${#color_list[@]} -eq 0 ]] && color_list=("${COLOR_VARIANTS[@]}")
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  echo "Removing Spotifast themes..."
+
+  if [[ -z "${SPOTIFAST_DIR}" ]]; then
+    return
+  fi
+
+  for theme in "${theme_list[@]}"; do
+    local theme_name
+    theme_name="$(echo "${theme#-}" | sed 's/.*/\u&/')"
+
+    for color in "${color_list[@]}"; do
+      local file
+      file="Celestial ${theme_name} $(spotifast_mode_for "${color}").json"
+
+      # Standard and Light share a file, so the second pass finds it gone.
+      if [[ -f "${DESTDIR}${SPOTIFAST_DIR}/${file}" ]]; then
+        rm -f "${DESTDIR}${SPOTIFAST_DIR}/${file}"
+        echo "  Removed ${file}"
+      fi
+    done
+  done
+
+  echo "Spotifast themes uninstalled."
 }
 
 install_copyq() {
@@ -1794,6 +1889,10 @@ if [[ "${gdm:-}" != 'true' ]]; then
       install_sddm
     fi
 
+    if [[ "${spotifast:-}" == 'true' ]]; then
+      install_spotifast
+    fi
+
     if [[ "${zed:-}" == 'true' ]]; then
       install_zed
     fi
@@ -1837,6 +1936,9 @@ if [[ "${gdm:-}" != 'true' ]]; then
     elif [[ "${sddm:-}" == 'true' ]]; then
       uninstall_sddm
       echo -e 'Remove SDDM themes...'
+    elif [[ "${spotifast:-}" == 'true' ]]; then
+      uninstall_spotifast
+      echo -e 'Remove Spotifast themes...'
     elif [[ "${zed:-}" == 'true' ]]; then
       uninstall_zed
       echo -e 'Remove Zed theme...'

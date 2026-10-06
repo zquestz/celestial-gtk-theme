@@ -8,9 +8,10 @@
 # cannot drift from the rest of the theme: change a palette in
 # src/gtk/sass/_colors.scss, run parse_sass.sh, then run this.
 #
-# Firefox draws the titlebar (the manifest's "frame"), which is the only
-# place Celestial's Standard and Light modes differ, so all twelve variants
-# are generated: Standard keeps its signature dark frame over light content.
+# Celestial's Standard mode pairs light content with dark chrome such as
+# titlebars, menubars and sidebars. Firefox draws its own titlebar (the
+# manifest's "frame"), so all twelve variants are generated: Standard keeps
+# its signature dark frame over light content.
 
 set -euo pipefail
 
