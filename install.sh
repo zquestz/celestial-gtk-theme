@@ -119,7 +119,7 @@ usage() {
   printf "  %-25s%s\n" "--ttk" "Install Tk/ttk themes for Tk applications"
   printf "  %-25s%s\n" "--zed" "Install Zed editor themes"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme (requires root)"
-  printf "  %-25s%s\n" "-r, --remove" "Uninstall theme"
+  printf "  %-25s%s\n" "-r, --remove" "Remove the theme, or the components you flag"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
 }
 

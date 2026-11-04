@@ -4550,6 +4550,15 @@ StScrollBar > .hhandle:active {
   spacing: 1.75em;
 }
 
+.unlock-dialog .web-login-title-label,
+.unlock-dialog .web-login-url-label,
+.unlock-dialog .web-login-url-label-long,
+.unlock-dialog .web-login-code-title-label,
+.unlock-dialog .web-login-code-label,
+.unlock-dialog .web-login-prompt {
+  color: #efefef !important;
+}
+
 .login-dialog .login-button,
 .login-dialog .web-login-prompt-button,
 .unlock-dialog .login-button,

@@ -95,7 +95,7 @@ The install script provides extensive customization options:
 | `--ttk`                | Install Tk/ttk themes for Tk applications                                    |
 | `--zed`                | Install Zed editor themes                                                    |
 | `-g, --gdm`            | Install GDM theme (requires root)                                            |
-| `-r, --remove`         | Uninstall theme                                                              |
+| `-r, --remove`         | Remove the theme, or the components you flag                                 |
 | `-h, --help`           | Show this help                                                               |
 
 ### Installation Examples

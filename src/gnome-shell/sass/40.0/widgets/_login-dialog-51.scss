@@ -472,6 +472,17 @@ $_gdm_dialog_width: 23em * 1.2;
   spacing: 1.75em;
 }
 
+.unlock-dialog {
+  .web-login-title-label,
+  .web-login-url-label,
+  .web-login-url-label-long,
+  .web-login-code-title-label,
+  .web-login-code-label,
+  .web-login-prompt {
+    color: $osd_fg_color !important;
+  }
+}
+
 .login-dialog,
 .unlock-dialog {
   .login-button,
