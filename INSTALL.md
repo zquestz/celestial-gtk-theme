@@ -70,33 +70,33 @@ The install script provides extensive customization options:
 
 ### Available Options
 
-| Option                 | Description                                                              |
-| ---------------------- | ------------------------------------------------------------------------ |
-| `-d, --dest DIR`       | Destination directory (Default: `/home/USER/.themes`)                    |
-| `-n, --name NAME`      | Theme name (Default: `Celestial`)                                        |
-| `-c, --color VARIANTS` | Color variant [standard\|light\|dark] (Default: All)                     |
-| `-t, --theme VARIANTS` | Theme variant [sea\|aliz\|azul\|pueril] (Default: All)                   |
-| `-s, --gnome-shell`    | GNOME Shell version [38\|40\|42\|44\|46\|47\|48\|49\|50] (Default: Auto) |
-| `-l, --libadwaita`     | Link libadwaita apps to GTK-4.0 theme                                    |
-| `-k, --kvantum`        | Install Kvantum theme for Qt applications                                |
-| `-b, --backgrounds`    | Install theme backgrounds                                                |
-| `--alacritty`          | Install Alacritty terminal theme                                         |
-| `--copyq`              | Install CopyQ clipboard manager themes                                   |
-| `--cursors`            | Install Celestial cursor theme                                           |
-| `--foot`               | Install foot terminal theme                                              |
-| `--ghostty`            | Install Ghostty terminal theme                                           |
-| `--halloy`             | Install Halloy IRC client themes                                         |
-| `--kde`                | Install KDE Plasma themes                                                |
-| `--kitty`              | Install Kitty terminal theme                                             |
-| `--sddm`               | Install SDDM login themes (requires root)                                |
-| `--sniffnet`           | Install Sniffnet network monitor themes                                  |
-| `--spotifast`          | Install Spotifast music player themes                                    |
-| `--telegram`           | Install Telegram Desktop themes                                          |
-| `--ttk`                | Install Tk/ttk themes for Tk applications                                |
-| `--zed`                | Install Zed editor themes                                                |
-| `-g, --gdm`            | Install GDM theme (requires root)                                        |
-| `-r, --remove`         | Uninstall theme                                                          |
-| `-h, --help`           | Show this help                                                           |
+| Option                 | Description                                                                  |
+| ---------------------- | ---------------------------------------------------------------------------- |
+| `-d, --dest DIR`       | Destination directory (Default: `/home/USER/.themes`)                        |
+| `-n, --name NAME`      | Theme name (Default: `Celestial`)                                            |
+| `-c, --color VARIANTS` | Color variant [standard\|light\|dark] (Default: All)                         |
+| `-t, --theme VARIANTS` | Theme variant [sea\|aliz\|azul\|pueril] (Default: All)                       |
+| `-s, --gnome-shell`    | GNOME Shell version [38\|40\|42\|44\|46\|47\|48\|49\|50\|51] (Default: Auto) |
+| `-l, --libadwaita`     | Link libadwaita apps to GTK-4.0 theme                                        |
+| `-k, --kvantum`        | Install Kvantum theme for Qt applications                                    |
+| `-b, --backgrounds`    | Install theme backgrounds                                                    |
+| `--alacritty`          | Install Alacritty terminal theme                                             |
+| `--copyq`              | Install CopyQ clipboard manager themes                                       |
+| `--cursors`            | Install Celestial cursor theme                                               |
+| `--foot`               | Install foot terminal theme                                                  |
+| `--ghostty`            | Install Ghostty terminal theme                                               |
+| `--halloy`             | Install Halloy IRC client themes                                             |
+| `--kde`                | Install KDE Plasma themes                                                    |
+| `--kitty`              | Install Kitty terminal theme                                                 |
+| `--sddm`               | Install SDDM login themes (requires root)                                    |
+| `--sniffnet`           | Install Sniffnet network monitor themes                                      |
+| `--spotifast`          | Install Spotifast music player themes                                        |
+| `--telegram`           | Install Telegram Desktop themes                                              |
+| `--ttk`                | Install Tk/ttk themes for Tk applications                                    |
+| `--zed`                | Install Zed editor themes                                                    |
+| `-g, --gdm`            | Install GDM theme (requires root)                                            |
+| `-r, --remove`         | Uninstall theme                                                              |
+| `-h, --help`           | Show this help                                                               |
 
 ### Installation Examples
 

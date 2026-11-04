@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- GNOME Shell 51 support, including the redesigned login and lock screens
 - `--telegram` and `--sniffnet` installation flags, which put the themes in a shared folder: `~/.local/share/celestial/` for user installs and `/usr/share/celestial/` for system-wide installs
 
 ### Changed

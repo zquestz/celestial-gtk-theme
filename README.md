@@ -1,6 +1,6 @@
 # Celestial GTK Theme
 
-[![CI](https://img.shields.io/github/actions/workflow/status/zquestz/celestial-gtk-theme/verify.yml?style=flat-square&label=CI)](https://github.com/zquestz/celestial-gtk-theme/actions/workflows/verify.yml) ![Version](https://img.shields.io/badge/Version-1.8.0-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2050-blue?style=flat-square) ![KDE Plasma](https://img.shields.io/badge/KDE%20Plasma-6-blue?style=flat-square)
+[![CI](https://img.shields.io/github/actions/workflow/status/zquestz/celestial-gtk-theme/verify.yml?style=flat-square&label=CI)](https://github.com/zquestz/celestial-gtk-theme/actions/workflows/verify.yml) ![Version](https://img.shields.io/badge/Version-1.8.0-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2051-blue?style=flat-square) ![KDE Plasma](https://img.shields.io/badge/KDE%20Plasma-6-blue?style=flat-square)
 
 **A modern, customizable GTK theme with multiple color variants**
 
@@ -13,7 +13,7 @@ Based on the excellent [Arc](https://github.com/horst3180/Arc-theme) and [Matcha
 ## Features
 
 - **12 Theme Variants** - 4 colors (Sea, Aliz, Azul, Pueril) x 3 modes (Light, Standard, Dark)
-- **Desktop Support** - GTK 2/3/4, GNOME Shell (38-50), Cinnamon, Xfce, Budgie, Pantheon, Unity, Openbox, Labwc
+- **Desktop Support** - GTK 2/3/4, GNOME Shell (38-51), Cinnamon, Xfce, Budgie, Pantheon, Unity, Openbox, Labwc
 - **KDE Plasma Support** - Native theming for KDE Plasma 6
 - **Dock Support** - [Plank Reloaded](https://github.com/zquestz/plank-reloaded) theming
 - **HiDPI Support** - Standard, HiDPI, and XHiDPI variants for retina displays
