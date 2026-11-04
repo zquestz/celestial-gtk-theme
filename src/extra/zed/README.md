@@ -24,8 +24,8 @@ The Celestial Zed themes use a carefully crafted color palette for optimal code 
 - **Keywords** - `#3498db` - Blue for language keywords and operators
 - **Strings** - `#2eb398` - Teal for string literals
 - **Numbers** - `#c678dd` - Purple for numeric values
-- **Preprocessor** - `#42A5F5` - Light blue for preprocessor directives
-- **Annotations** - `#F39C12` - Orange for annotations and escape sequences
+- **Preprocessor** - `#42a5f5` - Light blue for preprocessor directives
+- **Annotations** - `#f39c12` - Orange for annotations and escape sequences
 - **Errors** - `#e74c3c` - Red for errors and regex patterns
 
 ## Installation

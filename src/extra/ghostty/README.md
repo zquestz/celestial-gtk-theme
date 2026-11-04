@@ -11,10 +11,10 @@ The Celestial Ghostty theme uses a balanced 16-color ANSI palette:
 - Black: `#2a2a2a`
 - Red: `#f0544c` - Coral red for errors and warnings
 - Green: `#2eb398` - Teal for success messages
-- Yellow: `#F39C12` - Orange for highlights
+- Yellow: `#f39c12` - Orange for highlights
 - Blue: `#3498db` - Keyword blue
 - Magenta: `#c678dd` - Purple for special text
-- Cyan: `#42A5F5` - Light blue for info
+- Cyan: `#42a5f5` - Light blue for info
 - White: `#cfdcd8` - Default text color
 
 **Bright Colors (8-15):**
