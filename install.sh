@@ -1912,133 +1912,157 @@ uninstall_theme() {
   done
 }
 
-if [[ "${gdm:-}" != 'true' ]]; then
-  if [[ "${remove:-}" != 'true' ]]; then
-    install_theme
+# Run one component's removal and record that a component was flagged.
+remove_component() {
+  "$1"
+  echo -e "$2"
+  component_removed='true'
+}
 
-    if [[ "${libadwaita:-}" == 'true' ]]; then
-      uninstall_link && link_theme
-    fi
+if [[ "${remove:-}" == 'true' ]]; then
+  if [[ "${libadwaita:-}" == 'true' ]]; then
+    remove_component uninstall_link 'Remove libadwaita links...'
+  fi
 
-    # --kde already installs the Kvantum themes, so skip the duplicate pass
-    if [[ "${kvantum:-}" == 'true' && "${kde:-}" != 'true' ]]; then
-      install_kvantum_themes
-    fi
+  if [[ "${kvantum:-}" == 'true' ]]; then
+    remove_component uninstall_kvantum_themes 'Remove Kvantum themes...'
+  fi
 
-    if [[ "${alacritty:-}" == 'true' ]]; then
-      install_alacritty
-    fi
+  if [[ "${alacritty:-}" == 'true' ]]; then
+    remove_component uninstall_alacritty 'Remove Alacritty theme...'
+  fi
 
-    if [[ "${backgrounds:-}" == 'true' ]]; then
-      install_backgrounds
-    fi
+  if [[ "${backgrounds:-}" == 'true' ]]; then
+    remove_component uninstall_backgrounds 'Remove backgrounds...'
+  fi
 
-    if [[ "${copyq:-}" == 'true' ]]; then
-      install_copyq
-    fi
+  if [[ "${copyq:-}" == 'true' ]]; then
+    remove_component uninstall_copyq 'Remove CopyQ themes...'
+  fi
 
-    if [[ "${cursors:-}" == 'true' ]]; then
-      install_cursors
-    fi
+  if [[ "${cursors:-}" == 'true' ]]; then
+    remove_component uninstall_cursors 'Remove Celestial cursor theme...'
+  fi
 
-    if [[ "${foot:-}" == 'true' ]]; then
-      install_foot
-    fi
+  if [[ "${foot:-}" == 'true' ]]; then
+    remove_component uninstall_foot 'Remove foot theme...'
+  fi
 
-    if [[ "${ghostty:-}" == 'true' ]]; then
-      install_ghostty
-    fi
+  if [[ "${ghostty:-}" == 'true' ]]; then
+    remove_component uninstall_ghostty 'Remove Ghostty theme...'
+  fi
 
-    if [[ "${halloy:-}" == 'true' ]]; then
-      install_halloy
-    fi
+  if [[ "${halloy:-}" == 'true' ]]; then
+    remove_component uninstall_halloy 'Remove Halloy themes...'
+  fi
 
-    if [[ "${ttk:-}" == 'true' ]]; then
-      install_ttk
-    fi
+  if [[ "${ttk:-}" == 'true' ]]; then
+    remove_component uninstall_ttk 'Remove Tk/ttk themes...'
+  fi
 
-    if [[ "${kde:-}" == 'true' ]]; then
-      install_kde
-    fi
+  if [[ "${kde:-}" == 'true' ]]; then
+    remove_component uninstall_kde 'Remove KDE Plasma themes...'
+  fi
 
-    if [[ "${kitty:-}" == 'true' ]]; then
-      install_kitty
-    fi
+  if [[ "${kitty:-}" == 'true' ]]; then
+    remove_component uninstall_kitty 'Remove Kitty theme...'
+  fi
 
-    if [[ "${sddm:-}" == 'true' ]]; then
-      install_sddm
-    fi
+  if [[ "${sddm:-}" == 'true' ]]; then
+    remove_component uninstall_sddm 'Remove SDDM themes...'
+  fi
 
-    if [[ "${sniffnet:-}" == 'true' ]]; then
-      install_sniffnet
-    fi
+  if [[ "${sniffnet:-}" == 'true' ]]; then
+    remove_component uninstall_sniffnet 'Remove Sniffnet themes...'
+  fi
 
-    if [[ "${spotifast:-}" == 'true' ]]; then
-      install_spotifast
-    fi
+  if [[ "${spotifast:-}" == 'true' ]]; then
+    remove_component uninstall_spotifast 'Remove Spotifast themes...'
+  fi
 
-    if [[ "${telegram:-}" == 'true' ]]; then
-      install_telegram
-    fi
+  if [[ "${telegram:-}" == 'true' ]]; then
+    remove_component uninstall_telegram 'Remove Telegram Desktop themes...'
+  fi
 
-    if [[ "${zed:-}" == 'true' ]]; then
-      install_zed
-    fi
-  else
-    if [[ "${libadwaita:-}" == 'true' ]]; then
-      uninstall_link
-      echo -e 'Remove libadwaita links...'
-    elif [[ "${kvantum:-}" == 'true' ]]; then
-      uninstall_kvantum_themes
-      echo -e 'Remove Kvantum themes...'
-    elif [[ "${alacritty:-}" == 'true' ]]; then
-      uninstall_alacritty
-      echo -e 'Remove Alacritty theme...'
-    elif [[ "${backgrounds:-}" == 'true' ]]; then
-      uninstall_backgrounds
-      echo -e 'Remove backgrounds...'
-    elif [[ "${copyq:-}" == 'true' ]]; then
-      uninstall_copyq
-      echo -e 'Remove CopyQ themes...'
-    elif [[ "${cursors:-}" == 'true' ]]; then
-      uninstall_cursors
-      echo -e 'Remove Celestial cursor theme...'
-    elif [[ "${foot:-}" == 'true' ]]; then
-      uninstall_foot
-      echo -e 'Remove foot theme...'
-    elif [[ "${ghostty:-}" == 'true' ]]; then
-      uninstall_ghostty
-      echo -e 'Remove Ghostty theme...'
-    elif [[ "${halloy:-}" == 'true' ]]; then
-      uninstall_halloy
-      echo -e 'Remove Halloy themes...'
-    elif [[ "${ttk:-}" == 'true' ]]; then
-      uninstall_ttk
-      echo -e 'Remove Tk/ttk themes...'
-    elif [[ "${kde:-}" == 'true' ]]; then
-      uninstall_kde
-      echo -e 'Remove KDE Plasma themes...'
-    elif [[ "${kitty:-}" == 'true' ]]; then
-      uninstall_kitty
-      echo -e 'Remove Kitty theme...'
-    elif [[ "${sddm:-}" == 'true' ]]; then
-      uninstall_sddm
-      echo -e 'Remove SDDM themes...'
-    elif [[ "${sniffnet:-}" == 'true' ]]; then
-      uninstall_sniffnet
-      echo -e 'Remove Sniffnet themes...'
-    elif [[ "${spotifast:-}" == 'true' ]]; then
-      uninstall_spotifast
-      echo -e 'Remove Spotifast themes...'
-    elif [[ "${telegram:-}" == 'true' ]]; then
-      uninstall_telegram
-      echo -e 'Remove Telegram Desktop themes...'
-    elif [[ "${zed:-}" == 'true' ]]; then
-      uninstall_zed
-      echo -e 'Remove Zed theme...'
-    else
-      uninstall_theme
-    fi
+  if [[ "${zed:-}" == 'true' ]]; then
+    remove_component uninstall_zed 'Remove Zed theme...'
+  fi
+
+  # With no component flags, -r means the GTK themes. A -g removal only
+  # restores the GDM theme, which happens below.
+  if [[ "${component_removed:-}" != 'true' && "${gdm:-}" != 'true' ]]; then
+    uninstall_theme
+  fi
+elif [[ "${gdm:-}" != 'true' ]]; then
+  install_theme
+
+  if [[ "${libadwaita:-}" == 'true' ]]; then
+    uninstall_link && link_theme
+  fi
+
+  # --kde already installs the Kvantum themes, so skip the duplicate pass
+  if [[ "${kvantum:-}" == 'true' && "${kde:-}" != 'true' ]]; then
+    install_kvantum_themes
+  fi
+
+  if [[ "${alacritty:-}" == 'true' ]]; then
+    install_alacritty
+  fi
+
+  if [[ "${backgrounds:-}" == 'true' ]]; then
+    install_backgrounds
+  fi
+
+  if [[ "${copyq:-}" == 'true' ]]; then
+    install_copyq
+  fi
+
+  if [[ "${cursors:-}" == 'true' ]]; then
+    install_cursors
+  fi
+
+  if [[ "${foot:-}" == 'true' ]]; then
+    install_foot
+  fi
+
+  if [[ "${ghostty:-}" == 'true' ]]; then
+    install_ghostty
+  fi
+
+  if [[ "${halloy:-}" == 'true' ]]; then
+    install_halloy
+  fi
+
+  if [[ "${ttk:-}" == 'true' ]]; then
+    install_ttk
+  fi
+
+  if [[ "${kde:-}" == 'true' ]]; then
+    install_kde
+  fi
+
+  if [[ "${kitty:-}" == 'true' ]]; then
+    install_kitty
+  fi
+
+  if [[ "${sddm:-}" == 'true' ]]; then
+    install_sddm
+  fi
+
+  if [[ "${sniffnet:-}" == 'true' ]]; then
+    install_sniffnet
+  fi
+
+  if [[ "${spotifast:-}" == 'true' ]]; then
+    install_spotifast
+  fi
+
+  if [[ "${telegram:-}" == 'true' ]]; then
+    install_telegram
+  fi
+
+  if [[ "${zed:-}" == 'true' ]]; then
+    install_zed
   fi
 fi
 

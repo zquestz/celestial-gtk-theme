@@ -325,6 +325,14 @@ Flatpak apps normally can't see `/usr/share` and keep their config under `~/.var
 ./install.sh -r -t azul -c dark
 ```
 
+**Remove several components at once:**
+
+```bash
+./install.sh -r --sniffnet --telegram --zed
+```
+
+> With component flags, `-r` removes those components and leaves the GTK themes in place.
+
 **Remove GDM theme:**
 
 ```bash

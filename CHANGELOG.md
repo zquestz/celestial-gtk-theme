@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - System-wide installs with `--alacritty`, `--halloy`, `--kitty`, `--spotifast`, and `--zed` no longer refuse: they now put the themes in `/usr/share/celestial/`, ready to link or copy
 
+### Fixed
+
+- `-r` now removes everything you flag, instead of only the first component it finds, and works alongside `-g`
+
 ## [1.7.4] - 2026-10-05
 
 ### Added
