@@ -71,7 +71,7 @@ Item {
         anchors.fill: parent
 
         property bool uiVisible: true
-        property bool blockUI: mainStack.depth > 1 || userListComponent.mainPasswordBox.text.length > 0 || inputPanel.keyboardActive || config.type !== "image"
+        property bool blockUI: mainStack.depth > 1 || userListComponent.mainPasswordBox.text.length > 0 || config.type !== "image"
 
         hoverEnabled: true
         drag.filterChildren: true
@@ -213,7 +213,6 @@ Item {
                     return parts.join(" • ");
                 }
 
-                actionItemsVisible: !inputPanel.keyboardActive
                 actionItems: [
                     ActionButton {
                         icon.name: "system-hibernate"
@@ -321,17 +320,6 @@ Item {
             }
         }
 
-        VirtualKeyboardLoader {
-            id: inputPanel
-
-            z: 1
-
-            screenRoot: root
-            mainStack: mainStack
-            mainBlock: userListComponent
-            passwordField: userListComponent.mainPasswordBox
-        }
-
         Component {
             id: userPromptComponent
             Login {
@@ -358,7 +346,6 @@ Item {
                     sddm.login(username, password, sessionButton.currentIndex)
                 }
 
-                actionItemsVisible: !inputPanel.keyboardActive
                 actionItems: [
                     ActionButton {
                         icon.name: "system-suspend"
@@ -455,13 +442,10 @@ Item {
                 id: virtualKeyboardButton
 
                 text: i18ndc("plasma-desktop-sddm-theme", "Button to show/hide virtual keyboard", "Virtual Keyboard")
-                icon.name: inputPanel.keyboardActive ? "input-keyboard-virtual-on" : "input-keyboard-virtual-off"
-                onClicked: {
-                    // Otherwise the password field loses focus and virtual keyboard
-                    // keystrokes get eaten
-                    userListComponent.mainPasswordBox.forceActiveFocus();
-                    inputPanel.showHide()
-                }
+                icon.name: "input-keyboard-virtual-off"
+                // Celestial: hidden, because the on-screen keyboard component
+                // moved between Plasma versions. The layout below still refers
+                // to this button.
                 visible: false
 
                 Layout.fillHeight: true

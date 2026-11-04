@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - `-r` now removes everything you flag, instead of only the first component it finds, and works alongside `-g`
+- SDDM login themes load again on Plasma 6.8 and newer
 
 ## [1.7.4] - 2026-10-05
 
