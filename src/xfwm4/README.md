@@ -41,9 +41,9 @@ The theme includes full HiDPI support with three resolution variants:
 
 ## Color Variants
 
-The theme includes four color variants, each with light and dark modes:
-- **Sea** - Cool cyan tones
-- **Aliz** - Warm crimson hues
+The theme includes four color variants, each with standard, light, and dark modes:
+- **Sea** - Cool teal tones
+- **Aliz** - Warm coral red hues
 - **Azul** - Deep blue accents
 - **Pueril** - Fresh green tones
 

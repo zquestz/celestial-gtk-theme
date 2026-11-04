@@ -9,7 +9,7 @@ The Celestial Kitty theme uses a balanced 16-color ANSI palette:
 **Standard Colors (0-7):**
 
 - Black: `#2a2a2a`
-- Red: `#f0544c` - Aliz red for errors and warnings
+- Red: `#f0544c` - Coral red for errors and warnings
 - Green: `#2eb398` - Teal for success messages
 - Yellow: `#F39C12` - Orange for highlights
 - Blue: `#3498db` - Keyword blue
@@ -66,7 +66,7 @@ The Celestial GTK Theme installer can install the Kitty theme for you:
 
 This will copy the theme to `~/.config/kitty/themes/Celestial.conf`.
 
-**Note:** Kitty themes can only be installed for user accounts (not system-wide).
+A system-wide install (`sudo ./install.sh --kitty`) puts the theme in `/usr/share/celestial/kitty/`. Add `include /usr/share/celestial/kitty/Celestial.conf` to your `kitty.conf`, and it follows package updates.
 
 ## Features
 

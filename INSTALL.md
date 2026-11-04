@@ -89,7 +89,9 @@ The install script provides extensive customization options:
 | `--kde`                | Install KDE Plasma themes                                                |
 | `--kitty`              | Install Kitty terminal theme                                             |
 | `--sddm`               | Install SDDM login themes (requires root)                                |
+| `--sniffnet`           | Install Sniffnet network monitor themes                                  |
 | `--spotifast`          | Install Spotifast music player themes                                    |
+| `--telegram`           | Install Telegram Desktop themes                                          |
 | `--ttk`                | Install Tk/ttk themes for Tk applications                                |
 | `--zed`                | Install Zed editor themes                                                |
 | `-g, --gdm`            | Install GDM theme (requires root)                                        |
@@ -172,7 +174,14 @@ sudo ./install.sh --sddm
 sudo ./install.sh --sddm -t azul -c dark
 ```
 
-This installs to `/usr/share/sddm/themes/` (all 12 variants unless `-t`/`-c` narrow it); pick one under **System Settings** > **Colors & Themes** > **Login Screen (SDDM)**, then click **Apply Plasma Settings** on the same page so the greeter uses your active Celestial color scheme (login text fields fall back to Breeze colors without it). Each login screen defaults to its color's wallpaper - the same image its global theme sets - and the settings page lets you pick a different one per theme. Pair it with `--kde` for the complete look; it stays a separate flag because the login screen is system-wide, while the KDE themes install per-user.
+This installs to `/usr/share/sddm/themes/` (all 12 variants unless `-t`/`-c` narrow it). To apply one:
+
+1. Pick it under **System Settings** > **Colors & Themes** > **Login Screen (SDDM)**.
+2. Click **Apply Plasma Settings** on the same page, so the greeter uses your active Celestial color scheme. Without this, login text fields fall back to Breeze colors.
+
+Each login screen defaults to its color's wallpaper, the same image its global theme sets, and the settings page lets you pick a different one per theme.
+
+Pair it with `--kde` for the complete look. It stays a separate flag because the login screen is system-wide, while the KDE themes install per-user.
 
 **Install theme backgrounds:**
 
@@ -186,16 +195,22 @@ This installs to `/usr/share/sddm/themes/` (all 12 variants unless `-t`/`-c` nar
 ./install.sh -b -t azul
 ```
 
+**Install Alacritty terminal theme:**
+
+```bash
+./install.sh --alacritty
+```
+
 **Install CopyQ clipboard manager themes:**
 
 ```bash
 ./install.sh --copyq
 ```
 
-**Install Alacritty terminal theme:**
+**Install cursor theme:**
 
 ```bash
-./install.sh --alacritty
+./install.sh --cursors
 ```
 
 **Install foot terminal theme:**
@@ -210,32 +225,25 @@ This installs to `/usr/share/sddm/themes/` (all 12 variants unless `-t`/`-c` nar
 ./install.sh --ghostty
 ```
 
-**Install Kitty terminal theme:**
-
-```bash
-./install.sh --kitty
-```
-
-**Install Zed editor themes:**
-
-```bash
-./install.sh --zed
-```
-
 **Install Halloy IRC client themes:**
 
 ```bash
 ./install.sh --halloy
 ```
 
-**Install Tk/ttk themes:**
+**Install Kitty terminal theme:**
 
 ```bash
-./install.sh --ttk
+./install.sh --kitty
 ```
 
-> A per-user install needs `TCLLIBPATH` set, and the theme is selected with a
-> `*TkTheme` X resource. See [src/extra/ttk/README.md](src/extra/ttk/README.md).
+**Install Sniffnet network monitor themes:**
+
+```bash
+./install.sh --sniffnet
+```
+
+> These go in the [shared theme folder](#shared-theme-folder). Enter a theme's path in Sniffnet's settings to apply it.
 
 **Install Spotifast music player themes:**
 
@@ -246,56 +254,105 @@ This installs to `/usr/share/sddm/themes/` (all 12 variants unless `-t`/`-c` nar
 > Pick a palette in Spotifast under **Settings** > **Appearance** > **Theme**.
 > See [src/extra/spotifast/README.md](src/extra/spotifast/README.md).
 
-**Install cursor theme:**
+**Install Telegram Desktop themes:**
 
 ```bash
-./install.sh --cursors
+./install.sh --telegram
 ```
 
-**Install everything (theme + backgrounds + Kvantum + Alacritty + CopyQ + cursors + foot + Ghostty + Halloy + Kitty + Spotifast + ttk + Zed):**
+> These go in the [shared theme folder](#shared-theme-folder). Open a theme with Telegram Desktop to apply it.
+
+**Install Tk/ttk themes:**
 
 ```bash
-./install.sh -k -b --alacritty --copyq --cursors --foot --ghostty --halloy --kitty --spotifast --ttk --zed
+./install.sh --ttk
+```
+
+> A per-user install needs `TCLLIBPATH` set, and the theme is selected with a
+> `*TkTheme` X resource. See [src/extra/ttk/README.md](src/extra/ttk/README.md).
+
+**Install Zed editor themes:**
+
+```bash
+./install.sh --zed
+```
+
+**Install everything (theme + backgrounds + Kvantum + Alacritty + CopyQ + cursors + foot + Ghostty + Halloy + Kitty + Sniffnet + Spotifast + Telegram + ttk + Zed):**
+
+```bash
+./install.sh -k -b --alacritty --copyq --cursors --foot --ghostty --halloy --kitty --sniffnet --spotifast --telegram --ttk --zed
 ```
 
 > On KDE Plasma, also add `--kde`.
 
+## Shared Theme Folder
+
+Some apps have no system theme location, or no theme folder at all, so their themes go in a shared folder:
+
+- `~/.local/share/celestial/<app>/` for a user install
+- `/usr/share/celestial/<app>/` for a system-wide install
+
+Like every install flag, these also install the matching GTK themes, system-wide if you use `sudo`. Use `-t` and `-c` to narrow them.
+
+**Sniffnet and Telegram Desktop** always use this folder, because they open a theme from wherever it lives. Enter the path in Sniffnet's settings, or open the file with Telegram. To pick up an updated Telegram theme, open the file again.
+
+**Alacritty, Halloy, Kitty, Spotifast, and Zed** only read per-user config. A user install goes straight into `~/.config/<app>/`, while a system-wide install uses this folder. To use those themes:
+
+- **Alacritty:** add `import = ["/usr/share/celestial/alacritty/Celestial.toml"]` under `[general]` in your `alacritty.toml`.
+- **Kitty:** add `include /usr/share/celestial/kitty/Celestial.conf` to your `kitty.conf`.
+- **Halloy, Spotifast, and Zed:** symlink or copy the theme into the app's `themes` folder. For example:
+
+  ```bash
+  mkdir -p ~/.config/zed/themes
+  ln -s /usr/share/celestial/zed/celestial-sea.json ~/.config/zed/themes/
+  ```
+
+A symlink or direct path picks up package updates once the app reloads the file. A copy stays as it is until you copy it again.
+
+Flatpak apps normally can't see `/usr/share` and keep their config under `~/.var/app/`, so copy the theme there instead.
+
 ## Uninstalling
 
-Remove installed themes:
+**Remove installed themes:**
 
 ```bash
 ./install.sh -r
 ```
 
-Remove specific variant:
+**Remove a specific variant:**
 
 ```bash
 ./install.sh -r -t azul -c dark
 ```
 
-Remove GDM theme:
+**Remove GDM theme:**
 
 ```bash
 sudo ./install.sh -g -r
 ```
 
-Remove backgrounds:
+**Remove backgrounds:**
 
 ```bash
 ./install.sh -b -r
 ```
 
-Remove specific theme backgrounds:
+**Remove specific theme backgrounds:**
 
 ```bash
 ./install.sh -b -r -t azul
 ```
 
-Remove Kvantum themes:
+**Remove Kvantum themes:**
 
 ```bash
 ./install.sh -k -r
+```
+
+**Remove Alacritty terminal theme:**
+
+```bash
+./install.sh --alacritty -r
 ```
 
 **Remove CopyQ clipboard manager themes:**
@@ -308,12 +365,6 @@ Remove Kvantum themes:
 
 ```bash
 ./install.sh --cursors -r
-```
-
-**Remove Alacritty terminal theme:**
-
-```bash
-./install.sh --alacritty -r
 ```
 
 **Remove foot terminal theme:**
@@ -340,22 +391,34 @@ Remove Kvantum themes:
 ./install.sh --kde -r
 ```
 
-**Remove SDDM login themes:**
-
-```bash
-sudo ./install.sh --sddm -r
-```
-
 **Remove Kitty terminal theme:**
 
 ```bash
 ./install.sh --kitty -r
 ```
 
+**Remove SDDM login themes:**
+
+```bash
+sudo ./install.sh --sddm -r
+```
+
+**Remove Sniffnet network monitor themes:**
+
+```bash
+./install.sh --sniffnet -r
+```
+
 **Remove Spotifast music player themes:**
 
 ```bash
 ./install.sh --spotifast -r
+```
+
+**Remove Telegram Desktop themes:**
+
+```bash
+./install.sh --telegram -r
 ```
 
 **Remove Zed editor themes:**
@@ -374,7 +437,7 @@ Using GNOME Tweaks:
 gnome-tweaks
 ```
 
-Go to **Appearance** and select your desired **Celestial** variant
+Go to **Appearance** and select your desired **Celestial** variant.
 
 Or via command line:
 
@@ -410,7 +473,7 @@ xfconf-query -c xfwm4 -p /general/theme -s "Celestial-Azul-Dark"
 
 ### Cinnamon Desktop
 
-Open **System Settings** then **Themes** and select your Celestial variant
+Open **System Settings** then **Themes** and select your Celestial variant.
 
 ### KDE Plasma Desktop
 
@@ -527,7 +590,7 @@ To install for all users:
 sudo ./install.sh
 ```
 
-This will install to `/usr/share/themes/` instead of `~/.themes/`
+This will install to `/usr/share/themes/` instead of `~/.themes/`.
 
 ### Custom Theme Name
 
@@ -537,7 +600,7 @@ If you want to install with a different name (useful for testing):
 ./install.sh -n MyCustomTheme -t azul -c dark
 ```
 
-This will create `MyCustomTheme-azul-dark` in your themes directory.
+This will create `MyCustomTheme-Azul-Dark` in your themes directory.
 
 ## Background Wallpapers
 

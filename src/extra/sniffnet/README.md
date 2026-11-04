@@ -15,37 +15,42 @@ of your Celestial desktop.
 Dark variants:
 
 - **celestial-sea-dark.toml** - Teal accent (`#2eb398`)
-- **celestial-aliz-dark.toml** - Red accent (`#f0544c`)
+- **celestial-aliz-dark.toml** - Coral red accent (`#f0544c`)
 - **celestial-azul-dark.toml** - Blue accent (`#3498db`)
 - **celestial-pueril-dark.toml** - Green accent (`#97bb72`)
 
 Light variants:
 
 - **celestial-sea-light.toml** - Teal accent (`#2eb398`)
-- **celestial-aliz-light.toml** - Red accent (`#f0544c`)
+- **celestial-aliz-light.toml** - Coral red accent (`#f0544c`)
 - **celestial-azul-light.toml** - Blue accent (`#3498db`)
 - **celestial-pueril-light.toml** - Green accent (`#97bb72`)
 
 ## Installation
 
-Sniffnet loads custom themes directly from a file path - there is no themes
-directory to copy into. To apply a Celestial theme:
+To install the themes, or only the variant you want, run this from the
+repository root:
 
-1. Save your chosen `.toml` file anywhere on your system, for example:
+```bash
+./install.sh --sniffnet
+./install.sh --sniffnet -t sea -c dark
+```
 
-   ```bash
-   mkdir -p ~/.config/sniffnet/themes
-   cp celestial-sea-dark.toml ~/.config/sniffnet/themes/
-   ```
+The themes go in `~/.local/share/celestial/sniffnet/`, or
+`/usr/share/celestial/sniffnet/` for a system-wide install. Like every install
+flag, this also installs the matching GTK themes, which `-t` and `-c` narrow
+too.
 
-2. Open **Sniffnet** and go to **Settings**.
+Sniffnet loads a theme from a file path, so you can also skip the installer and
+keep a theme file anywhere. To apply one:
 
-3. Select the **Style** tab and scroll to the custom theme field at the bottom.
+1. Open **Sniffnet** and go to **Settings**.
 
-4. Enter the full path to your theme file, e.g.
-   `~/.config/sniffnet/themes/celestial-sea-dark.toml`.
+2. Select the **Style** tab and scroll to the custom theme field at the bottom.
 
-5. Sniffnet validates the file and applies the theme immediately once the path
+3. Enter the full path to the theme file (the installer prints an example).
+
+4. Sniffnet validates the file and applies the theme immediately once the path
    is valid.
 
 ## Theme Format
@@ -71,7 +76,7 @@ Each theme follows a consistent philosophy:
 - **Outgoing** (`outgoing`): a complementary accent drawn from the Celestial
   palette, keeping the two traffic directions easy to tell apart:
   - Sea (teal) -> coral `#f0544c`
-  - Aliz (red) -> teal `#2eb398`
+  - Aliz (coral red) -> teal `#2eb398`
   - Azul (blue) -> coral `#f0544c`
   - Pueril (green) -> purple `#c678dd`
 - **Body text** (`text_body`): Celestial foreground text for the active mode.

@@ -38,12 +38,21 @@ Or narrow it to the colors and modes you want:
 ./install.sh --spotifast -t sea -c dark
 ```
 
-The palettes go to `~/.config/spotifast/themes/`. Spotifast only reads palettes
-from your own config directory, so they cannot be installed system-wide.
+The palettes go to `~/.config/spotifast/themes/`. To add one by hand, copy its
+`.json` file there. The **Open themes folder** button next to Spotifast's theme
+picker creates the folder and opens it.
 
-To install one by hand, copy its `.json` file into that folder. The **Open
-themes folder** button next to Spotifast's theme picker creates the folder and
-opens it.
+Spotifast only reads palettes from that folder, so a system-wide install puts
+them in `/usr/share/celestial/spotifast/` instead. Symlink or copy the ones you
+want:
+
+```bash
+mkdir -p ~/.config/spotifast/themes
+ln -s "/usr/share/celestial/spotifast/Celestial Sea Dark.json" ~/.config/spotifast/themes/
+```
+
+A symlink picks up package updates, but older Spotifast versions may not accept
+one. If the palette doesn't appear, copy the file instead.
 
 ## Selecting a Theme
 

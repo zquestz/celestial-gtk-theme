@@ -9,7 +9,7 @@ These themes are designed to provide a cohesive visual experience when using Hal
 ## Available Themes
 
 - **celestial-sea.toml** - Teal accent (`#2eb398`)
-- **celestial-aliz.toml** - Red accent (`#f0544c`)
+- **celestial-aliz.toml** - Coral red accent (`#f0544c`)
 - **celestial-azul.toml** - Blue accent (`#3498db`)
 - **celestial-pueril.toml** - Green accent (`#97bb72`)
 
@@ -34,6 +34,8 @@ The easiest way to install Halloy themes is using the Celestial theme installer:
 ```
 
 The installer will copy theme files to `~/.config/halloy/themes/` for you.
+
+A system-wide install (`sudo ./install.sh --halloy`) puts the themes in `/usr/share/celestial/halloy/`. Halloy only reads per-user themes, so symlink or copy them into `~/.config/halloy/themes/`. A symlink follows package updates after you restart Halloy.
 
 ### Manual Installation
 
@@ -61,8 +63,6 @@ The installer will copy theme files to `~/.config/halloy/themes/` for you.
    ```
 
 5. Restart Halloy to apply the theme.
-
-**Note:** Halloy themes can only be installed per-user. System-wide (root) installation is not supported.
 
 ## Color Palette
 

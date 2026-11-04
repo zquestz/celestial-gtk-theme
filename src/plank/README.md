@@ -6,8 +6,8 @@ This directory contains Plank dock themes for all Celestial theme variants.
 
 Each theme variant uses its corresponding accent color:
 
-- **Sea**:    #2eb398 RGB(46, 179, 152)   - Cyan/Teal
-- **Aliz**:   #f0544c RGB(240, 84, 76)    - Red/Crimson
+- **Sea**:    #2eb398 RGB(46, 179, 152)   - Teal
+- **Aliz**:   #f0544c RGB(240, 84, 76)    - Coral red
 - **Azul**:   #3498db RGB(52, 152, 219)   - Blue
 - **Pueril**: #97bb72 RGB(151, 187, 114)  - Green
 

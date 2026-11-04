@@ -9,7 +9,7 @@ The Celestial Ghostty theme uses a balanced 16-color ANSI palette:
 **Standard Colors (0-7):**
 
 - Black: `#2a2a2a`
-- Red: `#f0544c` - Aliz red for errors and warnings
+- Red: `#f0544c` - Coral red for errors and warnings
 - Green: `#2eb398` - Teal for success messages
 - Yellow: `#F39C12` - Orange for highlights
 - Blue: `#3498db` - Keyword blue
@@ -39,7 +39,7 @@ The Celestial Ghostty theme uses a balanced 16-color ANSI palette:
 
 ### Linux / macOS
 
-1. Copy the theme file to your Ghostty themes directory:
+1. Copy the theme file to your Ghostty themes directory (or run `./install.sh --ghostty` from the repository root):
 
    ```bash
    mkdir -p ~/.config/ghostty/themes

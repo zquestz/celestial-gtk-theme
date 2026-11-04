@@ -1,6 +1,6 @@
 # Celestial GTK Theme
 
-[![CI](https://img.shields.io/github/actions/workflow/status/zquestz/celestial-gtk-theme/verify.yml?style=flat-square&label=CI)](https://github.com/zquestz/celestial-gtk-theme/actions/workflows/verify.yml) ![Version](https://img.shields.io/badge/Version-1.7.4-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2050-blue?style=flat-square) ![KDE Plasma](https://img.shields.io/badge/KDE%20Plasma-6-blue?style=flat-square)
+[![CI](https://img.shields.io/github/actions/workflow/status/zquestz/celestial-gtk-theme/verify.yml?style=flat-square&label=CI)](https://github.com/zquestz/celestial-gtk-theme/actions/workflows/verify.yml) ![Version](https://img.shields.io/badge/Version-1.8.0-blue?style=flat-square) ![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square) ![GTK Version](https://img.shields.io/badge/GTK-3%20%7C%204-blue?style=flat-square) ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-38%20--%2050-blue?style=flat-square) ![KDE Plasma](https://img.shields.io/badge/KDE%20Plasma-6-blue?style=flat-square)
 
 **A modern, customizable GTK theme with multiple color variants**
 
@@ -118,9 +118,7 @@ Use `-t Papirus` for the standard variants and `-t Papirus-Light` for light, mat
 
 For a consistent look across GTK and Qt applications, we recommend **[Kvantum](https://github.com/tsujan/Kvantum/tree/master/Kvantum)** - a powerful SVG-based theme engine for Qt applications.
 
-On **KDE Plasma**, `--kde` (see [KDE Plasma](#kde-plasma) above) already installs these Kvantum themes.
-
-Celestial includes Kvantum themes that can be installed with the `-k` flag:
+Celestial includes Kvantum themes, installed with `-k` or `--kvantum`:
 
 ```bash
 # Install all Kvantum theme variants
@@ -130,7 +128,7 @@ Celestial includes Kvantum themes that can be installed with the `-k` flag:
 ./install.sh --kvantum -t azul -c dark
 ```
 
-After installation, use **Kvantum Manager** to select your Celestial theme variant. For more details, see the [Kvantum README](src/Kvantum/README.md).
+After installation, use **Kvantum Manager** to select your Celestial theme variant. On **KDE Plasma**, `--kde` (see [KDE Plasma](#kde-plasma) above) already installs these themes. For more details, see the [Kvantum README](src/Kvantum/README.md).
 
 **Alternative Qt Theming Tools:**
 
@@ -139,7 +137,7 @@ If you prefer a different approach, consider:
 - **[qt6gtk2](https://github.com/trialuser02/qt6gtk2)** - Qt6 style plugin that uses GTK2 theme rendering
 - **[Qt Style Plugins](https://github.com/qt/qtstyleplugins)** - Qt5 style plugins including GTK2 support
 
-These plugins provide alternative ways to ensure Qt applications (KDE apps, VLC, Telegram, etc.) match your GTK theme.
+These plugins provide alternative ways to ensure Qt applications (KDE apps, VLC, etc.) match your GTK theme.
 
 ## Community
 
@@ -201,7 +199,7 @@ Then select your theme from Zed's theme selector (Cmd+K Cmd+T or Ctrl+K Ctrl+T):
 
 For more details, see the [Zed theme README](src/extra/zed/README.md).
 
-**Note:** Zed themes can only be installed for user accounts (not system-wide).
+**Note:** Zed only reads per-user themes, so a system-wide install puts them in `/usr/share/celestial/zed/`. Symlink or copy them into `~/.config/zed/themes/`. See the [shared theme folder](INSTALL.md#shared-theme-folder).
 
 ## Terminal Themes
 
@@ -219,7 +217,7 @@ To install the Alacritty theme:
 
 Then import it from your `alacritty.toml` with `[general]` `import = ["~/.config/alacritty/themes/Celestial.toml"]`. For more details, see the [Alacritty theme README](src/extra/alacritty/README.md).
 
-**Note:** Alacritty themes can only be installed for user accounts (not system-wide).
+**Note:** Alacritty only reads per-user config, so a system-wide install puts the theme in `/usr/share/celestial/`. Import `/usr/share/celestial/alacritty/Celestial.toml` directly. See the [shared theme folder](INSTALL.md#shared-theme-folder).
 
 ### foot Terminal
 
@@ -257,7 +255,7 @@ To install the Kitty theme:
 
 Then use the Kitty theme kitten (`kitty +kitten themes`) to select "Celestial", or include the theme in your `kitty.conf`. For more details, see the [Kitty theme README](src/extra/kitty/README.md).
 
-**Note:** Kitty themes can only be installed for user accounts (not system-wide).
+**Note:** Kitty only reads per-user config, so a system-wide install puts the theme in `/usr/share/celestial/`. Add `include /usr/share/celestial/kitty/Celestial.conf` to your `kitty.conf`. See the [shared theme folder](INSTALL.md#shared-theme-folder).
 
 ### Konsole Terminal
 
@@ -328,21 +326,30 @@ theme = "celestial-sea"
 
 For more details and installation instructions, see the [Halloy theme README](src/extra/halloy/README.md).
 
-**Note:** Halloy themes can only be installed for user accounts (not system-wide).
+**Note:** Halloy only reads per-user themes, so a system-wide install puts them in `/usr/share/celestial/halloy/`. Symlink or copy them into `~/.config/halloy/themes/`. See the [shared theme folder](INSTALL.md#shared-theme-folder).
 
 ### Telegram Desktop
 
-For [Telegram Desktop](https://desktop.telegram.org/) users, Celestial provides 8 color palettes - 4 color variants (Sea, Aliz, Azul, Pueril) in light and dark.
+For [Telegram Desktop](https://desktop.telegram.org/) users, Celestial provides 8 themes - 4 color variants (Aliz, Azul, Pueril, Sea) with both dark and light modes that match the GTK theme color palette.
 
 Message bubbles stay neutral and are separated by elevation, with the accent reserved for links, controls, and the selected chat. Each theme also sets a flat Celestial chat background, replacing Telegram's patterned default.
 
-To install one, open the theme file for your variant with Telegram Desktop:
+To install the themes, or only the variant you want:
 
 ```bash
-xdg-open src/extra/telegram/Celestial-Sea-Dark.tdesktop-theme
+./install.sh --telegram
+./install.sh --telegram -t sea -c dark
 ```
 
-Double-clicking the file or dragging it onto the Telegram window works too.
+The themes go in `~/.local/share/celestial/telegram/`, or `/usr/share/celestial/telegram/` for a system-wide install (the [shared theme folder](INSTALL.md#shared-theme-folder)). Like every install flag, this also installs the matching GTK themes, which `-t` and `-c` narrow too.
+
+To apply a theme, open it with Telegram Desktop:
+
+```bash
+xdg-open ~/.local/share/celestial/telegram/Celestial-Sea-Dark.tdesktop-theme
+```
+
+Double-clicking the file or dragging it onto the Telegram window works too. Any copy of the file works, so you don't need the installer. To pick up an updated theme, open the file again.
 
 For more details, see the [Telegram theme README](src/extra/telegram/README.md).
 
@@ -374,11 +381,20 @@ For theme codes and more details, see the [Slack theme README](src/extra/slack/R
 
 For [Sniffnet](https://github.com/GyulyVGC/sniffnet) network monitor users, Celestial provides 8 themes - 4 color variants (Aliz, Azul, Pueril, Sea) with both dark and light modes that match the GTK theme color palette.
 
-Sniffnet loads custom themes from a file path - there is no installer step:
+To install the themes, or only the variant you want:
+
+```bash
+./install.sh --sniffnet
+./install.sh --sniffnet -t sea -c dark
+```
+
+The themes go in `~/.local/share/celestial/sniffnet/`, or `/usr/share/celestial/sniffnet/` for a system-wide install (the [shared theme folder](INSTALL.md#shared-theme-folder)). Like every install flag, this also installs the matching GTK themes, which `-t` and `-c` narrow too.
+
+Sniffnet loads a theme from a file path, so you can also skip the installer and keep a theme file anywhere. To apply one:
 
 1. Open **Sniffnet** and go to **Settings**
 2. Select the **Style** tab and scroll to the custom theme field at the bottom
-3. Enter the full path to one of the theme files in `src/extra/sniffnet/` (e.g. `celestial-sea-dark.toml`)
+3. Enter the full path to the theme file (the installer prints an example)
 4. Sniffnet validates the file and applies it immediately
 
 Available themes:
@@ -420,7 +436,7 @@ Available themes:
 
 For more details, see the [Spotifast theme README](src/extra/spotifast/README.md).
 
-**Note:** Spotifast themes can only be installed for user accounts (not system-wide).
+**Note:** Spotifast only reads per-user themes, so a system-wide install puts them in `/usr/share/celestial/spotifast/`. Symlink or copy them into `~/.config/spotifast/themes/`. See the [shared theme folder](INSTALL.md#shared-theme-folder).
 
 ## Development
 

@@ -6,7 +6,7 @@ A collection of backgrounds designed to complement the Celestial GTK theme varia
 
 Each theme has its own color-coordinated background collection:
 
-### Aliz (Coral Red)
+### Aliz (Coral red)
 
 **Primary Color:** `#f0544c`
 **Dark Accent:** `#222222`

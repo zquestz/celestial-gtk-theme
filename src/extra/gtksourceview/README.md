@@ -4,7 +4,7 @@ This theme provides styles for HTML, CSS, DIFF, INI, JAVA, JS, JSON, MD, PERL, P
 
 ## Installation
 
-Copy the [`celestial.xml`](celestial.xml) file to the color schemes directory:
+A standard `./install.sh` installs this theme. To install it by hand, copy the [`celestial.xml`](celestial.xml) file to the color schemes directory:
 `~/.local/share/gtksourceview-4/styles`
 
 ## Activation

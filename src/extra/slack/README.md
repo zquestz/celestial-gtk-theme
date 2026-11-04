@@ -6,23 +6,23 @@ Custom Slack themes matching the Celestial GTK theme color palette.
 
 Celestial provides 8 Slack themes - 4 color variants, each with dark and light modes:
 
-- **Aliz** - Warm red/crimson tones
+- **Aliz** - Warm coral red tones
 - **Azul** - Cool blue tones
 - **Pueril** - Fresh green tones
-- **Sea** - Cool cyan/teal tones
+- **Sea** - Cool teal tones
 
 ## Installation
 
 1. Open Slack
 2. Click on your workspace name in the top-left
-3. Go to **Preferences** > **Appearance** -> **Custom theme**
+3. Go to **Preferences** > **Appearance** > **Custom theme**
 4. Copy and paste one of the theme codes below
 
 ## Theme Codes
 
 ### Dark Themes
 
-**Aliz Dark** (Red)
+**Aliz Dark** (Coral red)
 
 ```
 #222222,#f0544c,#f0544c,#f0544c
@@ -40,7 +40,7 @@ Celestial provides 8 Slack themes - 4 color variants, each with dark and light m
 #222222,#97bb72,#97bb72,#97bb72
 ```
 
-**Sea Dark** (Cyan)
+**Sea Dark** (Teal)
 
 ```
 #1b2224,#2eb398,#2eb398,#2eb398
@@ -48,7 +48,7 @@ Celestial provides 8 Slack themes - 4 color variants, each with dark and light m
 
 ### Light Themes
 
-**Aliz Light** (Red)
+**Aliz Light** (Coral red)
 
 ```
 #f7f7f7,#f0544c,#f0544c,#f0544c
@@ -66,7 +66,7 @@ Celestial provides 8 Slack themes - 4 color variants, each with dark and light m
 #f7f7f7,#97bb72,#97bb72,#97bb72
 ```
 
-**Sea Light** (Cyan)
+**Sea Light** (Teal)
 
 ```
 #f7f7f7,#2eb398,#2eb398,#2eb398
@@ -87,9 +87,9 @@ In Celestial themes, the last three values (selected, presence, notifications) u
 
 Each theme uses the variant's signature color:
 
-- **Aliz** - `#f0544c` (Red/Crimson)
+- **Aliz** - `#f0544c` (Coral red)
 - **Azul** - `#3498db` (Blue)
 - **Pueril** - `#97bb72` (Green)
-- **Sea** - `#2eb398` (Cyan/Teal)
+- **Sea** - `#2eb398` (Teal)
 
 These colors match the accent colors used throughout the Celestial GTK themes, terminal themes (Ghostty/Kitty), and editor themes (Zed).

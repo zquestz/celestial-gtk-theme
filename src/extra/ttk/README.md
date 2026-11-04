@@ -28,12 +28,11 @@ extras:
 | Pueril | `#97bb72` | `celestial-pueril-light` | `celestial-pueril-dark` |
 | Sea    | `#2eb398` | `celestial-sea-light`    | `celestial-sea-dark`    |
 
-Celestial's Standard mode pairs light content with dark chrome such as
-titlebars, menubars, and sidebars. In Tk the window manager draws the titlebar
-and ttk has no sidebar style, while a menubar is the same `Menu` widget as the
-dropdowns it opens, which Standard keeps light. So Standard uses the `-light`
-theme, and a Tk menubar stays light under it. A `Celestial-Azul` desktop uses
-`celestial-azul-light`.
+Standard variants use the `-light` theme, so a `Celestial-Azul` desktop uses
+`celestial-azul-light`. Most of Standard's dark chrome doesn't apply to Tk: the
+window manager draws the titlebar, and ttk has no sidebar style. The one visible
+difference is the menubar, which stays light because it's the same `Menu` widget
+as the dropdowns it opens, and Standard keeps those light.
 
 ## Installation
 
@@ -268,7 +267,7 @@ The variant files and `pkgIndex.tcl` are generated from `src/gtk/`:
 ./render.sh
 ```
 
-Change a palette in `sass/_colors.scss`, run `parse_sass.sh`, then re-run this.
+Change a palette in `src/gtk/sass/_colors.scss`, run `parse_sass.sh`, then re-run this.
 CI regenerates and fails if the committed output is stale.
 
 `gallery.tcl` renders every themed widget in each state, a Treeview, and the
@@ -281,6 +280,6 @@ wish gallery.tcl celestial-azul-dark    # a Celestial variant
 wish gallery.tcl celestial-azul-dark 2  # open on a given tab
 ```
 
-Run from this directory it reads the indicator assets straight out of
+Run from this directory, it reads the indicator assets straight out of
 `src/gtk/assets-<color>/`, so no install or copy step is needed. An installed
 theme uses the `assets-<variant>` directory beside it instead.

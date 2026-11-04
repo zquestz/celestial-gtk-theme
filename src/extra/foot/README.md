@@ -9,7 +9,7 @@ The Celestial foot theme uses a balanced 16-color ANSI palette:
 **Standard Colors (0-7):**
 
 - Black: `#2a2a2a`
-- Red: `#f0544c` - Aliz red for errors and warnings
+- Red: `#f0544c` - Coral red for errors and warnings
 - Green: `#2eb398` - Teal for success messages
 - Yellow: `#f39c12` - Orange for highlights
 - Blue: `#3498db` - Keyword blue

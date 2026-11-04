@@ -10,13 +10,22 @@ Themes for [Telegram Desktop](https://desktop.telegram.org/) matching the Celest
 
 ## Installation
 
-Open the theme file for your variant with Telegram Desktop:
+To install the themes, or only the variant you want, run this from the repository root:
 
 ```bash
-xdg-open Celestial-Sea-Dark.tdesktop-theme
+./install.sh --telegram
+./install.sh --telegram -t sea -c dark
 ```
 
-Double-clicking the file in a file manager or dragging it onto the Telegram window works as well. Telegram applies it right away. To go back, pick one of Telegram's own themes under **Settings** > **Chat Settings** > **Themes**.
+The themes go in `~/.local/share/celestial/telegram/`, or `/usr/share/celestial/telegram/` for a system-wide install. Like every install flag, this also installs the matching GTK themes, which `-t` and `-c` narrow too.
+
+To apply a theme, open it with Telegram Desktop:
+
+```bash
+xdg-open ~/.local/share/celestial/telegram/Celestial-Sea-Dark.tdesktop-theme
+```
+
+Double-clicking the file in a file manager or dragging it onto the Telegram window works too. Any copy of the file works, so you don't need the installer. To pick up an updated theme, open the file again. To go back, pick one of Telegram's own themes under **Settings** > **Chat Settings** > **Themes**.
 
 ## Files
 
@@ -24,8 +33,8 @@ Double-clicking the file in a file manager or dragging it onto the Telegram wind
 | --- | --- |
 | `Celestial-Sea-Light.tdesktop-theme` | Sea (Teal), light |
 | `Celestial-Sea-Dark.tdesktop-theme` | Sea (Teal), dark |
-| `Celestial-Aliz-Light.tdesktop-theme` | Aliz (Crimson), light |
-| `Celestial-Aliz-Dark.tdesktop-theme` | Aliz (Crimson), dark |
+| `Celestial-Aliz-Light.tdesktop-theme` | Aliz (Coral red), light |
+| `Celestial-Aliz-Dark.tdesktop-theme` | Aliz (Coral red), dark |
 | `Celestial-Azul-Light.tdesktop-theme` | Azul (Blue), light |
 | `Celestial-Azul-Dark.tdesktop-theme` | Azul (Blue), dark |
 | `Celestial-Pueril-Light.tdesktop-theme` | Pueril (Green), light |

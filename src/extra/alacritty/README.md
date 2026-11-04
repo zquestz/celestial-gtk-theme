@@ -9,7 +9,7 @@ The Celestial Alacritty theme uses a balanced 16-color ANSI palette:
 **Standard Colors (0-7):**
 
 - Black: `#2a2a2a`
-- Red: `#f0544c` - Aliz red for errors and warnings
+- Red: `#f0544c` - Coral red for errors and warnings
 - Green: `#2eb398` - Teal for success messages
 - Yellow: `#f39c12` - Orange for highlights
 - Blue: `#3498db` - Keyword blue
@@ -52,6 +52,8 @@ The Celestial Alacritty theme uses a balanced 16-color ANSI palette:
    ```
 
 3. Alacritty reloads its configuration automatically
+
+A system-wide install (`sudo ./install.sh --alacritty`) puts the theme in `/usr/share/celestial/alacritty/`. Import `/usr/share/celestial/alacritty/Celestial.toml` directly, and it follows package updates.
 
 ## Features
 

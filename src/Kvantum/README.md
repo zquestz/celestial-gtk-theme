@@ -4,15 +4,7 @@ This directory contains Kvantum theme files for Qt applications.
 
 ## Why Include a Qt Theme?
 
-While Celestial is primarily a GTK theme, many users run Qt applications (like VLC, Telegram, KDE apps, etc.) within GTK-based desktop environments such as GNOME, Cinnamon, XFCE, and MATE.
-
-Without proper Qt theming, these applications would look out of place - using different colors, styling, and visual language than the rest of the desktop. This creates a jarring, inconsistent user experience.
-
-By including Kvantum theme files, we ensure that Qt applications seamlessly integrate with your GTK environment, providing:
-
-- **Visual Consistency** - Qt apps match your GTK theme colors and accent
-- **Unified Experience** - All applications feel like they belong together
-- **Professional Appearance** - No mismatched styling or jarring color differences
+While Celestial is primarily a GTK theme, many people run Qt applications such as VLC and KDE apps on GTK-based desktops like GNOME, Cinnamon, Xfce, and MATE. Without Qt theming those apps look out of place, so these Kvantum themes give them the same colors, accent, and styling as the rest of the desktop.
 
 ## What is Kvantum?
 
@@ -38,7 +30,7 @@ After installation, use the **Kvantum Manager** application to select your Celes
 Celestial provides Kvantum themes for all variants:
 
 - **Sea** (Teal) - Light, Standard, and Dark
-- **Aliz** (Crimson) - Light, Standard, and Dark
+- **Aliz** (Coral red) - Light, Standard, and Dark
 - **Azul** (Blue) - Light, Standard, and Dark
 - **Pueril** (Green) - Light, Standard, and Dark
 
@@ -53,4 +45,4 @@ These tools provide alternative Qt theming approaches that can be used instead o
 
 ## Credits
 
-The Kvantum theme structure is based on [Matcha-kde](https://github.com/vinceliuice/Matcha-kde) by Vince Liuice, adapted for the Celestial.
+The Kvantum theme structure is based on [Matcha-kde](https://github.com/vinceliuice/Matcha-kde) by Vince Liuice, adapted for Celestial.

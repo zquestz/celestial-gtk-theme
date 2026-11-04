@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # shellcheck disable=SC2086,SC2001
 # Celestial GTK Theme Installer
-# Version: 1.7.4
+# Version: 1.8.0
 
 ROOT_UID=0
 DEST_DIR=
@@ -28,11 +28,17 @@ if [ "$UID" -eq "$ROOT_UID" ]; then
   FOOT_DIR="/usr/share/foot/themes"
   COPYQ_DIR="/usr/share/copyq/themes"
   CURSORS_DIR="/usr/share/icons"
-  ALACRITTY_DIR=""
-  KITTY_DIR=""
-  ZED_DIR=""
-  HALLOY_DIR=""
-  SPOTIFAST_DIR=""
+  # Alacritty, Kitty, Zed, Halloy and Spotifast only read per-user config, so
+  # a system-wide install stages their themes in the shared folder for users
+  # to link or copy from. Sniffnet and Telegram open themes from anywhere.
+  SHARE_DIR="/usr/share/celestial"
+  ALACRITTY_DIR="${SHARE_DIR}/alacritty"
+  KITTY_DIR="${SHARE_DIR}/kitty"
+  ZED_DIR="${SHARE_DIR}/zed"
+  HALLOY_DIR="${SHARE_DIR}/halloy"
+  SPOTIFAST_DIR="${SHARE_DIR}/spotifast"
+  SNIFFNET_DIR="${SHARE_DIR}/sniffnet"
+  TELEGRAM_DIR="${SHARE_DIR}/telegram"
   # Tcl scans subdirectories of every auto_path entry for pkgIndex.tcl, and
   # /usr/lib is always on auto_path, so this is found without pinning a Tcl
   # version into the path.
@@ -62,6 +68,11 @@ else
   ZED_DIR="$HOME/.config/zed/themes"
   HALLOY_DIR="$HOME/.config/halloy/themes"
   SPOTIFAST_DIR="$HOME/.config/spotifast/themes"
+  # Sniffnet and Telegram have no theme folder of their own: themes are
+  # opened from wherever they live, so they go in the shared folder.
+  SHARE_DIR="$HOME/.local/share/celestial"
+  SNIFFNET_DIR="${SHARE_DIR}/sniffnet"
+  TELEGRAM_DIR="${SHARE_DIR}/telegram"
   # No user directory is on Tcl's auto_path, so a per-user install needs
   # TCLLIBPATH set; install_ttk explains that when it runs.
   TTK_DIR="$HOME/.local/share/celestial-ttk"
@@ -82,7 +93,7 @@ THEME_VARIANTS=('-sea' '-aliz' '-azul' '-pueril')
 SHELL_VERSION=""
 
 usage() {
-  printf "%s\n" "Celestial GTK Theme Installer v1.7.4"
+  printf "%s\n" "Celestial GTK Theme Installer v1.8.0"
   printf "%s\n" "Usage: $0 [OPTIONS...]"
   printf "\n%s\n" "OPTIONS:"
   printf "  %-25s%s\n" "-d, --dest DIR" "Destination directory (Default: ${DEST_DIR})"
@@ -102,7 +113,9 @@ usage() {
   printf "  %-25s%s\n" "--kde" "Install KDE Plasma themes"
   printf "  %-25s%s\n" "--kitty" "Install Kitty terminal theme"
   printf "  %-25s%s\n" "--sddm" "Install SDDM login themes (requires root)"
+  printf "  %-25s%s\n" "--sniffnet" "Install Sniffnet network monitor themes"
   printf "  %-25s%s\n" "--spotifast" "Install Spotifast music player themes"
+  printf "  %-25s%s\n" "--telegram" "Install Telegram Desktop themes"
   printf "  %-25s%s\n" "--ttk" "Install Tk/ttk themes for Tk applications"
   printf "  %-25s%s\n" "--zed" "Install Zed editor themes"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme (requires root)"
@@ -491,8 +504,16 @@ while [[ $# -gt 0 ]]; do
       sddm='true'
       shift
       ;;
+    --sniffnet)
+      sniffnet='true'
+      shift
+      ;;
     --spotifast)
       spotifast='true'
+      shift
+      ;;
+    --telegram)
+      telegram='true'
       shift
       ;;
     --zed)
@@ -1248,23 +1269,18 @@ uninstall_link() {
 install_alacritty() {
   echo "Installing Alacritty terminal theme..."
 
-  if [[ -z "${ALACRITTY_DIR}" ]]; then
-    echo "Alacritty theme installation is not available for system-wide installs (root)"
-    echo "Alacritty themes must be installed per-user"
-    return
-  fi
-
   mkdir -p "${DESTDIR}${ALACRITTY_DIR}"
   cp "${SRC_DIR}/extra/alacritty/Celestial.toml" "${DESTDIR}${ALACRITTY_DIR}/"
   echo "Alacritty theme installed to ${DESTDIR}${ALACRITTY_DIR}/Celestial.toml"
+
+  if [[ "${UID}" -eq "${ROOT_UID}" ]]; then
+    echo "Alacritty does not read this folder. Import the file under [general] in your alacritty.toml:"
+    echo "  import = [\"${ALACRITTY_DIR}/Celestial.toml\"]"
+  fi
 }
 
 uninstall_alacritty() {
   echo "Removing Alacritty terminal theme..."
-
-  if [[ -z "${ALACRITTY_DIR}" ]]; then
-    return
-  fi
 
   if [[ -f "${DESTDIR}${ALACRITTY_DIR}/Celestial.toml" ]]; then
     rm -f "${DESTDIR}${ALACRITTY_DIR}/Celestial.toml"
@@ -1272,6 +1288,8 @@ uninstall_alacritty() {
   else
     echo "Alacritty theme not found at ${DESTDIR}${ALACRITTY_DIR}/Celestial.toml"
   fi
+
+  remove_empty_share_dir alacritty
 }
 
 install_foot() {
@@ -1315,23 +1333,18 @@ uninstall_ghostty() {
 install_kitty() {
   echo "Installing Kitty terminal theme..."
 
-  if [[ -z "${KITTY_DIR}" ]]; then
-    echo "Kitty theme installation is not available for system-wide installs (root)"
-    echo "Kitty themes must be installed per-user"
-    return
-  fi
-
   mkdir -p "${DESTDIR}${KITTY_DIR}"
   cp "${SRC_DIR}/extra/kitty/Celestial.conf" "${DESTDIR}${KITTY_DIR}/"
   echo "Kitty theme installed to ${DESTDIR}${KITTY_DIR}/Celestial.conf"
+
+  if [[ "${UID}" -eq "${ROOT_UID}" ]]; then
+    echo "Kitty does not read this folder. Include the file from your kitty.conf:"
+    echo "  include ${KITTY_DIR}/Celestial.conf"
+  fi
 }
 
 uninstall_kitty() {
   echo "Removing Kitty terminal theme..."
-
-  if [[ -z "${KITTY_DIR}" ]]; then
-    return
-  fi
 
   if [[ -f "${DESTDIR}${KITTY_DIR}/Celestial.conf" ]]; then
     rm -f "${DESTDIR}${KITTY_DIR}/Celestial.conf"
@@ -1339,6 +1352,8 @@ uninstall_kitty() {
   else
     echo "Kitty theme not found at ${DESTDIR}${KITTY_DIR}/Celestial.conf"
   fi
+
+  remove_empty_share_dir kitty
 }
 
 install_halloy() {
@@ -1347,12 +1362,6 @@ install_halloy() {
   [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
 
   echo "Installing Halloy IRC client themes..."
-
-  if [[ -z "${HALLOY_DIR}" ]]; then
-    echo "Halloy theme installation is not available for system-wide installs (root)"
-    echo "Halloy themes must be installed per-user"
-    return
-  fi
 
   mkdir -p "${DESTDIR}${HALLOY_DIR}"
 
@@ -1363,18 +1372,61 @@ install_halloy() {
   done
 
   echo "Halloy themes installed to ${DESTDIR}${HALLOY_DIR}/"
+  print_link_note Halloy halloy
   echo "Configure in your Halloy config.toml with: theme = \"celestial-<variant>\""
 }
 
-# Map a Celestial colour variant onto a ttk theme suffix. Standard's dark
-# chrome does not carry over to Tk (src/extra/ttk/render.sh explains why), so
-# Standard and Light both resolve to the -light theme and the pair is
-# de-duplicated by the caller.
-ttk_suffix_for() {
+# Map a Celestial colour variant onto a two-mode extra's suffix. These extras
+# have no Standard file, because Standard's dark chrome does not carry over to
+# them (src/extra/ttk/render.sh and src/extra/spotifast/render.sh explain why),
+# so Standard and Light both resolve to -light.
+two_mode_suffix() {
   case "$1" in
     -dark) echo "-dark" ;;
     *) echo "-light" ;;
   esac
+}
+
+# The selected variants of a two-mode extra, one per line, such as sea-dark.
+# Standard and Light share a file, so each variant is listed once.
+two_mode_variants() {
+  local color_list=("${colors[@]}")
+  local theme_list=("${themes[@]}")
+
+  [[ ${#color_list[@]} -eq 0 ]] && color_list=("${COLOR_VARIANTS[@]}")
+  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
+
+  local listed=()
+
+  for theme in "${theme_list[@]}"; do
+    for color in "${color_list[@]}"; do
+      local variant
+      variant="${theme#-}$(two_mode_suffix "${color}")"
+
+      if [[ " ${listed[*]} " != *" ${variant} "* ]]; then
+        listed+=("${variant}")
+        echo "${variant}"
+      fi
+    done
+  done
+}
+
+# A variant as words, so sea-dark becomes Sea Dark.
+variant_title() {
+  echo "$1" | sed 's/-/ /; s/\b./\u&/g'
+}
+
+# A system-wide install stages themes the app does not read, so say where a
+# user puts them. $1 is the app's name and $2 its config folder.
+print_link_note() {
+  if [[ "${UID}" -eq "${ROOT_UID}" ]]; then
+    echo "$1 does not read this folder. Symlink or copy themes into ~/.config/$2/themes/"
+  fi
+}
+
+# Remove an app's shared folder, then the shared folder itself, once empty.
+remove_empty_share_dir() {
+  rmdir --ignore-fail-on-non-empty "${DESTDIR}${SHARE_DIR}/$1" "${DESTDIR}${SHARE_DIR}" 2>/dev/null
 }
 
 install_ttk() {
@@ -1398,10 +1450,10 @@ install_ttk() {
 
     for color in "${color_list[@]}"; do
       local suffix
-      suffix="$(ttk_suffix_for "${color}")"
+      suffix="$(two_mode_suffix "${color}")"
       local variant="${theme_name}${suffix}"
 
-      # Standard and Light both map to the unsuffixed theme; install it once.
+      # Standard and Light both map to the -light theme; install it once.
       if [[ " ${installed[*]} " == *" ${variant} "* ]]; then
         continue
       fi
@@ -1463,10 +1515,6 @@ uninstall_halloy() {
 
   echo "Removing Halloy IRC client themes..."
 
-  if [[ -z "${HALLOY_DIR}" ]]; then
-    return
-  fi
-
   for theme in "${theme_list[@]}"; do
     local theme_name="${theme#-}"
     if [[ -f "${DESTDIR}${HALLOY_DIR}/celestial-${theme_name}.toml" ]]; then
@@ -1475,94 +1523,127 @@ uninstall_halloy() {
     fi
   done
 
+  remove_empty_share_dir halloy
   echo "Halloy themes uninstalled."
 }
 
-# Map a Celestial colour variant onto a Spotifast palette mode. Standard's
-# dark sidebars cannot carry over, since a palette has one set of text colours
-# for every surface, so Standard and Light both resolve to Light and the
-# caller de-duplicates.
-spotifast_mode_for() {
-  case "$1" in
-    -dark) echo "Dark" ;;
-    *) echo "Light" ;;
-  esac
-}
-
 install_spotifast() {
-  local color_list=("${colors[@]}")
-  local theme_list=("${themes[@]}")
-
-  [[ ${#color_list[@]} -eq 0 ]] && color_list=("${COLOR_VARIANTS[@]}")
-  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
-
   echo "Installing Spotifast themes..."
-
-  if [[ -z "${SPOTIFAST_DIR}" ]]; then
-    echo "Spotifast theme installation is not available for system-wide installs (root)"
-    echo "Spotifast themes must be installed per-user"
-    return
-  fi
 
   mkdir -p "${DESTDIR}${SPOTIFAST_DIR}"
 
-  local installed=()
+  local variant
 
-  for theme in "${theme_list[@]}"; do
-    local theme_name
-    theme_name="$(echo "${theme#-}" | sed 's/.*/\u&/')"
-
-    for color in "${color_list[@]}"; do
-      local mode
-      mode="$(spotifast_mode_for "${color}")"
-
-      # Standard and Light both map to the Light palette; install it once.
-      if [[ " ${installed[*]} " == *" ${theme_name}-${mode} "* ]]; then
-        continue
-      fi
-      installed+=("${theme_name}-${mode}")
-
-      local file="Celestial ${theme_name} ${mode}.json"
-      cp "${SRC_DIR}/extra/spotifast/${file}" "${DESTDIR}${SPOTIFAST_DIR}/"
-      echo "  Installed ${file}"
-    done
+  for variant in $(two_mode_variants); do
+    local file
+    file="Celestial $(variant_title "${variant}").json"
+    cp "${SRC_DIR}/extra/spotifast/${file}" "${DESTDIR}${SPOTIFAST_DIR}/"
+    echo "  Installed ${file}"
   done
 
   echo "Spotifast themes installed to ${DESTDIR}${SPOTIFAST_DIR}/"
+  print_link_note Spotifast spotifast
   echo "If Spotifast is running, run 'spotifast reload-themes' so it sees them"
   echo "Then select one under Settings > Appearance > Theme"
 }
 
 uninstall_spotifast() {
-  local color_list=("${colors[@]}")
-  local theme_list=("${themes[@]}")
-
-  [[ ${#color_list[@]} -eq 0 ]] && color_list=("${COLOR_VARIANTS[@]}")
-  [[ ${#theme_list[@]} -eq 0 ]] && theme_list=("${THEME_VARIANTS[@]}")
-
   echo "Removing Spotifast themes..."
 
-  if [[ -z "${SPOTIFAST_DIR}" ]]; then
-    return
-  fi
+  local variant
 
-  for theme in "${theme_list[@]}"; do
-    local theme_name
-    theme_name="$(echo "${theme#-}" | sed 's/.*/\u&/')"
+  for variant in $(two_mode_variants); do
+    local file
+    file="Celestial $(variant_title "${variant}").json"
 
-    for color in "${color_list[@]}"; do
-      local file
-      file="Celestial ${theme_name} $(spotifast_mode_for "${color}").json"
-
-      # Standard and Light share a file, so the second pass finds it gone.
-      if [[ -f "${DESTDIR}${SPOTIFAST_DIR}/${file}" ]]; then
-        rm -f "${DESTDIR}${SPOTIFAST_DIR}/${file}"
-        echo "  Removed ${file}"
-      fi
-    done
+    if [[ -f "${DESTDIR}${SPOTIFAST_DIR}/${file}" ]]; then
+      rm -f "${DESTDIR}${SPOTIFAST_DIR}/${file}"
+      echo "  Removed ${file}"
+    fi
   done
 
+  remove_empty_share_dir spotifast
   echo "Spotifast themes uninstalled."
+}
+
+install_sniffnet() {
+  echo "Installing Sniffnet themes..."
+
+  mkdir -p "${DESTDIR}${SNIFFNET_DIR}"
+
+  local variant file
+
+  for variant in $(two_mode_variants); do
+    file="celestial-${variant}.toml"
+    cp "${SRC_DIR}/extra/sniffnet/${file}" "${DESTDIR}${SNIFFNET_DIR}/"
+    echo "  Installed ${file}"
+  done
+
+  echo "Sniffnet themes installed to ${DESTDIR}${SNIFFNET_DIR}/"
+  echo "In Sniffnet, enter the full path to a theme under Settings > Style, for example:"
+  echo "  ${SNIFFNET_DIR}/${file}"
+}
+
+uninstall_sniffnet() {
+  echo "Removing Sniffnet themes..."
+
+  local variant
+
+  for variant in $(two_mode_variants); do
+    local file="celestial-${variant}.toml"
+
+    if [[ -f "${DESTDIR}${SNIFFNET_DIR}/${file}" ]]; then
+      rm -f "${DESTDIR}${SNIFFNET_DIR}/${file}"
+      echo "  Removed ${file}"
+    fi
+  done
+
+  remove_empty_share_dir sniffnet
+  echo "Sniffnet themes uninstalled."
+}
+
+# Telegram file names are the variant's words joined with hyphens.
+telegram_file() {
+  local title
+  title="$(variant_title "$1")"
+  echo "Celestial-${title// /-}.tdesktop-theme"
+}
+
+install_telegram() {
+  echo "Installing Telegram Desktop themes..."
+
+  mkdir -p "${DESTDIR}${TELEGRAM_DIR}"
+
+  local variant file
+
+  for variant in $(two_mode_variants); do
+    file="$(telegram_file "${variant}")"
+    cp "${SRC_DIR}/extra/telegram/${file}" "${DESTDIR}${TELEGRAM_DIR}/"
+    echo "  Installed ${file}"
+  done
+
+  echo "Telegram Desktop themes installed to ${DESTDIR}${TELEGRAM_DIR}/"
+  echo "Apply one by opening it with Telegram Desktop, for example:"
+  echo "  xdg-open ${TELEGRAM_DIR}/${file}"
+}
+
+uninstall_telegram() {
+  echo "Removing Telegram Desktop themes..."
+
+  local variant
+
+  for variant in $(two_mode_variants); do
+    local file
+    file="$(telegram_file "${variant}")"
+
+    if [[ -f "${DESTDIR}${TELEGRAM_DIR}/${file}" ]]; then
+      rm -f "${DESTDIR}${TELEGRAM_DIR}/${file}"
+      echo "  Removed ${file}"
+    fi
+  done
+
+  remove_empty_share_dir telegram
+  echo "Telegram Desktop themes uninstalled."
 }
 
 install_copyq() {
@@ -1720,12 +1801,6 @@ install_zed() {
 
   echo "Installing Zed editor themes..."
 
-  if [[ -z "${ZED_DIR}" ]]; then
-    echo "Zed theme installation is not available for system-wide installs (root)"
-    echo "Zed themes must be installed per-user"
-    return
-  fi
-
   mkdir -p "${DESTDIR}${ZED_DIR}"
 
   for theme in "${theme_list[@]}"; do
@@ -1735,6 +1810,7 @@ install_zed() {
   done
 
   echo "Zed themes installed to ${DESTDIR}${ZED_DIR}/"
+  print_link_note Zed zed
 }
 
 uninstall_zed() {
@@ -1744,10 +1820,6 @@ uninstall_zed() {
 
   echo "Removing Zed editor themes..."
 
-  if [[ -z "${ZED_DIR}" ]]; then
-    return
-  fi
-
   for theme in "${theme_list[@]}"; do
     local theme_name="${theme#-}"
     if [[ -f "${DESTDIR}${ZED_DIR}/celestial-${theme_name}.json" ]]; then
@@ -1755,6 +1827,8 @@ uninstall_zed() {
       echo "  Removed celestial-${theme_name}.json"
     fi
   done
+
+  remove_empty_share_dir zed
 }
 
 link_theme() {
@@ -1889,8 +1963,16 @@ if [[ "${gdm:-}" != 'true' ]]; then
       install_sddm
     fi
 
+    if [[ "${sniffnet:-}" == 'true' ]]; then
+      install_sniffnet
+    fi
+
     if [[ "${spotifast:-}" == 'true' ]]; then
       install_spotifast
+    fi
+
+    if [[ "${telegram:-}" == 'true' ]]; then
+      install_telegram
     fi
 
     if [[ "${zed:-}" == 'true' ]]; then
@@ -1936,9 +2018,15 @@ if [[ "${gdm:-}" != 'true' ]]; then
     elif [[ "${sddm:-}" == 'true' ]]; then
       uninstall_sddm
       echo -e 'Remove SDDM themes...'
+    elif [[ "${sniffnet:-}" == 'true' ]]; then
+      uninstall_sniffnet
+      echo -e 'Remove Sniffnet themes...'
     elif [[ "${spotifast:-}" == 'true' ]]; then
       uninstall_spotifast
       echo -e 'Remove Spotifast themes...'
+    elif [[ "${telegram:-}" == 'true' ]]; then
+      uninstall_telegram
+      echo -e 'Remove Telegram Desktop themes...'
     elif [[ "${zed:-}" == 'true' ]]; then
       uninstall_zed
       echo -e 'Remove Zed theme...'

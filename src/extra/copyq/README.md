@@ -6,10 +6,10 @@ Custom CopyQ themes matching the Celestial GTK theme color palette.
 
 Celestial provides 8 CopyQ themes - 4 color variants, each with dark and light modes:
 
-- **Aliz** - Warm red/crimson tones
+- **Aliz** - Warm coral red tones
 - **Azul** - Cool blue tones
 - **Pueril** - Fresh green tones
-- **Sea** - Cool cyan/teal tones
+- **Sea** - Cool teal tones
 
 ## Installation
 
@@ -49,15 +49,7 @@ Then in CopyQ:
    sudo cp celestial-<theme>-<color>.ini /usr/share/copyq/themes/
    ```
 
-2. Open CopyQ
-
-3. Go to **File** > **Preferences** (or press `Ctrl+P`)
-
-4. Navigate to the **Appearance** tab
-
-5. Select your desired Celestial theme from the **Theme** dropdown menu
-
-6. Click **OK** to apply the theme
+2. Open CopyQ and select the theme as in Method 1.
 
 ### Method 3: Import Theme
 
@@ -73,25 +65,23 @@ Then in CopyQ:
 
 6. Click **Open** to import the theme
 
-7. The theme will now appear in the **Theme** dropdown menu
-
-8. Click **OK** to apply
+7. Select it from the **Theme** dropdown menu and click **OK**
 
 ## Theme Files
 
 ### Dark Themes
 
-- `celestial-aliz-dark.ini` - Red/crimson accent on dark background
+- `celestial-aliz-dark.ini` - Coral red accent on dark background
 - `celestial-azul-dark.ini` - Blue accent on cool dark background
 - `celestial-pueril-dark.ini` - Green accent on dark background
-- `celestial-sea-dark.ini` - Cyan/teal accent on cool dark background
+- `celestial-sea-dark.ini` - Teal accent on cool dark background
 
 ### Light Themes
 
-- `celestial-aliz-light.ini` - Red/crimson accent on light background
+- `celestial-aliz-light.ini` - Coral red accent on light background
 - `celestial-azul-light.ini` - Blue accent on light background
 - `celestial-pueril-light.ini` - Green accent on light background
-- `celestial-sea-light.ini` - Cyan/teal accent on light background
+- `celestial-sea-light.ini` - Teal accent on light background
 
 ## Color Palette
 
@@ -99,10 +89,10 @@ Each theme uses colors that match the corresponding Celestial GTK theme variant:
 
 | Variant    | Accent Color | Description                  |
 | ---------- | ------------ | ---------------------------- |
-| **Aliz**   | `#f0544c`    | Red/crimson - warm red tones |
+| **Aliz**   | `#f0544c`    | Coral red - warm red tones |
 | **Azul**   | `#3498db`    | Blue - cool blue tones       |
 | **Pueril** | `#97bb72`    | Green - fresh green tones    |
-| **Sea**    | `#2eb398`    | Cyan/teal - cool ocean tones |
+| **Sea**    | `#2eb398`    | Teal - cool ocean tones |
 
 ### Dark Theme Colors
 

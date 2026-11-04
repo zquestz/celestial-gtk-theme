@@ -6,8 +6,8 @@ Dark and light themes for [Zed](https://zed.dev/) in four color variants that ma
 
 Celestial provides four color variants, each with dark and light appearances:
 
-- **Celestial Sea** - Cool cyan tones
-- **Celestial Aliz** - Warm crimson hues
+- **Celestial Sea** - Cool teal tones
+- **Celestial Aliz** - Warm coral red hues
 - **Celestial Azul** - Deep blue accents
 - **Celestial Pueril** - Fresh green tones
 
@@ -20,7 +20,7 @@ The Celestial Zed themes use a carefully crafted color palette for optimal code 
 - **Comments** - `#7e8e8c` - Muted gray-green for subtle comments
 - **Text** - `#cfdcd8` (dark) / `#2e3436` (light) - Clear, readable default text
 - **Classes/Types** - `#1ecca9` - Bright cyan for class names and types
-- **Functions** - `#f0544c` - Aliz red for function definitions and calls
+- **Functions** - `#f0544c` - Coral red for function definitions and calls
 - **Keywords** - `#3498db` - Blue for language keywords and operators
 - **Strings** - `#2eb398` - Teal for string literals
 - **Numbers** - `#c678dd` - Purple for numeric values
@@ -43,7 +43,7 @@ The easiest way to install is using the Celestial installer:
 ./install.sh --zed -t sea -t aliz
 ```
 
-**Note:** Zed themes can only be installed for user accounts (not system-wide).
+A system-wide install (`sudo ./install.sh --zed`) puts the themes in `/usr/share/celestial/zed/`. Zed only reads per-user themes, so symlink or copy them into `~/.config/zed/themes/`. A symlink follows package updates after you restart Zed.
 
 ### Manual Installation
 

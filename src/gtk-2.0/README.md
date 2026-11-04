@@ -34,8 +34,8 @@ This script will:
 ## Color Variants
 
 The theme includes four color variants, each with light and dark modes:
-- **Sea** - Cool cyan tones
-- **Aliz** - Warm crimson hues
+- **Sea** - Cool teal tones
+- **Aliz** - Warm coral red hues
 - **Azul** - Deep blue accents
 - **Pueril** - Fresh green tones
 

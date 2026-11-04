@@ -136,7 +136,7 @@ celestial-gtk-theme/
 
 The same applies to the KDE artifacts in `src/kde/` (`color-schemes/`, `look-and-feel/`, `desktoptheme/`, `aurorae/`, `sddm/`) - they are generated from the SCSS palette by `src/kde/render.sh` and will be overwritten.
 
-The generated extras work the same way, each written by the `render.sh` in its directory: the Firefox manifests (`src/extra/firefox/celestial-*/manifest.json`), the Telegram themes (`src/extra/telegram/*.tdesktop-theme`), the ttk variant files (`src/extra/ttk/celestial-<color>-<mode>.tcl`; the styling in `celestial.tcl` is hand-written), and the Spotifast palettes (`src/extra/spotifast/*.json`). Change the generator or the SCSS palette instead, then rerun it.
+The generated extras work the same way, each written by the `render.sh` in its directory: the Firefox manifests (`src/extra/firefox/celestial-*/manifest.json`), the Telegram themes (`src/extra/telegram/*.tdesktop-theme`), the ttk variant files and `pkgIndex.tcl` in `src/extra/ttk/` (the styling in `celestial.tcl` is hand-written), and the Spotifast palettes (`src/extra/spotifast/*.json`). Change the generator or the SCSS palette instead, then rerun it.
 
 ### SCSS Source Files
 
@@ -213,14 +213,18 @@ This script:
 
 CI (`.github/workflows/verify.yml`) reruns `parse_sass.sh`, `src/kde/render.sh`, `src/extra/telegram/render.sh`, `src/extra/ttk/render.sh`, `src/extra/firefox/render.sh`, and `src/extra/spotifast/render.sh` on every push and pull request. It fails if generated text files differ from the committed output or are untracked, so commit regenerated files together with source changes. Rendered PNG/JPEG previews and Telegram theme archives are excluded from this comparison because their rendering can vary between environments. CI also runs ShellCheck on the installer and these generators.
 
+### Extras Without an Install Location
+
+Some apps have no system theme location, or no theme folder at all. Their themes go in the shared folder, `SHARE_DIR` in `install.sh`: `~/.local/share/celestial/<app>/` for users and `/usr/share/celestial/<app>/` for root. Each app has its own flag, and `remove_empty_share_dir` cleans up on removal. Two-mode extras can use `two_mode_variants`, which applies `-t` and `-c` and resolves Standard to Light. See [Shared Theme Folder](INSTALL.md#shared-theme-folder) for what users do next.
+
 ## Working with SCSS
 
 ### Color Variants
 
 The theme supports 4 color variants, controlled by the `$color` variable:
 
-- `sea` - Cool cyan tones
-- `aliz` - Warm crimson hues
+- `sea` - Cool teal tones
+- `aliz` - Warm coral red hues
 - `azul` - Deep blue accents
 - `pueril` - Fresh green tones
 
@@ -230,7 +234,8 @@ Controlled by the `$variant` variable:
 
 - `light` - Light theme
 - `dark` - Dark theme
-- (standard uses conditional logic based on variant)
+
+Standard is the light variant with a dark header.
 
 ### Header Styles
 
@@ -285,7 +290,7 @@ Controlled by the `$header` variable:
 
 ## Asset Generation
 
-Theme assets (PNG files) are generated from SVG sources. If you modify SVG files, regenerate the assets.
+Some files are generated rather than edited by hand. If you change their sources, regenerate them.
 
 ### GTK Assets
 
@@ -369,9 +374,20 @@ wish gallery.tcl celestial-azul-dark
 wish gallery.tcl clam                 # built-in theme, for comparison
 ```
 
-Run from that directory the gallery reads indicators straight out of
+Run from that directory, the gallery reads indicators straight out of
 `src/gtk/assets-<color>/`, so no install step is needed. See
 [src/extra/ttk/README.md](src/extra/ttk/README.md) for details.
+
+### Telegram Themes
+
+The Telegram themes are generated from the GTK SCSS palette:
+
+```bash
+./src/extra/telegram/render.sh
+```
+
+Run it after changing `src/gtk/sass/_colors.scss`. See
+[src/extra/telegram/README.md](src/extra/telegram/README.md) for details.
 
 ### Spotifast Themes
 
@@ -386,7 +402,7 @@ fails if the committed output is stale. See
 [src/extra/spotifast/README.md](src/extra/spotifast/README.md) for how each
 Spotifast color maps to the GTK palette.
 
-**Note:** GTK asset generation requires `inkscape` and `optipng`; the cursor theme requires `rsvg-convert`; the KDE themes require `sassc`, `rsvg-convert`, and ImageMagick; previewing the ttk themes requires `wish`.
+**Note:** GTK asset generation requires `inkscape` and `optipng`; the cursor theme requires `rsvg-convert`; the KDE themes require `sassc`, `rsvg-convert`, and ImageMagick; the Telegram themes require `sassc`, `zip`, and ImageMagick; previewing the ttk themes requires `wish`.
 
 ## Testing Your Changes
 
