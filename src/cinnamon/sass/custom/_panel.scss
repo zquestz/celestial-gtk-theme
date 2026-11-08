@@ -88,6 +88,22 @@ $panel_insensitive_fg: transparentize($dark_surface_fg, 0.55);
     background: transparentize($panel_fg_color, 0.8);
   }
 
+  // Window list scroll arrows (Cinnamon 6.8) use the same dark panel
+  // surfaces as the window list buttons.
+  .window-list-scrollbox-button {
+    color: transparentize($panel_fg_color, 0.2);
+
+    &:hover {
+      background-color: $panel_light_bg;
+      color: $panel_fg_color;
+    }
+
+    &:active {
+      background-color: $panel_lightest_bg;
+      color: $panel_fg_color;
+    }
+  }
+
   // Window list in panel
   .window-list-item-box {
     color: transparentize($panel_fg_color, 0.2);

@@ -46,9 +46,22 @@
   }
   .dialog-list-box {
     spacing: 1em;
+    border-radius: $base_border_radius;
 
     .dialog-list-item {
       spacing: 1em;
+      border-radius: $base_border_radius;
+      padding: $base_padding $base_padding * 2;
+      transition-duration: 100ms;
+
+      &:hover {
+        background-color: $light_bg_color;
+      }
+
+      &:selected {
+        color: white;
+        background-color: $accent_bg_color;
+      }
 
       .dialog-list-item-title {
         font-weight: bold;
@@ -75,7 +88,7 @@
 
     .dialog-list-title {
       color: $warning_color;
-      background-color: tranparentize($warning_color, 0.9);
+      background-color: transparentize($warning_color, 0.9);
       padding: $base_padding * 1.5;
       border-radius: $base_border_radius;
       margin: $base_margin 0;
@@ -215,4 +228,124 @@
       }
     }
   }
+}
+
+// Shared grouped-list style for the autorun and processes dialogs (Cinnamon 6.8)
+
+%grouped-dialog-list {
+  .dialog-list-box {
+    background-color: lighten($bg_color, 5%);
+    spacing: 0;
+
+    .dialog-list-item {
+      border-radius: 0;
+
+      &:first-child {
+        border-radius: $base_border_radius $base_border_radius 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 $base_border_radius $base_border_radius;
+      }
+    }
+  }
+}
+
+.processes-dialog {
+  .dialog-content-box {
+    .dialog-list {
+      @extend %grouped-dialog-list;
+    }
+  }
+}
+
+.autorun-dialog {
+  min-width: 30em;
+
+  .dialog-content-box {
+    margin-top: $base_margin;
+    margin-bottom: $base_margin * 3;
+    spacing: $base_margin * 3;
+    max-width: 28em;
+
+    .dialog-list {
+      @extend %grouped-dialog-list;
+    }
+
+    .autorun-dialog-heading {
+      @extend %title_2;
+      text-align: center;
+    }
+
+    .autorun-dialog-subheading {
+      @extend %title_4;
+      text-align: center;
+    }
+  }
+}
+
+// Hover click palette (Cinnamon 6.8)
+
+.hover-click-dialog {
+  padding: $base_padding;
+  border-radius: $base_border_radius * 1.5;
+
+  .dialog-content-box {
+    margin: 0;
+    spacing: 0;
+    max-width: auto;
+  }
+}
+
+.hover-click-header {
+  height: 20px;
+}
+
+.hover-click-box,
+.hover-click-actions {
+  spacing: $base_margin;
+}
+
+.hover-click-button {
+  @extend %flat_button;
+  background-color: transparent;
+  border-radius: $base_border_radius;
+  padding: $base_padding;
+
+  &:checked {
+    @include button(normal, $c: $accent_bg_color, $style: default);
+  }
+
+  &:checked:hover {
+    @include button(hover, $c: $accent_bg_color, $style: default);
+  }
+}
+
+.hover-click-button-box {
+  spacing: $base_margin;
+}
+
+.hover-click-button-label {
+  text-align: center;
+}
+
+.hover-click-separator {
+  background-color: $borders_color;
+}
+
+.hover-click-box.vertical .hover-click-separator {
+  height: 1px;
+  margin: $base_margin 0;
+}
+
+.hover-click-box.horizontal .hover-click-separator {
+  width: 1px;
+  margin: 0 $base_margin;
+}
+
+.hover-click-lock-button {
+  @extend %flat_button;
+  background-color: transparent;
+  border-radius: $base_border_radius;
+  padding: $base_padding;
 }

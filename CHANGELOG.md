@@ -5,6 +5,16 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.1] - 2026-11-08
+
+### Added
+
+- Cinnamon 6.8 support: styles for its new lock screen, buttons, empty-state placeholders, autorun and processes dialogs, hover click palette, and window list scroll arrows. Cinnamon 6.6 keeps working
+
+### Fixed
+
+- Cinnamon 6.8's lock screen no longer shows the password prompt inside a solid box, and its clock, buttons, album art, and status icons are styled to match. Its password field now matches the theme's other text fields, including the accent border on focus
+
 ## [1.8.0] - 2026-11-03
 
 ### Added
@@ -424,6 +434,7 @@ Initial release of Celestial GTK Theme.
   - Development guide (HACKING.md)
   - Asset generation guides in component directories
 
+[1.8.1]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.8.1
 [1.8.0]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.8.0
 [1.7.4]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.7.4
 [1.7.3]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.7.3

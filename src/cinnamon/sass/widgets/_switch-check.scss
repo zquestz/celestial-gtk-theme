@@ -20,8 +20,12 @@ $check_width: 20px;
 
 // check
 
+// Cinnamon 6.6 builds check boxes and radios on CinnamonGenericContainer and
+// 6.8 on StBoxLayout; both are kept so the theme works on either.
+
 .check-box {
-  CinnamonGenericContainer {
+  CinnamonGenericContainer,
+  StBoxLayout {
     spacing: 0.8em;
   }
 
@@ -67,7 +71,8 @@ $check_width: 20px;
 // radio
 
 .radiobutton {
-  CinnamonGenericContainer {
+  CinnamonGenericContainer,
+  StBoxLayout {
     spacing: 0.8em;
   }
 
