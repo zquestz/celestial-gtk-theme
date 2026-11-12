@@ -139,3 +139,10 @@
   border-bottom-width: 0;
   font-weight: bold;
 }
+
+// slick-greeter forces a size 14 font in its prompts, which outgrows the
+// usual entry min-height, so give the text the room other entries get.
+entry.lightdm {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}

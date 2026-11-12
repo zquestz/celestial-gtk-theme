@@ -10085,6 +10085,11 @@ scale.warmth trough {
   font-weight: bold;
 }
 
+entry.lightdm {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
 .overlay-bar {
   background-color: #2eb398;
   border-color: #2eb398;

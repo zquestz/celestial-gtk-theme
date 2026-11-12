@@ -5,6 +5,12 @@ All notable changes to the Celestial GTK Theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.2] - 2026-11-11
+
+### Fixed
+
+- Slick-greeter's login fields have room above and below the text again
+
 ## [1.8.1] - 2026-11-08
 
 ### Added
@@ -434,6 +440,7 @@ Initial release of Celestial GTK Theme.
   - Development guide (HACKING.md)
   - Asset generation guides in component directories
 
+[1.8.2]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.8.2
 [1.8.1]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.8.1
 [1.8.0]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.8.0
 [1.7.4]: https://github.com/zquestz/celestial-gtk-theme/releases/tag/1.7.4
